@@ -1,8 +1,10 @@
----
+--- 
 layout: post
-title: "Dynamic Django Deployment"
+title: Dynamic Django Deployment
+tags: 
+- django
+- python
 ---
-
 Lately I've noticed people posting various different takes on making the
 default Django settings a lot more dynamic. The development and deployment
 requirements for the projects I work on tend to be far from straight-forward
@@ -13,10 +15,12 @@ The simplest approach typically involves importing all the names from a custom
 settings module at the end of the project's standard settings module,
 providing the ability to override settings on a per machine basis.
 
+    
     try:
         from local_settings import *
     except ImportError:
         pass
+    
 
 This still requires modifying `local_settings.py` on a per machine basis.
 Another approach that builds on this is to import a custom settings module
@@ -26,12 +30,14 @@ specify custom settings per machine and have each of these settings modules
 reside in the version control system, without the same file having to be
 modified on a per machine basis.
 
+    
     from socket import gethostname
     try:
         exec ("from host_settings.%s import *" % 
             gethostname().replace("-", "_").replace(".", "_"))
     except ImportError:
         pass
+    
 
 This simple version of the `host_settings` approach I've seen attempts to deal
 with the differences between a valid hostname and a valid module name with the
@@ -55,6 +61,7 @@ is a moving target and should never be referenced - we never import from
 `package_x` and anything in our settings module that would typically reference
 this we set dynamically.
 
+    
     import os
     project_path = os.path.dirname(os.path.abspath(__file__))
     project_dir = project_path.split(os.sep)[-1]
@@ -63,6 +70,7 @@ this we set dynamically.
     TEMPLATE_DIRS = (os.path.join(project_path, "templates"),)
     ADMIN_MEDIA_PREFIX = "/media/"
     ROOT_URLCONF = "%s.urls" % project_dir
+    
 
 So that removes any hard-coded reference to the project's directory name,
 however we sometimes have to go as far as having host specific settings that
@@ -75,6 +83,7 @@ approach from earlier on, we continue on from the code above by using the
 module so that each of the `host_settings` modules are named not only after
 the machine they exist for, but the project directory as well.
 
+    
     from socket import gethostname
     host_settings_module = "%s_%s" % (project_dir, 
         gethostname().replace("-", "_").replace(".", "_").lower())
@@ -91,6 +100,7 @@ the machine they exist for, but the project directory as well.
     except ImportError:
         pass
     TEMPLATE_DEBUG = DEBUG
+    
 
 As an added bonus, we try to create the `host_settings` module if it's missing
 and warn if we're unable to create it.

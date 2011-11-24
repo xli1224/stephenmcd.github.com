@@ -1,8 +1,12 @@
----
+--- 
 layout: post
-title: "FTP Browser for gedit"
+title: FTP Browser for gedit
+tags: 
+- gedit
+- linux
+- python
+- gnome
 ---
-
 Many major Linux distributions such as Ubuntu ship with
 [gedit](http://projects.gnome.org/gedit/) as the default text editor. It has
 all the standard features you'd expect in an editor such as syntax

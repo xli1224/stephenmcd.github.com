@@ -1,8 +1,13 @@
----
+--- 
 layout: post
 title: "Mezzanine: Just Another Django CMS?"
+tags: 
+- django
+- python
+- php
+- cms
+- mezzanine
 ---
-
 Ask any developer that has put together a [Django admin
 interface](http://docs.djangoproject.com/en/dev/intro/tutorial02/) and they'll
 tell you that it's an amazing piece of technology that allows you to whip up

@@ -1,8 +1,10 @@
----
+--- 
 layout: post
-title: "Optional Django Apps"
+title: Optional Django Apps
+tags: 
+- python
+- django
 ---
-
 A project of mine contains a number of third-party apps that are development
 related and potentially not available on every machine the project will run
 on. My general approach to dealing with these was to try and import the app in
@@ -19,10 +21,12 @@ command-extensions](http://github.com/django-extensions/django-extensions),
 [django-debug-toolbar](http://github.com/robhudson/django-debug-toolbar) and
 [south](http://south.aeracode.org).
 
+    
     # Define any settings specific to each of the optional apps.
     import sys
     USE_SOUTH = not (len(sys.argv) > 1 and sys.argv[1] == "test")
     DEBUG_TOOLBAR_CONFIG = {"INTERCEPT_REDIRECTS": False}
+    
     # Sequence for each optional app as a dict containing info about the app.
     OPTIONAL_APPS = (
         {"import": "django_extensions", "apps": ("django_extensions",)},
@@ -30,9 +34,11 @@ command-extensions](http://github.com/django-extensions/django-extensions),
             "middleware": ("debug_toolbar.middleware.DebugToolbarMiddleware",)},
         {"import": "south", "apps": ("south",), "condition": USE_SOUTH},
     )
+    
 
 Next we simply iterate through the sequence of optional apps and set them up.
 
+    
     # Set up each optional app if available.
     for app in OPTIONAL_APPS:
         if app.get("condition", True):
@@ -44,4 +50,5 @@ Next we simply iterate through the sequence of optional apps and set them up.
                 INSTALLED_APPS += app.get("apps", ())
                 MIDDLEWARE_CLASSES += app.get("middleware", ())
                 TEMPLATE_CONTEXT_PROCESSORS += app.get("context_processors", ())
+    
 

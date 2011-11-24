@@ -1,8 +1,13 @@
----
+--- 
 layout: post
-title: "Plugging In Cartridge"
+title: Plugging In Cartridge
+tags: 
+- django
+- python
+- mezzanine
+- cartridge
+- ecommerce
 ---
-
 I'm happy to announce the first release of
 [Cartridge](http://cartridge.jupo.org/) - a
 [Django](http://djangoproject.com/) shopping cart application I started

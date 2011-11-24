@@ -1,8 +1,12 @@
----
+--- 
 layout: post
-title: "Grillo, a Terminal Based Chat Server and Client"
+title: Grillo, a Terminal Based Chat Server and Client
+tags: 
+- rosetta code
+- python
+- sockets
+- open source
 ---
-
 I recently came across the [Rosetta Code Project](http://rosettacode.org/).
 It's a community contributed wiki that contains [hundreds of solutions to
 programming problems](http://rosettacode.org/wiki/Category:Programming_Tasks),

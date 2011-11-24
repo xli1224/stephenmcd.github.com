@@ -1,8 +1,10 @@
----
+--- 
 layout: post
-title: "Where is PEP 8 for Technical Documentation?"
+title: Where is PEP 8 for Technical Documentation?
+tags: 
+- python
+- documentation
 ---
-
 Anyone who has programmed in Python for a considerable length of time will at
 least have some passing familiarity with [PEP
 8](http://www.python.org/dev/peps/pep-0008/) - the document that goes into an

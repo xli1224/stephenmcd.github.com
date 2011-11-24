@@ -1,8 +1,10 @@
----
+--- 
 layout: post
-title: "Technology shows style of things to come"
+title: Technology shows style of things to come
+tags: 
+- django
+- facebook
 ---
-
 [Technology shows style of things to come](http://www.smh.com.au/business
 /technology-shows-style-of-things-to-come-20091129-jyxp.html)
 

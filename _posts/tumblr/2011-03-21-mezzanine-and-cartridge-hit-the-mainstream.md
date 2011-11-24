@@ -1,8 +1,15 @@
----
+--- 
 layout: post
-title: "Mezzanine and Cartridge Hit the Mainstream"
+title: Mezzanine and Cartridge Hit the Mainstream
+tags: 
+- mezzanine
+- cartridge
+- django
+- australia
+- techworld
+- cio magazine
+- open source
 ---
-
 [Mezzanine and Cartridge Hit the Mainstream](http://www.cio.com.au/article/380
 246/melbourne_hacker_releases_open_source_django_apps/)
 

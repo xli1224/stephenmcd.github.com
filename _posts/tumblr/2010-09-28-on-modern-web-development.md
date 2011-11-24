@@ -1,8 +1,15 @@
----
+--- 
 layout: post
-title: "On Modern Web Development"
+title: On Modern Web Development
+tags: 
+- asp.net
+- australia
+- django
+- java
+- open source
+- php
+- security
 ---
-
 Web development technology has come an incredibly long way over the last
 decade. Unfortunately in local markets like Australia where I reside, the tech
 sector seems to languish years behind the United States and Europe. We saw
@@ -33,63 +40,25 @@ what I'll be making reference to in the following comparisons, however you
 could just as easily swap it out with [Ruby on Rails](http://rubyonrails.org/)
 or any other modern platform and the points would be more or less equivalent.
 
- ASP.NETPHPJavaDjango
-
-Efficiency
-
-✘
-
-✘
-
-✘
-
-✔
-
-Security
-
-✘
-
-✘
-
-✔
-
-✔
-
-Freedom
-
-✘
-
-✔
-
-✘
-
-✔
-
-Developers
-
-✔
-
-✔
-
-✔
-
-✘
-
-Mature Applications
-
-✔
-
-✔
-
-✔
-
-✘
+<table class="compare zebra-striped" cellpadding="8" cellspacing="0"
+align="center"><tr class="row1 top"><th>
+</th><th>ASP.NET</th><th>PHP</th><th>Java</th><th>Django</th></tr><tr
+class="row2"><th>Efficiency</th><td class="n">✘</td><td
+class="n">✘</td><td class="n">✘</td><td class="y">✔</td></tr><tr
+class="row1"><th>Security</th><td class="n">✘</td><td class="n">✘</td><td
+class="y">✔</td><td class="y">✔</td></tr><tr
+class="row2"><th>Freedom</th><td class="n">✘</td><td class="y">✔</td><td
+class="n">✘</td><td class="y">✔</td></tr><tr
+class="row1"><th>Developers</th><td class="y">✔</td><td
+class="y">✔</td><td class="y">✔</td><td class="n">✘</td></tr><tr
+class="row2"><th>Mature Applications</th><td class="y">✔</td><td
+class="y">✔</td><td class="y">✔</td><td class="n">✘</td></tr></table>
 
 #### Efficiency
 
 I recently came across this fantastic quote:
 
-"IDEs: a form of automation needed when the environment in question erects
+> "IDEs: a form of automation needed when the environment in question erects
 artificial barriers."
 
 Have you ever tried writing C# or Java in a plain text editor? It is an
@@ -104,10 +73,10 @@ practicing polyglot!
 On the plus side languages like C# and Java are relatively clean and
 consistant when compared to abominations such as PHP, which truly is a
 disorganized mess - functions named using both verb_noun and noun_verb, lots
-of similar functions with no apparent naming convention (Eg: `sort(),
-arsort(), asort(), ksort(), natsort(), natcasesort(), rsort(), usort(),
-array_multisort(), uksort()`) and a weak type system that can lead to bugs
-which are difficult to discover.
+of similar functions with no apparent naming convention (Eg: `sort()`,
+`arsort()`, `asort()`, `ksort()`, `natsort()`, `natcasesort()`, `rsort()`,
+`usort()`, `array_multisort()`, `uksort()`) and a weak type system that can
+lead to bugs which are difficult to discover.
 
 These languages stand in great contrast to modern dynamic languages such as
 Python and Ruby. Ask any Python or Ruby developer which IDE they use and the

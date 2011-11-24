@@ -1,8 +1,12 @@
----
+--- 
 layout: post
-title: "An Open Source Brief"
+title: An Open Source Brief
+tags: 
+- python
+- django
+- open source
+- mezzanine
 ---
-
 You'd be forgiven for reading the title of this post and thinking it's about a
 crazy approach to project briefing that somehow mimics open source development
 - as interesting as that sounds, it isn't the case and my motives are much

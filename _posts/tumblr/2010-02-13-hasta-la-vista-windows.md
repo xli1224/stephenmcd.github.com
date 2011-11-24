@@ -1,8 +1,10 @@
----
+--- 
 layout: post
-title: "Hasta la Vista, Windows"
+title: Hasta la Vista, Windows
+tags: 
+- linux
+- x.org
 ---
-
 Earlier this week I had the pleasure of removing my final Windows install
 after wiping my machine at work and installing Ubuntu on it. It was during the
 late 90s that I first tried out Linux after getting my hands on a Redhat 6.1
@@ -28,6 +30,7 @@ virtual screen size as being too small for the rotation. I resolved this with
 the update below to my x.org configuration to use a virtual screen size large
 enough to handle the rotation while including the second monitor.
 
+    
     Section "Screen"
         Identifier "Configured Screen Device"
         Device "Configured Video Device"
@@ -35,6 +38,7 @@ enough to handle the rotation while including the second monitor.
             Virtual 2880 1440
         EndSubSection
     EndSection
+    
 
 The second issue was more a lack of foresight on my part than a problem with
 the new install itself. After a vanilla install of any modern operating system

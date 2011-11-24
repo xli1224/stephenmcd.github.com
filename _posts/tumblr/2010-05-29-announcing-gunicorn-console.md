@@ -1,8 +1,12 @@
----
+--- 
 layout: post
-title: "Announcing gunicorn-console"
+title: Announcing gunicorn-console
+tags: 
+- django
+- gunicorn
+- python
+- curses
 ---
-
 Like a lot of Django shops our software stack consists of two layers up front:
 a public facing web/proxy server and an application server sitting behind it.
 For a long time we've enjoyed success using [nginx](http://nginx.org/en/) and

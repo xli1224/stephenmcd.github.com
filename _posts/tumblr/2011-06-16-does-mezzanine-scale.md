@@ -1,8 +1,12 @@
----
+--- 
 layout: post
-title: "Does Mezzanine Scale?"
+title: Does Mezzanine Scale?
+tags: 
+- mezzanine
+- cartridge
+- django
+- scalability
 ---
-
 The question of scalability with regard to
 [Mezzanine](http://mezzanine.jupo.org/) and
 [Django](https://www.djangoproject.com/) recently came on up on the

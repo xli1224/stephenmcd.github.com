@@ -1,8 +1,12 @@
----
+--- 
 layout: post
-title: "CHM Files on Linux"
+title: CHM Files on Linux
+tags: 
+- chm
+- linux
+- gnome
+- kde
 ---
-
 I think CHM files are great and my main Python reference is the CHM version of
 the main documentation. I’ve used [GnoCHM](http://gnochm.sourceforge.net/)
 which is the default CHM viewer for Gnome for quite a while and it’s really

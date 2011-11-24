@@ -1,8 +1,12 @@
----
+--- 
 layout: post
-title: "How I Now Know Node"
+title: How I Now Know Node
+tags: 
+- coffeescript
+- javascript
+- node.js
+- sockets
 ---
-
 Having remained utterly faithful to [Python](http://python.org/) and
 [Django](http://www.djangoproject.com/) over the last year, and dedicating all
 of my available time to open source projects like
