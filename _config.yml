@@ -1,3 +1,6 @@
 permalink: pretty
 pygments: true
 markdown: kramdown
+index_pages:
+    tag:
+        title_prefix:   'Tag: '
