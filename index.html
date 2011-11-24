@@ -1,10 +1,12 @@
 ---
-layout: post
+layout: default
 title: Stephen McDonald
 ---
-
 <ul class="posts unstyled">
     {% for post in site.posts %}
     <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
     {% endfor %}
 </ul>
+<p class="tags">
+Tags: {% for tag in site.tags %}<a href="/tag/{{ tag[0] | replace:' ','-' | replace:'.','' }}/">{{ tag[0] }}</a>{% unless forloop.last %}, {% endunless %}{% endfor %}
+</p>
