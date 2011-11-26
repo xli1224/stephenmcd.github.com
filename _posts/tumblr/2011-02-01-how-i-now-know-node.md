@@ -155,4 +155,3 @@ At this point in time, I wouldn’t consider it for a typical project over a
 full stack framework like Django with the elegance of Python, however it
 definitely serves as a fantastic choice for a very specific criteria -
 scalable, real time web applications.
-

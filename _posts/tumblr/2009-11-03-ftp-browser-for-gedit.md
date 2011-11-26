@@ -23,4 +23,3 @@ feature](http://code.google.com/p/gedit-ftp-
 browser/source/diff?spec=svn5&r=5&format=side&path=/trunk/FTP.py) allowing the
 user to create and upload new files over FTP. Next up I'll be working on the
 ability to manage multiple FTP servers via profiles.
-

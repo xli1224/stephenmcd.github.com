@@ -30,4 +30,3 @@ context, for example:
 Are these types of ambiguities in technical writing something that
 professional editors typically deal with? What I'd love to see is something
 like PEP 8 for technical documentation.
-

@@ -200,4 +200,3 @@ In conclusion - developers and CEOs, challenge your technical decision makers
 to overcome their complacency and invest in technology of the future. Push
 your employer, your peers and most importantly yourself forward. Invest your
 time in efficient, secure and unencumbered technology.
-

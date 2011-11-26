@@ -32,4 +32,3 @@ It's also no secret that I think [the Australian web development market is
 many years behind the United States](http://blog.jupo.org/post/1203927307/on-
 modern-web-development), so it's a great step forward to see modern technology
 getting covered by the mainstream local tech media.
-

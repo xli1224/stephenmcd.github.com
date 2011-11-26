@@ -128,4 +128,3 @@ There aren't any obligations with this so contributions of any size are
 welcome. If you'd like to get involved but don't know where to start just
 [post a message to the mailing list](http://groups.google.com/group/mezzanine-
 users) and let's talk!
-

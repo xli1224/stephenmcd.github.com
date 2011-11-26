@@ -59,4 +59,3 @@ I've only touched on the topic to provide an overview of what's available, and
 you should certainly research it further for your particular scenario, but as
 you can see scalability is a core concern baked into Django and Mezzanine, so
 you can choose these with confidence.
-

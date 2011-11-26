@@ -89,4 +89,3 @@ Cartridge then the source code is freely available under a [BSD
 license](http://www.linfo.org/bsdlicense.html) at both
 [github](http://github.com/stephenmcd/cartridge) and
 [bitbucket](http://bitbucket.org/stephenmcd/cartridge).
-

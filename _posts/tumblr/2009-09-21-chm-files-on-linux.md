@@ -16,4 +16,3 @@ finally gave up and looked for an alternative which I found in
 viewer for KDE. As usual the KDE counterpart of a given Gnome app is much
 easier on the eyes and in this case the problems I had are solved - lightning
 fast and stable.
-

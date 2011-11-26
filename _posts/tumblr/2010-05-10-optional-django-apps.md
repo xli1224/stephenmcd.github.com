@@ -21,34 +21,32 @@ command-extensions](http://github.com/django-extensions/django-extensions),
 [django-debug-toolbar](http://github.com/robhudson/django-debug-toolbar) and
 [south](http://south.aeracode.org).
 
-    
-    # Define any settings specific to each of the optional apps.
-    import sys
-    USE_SOUTH = not (len(sys.argv) > 1 and sys.argv[1] == "test")
-    DEBUG_TOOLBAR_CONFIG = {"INTERCEPT_REDIRECTS": False}
-    
-    # Sequence for each optional app as a dict containing info about the app.
-    OPTIONAL_APPS = (
-        {"import": "django_extensions", "apps": ("django_extensions",)},
-        {"import": "debug_toolbar", "apps": ("debug_toolbar",), 
-            "middleware": ("debug_toolbar.middleware.DebugToolbarMiddleware",)},
-        {"import": "south", "apps": ("south",), "condition": USE_SOUTH},
-    )
-    
+{% highlight python %}
+# Define any settings specific to each of the optional apps.
+import sys
+USE_SOUTH = not (len(sys.argv) > 1 and sys.argv[1] == "test")
+DEBUG_TOOLBAR_CONFIG = {"INTERCEPT_REDIRECTS": False}
+
+# Sequence for each optional app as a dict containing info about the app.
+OPTIONAL_APPS = (
+    {"import": "django_extensions", "apps": ("django_extensions",)},
+    {"import": "debug_toolbar", "apps": ("debug_toolbar",), 
+        "middleware": ("debug_toolbar.middleware.DebugToolbarMiddleware",)},
+    {"import": "south", "apps": ("south",), "condition": USE_SOUTH},
+)
+{% endhighlight %}
 
 Next we simply iterate through the sequence of optional apps and set them up.
 
-    
-    # Set up each optional app if available.
-    for app in OPTIONAL_APPS:
-        if app.get("condition", True):
-            try:
-                __import__(app["import"])
-            except ImportError:
-                pass
-            else:
-                INSTALLED_APPS += app.get("apps", ())
-                MIDDLEWARE_CLASSES += app.get("middleware", ())
-                TEMPLATE_CONTEXT_PROCESSORS += app.get("context_processors", ())
-    
-
+{% highlight python %}
+# Set up each optional app if available.
+for app in OPTIONAL_APPS:
+    if app.get("condition", True):
+        try:
+            __import__(app["import"])
+        except ImportError:
+            pass
+        else:
+            INSTALLED_APPS += app.get("apps", ())
+            MIDDLEWARE_CLASSES += app.get("middleware", ())
+{% endhighlight %}

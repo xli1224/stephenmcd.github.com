@@ -60,20 +60,20 @@ channels that can be subscribed and broadcast to.
 To subscribe to a channel client-side in JavaScript use the `socket.subscribe`
 method:
 
-    
-    var socket = new io.Socket();
-    socket.connect();
-    socket.on(connect, function() {
-        socket.subscribe(my channel);
-    });
-    
+{% highlight javascript %}
+var socket = new io.Socket();
+socket.connect();
+socket.on(connect, function() {
+    socket.subscribe(my channel);
+});
+{% endhighlight %}
 
 Once the socket is subscribed to a channel, you can then broadcast to the
 channel server-side in Python using the `socket.broadcast_channel` method:
 
-    
-    socket.broadcast_channel("my message")
-    
+{% highlight python %}
+socket.broadcast_channel("my message")
+{% endhighlight %}
 
 #### Events
 
@@ -85,13 +85,13 @@ request.
 Events are subscribed to by applying each event as a decorator to your event
 handler functions:
 
-    
-    from django_socketio.events import on_message
-     
-    @on_message
-    def my_message_handler(request, socket, context, message):
-        ...
-    
+{% highlight python %}
+from django_socketio.events import on_message
+ 
+@on_message
+def my_message_handler(request, socket, context, message):
+    ...
+{% endhighlight %}
 
 Each event handler takes at least three arguments: the current Django
 `request`, the Socket.IO `socket` the event occurred for, and a `context`,
@@ -128,31 +128,30 @@ individual channels.
 Suppose each chat room user subscribes to a channel client-side using the
 room's ID:
 
-    
-    var socket = new io.Socket();
-    var roomID = 42;
-    socket.connect();
-    socket.on(connect, function() {
-        socket.subscribe(room- + roomID);
-    });
-    
+{% highlight javascript %}
+var socket = new io.Socket();
+var roomID = 42;
+socket.connect();
+socket.on(connect, function() {
+    socket.subscribe(room- + roomID);
+});
+{% endhighlight %}
 
 Then server-side the different message handlers are bound to each type of
 channel:
 
-    
-    @on_message(channel="dashboard")
-    def my_dashboard_handler(request, socket, context, message):
-        ...
-     
-    @on_message(channel="^room-")
-    def my_chat_handler(request, socket, context, message):
-        ...
-    
+{% highlight python %}
+@on_message(channel="dashboard")
+def my_dashboard_handler(request, socket, context, message):
+    ...
+ 
+@on_message(channel="^room-")
+def my_chat_handler(request, socket, context, message):
+    ...
+{% endhighlight %}
 
 #### Chat Demo
 
 The "hello world" of WebSocket applications is naturally the chat room. As
 such django-socketio comes with a demo chat application that provides examples
 of the different events and channel features available.
-

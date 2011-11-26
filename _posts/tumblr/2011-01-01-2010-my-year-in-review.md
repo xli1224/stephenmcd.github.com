@@ -75,4 +75,3 @@ up a few new Django tricks along the way.
 
 So that was 2010 - what a blast! I can't imagine what 2011 will bring if it
 involves as much change and initiative as the previous year has. Bring it on!
-

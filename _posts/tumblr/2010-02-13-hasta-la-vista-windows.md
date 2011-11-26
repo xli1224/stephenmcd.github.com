@@ -30,15 +30,15 @@ virtual screen size as being too small for the rotation. I resolved this with
 the update below to my x.org configuration to use a virtual screen size large
 enough to handle the rotation while including the second monitor.
 
-    
-    Section "Screen"
-        Identifier "Configured Screen Device"
-        Device "Configured Video Device"
-        SubSection "Display"
-            Virtual 2880 1440
-        EndSubSection
-    EndSection
-    
+{% highlight python %}
+Section "Screen"
+    Identifier "Configured Screen Device"
+    Device "Configured Video Device"
+    SubSection "Display"
+        Virtual 2880 1440
+    EndSubSection
+EndSection
+{% endhighlight %}
 
 The second issue was more a lack of foresight on my part than a problem with
 the new install itself. After a vanilla install of any modern operating system
@@ -56,4 +56,3 @@ manager busy I was left in a real bind. Fortunately I was able to use one of
 our test servers remotely to resolve the issue but the lesson learnt here is
 that for a new development system it's best to leave the initial system update
 until after your development environment is completely set up.
-

@@ -81,4 +81,3 @@ I've open sourced the initial version of Mezzanine with a BSD license on both
 [github](http://github.com/stephenmcd/mezzanine) and
 [bitbucket](http://bitbucket.org/stephenmcd/mezzanine) - it still has a long
 way to go so jump right in and fork away.
-

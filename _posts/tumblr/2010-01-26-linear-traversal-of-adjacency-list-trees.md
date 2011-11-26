@@ -21,40 +21,39 @@ traversing the tree in an optimal fashion. The simplicity of the AL model
 makes it much better suited to the requirements I mentioned, however the
 problem with AL is the recursive nature in which you traverse it.
 
-    
-    def show_branch(parent, depth=0):
-        # iterating the entire tree for each branch gives quadratic performance
-        for node in nodes:
-            if node.parent == parent:
-                print (" " * depth) + node
-                show_branch(node, depth + 1)
-    
+{% highlight python %}
+def show_branch(parent, depth=0):
+    # iterating the entire tree for each branch gives quadratic performance
+    for node in nodes:
+        if node.parent == parent:
+            print (" " * depth) + node
+            show_branch(node, depth + 1)
+{% endhighlight %}
 
 Worst case here is _O_(n²) performance but thanks to [Python's lightning fast
 hashtable implementation](http://wiki.python.org/moin/DictionaryKeys) we can
 create a copy of the tree as a dictionary of branches giving us _O_(n) overall
 performance when traversing the entire tree.
 
-    
-    # copy the tree into a dict of branches
-    branches = {}
-    for node in nodes:
-        parent = node.parent
-        if parent not in branches:
-            branches[parent] = []
-        branches[parent].append(node)
-    
-    def show_branch(parent, depth=0):
-        # iterating only the nodes in the branch gives linear performance
-        for node in branches[parent]:
-            print (" " * depth) + node
-            if node in branches:
-                show_branch(node, depth + 1)
-    
+{% highlight python %}
+# copy the tree into a dict of branches
+branches = {}
+for node in nodes:
+    parent = node.parent
+    if parent not in branches:
+        branches[parent] = []
+    branches[parent].append(node)
+
+def show_branch(parent, depth=0):
+    # iterating only the nodes in the branch gives linear performance
+    for node in branches[parent]:
+        print (" " * depth) + node
+        if node in branches:
+            show_branch(node, depth + 1)
+{% endhighlight %}
 
 When rendering the entire tree, using this technique will greatly increase
 performance as the tree grows in size. Be aware though that if your
 application only ever deals with a single branch in any given view, this
 technique won't perform as well as directly querying the database for the
 nodes in a single branch.
-

@@ -56,4 +56,3 @@ example of how to do basic socket programming in Python, as well as a
 demonstrating some simple tricks for controlling threads. At the best case
 someone will pick up the code base and extend it further in ways I haven't
 anticipated - here's hoping!
-

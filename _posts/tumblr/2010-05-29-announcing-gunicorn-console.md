@@ -53,4 +53,3 @@ amazing [hg-git extension](http://hg-git.github.com/), so go ahead and make it
 better!
 
 **Update, May 30:** I ended this post with a request for others to contribute and after only a day someone already has. [Adam Vandenberg](http://adamv.com/) went ahead and forked the project with [some patches](http://github.com/adamv/gunicorn-console/commit/0f9bc2672f4cc0b1d560b353304d374d5c927120) to get it running on OSX, so a big thanks goes to him.
-
