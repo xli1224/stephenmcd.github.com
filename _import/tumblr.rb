@@ -3,6 +3,7 @@ require 'open-uri'
 require 'fileutils'
 require 'date'
 require 'json'
+require "ruby-debug"
 
 module Jekyll
   module Tumblr
@@ -58,15 +59,36 @@ module Jekyll
           end # End post types
 
           name = "#{Date.parse(post['date']).to_s}-#{title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')}.#{format}"
+          header = {"layout" => "post", "title" => title, "tags" => post["tags"]}
+
+          if format == "md"
+              preserve = ["table", "tr", "th", "td"]
+              preserve.each { |tag| content = content.gsub(/<#{tag}/i, "$$" + tag).gsub(/<\/#{tag}/i, "||" + tag) }
+              content = %x[echo '#{content.gsub("'", "''")}' | html2text]
+              preserve.each { |tag| content = content.gsub("$$" + tag, "<" + tag).gsub("||" + tag, "</" + tag) }
+
+              lines = content.split("\n")
+              block, indent, lang, start = false, /^    /, nil, nil
+              lines.each_with_index do |line, i|
+                if !block && line =~ indent
+                  block = true
+                  lang = "python"
+                  start = i
+                elsif block
+                  lang = "javascript" if line =~ /;$/
+                  block = line =~ indent && i < lines.size - 1 # Also handle EOF
+                  if !block
+                    lines[start] = "{% highlight #{lang} %}"
+                    lines[i - 1] = "{% endhighlight %}"
+                  end
+                  lines[i] = lines[i].sub(indent, "")
+                end
+              end
+              content = lines.join("\n")
+
+          end
 
           File.open("_posts/tumblr/#{name}", "w") do |f|
-            if format == "md"
-                preserve = ["table", "tr", "th", "td"]
-                preserve.each { |tag| content = content.gsub(/<#{tag}/i, "$$" + tag).gsub(/<\/#{tag}/i, "||" + tag) }
-                content = %x[echo '#{content.gsub("'", "''")}' | html2text]
-                preserve.each { |tag| content = content.gsub("$$" + tag, "<" + tag).gsub("||" + tag, "</" + tag) }
-            end
-            header = {"layout" => "post", "title" => title, "tags" => post["tags"]}
             f.puts header.to_yaml + "---\n" + content
           end # End file
 
