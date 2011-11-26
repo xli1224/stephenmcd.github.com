@@ -9,17 +9,31 @@
 <link rel="stylesheet" href="/css/pygments.css">
 <link rel="stylesheet" href="/css/bootstrap.css">
 <link rel="stylesheet" href="/css/style.css">
+{% if page.url == "/2009/09/26/nokia-e63/" %}
+<style>
+.side-thumb {float:right; width:320px; text-align:center;
+             margin:-20px 0 0 40px; font-style:italic;}
+.side-thumb img {margin-top:20px;}
+</style>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>$(function() {$('img:first').parent().addClass('side-thumb')});</script>
+{% endif %}
 <body>
 
 <div class="container">
     <h1>{{ page.title }}</h1>
     {{ content }}
     <footer>
-        Stephen McDonald:
+        <span>Stephen McDonald:</span>
         <a href="mailto:steve@jupo.org">Email</a> /
+        <a href="/">Blog</a> /
         <a href="http://www.linkedin.com/in/stephenmcd">LinkedIn</a> /
         <a href="http://github.com/stephenmcd">GitHub</a> /
-        <a href="http://twitter.com/stephen_mcd">Twitter</a>
+        <a href="http://twitter.com/stephen_mcd">Twitter</a><br>
+        <span>Blog powered by:</span>
+        <a href="http://jekyllrb.com/">Jekyll</a> /
+        <a href="http://twitter.github.com/bootstrap/">Bootstrap</a> /
+        <a href="http://pages.github.com/">GitHub Pages</a>
     </footer>
 </div>
 
