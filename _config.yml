@@ -21,7 +21,7 @@ projects:
 
 - title: Linked Out
   url:   http://linkedout.jupo.org
-  desc:  Create PDF resumes from LinkedIn profiles.
+  desc:  Create PDF resumes for LinkedIn.
   tech:  Sinatra / Ruby
 
 - title: Klout Feed
@@ -41,7 +41,7 @@ projects:
 
 - title: Virtualboxing
   url:   http://github.com/stephenmcd/virtualboxing
-  desc:  Utilities for comparison operations on Riak and MongoDB.
+  desc:  Comparison utilities for Riak and MongoDB.
   tech:  Ruby
 
 - title: Grillode

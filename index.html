@@ -9,7 +9,8 @@ title: Stephen McDonald
         <span class="date">{{ post.date | date_to_string }}</span>
         <span class="arrow">&raquo;</span>
         <a href="{{ post.url }}">{{ post.title }}</a>
-        <a class="bar" href="#" style="width:{{ post.content.size | divided_by:70 }}px;">&nbsp;</a>
+        <a class="bar" href="#" title="{{ post.content | number_of_words }} words"
+            style="width:{{ post.content | number_of_words | divided_by:8 | plus: 10 }}px;">&nbsp;</a>
     </li>
     {% endfor %}
 </ul>
@@ -29,9 +30,41 @@ title: Stephen McDonald
 <ul class="unstyled projects">
     {% for project in site.projects %}
     <li>
-        <a href="{{ project.url }}">{{ project.title }}</a>
+        <a href="{{ project.url }}" class="title">{{ project.title }}</a>
         <span class="arrow">&raquo;</span>
         {{ project.desc }} <em>{{ project.tech }}</em></li>
     </li>
     {% endfor %}
 </ul>
+
+<script src="/js/jquery.js"></script>
+<script src="/js/bootstrap-twipsy.js"></script>
+<script>
+var github = function(repos) {
+    var normalize = function(s) {
+        return s.toLowerCase().replace(/-| /g, '');
+    };
+    var named = {};
+    $.each(repos.data, function(i, repo) {
+        named[normalize(repo.name)] = repo;
+    });
+    $('.projects li').each(function(i, project) {
+        project = $(project);
+        var pluralize = function(i) {
+            return i != 1 ? 's' : '';
+        };
+        var repo = named[normalize(project.find('a').text())];
+        var css = {width: (((repo.watchers + repo.forks) / 3) + 10) + 'px'};
+        var title = repo.watchers + ' watcher' + pluralize(repo.watchers) +
+                    ' / ' + repo.forks + ' fork' + pluralize(repo.forks);
+        var bar = $('<a>').addClass('bar').css(css).attr('title', title);
+        $(project).append(bar);
+    });
+    $(function() {
+        $('.bar').click(function() {
+            return false;
+        }).twipsy({placement: 'right', animate: false});
+    });
+};
+</script>
+<script src="https://api.github.com/users/stephenmcd/repos?callback=github"></script>
