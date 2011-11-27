@@ -1,6 +1,66 @@
+
 permalink: pretty
 pygments: true
 markdown: kramdown
+
 index_pages:
     tag:
         title_prefix:   'Tag: '
+
+projects:
+
+- title: Mezzanine
+  url:   http://mezzanine.jupo.org
+  desc:  Content management platform.
+  tech:  Django / Python
+
+- title: Cartridge
+  url:   http://cartridge.jupo.org
+  desc:  Ecommerce for Mezzanine.
+  tech:  Django / Python
+
+- title: Linked Out
+  url:   http://linkedout.jupo.org
+  desc:  Create PDF resumes from LinkedIn profiles.
+  tech:  Sinatra / Ruby
+
+- title: Klout Feed
+  url:   http://klout-feed.jupo.org
+  desc:  Daily Klout scores via RSS.
+  tech:  Sinatra / Ruby
+
+- title: Drawn By
+  url:   http://github.com/stephenmcd/stephenmcd
+  desc:  Collaborative real-time sketching.
+  tech:  Django / Python
+
+- title: gunicorn-console
+  url:   http://github.com/stephenmcd/gunicorn-console
+  desc:  Manage gunicorn processes.
+  tech:  Ncurses / Python
+
+- title: Virtualboxing
+  url:   http://github.com/stephenmcd/virtualboxing
+  desc:  Utilities for comparison operations on Riak and MongoDB.
+  tech:  Ruby
+
+- title: Grillode
+  url:   http://chat.jupo.org
+  desc:  Chat server.
+  tech:  Node / CoffeeScript
+
+- title: django-forms-builder
+  url:   http://github.com/stephenmcd/django-forms-builder
+  desc:  Let users create their own forms.
+  tech:  Django / Python
+
+- title: django-socketio
+  url:   http://github.com/stephenmcd/django-socketio
+  desc:  WebSockets for Django.
+  tech:  Django / Python
+
+- title: Babbler
+  url:   http://github.com/stephenmcd/babbler
+  desc:  Twitter bot.
+  tech:  Python
+

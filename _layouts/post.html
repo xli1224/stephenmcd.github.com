@@ -1,11 +1,14 @@
 ---
 layout: default
 ---
-<h6>{{ page.date | date: "%B %d, %Y" }} / <a href="/">Home</a></h6>
+<h6>{{ page.date | date: "%B %d, %Y" }} &nbsp;/&nbsp; <a href="/">Home</a></h6>
 {{ content }}
-<p class="tags">
-<span>Tags:</span>
-{% for tag in page.tags %}
-<a href="/tag/{{ tag | replace:' ','-' | replace:'.','' }}/">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
-{% endfor %}
-</p>
+<h6>Tags</h6>
+<ul class="unstyled tags">
+    {% for tag in page.tags %}
+    <li>
+        <a href="/tag/{{ tag | replace:' ','-' | replace:'.','' }}/"
+            >{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
+    </li>
+    {% endfor %}
+</ul>

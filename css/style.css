@@ -1,18 +1,22 @@
 
 .container {width:600px;}
+footer {border-top:3px solid #eee; margin:30px 0;}
 
 h1 {font-size:24px; border-bottom:3px solid #eee; padding:10px 0; margin:20px 0;}
 h4 {margin:20px 0 0 0;}
-h6 {margin:-10px 0 10px 0;}
+h6 {margin:20px 0 5px 0;}
+h6 a {font-weight:normal;}
 
-.date {font-family:monospace; margin-right:5px;}
-.posts {margin-top:-5px;}
-.posts a {margin-left:5px;}
+.date {font-family:monospace;}
+.arrow {margin:0 5px; color:#666;}
+.tags li {color:gray; white-space:nowrap; display:inline;}
+.projects a, footer .title {float:left; min-width:135px;}
+.projects em {color:#bfbfbf; margin-left:5px;}
+.bar {background:#eee; height:13px; margin-top:5px; float:right;}
+.bar:hover {text-decoration:none; background:#ccc;}
 
 pre code {background-color:inherit;}
-pre, table, .tags {margin:20px 0;}
-.tags span {font-size:13px; color:#bfbfbf; text-transform:uppercase;
-            font-weight:bold; margin-right:5px;}
+pre, table {margin:20px 0;}
 
 tr.top th, td.y, td.n {text-align:center;}
 td.y {color:green;}
@@ -20,6 +24,3 @@ td.n {color:red;}
 
 blockquote {margin:30px;}
 blockquote p {font-style:italic;}
-
-footer {border-top:3px solid #eee; margin-bottom:30px;}
-footer span {float:left; width:125px;}
