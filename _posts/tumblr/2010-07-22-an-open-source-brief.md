@@ -29,8 +29,8 @@ quickly. For those readers who aren't familiar with it please go ahead and
 check out the [overview](http://mezzanine.jupo.org/docs/overview.html) in the
 [documentation](http://mezzanine.jupo.org/docs/), play around with the [live
 demo](http://mezzanine.jupo.org/blog/) and have a read of my [previous blog
-post](http://blog.jupo.org/post/684732364/mezzanine-just-another-django-cms)
-that talks about why I started Mezzanine and what I hope to achieve.
+post](http://blog.jupo.org/2010/06/11/mezzanine-just-another-django-cms/) that
+talks about why I started Mezzanine and what I hope to achieve.
 
 _Why would I want to help?_
 

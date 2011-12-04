@@ -14,8 +14,8 @@ I'm happy to announce the first release of
 working on back in 2009. The development path that Cartridge has taken has
 been a strange one. I stopped working on it throughout 2010 in order to get
 the ball rolling with a project called [Mezzanine](http://mezzanine.jupo.org/)
-that I've [blogged about previously](http://blog.jupo.org/post/684732364
-/mezzanine-just-another-django-cms). Many parts of Mezzanine actually
+that I've [blogged about previously](http://blog.jupo.org/2010/06/11
+/mezzanine-just-another-django-cms/). Many parts of Mezzanine actually
 originated in Cartridge and once development of Mezzanine was well under way
 it made the most sense for continued development of Cartridge to occur as a
 plug-in for Mezzanine which has now come to fruition.
