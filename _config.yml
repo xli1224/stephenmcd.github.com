@@ -46,7 +46,7 @@ projects:
 
 - title: Grillode
   url:   http://chat.jupo.org
-  desc:  Chat server.
+  desc:  Multi-purpose chat server.
   tech:  Node / CoffeeScript
 
 - title: django-forms-builder
@@ -63,4 +63,3 @@ projects:
   url:   http://github.com/stephenmcd/babbler
   desc:  Twitter bot.
   tech:  Python
-
