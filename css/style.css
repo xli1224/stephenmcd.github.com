@@ -16,6 +16,7 @@ h6 a {font-weight:normal;}
 .bar {background:#eee; height:13px; margin-top:5px; float:right; cursor:default;}
 .bar:hover {text-decoration:none; background:#ccc;}
 
+pre {background:#111;}
 pre code {background-color:inherit;}
 pre, table {margin:20px 0;}
 
