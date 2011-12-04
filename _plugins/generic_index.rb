@@ -1,3 +1,5 @@
+require 'ruby-debug'
+
 def plural(s)
   s + "s"
 end
@@ -10,7 +12,7 @@ module Jekyll
       @page_type = page_type
       @site = site
       @base = base
-      @dir = dir
+      @dir = "../" + dir
       @name = 'index.html'
 
       self.process(@name)
