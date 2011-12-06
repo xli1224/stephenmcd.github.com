@@ -55,6 +55,9 @@ module Jekyll
     safe true
 
     def generate(site)
+    end
+
+    def publish(site)
       if site.config.has_key?('index_pages') == false
         return true
       end

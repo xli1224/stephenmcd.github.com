@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+require 'rubygems'
+require 'jekyll'
+
+puts "Loading site ..."
+site = Jekyll::Site.new(Jekyll.configuration({}))
+site.process
+puts "Generating tags ..."
+Jekyll::GenericPageGenerator.new.publish(site)
+puts "Pushing to repos ..."
+puts `hg push && hg push git`
