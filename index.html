@@ -60,11 +60,13 @@ var github = function(repos) {
         var bar = $('<a>').addClass('bar').css(css).attr('title', title);
         $(project).append(bar);
     });
-    $(function() {
-        $('.bar').click(function() {
-            return false;
-        }).twipsy({placement: 'right', animate: false});
-    });
+    $('.bar').click(function() {
+        return false;
+    }).twipsy({placement: 'right', animate: false});
 };
+$(function() {
+    var src = 'https://api.github.com/users/stephenmcd/repos?callback=github';
+    $('head').append($('<script>').attr('src', src));
+});
 </script>
-<script src="https://api.github.com/users/stephenmcd/repos?callback=github"></script>
+<script src=""></script>
