@@ -9,8 +9,7 @@ h6 a {font-weight:normal;}
 
 .date {font-family:monospace;}
 .arrow {margin:0 5px; color:#666;}
-.tags {width:550px;}
-.tags li {color:gray; white-space:nowrap; display:inline;}
+.tags li {color:gray; white-space:nowrap; display:inline-block;}
 .title {float:left; min-width:135px;}
 .projects em {color:#bfbfbf; margin-left:2px;}
 .bar {background:#eee; height:13px; margin-top:5px; float:right; cursor:default;}
