@@ -114,5 +114,5 @@ Considering how similar the two frameworks are component-wise, one thing I did m
 </tr>
 </table>
 
-Not all of these pairings are a perfect one-to-one match conceptually, but should good enough to get an overall view of what each concept is within each framework.
+Not all of these pairings are a perfect one-to-one match conceptually, but should be good enough to get an overall view of what each concept is within both frameworks.
 
