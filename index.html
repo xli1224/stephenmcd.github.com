@@ -2,7 +2,7 @@
 layout: default
 title: Stephen McDonald
 ---
-<h6>Blog Posts</h6>
+<h6>Articles</h6>
 <ul class="unstyled">
     {% for post in site.posts %}
     <li>
@@ -15,12 +15,12 @@ title: Stephen McDonald
     {% endfor %}
 </ul>
 
-<h6>Blog Tags</h6>
+<h6>Keywords</h6>
 <!-- tag cloud css: font-size:{ tag[1].size | times:2 | plus:12 }px; line-height:28px; -->
 <ul class="unstyled tags">
     {% for tag in site.tags %}
     <li>
-        <a href="/tag/{{ tag[0] | replace:' ','-' | replace:'.','' }}/">{{ tag[0] }}</a>
+        <a href="/{{ tag[0] | replace:' ','-' | replace:'.','' }}/">{{ tag[0] }}</a>
         ({{ tag[1].size }}){% unless forloop.last %}, {% endunless %}
     </li>
     {% endfor %}
@@ -37,8 +37,8 @@ title: Stephen McDonald
     {% endfor %}
 </ul>
 
-<script src="/js/jquery.js"></script>
-<script src="/js/bootstrap-twipsy.js"></script>
+<script src="/static/js/jquery.js"></script>
+<script src="/static/js/bootstrap-twipsy.js"></script>
 <script>
 var github = function(repos) {
     var normalize = function(s) {

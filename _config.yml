@@ -5,7 +5,7 @@ markdown: kramdown
 
 index_pages:
     tag:
-        title_prefix:   'Tag: '
+        title_prefix:   'Keyword: '
 
 projects:
 

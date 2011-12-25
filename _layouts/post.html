@@ -3,11 +3,11 @@ layout: default
 ---
 <h6>{{ page.date | date: "%B %d, %Y" }} &nbsp;/&nbsp; <a href="/">Home</a></h6>
 {{ content }}
-<h6>Tags</h6>
+<h6>Keywords</h6>
 <ul class="unstyled tags">
     {% for tag in page.tags %}
     <li>
-        <a href="/tag/{{ tag | replace:' ','-' | replace:'.','' }}/"
+        <a href="/{{ tag | replace:' ','-' | replace:'.','' }}/"
             >{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
     </li>
     {% endfor %}
