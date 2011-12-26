@@ -32,4 +32,5 @@ blockquote p {font-style:italic;}
 @media all and (max-width: 640px) {
   .container {width:auto;}
   .bar {display:none;}
+  .title, .date {display:block; float:none;}
 }
