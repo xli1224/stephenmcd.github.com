@@ -35,17 +35,16 @@ The other feature of Django we'll use is the [`class_prepared`](https://docs.dja
 {% highlight python %}
 from django.db.models import CharField
 from django.db.models.signals import class_prepared
-from someapp.models import MyModel
 
 def add_field(sender, **kwargs):
     """
-    class_prepared signal handler that checks for the fictitious
-    someapp.models.MyModel model as the sender, and adds a CharField
+    class_prepared signal handler that checks for the model named
+    MyModel as the sender, and adds a CharField
     to it.
     """
     if sender.__class__.__name__ == "MyModel":
         field = CharField("New field", max_length=100)
-        field.contribute_to_class(MyModel, "new_field")
+        field.contribute_to_class(sender, "new_field")
 
 class_prepared.connect(add_field)
 {% endhighlight %}
