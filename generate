@@ -4,16 +4,11 @@ require 'rubygems'
 require 'jekyll'
 require 'fileutils'
 
-puts "Loading site ..."
 site = Jekyll::Site.new(Jekyll.configuration({}))
 site.process
-puts "Generating tags ..."
 Jekyll::GenericPageGenerator.new.publish(site)
 page404 = Jekyll::Page.new(site, site.source, "", "_404.md")
 page404.render(site.layouts, site.site_payload)
 page404.write(site.dest)
 FileUtils.mv('_site/_404/index.html', '404.html')
 FileUtils.remove_dir('_site/_404')
-
-puts "Pushing to repos ..."
-puts `hg push && hg push git`
