@@ -42,7 +42,7 @@ def add_field(sender, **kwargs):
     MyModel as the sender, and adds a CharField
     to it.
     """
-    if sender.__class__.__name__ == "MyModel":
+    if sender.__name__ == "MyModel":
         field = CharField("New field", max_length=100)
         field.contribute_to_class(sender, "new_field")
 
