@@ -20,7 +20,7 @@ title: Stephen McDonald
 <ul class="unstyled tags">
     {% for tag in site.tags %}
     <li>
-        <a href="/{{ tag[0] | replace:' ','-' | replace:'.','' }}/">{{ tag[0] }}</a>
+        <a href="/tag/{{ tag[0] | replace:' ','-' | replace:'.','' }}/">{{ tag[0] }}</a>
         ({{ tag[1].size }}){% unless forloop.last %}, {% endunless %}
     </li>
     {% endfor %}
