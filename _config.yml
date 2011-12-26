@@ -33,7 +33,7 @@ projects:
   tech:  Sinatra / Ruby
 
 - title: Drawn By
-  url:   http://github.com/stephenmcd/stephenmcd
+  url:   http://github.com/stephenmcd/drawnby
   desc:  Collaborative real-time sketching.
   tech:  Django / Python
 
