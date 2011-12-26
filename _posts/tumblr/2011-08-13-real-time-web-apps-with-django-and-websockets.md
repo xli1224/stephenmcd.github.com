@@ -1,7 +1,7 @@
---- 
+---
 layout: post
 title: Real-time Web Apps with Django and WebSockets
-tags: 
+tags:
 - django
 - websockets
 - socket.io
@@ -24,8 +24,7 @@ server, and therefore require long running requests per user.
 
 A variety of patterns for dealing with WebSockets in Django emerged while
 developing DrawnBy, and since the Dash I've been working on abstracting these
-into a reusable Django application called [django-
-socketio](https://github.com/stephenmcd/django-socketio) which I've released
+into a reusable Django application called [django-socketio](https://github.com/stephenmcd/django-socketio) which I've released
 today. It's available on [Github](https://github.com/stephenmcd/django-
 socketio), [Bitbucket](https://bitbucket.org/stephenmcd/django-socketio) and
 [PyPI](http://pypi.python.org/pypi/django-socketio/).
@@ -87,7 +86,7 @@ handler functions:
 
 {% highlight python %}
 from django_socketio.events import on_message
- 
+
 @on_message
 def my_message_handler(request, socket, context, message):
     ...
@@ -144,7 +143,7 @@ channel:
 @on_message(channel="dashboard")
 def my_dashboard_handler(request, socket, context, message):
     ...
- 
+
 @on_message(channel="^room-")
 def my_chat_handler(request, socket, context, message):
     ...
