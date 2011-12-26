@@ -1,4 +1,4 @@
-if (window.history && window.history.pushState) {
+if (window.history && window.history.pushState && !navigator.userAgent.match(/(iPod|iPhone|iPad|WebApps\/.+CFNetwork)/)) {
 
     $(function() {
 
