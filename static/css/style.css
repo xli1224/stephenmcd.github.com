@@ -28,3 +28,8 @@ td p {margin:20px 0;}
 
 blockquote {margin:30px;}
 blockquote p {font-style:italic;}
+
+@media all and (max-width: 640px) {
+  .container {width:auto;}
+  .bar {display:none;}
+}
