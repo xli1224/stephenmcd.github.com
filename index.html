@@ -37,9 +37,9 @@ title: Stephen McDonald
     {% endfor %}
 </ul>
 
-<script src="/static/js/bootstrap-twipsy.js"></script>
 <script>
 var github = function(repos) {
+    window.repos = repos;
     var normalize = function(s) {
         return s.toLowerCase().replace(/-| /g, '');
     };
@@ -68,9 +68,12 @@ var github = function(repos) {
 */
     }).twipsy({placement: 'right', animate: false});
 };
-$(function() {
-    var src = 'https://api.github.com/users/stephenmcd/repos?callback=github';
-    $('head').append($('<script>').attr('src', src));
-});
+if (window.repos) {
+    github(window.repos);
+} else {
+    $(document).ready(function() {
+        var src = 'https://api.github.com/users/stephenmcd/repos?callback=github';
+        $('head').append($('<script>').attr('src', src));
+    });
+}
 </script>
-<script src=""></script>

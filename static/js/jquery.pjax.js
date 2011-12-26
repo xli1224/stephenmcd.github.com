@@ -28,6 +28,9 @@ if (window.history && window.history.pushState) {
                 document.title = title;
                 $('body').html(body);
                 scrollTo(0, 0);
+                if (window._gaq) {
+                  _gaq.push(['_trackPageview']);
+                }
             });
         };
 
