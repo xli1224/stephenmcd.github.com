@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'open-uri'
 require 'fileutils'
+require 'nokogiri'
 require 'date'
 require 'json'
 require 'uri'
@@ -56,7 +57,9 @@ module Jekyll
           end
         when "photo"
           title = post["photo-caption"]
-          content = "<img src=\"#{save_file(post["photo-url"])}\"/>"
+          max_size = post.keys.map{ |k| k.gsub("photo-url-", "").to_i }.max
+          url = post["photo-url"] || post["photo-url-#{max_size}"]
+          content = "<img src=\"#{save_file(url)}\"/>"
           unless post["photo-link-url"].nil?
             content = "<a href=\"#{post["photo-link-url"]}\">#{content}</a>"
           end
@@ -89,6 +92,7 @@ module Jekyll
           end
       end
       date = Date.parse(post['date']).to_s
+      title = Nokogiri::HTML(title).text
       slug = title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
       {
         :name => "#{date}-#{slug}.#{format}",
