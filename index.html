@@ -10,7 +10,7 @@ title: Stephen McDonald
         <span class="arrow">&raquo;</span>
         <a href="{{ post.url }}">{{ post.title }}</a>
         <a class="bar" href="#" title="{{ post.content | number_of_words }} words"
-            style="width:{{ post.content | number_of_words | divided_by:7 | plus: 4 }}px;">&nbsp;</a>
+            style="width:{{ post.content | number_of_words | divided_by:7 | plus: 10 }}px;">&nbsp;</a>
     </li>
     {% endfor %}
 </ul>
@@ -53,11 +53,16 @@ var bars = function(repos) {
         var pluralize = function(i) {
             return i != 1 ? 's' : '';
         };
-        var repo = named[normalize(project.find('a').text())];
-        var css = {width: (((repo.watchers + repo.forks) / 2.5) + 4) + 'px'};
-        var title = repo.watchers + ' watcher' + pluralize(repo.watchers) +
-                    ', ' + repo.forks + ' fork' + pluralize(repo.forks);
-        var bar = $('<a>').addClass('bar').css(css).attr('title', title);
+        var text = project.find('a').text();
+        var title = normalize(text);
+        var abbr = $.map(text.split(' '), function(s, i) {
+                       return s.substr(0, 1).toLowerCase();
+                   }).join('');
+        var repo = named[title] || named[abbr];
+        var css = {width: (((repo.watchers + repo.forks) / 2.3) + 10) + 'px'};
+        var tooltip = repo.watchers + ' watcher' + pluralize(repo.watchers) +
+                      ', ' + repo.forks + ' fork' + pluralize(repo.forks);
+        var bar = $('<a>').addClass('bar').css(css).attr('title', tooltip);
         $(project).append(bar);
         watchers += repo.watchers;
         forks += repo.forks;

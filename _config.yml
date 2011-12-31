@@ -66,3 +66,13 @@ projects:
   url:   http://github.com/stephenmcd/babbler
   desc:  Twitter bot.
   tech:  Python
+
+- title: One True Repo
+  url:   http://otr.jupo.org
+  desc:  Combined GitHub and Bitbucket API.
+  tech:  Sinatra / Ruby
+
+- title: hg-github
+  url:   http://github.com/stephenmcd/hg-github
+  desc:  Mercurial extension for GitHub.
+  tech:  Mercurial / Python
