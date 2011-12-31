@@ -15,6 +15,7 @@ p, li {line-height:20px;}
 .projects em {color:#bfbfbf; margin-left:2px;}
 .bar {background:#eee; height:13px; margin-top:4px; float:right; cursor:default;}
 .bar:hover {text-decoration:none; background:#ccc;}
+.totals {text-align:right; font-style:italic; color:#ddd; margin:7px 0 -10px 0; font-size:11px;}
 
 pre {background:#111; padding:10px;}
 pre code {background-color:inherit; padding:0;}

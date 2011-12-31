@@ -3,14 +3,14 @@ layout: default
 title: Stephen McDonald
 ---
 <h6>Articles</h6>
-<ul class="unstyled">
+<ul class="unstyled articles">
     {% for post in site.posts %}
     <li>
         <span class="date">{{ post.date | date_to_string }}</span>
         <span class="arrow">&raquo;</span>
         <a href="{{ post.url }}">{{ post.title }}</a>
         <a class="bar" href="#" title="{{ post.content | number_of_words }} words"
-            style="width:{{ post.content | number_of_words | divided_by:7 | plus: 10 }}px;">&nbsp;</a>
+            style="width:{{ post.content | number_of_words | divided_by:7 | plus: 4 }}px;">&nbsp;</a>
     </li>
     {% endfor %}
 </ul>
@@ -38,7 +38,7 @@ title: Stephen McDonald
 </ul>
 
 <script>
-var github = function(repos) {
+var bars = function(repos) {
     window.repos = repos;
     var normalize = function(s) {
         return s.toLowerCase().replace(/-| /g, '');
@@ -47,18 +47,32 @@ var github = function(repos) {
     $.each(repos.data, function(i, repo) {
         named[normalize(repo.name)] = repo;
     });
+    var watchers = 0, forks = 0;
     $('.projects li').each(function(i, project) {
         project = $(project);
         var pluralize = function(i) {
             return i != 1 ? 's' : '';
         };
         var repo = named[normalize(project.find('a').text())];
-        var css = {width: (((repo.watchers + repo.forks) / 2.3) + 10) + 'px'};
+        var css = {width: (((repo.watchers + repo.forks) / 2.5) + 4) + 'px'};
         var title = repo.watchers + ' watcher' + pluralize(repo.watchers) +
-                    ' / ' + repo.forks + ' fork' + pluralize(repo.forks);
+                    ', ' + repo.forks + ' fork' + pluralize(repo.forks);
         var bar = $('<a>').addClass('bar').css(css).attr('title', title);
         $(project).append(bar);
+        watchers += repo.watchers;
+        forks += repo.forks;
     });
+    /*
+    $('.projects').append('<li class="totals">' + watchers + ' watchers, '
+                          + forks + ' forks</li>');
+    var articles = 0, words = 0;
+    $.each($('.articles .bar'), function(i, post) {
+        articles += 1;
+        words += parseFloat($(post).attr('title'));
+    });
+    $('.articles').append('<li class="totals">' + words + ' words, '
+                          + articles + ' articles</li>');
+    */
     $('.bar').click(function() {
         return false;
 /*    }).mouseover(function() {
@@ -69,10 +83,11 @@ var github = function(repos) {
     }).twipsy({placement: 'right', animate: false});
 };
 if (window.repos) {
-    github(window.repos);
+    bars(window.repos);
 } else {
     $(document).ready(function() {
-        var src = 'https://api.github.com/users/stephenmcd/repos?callback=github';
+        //var src = 'http://otr.jupo.org/stephenmcd?callback=bars';
+        var src = 'https://api.github.com/users/stephenmcd/repos?callback=bars';
         $('head').append($('<script>').attr('src', src));
     });
 }
