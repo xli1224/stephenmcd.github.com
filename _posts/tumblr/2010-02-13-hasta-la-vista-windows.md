@@ -1,7 +1,7 @@
---- 
+---
 layout: post
 title: Hasta la Vista, Windows
-tags: 
+tags:
 - linux
 - x.org
 ---
@@ -30,7 +30,7 @@ virtual screen size as being too small for the rotation. I resolved this with
 the update below to my x.org configuration to use a virtual screen size large
 enough to handle the rotation while including the second monitor.
 
-{% highlight python %}
+{% highlight css %}
 Section "Screen"
     Identifier "Configured Screen Device"
     Device "Configured Video Device"
