@@ -17,8 +17,14 @@ p, li {line-height:20px;}
 .bar:hover {text-decoration:none; background:#ccc;}
 .totals {text-align:right; font-style:italic; color:#ddd; margin:7px 0 -10px 0; font-size:11px;}
 
-pre {background:#111; padding:10px;}
-pre code {background-color:inherit; padding:0;}
+code {background:#eee;}
+pre {background:#222; padding:10px;}
+pre code {padding:0; background-color:inherit;}
+pre code * {
+    font-weight:normal !important; background-color:inherit !important;
+    text-decoration:none !important;
+}
+code, code * {font-family: Menlo, Monaco, 'Andale Mono', 'lucida console', 'Courier New', monospace;}
 pre, table {margin:20px 0;}
 
 tr.top th, td.y, td.n {text-align:center;}
