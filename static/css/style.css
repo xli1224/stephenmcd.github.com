@@ -37,7 +37,7 @@ blockquote {margin:30px;}
 blockquote p {font-style:italic;}
 
 @media all and (max-width: 640px) {
-  .container {width:auto;}
+  .container {width:auto; padding-left:10px; padding-right:10px;}
   .bar {display:none;}
   .title, .date {display:block; float:none;}
 }
