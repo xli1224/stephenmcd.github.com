@@ -85,4 +85,4 @@ EXTRA_MODEL_FIELDS = (
 )
 {% endhighlight %}
 
-Mezzanine then uses this setting to inject all of the fields defined, using `class_prepared` and `contribute_to_class` as described earlier. It handles getting load order correct by performing the injection within the [`mezzanine.boot`](https://github.com/stephenmcd/mezzanine/blob/master/mezzanine/boot/__init__.py) app, which is forced to the front of all apps defined in `INSTALLED_APPS`.
+Mezzanine then uses this setting to inject all of the fields defined, using `class_prepared` and `contribute_to_class` as described earlier. It handles getting load order correct by performing the injection within the [`mezzanine.boot`](https://github.com/stephenmcd/mezzanine/blob/master/mezzanine/boot/__init__.py) app, which is forced to the front of all apps defined in `INSTALLED_APPS`. Django's admin is also patched in the boot app, to defer certain calls to `unregister` and `register`, to correct the ordering issues described earlier.
