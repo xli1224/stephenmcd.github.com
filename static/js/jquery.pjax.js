@@ -1,3 +1,7 @@
+// Based on jquery-pjax by Chris Wanstrath
+// https://github.com/defunkt/jquery-pjax/blob/master/LICENSE
+
+
 if (window.history && window.history.pushState && !navigator.userAgent.match(/(iPod|iPhone|iPad|WebApps\/.+CFNetwork)/)) {
 
     $(function() {

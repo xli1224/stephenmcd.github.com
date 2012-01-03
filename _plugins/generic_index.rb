@@ -1,4 +1,5 @@
-require 'ruby-debug'
+# Based on the generic_index plugin from
+# https://github.com/josegonzalez/josediazgonzalez.com/tree/master/_plugins
 
 def plural(s)
   s + "s"
