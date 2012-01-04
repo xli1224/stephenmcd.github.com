@@ -21,6 +21,9 @@ layout: nil
    <updated>{{ post.date | date_to_xmlschema }}</updated>
    <id>{{ site.host }}{{ post.id }}</id>
    <content type="html">{{ post.content | xml_escape }}</content>
+   {% for tag in post.tags %}
+   <category term="{{ tag }}"></category>
+   {% endfor %}
  </entry>
  {% endfor %}
 
