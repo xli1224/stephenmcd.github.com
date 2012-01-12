@@ -4,14 +4,12 @@ var coderwall = function() {
 
     var show = function() {
         $.each(window.badges, function(i, item) {
-            $("#coderwall").show();
-            var img = $('<a href="' + url + '"><img src="' + item.badge +
-                        '" alt="' + item.name + '" title="' + item.name +
-                        ': ' + item.description + '"></a>');
-            img.mouseover(function() {$(this).css('opacity', 0.6);});
-            img.mouseout(function() {$(this).css('opacity', 1);});
-            img.appendTo("#coderwall");
+            $("#coderwall").append($('<a href="' + url +
+                '" title="' + item.name + ': ' + item.description +
+                '"><img src="' + item.badge + '"></a>'));
         });
+        $("#coderwall").show();
+        $("#coderwall a").twipsy({placement: 'above', offset:50, animate: false});
     };
 
     if (window.badges) {
