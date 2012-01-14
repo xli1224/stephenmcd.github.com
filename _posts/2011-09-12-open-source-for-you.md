@@ -5,7 +5,7 @@ tags:
 - open source
 ---
 
-I recently gave a presentational talk to the development team at my work, on what it's like contributing to open source. For those who are yet to get involved, a common perception is that the open source community seems like one big socialist hippie commune, whose motivations are entirely altruistic with little reward for the individual. The approach I took was to dispel this myth and show that for many who participate, their motivations are mostly self serving, with many personal gains to be made. Despite some of the awkward truths I focused on, the talk was received really well.
+I recently gave a presentational talk to the development team at my work, on what it's like contributing to open source. A common perception by people not involved is that the open source community seems like one big socialist hippie commune, whose motivations are entirely altruistic with little reward for the individual. The approach I took was to dispel this myth and show that for many who participate, their motivations are mostly self serving, with many personal gains to be made. Despite some of the awkward truths I focused on, the talk was received really well.
 
 #### Your Day Job Sucks, Make Programming Fun Again
 
