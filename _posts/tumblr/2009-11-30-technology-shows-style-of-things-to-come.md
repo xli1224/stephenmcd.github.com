@@ -1,7 +1,7 @@
---- 
+---
 layout: post
-title: Technology shows style of things to come
-tags: 
+title: Technology Shows Style of Things to Come
+tags:
 - django
 - facebook
 ---

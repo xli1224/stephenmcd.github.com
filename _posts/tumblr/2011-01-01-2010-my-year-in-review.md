@@ -1,7 +1,7 @@
---- 
+---
 layout: post
-title: "2010: My Year In Review"
-tags: 
+title: "2010: My Year in Review"
+tags:
 - python
 - django
 - open source
@@ -10,7 +10,7 @@ tags:
 ---
 2010 was an amazing year for me professionally. I learnt and achieved much
 more than I've historically packed into a single year, so like many other I've
-decided to jump on the "_year in review_" bandwagon and put this post
+decided to jump on the _year in review_ bandwagon and put this post
 together.
 
 #### Open Source

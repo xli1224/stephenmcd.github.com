@@ -1,7 +1,7 @@
---- 
+---
 layout: post
 title: Plugging In Cartridge
-tags: 
+tags:
 - django
 - python
 - mezzanine
