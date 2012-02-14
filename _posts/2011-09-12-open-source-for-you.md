@@ -5,6 +5,8 @@ tags:
 - open source
 ---
 
+**Update, Feb 14:** [@rkJun](https://twitter.com/rkJun) has [translated this post into Korean](http://rkjun.wordpress.com/2012/02/13/open-source-for-you-korean_translate/).
+
 I recently gave a presentational talk to the development team at my work, on what it's like contributing to open source. A common perception by people not involved is that the open source community seems like one big socialist hippie commune, whose motivations are entirely altruistic with little reward for the individual. The approach I took was to dispel this myth and show that for many who participate, their motivations are mostly self serving, with many personal gains to be made. Despite some of the awkward truths I focused on, the talk was received really well.
 
 #### Your Day Job Sucks, Make Programming Fun Again
