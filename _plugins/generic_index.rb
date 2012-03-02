@@ -86,7 +86,8 @@ module Jekyll
 
         if page_types && site.layouts.key?(config['index_page'])
           page_types.keys.each do |page|
-            write_index(site, File.join(dir, page.gsub(/\s/, "-").gsub(/[^\w-]/, '').downcase), page, page_type, config)
+            val = page.gsub(/\s/, "-").gsub(/[^\w+-]/, '').downcase
+            write_index(site, File.join(dir, val), page, page_type, config)
           end
         end
 
