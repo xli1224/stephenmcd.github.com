@@ -90,7 +90,7 @@ OTR's original form was as a library that other developers could embed in their 
 
 Querying the [GitHub API][github api] was trivial and all the information I wanted was provided by it very easily. The [Bitbucket API][bitbucket api] wasn't quite up to scratch for this however. Remarkably it doesn't expose follower and fork count on each project. Some screen-scraping was therefore required to get these totals for each of a user's projects.
 
-Do you mirror your open source projects across both GitHub and Bitbucket? Ever wonder how many people are following all your projects on both services? Give OTR a try.
+Do you mirror your open source projects across both GitHub and Bitbucket? Ever wonder how many people are following all your projects on both services? Give [One True Repo][otr] a try.
 
 #### Conclusion
 
