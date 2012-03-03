@@ -7,6 +7,7 @@ tags:
 - mezzanine
 - cartridge
 - ecommerce
+- n+1 queries
 ---
 I'm happy to announce the first release of
 [Cartridge](http://cartridge.jupo.org/) - a

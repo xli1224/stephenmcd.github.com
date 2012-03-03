@@ -4,7 +4,7 @@ title: Rails Quick Start for Djangonauts
 tags:
 - python
 - ruby
-- rails
+- ruby on rails
 - django
 ---
 

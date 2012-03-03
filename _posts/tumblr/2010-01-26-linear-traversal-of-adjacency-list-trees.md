@@ -1,10 +1,11 @@
---- 
+---
 layout: post
 title: Linear Traversal of Adjacency List Trees
-tags: 
+tags:
 - python
 - algorithms
 - data structures
+- n+1 queries
 ---
 My current project has the common requirement of storing and rendering a
 hierarchical tree of categories. This project is geared towards potentially
