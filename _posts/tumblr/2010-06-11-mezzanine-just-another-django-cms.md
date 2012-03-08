@@ -1,7 +1,7 @@
---- 
+---
 layout: post
 title: "Mezzanine: Just Another Django CMS?"
-tags: 
+tags:
 - django
 - python
 - php
@@ -73,9 +73,7 @@ to cater for basic websites with the following features:
   * Built-in threaded comments, or:
   * [Disqus](http://disqus.com/) integration
 
-![](http://media.tumblr.com/tumblr_l3su7jFBHM1qa0qji.png)
-
-The Mezzanine admin dashboard
+<em class="center"><img src="/static/img/mezzanine-original-dashboard.png"><br>The Mezzanine admin dashboard</em>
 
 I've open sourced the initial version of Mezzanine with a BSD license on both
 [github](http://github.com/stephenmcd/mezzanine) and

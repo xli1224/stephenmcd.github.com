@@ -36,6 +36,8 @@ pre code * {
 code, code * {font-family: Menlo, Monaco, 'Andale Mono', 'lucida console', 'Courier New', monospace;}
 pre, table {margin:20px 0;}
 
+th em {display:block; font-weight:normal; line-height:20px;}
+th.r, td.r {text-align:right !important;}
 tr.top th, td.y, td.n {text-align:center;}
 td.y {color:green;}
 td.n {color:red;}
@@ -44,6 +46,10 @@ td p {margin:20px 0;}
 
 blockquote {margin:30px;}
 blockquote p {font-style:italic;}
+
+img.full {width:100%;}
+em.center {text-align:center; display:block; margin:25px 0;}
+em a {font-style:italic;}
 
 @media all and (max-width: 640px) {
   .container {width:auto; padding-left:10px; padding-right:10px;}
