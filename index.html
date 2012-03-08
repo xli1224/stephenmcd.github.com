@@ -67,7 +67,7 @@ var bars = function(repos) {
                        return s.substr(0, 1).toLowerCase();
                    }).join('');
         var repo = named[title] || named[abbr];
-        var css = {width: (((repo.watchers + repo.forks) / 2.7) + 10) + 'px'};
+        var css = {width: (((repo.watchers + repo.forks) / 3) + 10) + 'px'};
         var tooltip = repo.watchers + ' watcher' + pluralize(repo.watchers) +
                       ', ' + repo.forks + ' fork' + pluralize(repo.forks);
         var bar = $('<a>').addClass('bar').css(css).attr('title', tooltip);
