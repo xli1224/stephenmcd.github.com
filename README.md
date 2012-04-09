@@ -7,7 +7,5 @@ Thanks for understanding.
 
 # License
 
-Unless noted otherwise, all files are copyright Stephen McDonald.
-
-Do not reproduce without permission.
-
+Visit the [copyright](http://blog.jupo.org/copyright/) page for complete
+information on reproducing anything found within this repository.

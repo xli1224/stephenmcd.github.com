@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:bold);
 /*
 
 Copyright Stephen McDonald. Please see LICENSE.
@@ -57,3 +58,11 @@ em a {font-style:italic;}
   .bar {display:none;}
   .title, .date {display:block; float:none;}
 }
+
+.footer-right {float:right; width:160px; text-align:right;}
+.footer-right img {width:60px; height:60px; float:left;}
+.footer-right h2 {text-decoration:none; font-family:'Yanone Kaffeesatz'; font-weight:bold; color:#666;}
+.footer-right .jupo:hover {text-decoration:none;}
+.footer-right .arrow {margin:0;}
+.footer-right .copyright {margin-right:4px;}
+
