@@ -53,16 +53,18 @@ em.center {text-align:center; display:block; margin:25px 0;}
 em img {margin-bottom:5px;}
 em a {font-style:italic;}
 
-@media all and (max-width: 640px) {
-  .container {width:auto; padding-left:10px; padding-right:10px;}
-  .bar {display:none;}
-  .title, .date {display:block; float:none;}
-}
-
 .footer-right {float:right; width:160px; text-align:right;}
 .footer-right img {width:60px; height:60px; float:left;}
 .footer-right h2 {text-decoration:none; font-family:'Yanone Kaffeesatz'; font-weight:bold; color:#666;}
 .footer-right .jupo:hover {text-decoration:none;}
 .footer-right .arrow {margin:0;}
 .footer-right .copyright {margin-right:4px;}
+
+@media all and (max-width: 640px) {
+  .container {width:auto; padding-left:10px; padding-right:10px;}
+  .bar {display:none;}
+  .title, .date {display:block; float:none;}
+  footer li {margin-bottom:10px;}
+  .footer-right {margin:-10px 5px 0 0;}
+}
 
