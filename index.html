@@ -16,7 +16,7 @@ https://github.com/stephenmcd/stephenmcd.github.com/blob/master/LICENSE
         <span class="arrow">&raquo;</span>
         <a href="{{ post.url }}">{{ post.title }}</a>
         <a class="bar" href="#" title="{{ post.content | number_of_words }} words"
-            style="width:{{ post.content | number_of_words | divided_by:10 | plus: 10 }}px;">&nbsp;</a>
+            style="width:{{ post.content | number_of_words | divided_by:14 | plus: 10 }}px;">&nbsp;</a>
     </li>
     {% endfor %}
 </ul>
@@ -55,6 +55,7 @@ var bars = function(repos) {
     $.each(repos.data, function(i, repo) {
         named[normalize(repo.name)] = repo;
     });
+    console.log(named);
     var watchers = 0, forks = 0;
     $('.projects li').each(function(i, project) {
         project = $(project);
@@ -66,14 +67,19 @@ var bars = function(repos) {
         var abbr = $.map(text.split(' '), function(s, i) {
                        return s.substr(0, 1).toLowerCase();
                    }).join('');
+                console.log(title, abbr)
         var repo = named[title] || named[abbr];
-        var css = {width: (((repo.watchers + repo.forks) / 3.5) + 10) + 'px'};
-        var tooltip = repo.watchers + ' watcher' + pluralize(repo.watchers) +
-                      ', ' + repo.forks + ' fork' + pluralize(repo.forks);
-        var bar = $('<a>').addClass('bar').css(css).attr('title', tooltip);
-        $(project).append(bar);
-        watchers += repo.watchers;
-        forks += repo.forks;
+        if (repo) {
+
+            var css = {width: (((repo.watchers + repo.forks) / 4.2) + 10) + 'px'};
+            var tooltip = repo.watchers + ' watcher' + pluralize(repo.watchers) +
+                          ', ' + repo.forks + ' fork' + pluralize(repo.forks);
+            var bar = $('<a>').addClass('bar').css(css).attr('title', tooltip);
+            $(project).append(bar);
+            watchers += repo.watchers;
+            forks += repo.forks;
+
+        }
     });
     /*
     $('.projects').append('<li class="totals">' + watchers + ' watchers, '
@@ -103,6 +109,7 @@ if (window.repos) {
         //var src = 'http://otr.jupo.org/stephenmcd?callback=bars';
         var src = 'https://api.github.com/users/stephenmcd/repos?callback=bars';
         $('head').append($('<script>').attr('src', src));
+        $('head').append($('<script>').attr('src', src + "&page=2"));
         coderwall();
     });
 }
