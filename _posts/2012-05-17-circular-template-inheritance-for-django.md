@@ -103,7 +103,7 @@ Keeping in mind that this approach is is specifically geared towards solving the
 
 This is less of an edge case and much more likely, with frameworks like Mezzanine, where it's common for people to create themes as third-party apps. The theme provides a set of templates and static files, and gets added to ``INSTALLED_APPS`` just as a regular Django app would. With the approach of overextending introduced into the eco-system, theme developers may overextend Mezzanine's templates, and project developers may overextend the theme's templates. Taking this into account, our approach so far looks quite handicapped.
 
-Again we have a state problem - the second and subsequent calls to ``overextend`` have no knowledge of the previous calls, so they can't exclude the chain of template directories that have been so far excluded when overextending.
+Again we have a state problem - the second and subsequent calls to ``overextends`` have no knowledge of the previous calls, so they can't exclude the chain of template directories that have been so far excluded when overextending.
 
 We can solve this problem by making use of the template context to store the state of directories excluded so far when using ``overextends``. We store a dictionary mapping template names to lists of directories available. In the code above, we build the full list of directories to use each time ``overextends`` is called. If we maintain that list in the template context, removing from it each time ``overextends`` is used, we can support unlimited levels of circular template inheritance.
 
@@ -180,7 +180,7 @@ def overextends(parser, token):
     return OverExtendsNode(nodelist, parent_name)
 {% endhighlight %}
 
-The final step required is to automatically add our ``overextends`` tag to Django's built-in tags. Django's ``ExtendsNode`` uses a feature where it gets marked as having to be the first tag in a template (``ExtendsNode.must_be_first`` is set to ``True``). This means that it (and subsequently our ``ExtendsNode`` subclass) need to be available without having to load the template library that implements it. This is as simply as calling the ``django.template.loader.add_to_builtins`` function from your project's settings module, passing it the Python dotted path as a string for the module that contains out ``overextends`` tag.
+The final step required is to automatically add our ``overextends`` tag to Django's built-in tags. Django's ``ExtendsNode`` uses a feature where it gets marked as having to be the first tag in a template (``ExtendsNode.must_be_first`` is set to ``True``). This means that it (and subsequently our ``ExtendsNode`` subclass) need to be available without having to load the template library that implements it. This is as simple as calling the ``django.template.loader.add_to_builtins`` function from your project's settings module, passing it the Python dotted path as a string for the module that contains out ``overextends`` tag.
 
 [template-inheritance]: https://docs.djangoproject.com/en/dev/topics/templates/#template-inheritance
 [template-loaders]: https://docs.djangoproject.com/en/dev/ref/templates/api/#loader-types
