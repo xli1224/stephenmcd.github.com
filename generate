@@ -12,4 +12,4 @@ page404.render(site.layouts, site.site_payload)
 page404.write(site.dest)
 FileUtils.mv('_site/_404/index.html', '404.html')
 FileUtils.remove_dir('_site/_404')
-`hg commit -Am "Regenerate static files."`
+#`hg commit -Am "Regenerate static files."`
