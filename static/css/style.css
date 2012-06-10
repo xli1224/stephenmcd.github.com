@@ -61,10 +61,12 @@ em a {font-style:italic;}
 .footer-right .copyright {margin-right:4px;}
 
 @media all and (max-width: 640px) {
-  .container {width:auto; padding-left:10px; padding-right:10px;}
-  .bar {display:none;}
-  .title, .date {display:block; float:none;}
-  footer li {margin-bottom:10px;}
-  .footer-right {margin:-10px 5px 0 0;}
+    .container {width:auto; padding-left:10px; padding-right:10px;}
+    .bar {display:none;}
+    .title, .date {display:block; float:none;}
+    footer li {margin-bottom:10px;}
+    .footer-right {margin:-10px 5px 0 0;}
+    .highlight {overflow-x:scroll;}
+    pre {width:618px;}
 }
 
