@@ -38,7 +38,7 @@ code, code * {font-family: Menlo, Monaco, 'Andale Mono', 'lucida console', 'Cour
 pre, table {margin:20px 0;}
 
 th em {display:block; font-weight:normal; line-height:20px;}
-th.r, td.r {text-align:right !important;}
+th.r, td.r {text-align:right !important; padding-right:40px !important;}
 tr.top th, td.y, td.n {text-align:center;}
 td.y {color:green;}
 td.n {color:red;}
