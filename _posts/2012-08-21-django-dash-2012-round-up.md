@@ -27,7 +27,7 @@ It's interesting to look at some of the recurring themes present within all of t
 * Cloud server management - *Cloud Fish, Gungnir*
 * GitHub mashups - *Badger, Heroes of Git & Hub, Mosaic, Try Box*
 * Tutorial/class creation - *Django Tutorial, Try Box, Try Try, Tutor Us*
-* Photo mashups - *Crowd Photo, Django Gallery, Gif Feed, Green Room, Lemidora, Miracles Live, The Busitizer*
+* Photo mashups - *Gif Feed, Green Room, Lemidora, Miracles Live, The Busitizer*
 * Portfolio generation - *Folio Bag, Mosaic*
 * Map mashups - *Kirchenreich, Quester*
 
