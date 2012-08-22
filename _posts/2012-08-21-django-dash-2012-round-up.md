@@ -306,7 +306,7 @@ My definite favourites are [Heroes of Git & Hub][heroes-github], which lets you 
 [drawnby]: http://drawnby.jupo.org
 [websockets]: http://en.wikipedia.org/wiki/WebSocket
 [gamblor]: http://gamblor.jupo.org
-[gamblor-source]: https://github.com/stephenmcd/gamblor
+[gamblor-github]: https://github.com/stephenmcd/gamblor
 [django]: https://www.djangoproject.com/
 [jquery]: http://jquery.com/
 [gevent-socketio]: http://pypi.python.org/pypi/gevent-socketio/
