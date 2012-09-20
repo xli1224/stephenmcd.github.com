@@ -18,7 +18,7 @@ p, li {line-height:20px;}
 .date {font-family:monospace;}
 .arrow {margin:0 5px; color:#666;}
 .tags li {color:gray; white-space:nowrap; display:inline-block;}
-.title {float:left; min-width:135px;}
+.title {float:left; min-width:150px;}
 .projects em {color:#bfbfbf; margin-left:2px;}
 .bar {background:#eee; height:13px; margin-top:4px; float:right; cursor:default;}
 .bar:hover {text-decoration:none; background:#ccc;}
@@ -58,7 +58,7 @@ em a {font-style:italic;}
 .footer-right h2 {text-decoration:none; font-family:'Yanone Kaffeesatz'; font-weight:bold; color:#666;}
 .footer-right .jupo:hover {text-decoration:none;}
 .footer-right .arrow {margin:0;}
-.footer-right .copyright {margin-right:4px;}
+.footer-right .copyright {margin-right:-3px;}
 
 @media all and (max-width: 640px) {
     .container {width:auto; padding-left:10px; padding-right:10px;}
