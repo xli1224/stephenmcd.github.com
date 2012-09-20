@@ -11,13 +11,30 @@ https://github.com/stephenmcd/stephenmcd.github.com/blob/master/LICENSE
 <h6>Articles</h6>
 <ul class="unstyled articles">
     {% for post in site.posts %}
+    {% unless post.tags contains "speaking" %}
     <li>
         <span class="date">{{ post.date | date_to_string }}</span>
         <span class="arrow">&raquo;</span>
         <a href="{{ post.url }}">{{ post.title }}</a>
         <a class="bar" href="#" title="{{ post.content | number_of_words }} words"
-            style="width:{{ post.content | number_of_words | divided_by:14 | plus: 10 }}px;">&nbsp;</a>
+            style="width:{{ post.content | number_of_words | divided_by:16 | plus: 10 }}px;">&nbsp;</a>
     </li>
+    {% endunless %}
+    {% endfor %}
+</ul>
+
+<h6>Talks</h6>
+<ul class="unstyled articles">
+    {% for post in site.posts %}
+    {% if post.tags contains "speaking" %}
+    <li>
+        <span class="date">{{ post.date | date_to_string }}</span>
+        <span class="arrow">&raquo;</span>
+        <a href="{{ post.url }}">{{ post.title }}</a>
+        <a class="bar" href="#" title="{{ post.slides }} slides"
+            style="width:{{ post.slides | times:1.5 }}px;">&nbsp;</a>
+    </li>
+    {% endif %}
     {% endfor %}
 </ul>
 
@@ -55,7 +72,7 @@ var bars = function(repos) {
     $.each(repos.data, function(i, repo) {
         named[normalize(repo.name)] = repo;
     });
-    console.log(named);
+    //console.log(named);
     var watchers = 0, forks = 0;
     $('.projects li').each(function(i, project) {
         project = $(project);
@@ -67,11 +84,11 @@ var bars = function(repos) {
         var abbr = $.map(text.split(' '), function(s, i) {
                        return s.substr(0, 1).toLowerCase();
                    }).join('');
-                console.log(title, abbr)
+                //console.log(title, abbr)
         var repo = named[title] || named[abbr];
         if (repo) {
 
-            var css = {width: (((repo.watchers + repo.forks) / 5.5) + 10) + 'px'};
+            var css = {width: (((repo.watchers + repo.forks) / 10) + 10) + 'px'};
             var tooltip = repo.watchers + ' watcher' + pluralize(repo.watchers) +
                           ', ' + repo.forks + ' fork' + pluralize(repo.forks);
             var bar = $('<a>').addClass('bar').css(css).attr('title', tooltip);

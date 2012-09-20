@@ -53,6 +53,8 @@ em.center {text-align:center; display:block; margin:25px 0;}
 em img {margin-bottom:5px;}
 em a {font-style:italic;}
 
+.speakerdeck-iframe {margin-top:15px !important;}
+
 .footer-right {float:right; width:160px; text-align:right; white-space:nowrap;}
 .footer-right img {width:60px; height:60px; float:left;}
 .footer-right h2 {text-decoration:none; font-family:'Yanone Kaffeesatz'; font-weight:bold; color:#666;}
