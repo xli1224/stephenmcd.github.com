@@ -30,7 +30,8 @@ if (window.history && window.history.pushState && !navigator.userAgent.match(/(i
                     window.history.pushState({url: url}, document.title, url);
                 }
                 document.title = title;
-                $('body').html(body);
+                document.getElementsByTagName('body')[0].innerHTML = body;
+                console.log('ldldl')
                 scrollTo(0, 0);
                 if (window._gaq) {
                   _gaq.push(['_trackPageview']);
