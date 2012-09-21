@@ -31,7 +31,6 @@ if (window.history && window.history.pushState && !navigator.userAgent.match(/(i
                 }
                 document.title = title;
                 document.getElementsByTagName('body')[0].innerHTML = body;
-                console.log('ldldl')
                 scrollTo(0, 0);
                 if (window._gaq) {
                   _gaq.push(['_trackPageview']);
