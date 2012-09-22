@@ -11,20 +11,110 @@ tags:
 
 <p>Last night I gave a talk at the third <a href="http://www.meetup.com/SyDjango/">SyDjango</a> meetup where I presented my <a href="https://github.com/stephenmcd/django-forms-builder">django-forms-builder</a> project. Below is the video and slides from the talk which went really well, spurring about a dozen questions at the end. Excuse the background noise in the video, unfortunately we didn't have the venue to ourselves. Thanks to all the fellow Sydney Djangonauts who came along and made it a great night.</p>
 
-<!--
 <script src="http://a.vimeocdn.com/js/froogaloop2.min.js"></script>
 <script>
+
+var slides = [];
+slides[1] = 0; // Start
+
+slides[2] = 36; // About me
+slides[3] = 40; // Dev since 98
+slides[4] = 47; // PHP/ASP/Rails
+slides[5] = 58; // Python since 05
+slides[6] = 64; // Django since 07
+slides[7] = 71; // At Fairfax
+
+slides[8] = 86; // Django forms
+slides[9] = 94; // Beautiful API
+slides[10] = 109; // Example
+slides[11] = 138; // Fixed in nature
+
+slides[12] = 157; // Competitions
+slides[13] = 165; // Capture age/colour
+slides[14] = 178; // Example
+
+slides[15] = 196; // Capture file/words
+slides[16] = 220; // Example
+slides[17] = 266; // Crossed out
+slides[18] = 275; // Emails
+slides[19] = 298; // CSV
+slides[20] = 314; // Piccard
+
+slides[21] = 323; // django-forms-builder
+
+slides[22] = 342; // What's a form
+slides[23] = 358; // Title
+slides[24] = 362; // Intro text
+slides[25] = 369; // Response text
+slides[26] = 379; // Email recipients
+
+slides[27] = 390; // What's a field
+slides[28] = 396; // Name
+slides[29] = 398; // Type
+slides[30] = 408; // Default
+slides[31] = 413; // Mandatory
+slides[32] = 416; // Help
+slides[33] = 419; // Options
+
+slides[34] = 446; // Demo
+
+slides[35] = 768; // Advanced features
+slides[36] = 776; // Export formats
+slides[37] = 784; // Email templates
+slides[38] = 804; // Signals
+slides[39] = 813; // Template tags
+slides[40] = 827; // Dynamic defaults
+slides[41] = 893; // Associate to models
+
+slides[42] = 904; // What's it good for
+slides[43] = 909; // Competitions
+slides[44] = 912; // Surveys
+slides[45] = 924; // Events
+slides[46] = 931; // Contact
+
+slides[47] = 947; // Installation
+slides[48] = 953; // pip install
+slides[49] = 956; // installed apps
+slides[50] = 958; // urls.py
+slides[51] = 961; // Example
+slides[52] = 969; // syncdb
+
+slides[53] = 972; // Get involved
+slides[54] = 976; // GitHub or Bitbucket
+slides[55] = 986; // 20 Contributors
+
+slides[56] = 994; // Thanks
+
+var last;
+var speakerDeck;
+
+var onSpeakerDeckPlayerReady = function(s) {
+    speakerDeck = s;
+};
+
 $(function() {
-    var player = $f($('#vimeo')[0]);
-    player.addEvent('ready', function() {
-        player.addEvent('playProgress', function(data, id) {
-            console.log(data.seconds + 's played');
+    var vimeo = $f($('#vimeo')[0]);
+    vimeo.addEvent('ready', function() {
+        vimeo.addEvent('playProgress', function(data, id) {
+            var seconds = Math.round(data.seconds);
+            for (var i = 1; i < slides.length; i++) {
+                var next = i == slides.length - 1 ? null : slides[i + 1];
+                if (seconds > slides[i] && (!next || seconds < next)) {
+                    if (i != last) {
+                        speakerDeck.goToSlide(i);
+                    }
+                    last = i;
+                    break;
+                }
+            }
         });
     });
 });
-</script>
--->
 
+</script>
 <iframe id="vimeo" src="http://player.vimeo.com/video/49907301?api=1&player_id=vimeo" style="width: 638px; height: 359px; margin:20px 0;" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
 
+<!--
 <iframe class="speakerdeck-iframe" style="width: 638px; height: 541px;" frameborder="0" src="//speakerdeck.com/embed/5057ff7207e099000205d815?" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+-->
+<script async class="speakerdeck-embed" data-id="5057ff7207e099000205d815" data-ratio="1.3333333333333333" src="//speakerdeck.com/assets/embed.js"></script>
