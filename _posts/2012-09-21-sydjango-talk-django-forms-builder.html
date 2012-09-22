@@ -11,24 +11,19 @@ tags:
 
 <p>Last night I gave a talk at the third <a href="http://www.meetup.com/SyDjango/">SyDjango</a> meetup where I presented my <a href="https://github.com/stephenmcd/django-forms-builder">django-forms-builder</a> project. Below is the video and slides from the talk which went really well, spurring about a dozen questions at the end. Excuse the background noise in the video, unfortunately we didn't have the venue to ourselves. Thanks to all the fellow Sydney Djangonauts who came along and made it a great night.</p>
 
+<!--
 <script src="http://a.vimeocdn.com/js/froogaloop2.min.js"></script>
 <script>
-
 $(function() {
-
-var player = $f($('#vimeo')[0]);
-
-// When the player is ready, add listeners for pause, finish, and playProgress
-player.addEvent('ready', function() {
-    player.addEvent('playProgress', function(data, id) {
-        console.log(data.seconds + 's played');
+    var player = $f($('#vimeo')[0]);
+    player.addEvent('ready', function() {
+        player.addEvent('playProgress', function(data, id) {
+            console.log(data.seconds + 's played');
+        });
     });
 });
-
-});
-
-
 </script>
+-->
 
 <iframe id="vimeo" src="http://player.vimeo.com/video/49907301?api=1&player_id=vimeo" style="width: 638px; height: 359px; margin:20px 0;" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
 
