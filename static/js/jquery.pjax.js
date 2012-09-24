@@ -40,8 +40,9 @@ if (window.history && window.history.pushState && !navigator.userAgent.match(/(i
 
         $('a').live('click', function(event) {
             var host = location.protocol + '//' + location.hostname
-            console.log($(this).hasClass('no-pjax'));
-            if (this.href.indexOf(host) != 0 || event.which > 1 || event.metaKey || $(this).hasClass('no-pjax')) {
+            if (this.href.substr('#') >= 0) {
+                return false;
+            } else if (this.href.indexOf(host) != 0 || event.which > 1 || event.metaKey || $(this).hasClass('no-pjax')) {
                 return true;
             }
             pjax(this.href, true);
