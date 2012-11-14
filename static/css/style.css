@@ -59,6 +59,10 @@ img.full {width:100%;}
 
 }
 
+.side-thumb {float:right; width:320px; text-align:center;
+             margin:-20px 0 0 40px; font-style:italic;}
+.side-thumb img {margin-top:20px;}
+
 em.center {text-align:center; display:block; margin:25px 0;}
 em img {margin-bottom:5px;}
 em a {font-style:italic;}
