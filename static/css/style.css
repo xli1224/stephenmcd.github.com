@@ -49,6 +49,16 @@ blockquote {margin:30px;}
 blockquote p {font-style:italic;}
 
 img.full {width:100%;}
+
+.main img {
+    padding:10px;
+    margin:10px;
+    -moz-box-shadow:    0 0 10px 0px rgba(0,0,0,.3);
+    -webkit-box-shadow: 0 0 10px 0px rgba(0,0,0,.3);
+    box-shadow:         0 0 10px 0px rgba(0,0,0,.3);
+
+}
+
 em.center {text-align:center; display:block; margin:25px 0;}
 em img {margin-bottom:5px;}
 em a {font-style:italic;}
