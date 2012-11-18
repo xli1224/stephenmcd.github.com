@@ -77,3 +77,8 @@ projects:
   url:   http://github.com/stephenmcd/hg-github
   desc:  Mercurial extension for GitHub.
   tech:  Mercurial / Python
+
+- title: Gnotty
+  url:   http://github.com/stephenmcd/gnotty
+  desc:  'Mobile IRC client, archive and bots.'
+  tech:  Django / Python
