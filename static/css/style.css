@@ -25,7 +25,6 @@ p, li {line-height:20px;}
 .totals {text-align:right; font-style:italic; color:#ddd; margin:7px 0 -10px 0; font-size:11px;}
 #coderwall {display:none; margin:30px 0 20px 0;}
 #coderwall h6 {margin-bottom:10px;}
-#coderwall img {width:65px; height:65px; margin:0 9px 3px -3px;}
 
 code {background:#eee;}
 pre {background:#222; padding:10px;}
@@ -56,8 +55,15 @@ img.full {width:100%;}
     -moz-box-shadow:    0 0 10px 0px rgba(0,0,0,.3);
     -webkit-box-shadow: 0 0 10px 0px rgba(0,0,0,.3);
     box-shadow:         0 0 10px 0px rgba(0,0,0,.3);
-
 }
+
+#coderwall img {
+    padding:0; width:65px; height:65px; margin:0 9px 3px -3px; border:0;
+    -moz-box-shadow:    none;
+    -webkit-box-shadow: none;
+    box-shadow:         none;
+}
+
 
 .side-thumb {float:right; width:320px; text-align:center;
              margin:-20px 0 0 40px; font-style:italic;}
