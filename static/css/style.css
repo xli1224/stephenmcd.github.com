@@ -51,7 +51,7 @@ blockquote p {font-style:italic;}
 img.full {width:100%;}
 
 .main img {
-    padding:10px;
+    border:10px solid #fff;
     margin:10px;
     -moz-box-shadow:    0 0 10px 0px rgba(0,0,0,.3);
     -webkit-box-shadow: 0 0 10px 0px rgba(0,0,0,.3);
