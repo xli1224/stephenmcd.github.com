@@ -1,7 +1,7 @@
---- 
+---
 layout: post
 title: Announcing gunicorn-console
-tags: 
+tags:
 - django
 - gunicorn
 - python
@@ -37,13 +37,14 @@ library](http://docs.python.org/howto/curses.html) so a simple management
 console for gunicorn seemed like the perfect opportunity to do so and as such,
 [gunicorn-console](http://github.com/stephenmcd/gunicorn-console) was born.
 
-![](http://media.tumblr.com/tumblr_l35p9x2tmU1qa0qji.jpg)
-
-As pictured above, after firing up a few gunicorn instances with varying
-parameters gunicorn-console gives you the following interface in all its 8bit
-glory:
-
-![](http://media.tumblr.com/tumblr_l35pgbDlII1qa0qji.gif)
+<em class="center">
+    <img src="/static/img/gunicorn-console-startup.jpg"><br>
+    Firing up a few gunicorn instances with varying parameters
+</em>
+<em class="center">
+    <img src="/static/img/gunicorn-console.gif"><br>
+    gunicorn-console gives you the following interface in all its 8bit glory
+</em>
 
 If you're hosting multiple applications served up via gunicorn then gunicorn-
 console should make managing them easier. I've released it with a BSD license
