@@ -7,18 +7,18 @@ https://github.com/stephenmcd/stephenmcd.github.com/blob/master/LICENSE
 */
 
 .container {width:640px; font-family:'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, sans-serif;}
-footer {border-top:3px solid #eee; margin:30px 0;}
+footer {border-top:3px solid #eee; margin:30px 0; padding-top:13px;}
 
 h1 {font-size:24px; border-bottom:3px solid #eee; padding:10px 0; margin:20px 0 0 0;}
 h4 {margin:20px 0 10px 0; line-height:22px;}
-h6 {margin:20px 0 5px 0;}
+h6 {margin:25px 0 10px 0; font-size:13px; color:#BFBFBF; text-transform:uppercase;}
 h6 a {font-weight:normal;}
 
-p, li {line-height:20px;}
-.date {font-family:monospace;}
+p, li {line-height:22px;}
+.date {font-family:monospace; color:grey;}
 .arrow {margin:0 5px; color:#666;}
 .tags li {color:gray; white-space:nowrap; display:inline-block;}
-.title {float:left; min-width:150px;}
+.title {float:left; min-width:160px;}
 .projects em {color:#bfbfbf; margin-left:2px;}
 .bar {background:#eee; height:13px; margin-top:4px; float:right; cursor:default;}
 .bar:hover {text-decoration:none; background:#ccc;}
@@ -36,6 +36,8 @@ pre code * {
 code, code * {font-family: Menlo, Monaco, 'Andale Mono', 'lucida console', 'Courier New', monospace;}
 pre, table {margin:20px 0;}
 
+td, tr {padding:10px 5px;}
+th {white-space:nowrap;}
 th em {display:block; font-weight:normal; line-height:20px;}
 th.r, td.r {text-align:right !important; padding-right:40px !important;}
 tr.top th, td.y, td.n {text-align:center;}
@@ -76,11 +78,14 @@ em a {font-style:italic;}
 #vimeo {width: 638px; height: 359px; margin:10px 0;}
 .speakerdeck-iframe {margin:20px 0 !important;}
 
-.footer-right {float:right; width:160px; text-align:right; white-space:nowrap;}
+.footer-right {float:right; width:190px; text-align:right; white-space:nowrap;}
 .footer-right img {width:60px; height:60px; float:left;}
-.footer-right h2 {text-decoration:none; font-family:'Yanone Kaffeesatz'; font-weight:bold; color:#666;}
+.footer-right h2 {
+    text-decoration:none; font-family:'Yanone Kaffeesatz';
+    font-weight:bold; color:#666; line-height:18px;
+}
 .footer-right .jupo:hover {text-decoration:none;}
-.footer-right .arrow {margin:0;}
+.footer-right a {font-size:13px;}
 
 @media all and (max-width: 640px) {
     .container {width:auto; padding-left:10px; padding-right:10px;}

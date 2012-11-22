@@ -1,7 +1,7 @@
---- 
+---
 layout: post
 title: On Modern Web Development
-tags: 
+tags:
 - asp.net
 - australia
 - django
@@ -40,8 +40,8 @@ what I'll be making reference to in the following comparisons, however you
 could just as easily swap it out with [Ruby on Rails](http://rubyonrails.org/)
 or any other modern platform and the points would be more or less equivalent.
 
-<table class="compare zebra-striped" cellpadding="8" cellspacing="0"
-align="center"><tr class="row1 top"><th>
+<table class="table table-striped">
+<tr class="row1 top"><th>
 </th><th>ASP.NET</th><th>PHP</th><th>Java</th><th>Django</th></tr><tr
 class="row2"><th>Efficiency</th><td class="n">✘</td><td
 class="n">✘</td><td class="n">✘</td><td class="y">✔</td></tr><tr

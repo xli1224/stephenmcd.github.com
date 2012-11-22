@@ -16,7 +16,7 @@ An interesting question to ask would be: *which would be the best framework to c
 
 Considering how similar the two frameworks are component-wise, one thing I did miss was a side-by-side cheat sheet for working out what each of the concepts were in Rails that I already knew well in Django. I've put one together below to help out anyone who might be picking up either framework while already knowing the other. For clarity, I've also included descriptions of each type of component, for those who haven't used either framework.
 
-<table class="zebra-striped">
+<table class="table table-striped">
 <tr>
     <th>Django</th>
     <th>Ruby on Rails</th>

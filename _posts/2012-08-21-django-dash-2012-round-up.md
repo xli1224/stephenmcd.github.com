@@ -33,7 +33,7 @@ It's interesting to look at some of the recurring themes present within all of t
 
 My definite favourites are [Heroes of Git & Hub][heroes-github], which lets you battle your open source projects against others in a D&D style game, and [The Busitizer][busitizer] which I'll just leave for you to check out for yourself.
 
-<table class="zebra-striped">
+<table class="table table-striped">
 <tr>
     <th>Title</th>
     <th>Description</th>
