@@ -32,7 +32,7 @@ def show_branch(parent, depth=0):
 {% endhighlight %}
 
 Worst case here is _O_(n²) performance but thanks to [Python's lightning fast
-hashtable implementation](http://wiki.python.org/moin/DictionaryKeys) we can
+hash table implementation](http://wiki.python.org/moin/DictionaryKeys) we can
 create a copy of the tree as a dictionary of branches giving us _O_(n) overall
 performance when traversing the entire tree.
 

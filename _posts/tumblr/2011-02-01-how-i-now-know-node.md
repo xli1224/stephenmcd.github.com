@@ -1,7 +1,7 @@
---- 
+---
 layout: post
 title: How I Now Know Node
-tags: 
+tags:
 - coffeescript
 - javascript
 - node.js
@@ -51,7 +51,7 @@ I've named [Grillode](http://chat.jupo.org/about) (yes you guessed it: Grillo
 lets you run it in various modes, such as a customer support queue, or with
 [Chatroulette](http://en.wikipedia.org/wiki/Chatroulette) style random match-
 ups. I've released the source onto
-[Github](http://github.com/stephenmcd/grillode) and
+[GitHub](http://github.com/stephenmcd/grillode) and
 [Bitbucket](http://bitbucket.org/stephenmcd/grillode), and also have [a demo
 up and running](http://chat.jupo.org/).
 
@@ -80,8 +80,8 @@ everything required in a single step.
 [Express](http://expressjs.com/) provides basic URL routing to functions that
 will typically perform some application logic and hand off data to a template
 to be rendered. It contains integration points for a handful of different
-templating libraries and it also contains a simple middleware system. I’d
-definitely consider it to be a micro framework, but it’s a great start at
+templating libraries and it also contains a simple middleware system. I'd
+definitely consider it to be a micro framework, but it's a great start at
 whipping your Node.js application into a well defined structure.
 
 #### Socket.io
@@ -93,7 +93,7 @@ required. This provides the communication channel between the client and the
 server, which attempts to use [web
 sockets](http://en.wikipedia.org/wiki/WebSockets) when available, and
 transparently falls back to Flash sockets or even old-school AJAX polling if
-the former options aren’t supported by the browser.
+the former options aren't supported by the browser.
 
 It then provides all of the methods and event handlers for connecting and
 sending data over the connection. The beauty behind how this is implemented is
@@ -104,10 +104,10 @@ without requiring any new requests to the server.
 
 #### CoffeeScript
 
-As many others have done, I’ve often compared JavaScript to Python in that
+As many others have done, I've often compared JavaScript to Python in that
 they both share an object model defined by a hash table of names and object
 members, which can be introspected and dynamically modified. While this is a
-very elegant model, JavaScript boasts syntax reminiscant of the turn of the
+very elegant model, JavaScript boasts syntax reminiscent of the turn of the
 century, cluttered with semicolons and braces, and missing a handful of
 features found in modern languages such as list comprehensions and much more.
 Well [the war on semicolons is over](http://www.americanscientist.org/issues/i
@@ -140,9 +140,9 @@ but makes writing non-trivial logic difficult to do.
 I then discovered a Node.js template library called
 [Coffeekup](http://coffeekup.org/), that tied in very closely with the time I
 had already spent with CoffeeScript. Coffeekup allows you to define your HTML
-entirely in CoffeeScript. I’m still undecided on whether this is a thing of
-beauty or horror. It’s very surreal to work with web page markup expressed
-entirely in programming code. I guess there’s somewhat of an undeserved
+entirely in CoffeeScript. I'm still undecided on whether this is a thing of
+beauty or horror. It's very surreal to work with web page markup expressed
+entirely in programming code. I guess there's somewhat of an undeserved
 feeling of the presentation being too closely tied to programming logic. There
 is a magical feeling in having your server code, client code and presentation
 code all in the exact same language, coupled with the given language being
@@ -151,7 +151,7 @@ CoffeeScript which is incredibly clean.
 #### Conclusion
 
 I really enjoyed working with Node.js and the young ecosystem surrounding it.
-At this point in time, I wouldn’t consider it for a typical project over a
+At this point in time, I wouldn't consider it for a typical project over a
 full stack framework like Django with the elegance of Python, however it
 definitely serves as a fantastic choice for a very specific criteria -
 scalable, real time web applications.

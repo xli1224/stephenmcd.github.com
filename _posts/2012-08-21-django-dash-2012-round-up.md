@@ -141,7 +141,7 @@ My definite favourites are [Heroes of Git & Hub][heroes-github], which lets you 
 </tr>
 <tr>
   <td>Heroes of Git & Hub</td>
-  <td><em>Battles of Github projects</em></td>
+  <td><em>Battles of GitHub projects</em></td>
   <td class="r">2</td>
   <td><a href="http://hgh.dev8.ru/">Site</a></td>
   <td><a href="https://github.com/quantum13/hgh">Source</a></td>

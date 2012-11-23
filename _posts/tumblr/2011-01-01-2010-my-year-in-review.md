@@ -33,7 +33,7 @@ Cartridge.](http://cartridge.jupo.org/)
 The reception Mezzanine has received has been nothing short of amazing and
 well beyond anything I had anticipated. It's been an incredibly rewarding
 learning experience, managing product development and working closely with its
-contributors towards growing its community. Here are a few stats for the
+contributors towards growing its community. Here are a few statistics for the
 project only 6 months since it was launched:
 
   * 120 followers and 30 forks across [GitHub](https://github.com/stephenmcd/mezzanine) and [Bitbucket](https://bitbucket.org/stephenmcd/mezzanine)

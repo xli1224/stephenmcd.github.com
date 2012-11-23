@@ -15,7 +15,7 @@ I'm happy to announce the first release of
 working on back in 2009. The development path that Cartridge has taken has
 been a strange one. I stopped working on it throughout 2010 in order to get
 the ball rolling with a project called [Mezzanine](http://mezzanine.jupo.org/)
-that I've [blogged about previously](http://blog.jupo.org/2010/06/11
+that I've [written about previously](http://blog.jupo.org/2010/06/11
 /mezzanine-just-another-django-cms/). Many parts of Mezzanine actually
 originated in Cartridge and once development of Mezzanine was well under way
 it made the most sense for continued development of Cartridge to occur as a
@@ -39,7 +39,7 @@ only solution was to throw a ton of fine-grained
 [memcached](http://memcached.org) usage at the problem, but this should be a
 optional approach to scalability - not a minimum requirement for keeping the
 site from falling offline. Cartridge has been designed with performance in
-mind from the start with a range of denormalized data structures providing
+mind from the start with a range of denormalised data structures providing
 O(n) performance as the number of products and categories grow.
 
 #### Intuitive Interfaces

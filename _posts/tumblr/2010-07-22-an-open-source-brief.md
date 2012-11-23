@@ -1,7 +1,7 @@
---- 
+---
 layout: post
 title: An Open Source Brief
-tags: 
+tags:
 - python
 - django
 - open source
@@ -28,8 +28,7 @@ myself alone - it's thanks to the incredibly rapid development that using
 quickly. For those readers who aren't familiar with it please go ahead and
 check out the [overview](http://mezzanine.jupo.org/docs/overview.html) in the
 [documentation](http://mezzanine.jupo.org/docs/), play around with the [live
-demo](http://mezzanine.jupo.org/blog/) and have a read of my [previous blog
-post](http://blog.jupo.org/2010/06/11/mezzanine-just-another-django-cms/) that
+demo](http://mezzanine.jupo.org/blog/) and have a read of my [previous article](http://blog.jupo.org/2010/06/11/mezzanine-just-another-django-cms/) that
 talks about why I started Mezzanine and what I hope to achieve.
 
 _Why would I want to help?_

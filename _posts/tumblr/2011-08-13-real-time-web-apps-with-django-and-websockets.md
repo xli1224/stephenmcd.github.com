@@ -25,7 +25,7 @@ server, and therefore require long running requests per user.
 A variety of patterns for dealing with WebSockets in Django emerged while
 developing DrawnBy, and since the Dash I've been working on abstracting these
 into a reusable Django application called [django-socketio](https://github.com/stephenmcd/django-socketio) which I've released
-today. It's available on [Github](https://github.com/stephenmcd/django-
+today. It's available on [GitHub](https://github.com/stephenmcd/django-
 socketio), [Bitbucket](https://bitbucket.org/stephenmcd/django-socketio) and
 [PyPI](http://pypi.python.org/pypi/django-socketio/).
 

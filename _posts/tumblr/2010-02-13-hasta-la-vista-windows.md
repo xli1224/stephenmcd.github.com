@@ -21,7 +21,7 @@ Fast forward to 2010 and in my workplace the migration from a Microsoft
 development shop to a Linux/Python shop after several years is finally
 complete, paving the way for this latest install. I did experience a couple of
 hiccups that hadn't happened before. Firstly I have dual wide-screen monitors
-at work and I rotate one of them 90 degrees in order to maximize the amount of
+at work and I rotate one of them 90 degrees in order to maximise the amount of
 visible code on my screen. The display properties in Ubuntu only gave me the
 ability to flip the display 180 degrees which seemed quite odd so I then tried
 to manually rotate the display with the

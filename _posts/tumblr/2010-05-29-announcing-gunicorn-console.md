@@ -26,9 +26,9 @@ serving a single application, but really come into play when serving dozens of
 applications this way on a single server:
 
   * How can we deal with the signals interface without knowledge of process IDs?
-  * How can we gain visiblity around the ports being used?
-  * How can we gain visiblity around the number of worker procesess being used?
-  * How can we gain visiblity around the amount of memory being used per application?
+  * How can we gain visibility around the ports being used?
+  * How can we gain visibility around the number of worker processes being used?
+  * How can we gain visibility around the amount of memory being used per application?
 
 All of these can be answered with a small amount of command-line-fu, however I
 wanted this process to be ridiculously easy for our entire team. For quite

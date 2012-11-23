@@ -68,11 +68,11 @@ What about the developer that needs to work with all of these different
 technologies each day, can they be expected to be experts in several different
 IDEs and switch between them freely? If only these different programming
 environments could be used from the same editor - what a joy it would be as a
-practicing polyglot!
+practising polyglot!
 
 On the plus side languages like C# and Java are relatively clean and
-consistant when compared to abominations such as PHP, which truly is a
-disorganized mess - functions named using both verb_noun and noun_verb, lots
+consistent when compared to abominations such as PHP, which truly is a
+disorganised mess - functions named using both verb_noun and noun_verb, lots
 of similar functions with no apparent naming convention (Eg: `sort()`,
 `arsort()`, `asort()`, `ksort()`, `natsort()`, `natcasesort()`, `rsort()`,
 `usort()`, `array_multisort()`, `uksort()`) and a weak type system that can
@@ -81,7 +81,7 @@ lead to bugs which are difficult to discover.
 These languages stand in great contrast to modern dynamic languages such as
 Python and Ruby. Ask any Python or Ruby developer which IDE they use and the
 majority of them will tell you they don't need one. These languages are terse,
-use flat heirarchies in their libraries and are incredibly expressive.
+use flat hierarchies in their libraries and are incredibly expressive.
 
 #### Security
 
@@ -99,7 +99,7 @@ facing Internet services based on a Windows stack.
 
 Inversely we have PHP that while typically deployed on a LAMP stack built with
 security in mind, the language itself makes writing secure applications an
-extemely disciplined task. One need look no further than the [ongoing range of
+extremely disciplined task. One need look no further than the [ongoing range of
 security issues](http://secunia.com/advisories/product/6745/?task=advisories)
 that have plagued applications such as Wordpress over the years: SQL
 injection, cross site scripting (XSS), remote code execution - it's like an
@@ -165,7 +165,7 @@ ASP.NET, Java and PHP developers outnumber Python and Ruby developers by the
 hundreds if not thousands. This is a great selling point to technical decision
 makers - the ability to quickly and easily hire developers when the need
 arises is critical. But what of the quality of these developers? An
-interesting question to pose is why a developer who specializes in .NET or PHP
+interesting question to pose is why a developer who specialises in .NET or PHP
 chose their particular technology. Answer: because that's what everyone else
 uses. You certainly won't find a developer who has gone out and thoroughly
 investigated a broad range of different languages coming back and choosing
@@ -194,7 +194,7 @@ Applications like [Wordpress](http://wordpress.org/) and
 [Magento](http://www.magentocommerce.com/) may work fine off the shelf for an
 end user, but what type of path have you created for your customer by
 implementing technology that gets closer and closer to its end of life the
-more it's customized?
+more it's customised?
 
 In conclusion - developers and CEOs, challenge your technical decision makers
 to overcome their complacency and invest in technology of the future. Push
