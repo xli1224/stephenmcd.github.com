@@ -17,7 +17,7 @@ https://github.com/stephenmcd/stephenmcd.github.com/blob/master/LICENSE
         <span class="arrow">&raquo;</span>
         <a href="{{ post.url }}">{{ post.title }}</a>
         <a class="bar" href="#" title="{{ post.content | number_of_words }} words"
-            style="width:{{ post.content | number_of_words | divided_by:20 | plus: 10 }}px;">&nbsp;</a>
+            style="width:{{ post.content | number_of_words | divided_by:18 | plus: 10 }}px;">&nbsp;</a>
     </li>
     {% endunless %}
     {% endfor %}
@@ -32,7 +32,7 @@ https://github.com/stephenmcd/stephenmcd.github.com/blob/master/LICENSE
         <span class="arrow">&raquo;</span>
         <a class="no-pjax" href="{{ post.url }}">{{ post.title }}</a>
         <a class="bar" href="#" title="{{ post.slides }} slides"
-            style="width:{{ post.slides | times:1.5 }}px;">&nbsp;</a>
+            style="width:{{ post.slides | times:2 }}px;">&nbsp;</a>
     </li>
     {% endif %}
     {% endfor %}
@@ -66,7 +66,7 @@ https://github.com/stephenmcd/stephenmcd.github.com/blob/master/LICENSE
 var bars = function(repos) {
     window.repos = repos;
     var normalize = function(s) {
-        return s.toLowerCase().replace(/-| /g, '');
+        return s ? s.toLowerCase().replace(/-| /g, '') : '';
     };
     var named = {};
     $.each(repos.data, function(i, repo) {
@@ -116,7 +116,7 @@ var bars = function(repos) {
     }).mouseout(function() {
        $(this).parent().removeClass('over')
 */
-    }).twipsy({placement: 'right', animate: false});
+    }).tooltip({placement: 'right', animate: false});
 };
 if (window.repos) {
     bars(window.repos);

@@ -5,26 +5,29 @@ Copyright Stephen McDonald. Please see LICENSE.
 https://github.com/stephenmcd/stephenmcd.github.com/blob/master/LICENSE
 
 */
-
-.container {width:640px; font-family:'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, sans-serif;}
+body {font-size:16px; background-color:rgb(253,253,253);}
+.container {width:666px; font-family:Palatino, Georgia, serif;}
 footer {border-top:3px solid #eee; margin:30px 0; padding-top:13px;}
 
-h1 {font-size:24px; border-bottom:3px solid #eee; padding:10px 0; margin:20px 0 0 0;}
-h4 {margin:20px 0 10px 0; line-height:22px;}
-h6 {margin:25px 0 10px 0; font-size:13px; color:#BFBFBF; text-transform:uppercase;}
+h1 {font-size:27px; border-bottom:3px solid #eee; padding:10px 0; margin:20px 0 0 0;}
+h4 {margin:25px 0 0 0; font-size:19px; line-height:22px;}
+h6 {margin:25px 0 10px 0; font-size:14px; color:#BFBFBF; text-transform:uppercase;}
 h6 a {font-weight:normal;}
 
-p, li {line-height:22px;}
-.date {font-family:monospace; color:grey;}
+p {margin:15px 0; text-align:justify;}
+p, li {line-height:23px;}
+ul, ol {margin-top:15px;}
+.date {font-family:monospace; color:grey; font-size:14px;}
 .arrow {margin:0 5px; color:#666;}
 .tags li {color:gray; white-space:nowrap; display:inline-block;}
-.title {float:left; min-width:160px;}
+.title {float:left; min-width:170px;}
 .projects em {color:#bfbfbf; margin-left:2px;}
-.bar {background:#eee; height:13px; margin-top:4px; float:right; cursor:default;}
+.bar {background:#eee; height:14px; margin-top:4px; float:right; cursor:default;}
 .bar:hover {text-decoration:none; background:#ccc;}
+.tooltip {font-family:sans-serif;}
 .totals {text-align:right; font-style:italic; color:#ddd; margin:7px 0 -10px 0; font-size:11px;}
 #coderwall {display:none; margin:30px 0 20px 0;}
-#coderwall h6 {margin-bottom:10px;}
+#coderwall h6 {margin-bottom:15px;}
 
 code {background:#eee;}
 pre {background:#222; padding:10px;}
@@ -60,7 +63,7 @@ img.full {width:100%;}
 }
 
 #coderwall img {
-    padding:0; width:65px; height:65px; margin:0 9px 3px -3px; border:0;
+    padding:0; width:69px; height:69px; margin:0 10px 5px -5px; border:0;
     -moz-box-shadow:    none;
     -webkit-box-shadow: none;
     box-shadow:         none;
@@ -75,7 +78,7 @@ em.center {text-align:center; display:block; margin:25px 0;}
 em img {margin-bottom:5px;}
 em a {font-style:italic;}
 
-#vimeo {width: 638px; height: 359px; margin:10px 0;}
+#vimeo {width: 664px; height: 383px; margin:10px 0;}
 .speakerdeck-iframe {margin:20px 0 !important;}
 
 .footer-right {float:right; width:190px; text-align:right; white-space:nowrap;}

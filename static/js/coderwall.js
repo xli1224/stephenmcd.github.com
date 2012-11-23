@@ -9,7 +9,7 @@ var coderwall = function() {
                 '"><img src="' + item.badge + '"></a>'));
         });
         $("#coderwall").show();
-        $("#coderwall a").twipsy({placement: 'above', offset:50, animate: false});
+        $("#coderwall a").tooltip({placement: 'top', offset:50, animate: false});
     };
 
     if (window.badges) {
