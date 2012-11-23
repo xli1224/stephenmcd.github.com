@@ -81,7 +81,7 @@ em a {font-style:italic;}
 #vimeo {width: 664px; height: 383px; margin:10px 0;}
 .speakerdeck-iframe {margin:20px 0 !important;}
 
-.footer-right {float:right; width:190px; text-align:right; white-space:nowrap;}
+.footer-right {float:right; margin-top:10px; width:190px; text-align:right; white-space:nowrap;}
 .footer-right img {width:60px; height:60px; float:left;}
 .footer-right h2 {
     text-decoration:none; font-family:'Yanone Kaffeesatz';
