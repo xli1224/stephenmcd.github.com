@@ -95,7 +95,7 @@ em a {font-style:italic;}
     .bar {display:none;}
     .title, .date {display:block; float:none;}
     footer li {margin-bottom:10px;}
-    .footer-right {margin:-10px 5px 0 0;}
+    .footer-right {margin:10px 5px 0 0;}
     .highlight {overflow-x:scroll;}
     pre {width:618px;}
 }
