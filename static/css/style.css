@@ -17,7 +17,7 @@ h6 a {font-weight:normal;}
 p {margin:15px 0; text-align:justify;}
 p, li {line-height:23px;}
 ul, ol {margin-top:15px;}
-.date {font-family:monospace; color:grey; font-size:14px;}
+.date {color:grey; font-size:13px;}
 .arrow {margin:0 5px; color:#666;}
 .tags li {color:gray; white-space:nowrap; display:inline-block;}
 .title {float:left; min-width:170px;}
@@ -36,7 +36,8 @@ pre code * {
     font-weight:normal !important; background-color:inherit !important;
     text-decoration:none !important;
 }
-code, code * {font-family: Menlo, Monaco, 'Andale Mono', 'lucida console', 'Courier New', monospace;}
+.date, code, code * {font-family: Menlo, Monaco, 'Andale Mono', 'lucida console', 'Courier New', monospace;}
+pre {line-height:18px;}
 pre, table {margin:20px 0;}
 
 td, tr {padding:10px 5px;}
