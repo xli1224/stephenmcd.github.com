@@ -95,7 +95,7 @@ Considering how similar the two frameworks are component-wise, one thing I did m
 <tr>
     <td><a href="http://www.virtualenv.org/">Virtualenv</a></td>
     <td><a href="http://beginrescueend.com/">RVM</a></td>
-    <td>The system used for running isolated environments bound to a particular language version, combined with a set of install libraries.</td>
+    <td>The system used for running isolated environments bound to a particular language version, combined with a set of installed libraries.</td>
 </tr>
 <tr>
     <td><a href="http://www.pip-installer.org/">PIP</a></td>
