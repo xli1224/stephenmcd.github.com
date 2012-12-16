@@ -77,7 +77,7 @@ With IRC events, user commands and webhooks, a ton of interesting possibilities 
 
 #### Next Steps
 
-I've given an overview here of the core features that Gnotty implements in its first release. Take a look at the [Gnotty documentation][gnotty-github] where all of the features are described in much greater detail, along with configuration options and code samples to get you started. As with all my open source projects, Gnotty is available on both [GitHub][gnotty-github] and [Bitbucket][gnotty-bitbucket], so if you'd like to work with me on future development then by all means dive right in.
+I've given an overview here of the core features that Gnotty implements in its first release. Take a look at the [Gnotty documentation][gnotty-readme] where all of the features are described in much greater detail, along with configuration options and code samples to get you started. As with all my open source projects, Gnotty is available on both [GitHub][gnotty-github] and [Bitbucket][gnotty-bitbucket], so if you'd like to work with me on future development then by all means dive right in.
 
 I think there's a ton of possibilities around future development, particularly around the idea of private rooms for team collaboration. I'd love to see IRC's [DCC send][dcc-send] supported, where team members could send files to each other that are uploaded and streamed backed down directly through the browser. Also Gnotty is currently designed to only work with a single IRC room, so support for multiple rooms is another obvious direction for future development to take.
 
@@ -116,6 +116,7 @@ Finally if you're keen to see Gnotty in action, you can see a skinned version of
 [github]: https://github.com
 [bitbucket]: https://bitbucket.org
 [voltron]: http://www.youtube.com/watch?v=tZZv5Z2Iz_s
+[gnotty-readme]: https://github.com/stephenmcd/gnotty#gnotty
 [gnotty-github]: https://github.com/stephenmcd/gnotty
 [gnotty-bitbucket]: https://bitbucket.org/stephenmcd/gnotty
 [dcc-send]: http://en.wikipedia.org/wiki/Direct_Client-to-Client
