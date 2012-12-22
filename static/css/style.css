@@ -15,7 +15,7 @@ h6 {margin:25px 0 10px 0; font-size:14px; color:#BFBFBF; text-transform:uppercas
 h6 a {font-weight:normal;}
 
 p {margin:15px 0; text-align:justify;}
-p, li {line-height:23px;}
+p, li {line-height:150%;}
 ul, ol {margin-top:15px;}
 .date {color:grey; font-size:13px;}
 .arrow {margin:0 5px; color:#666;}

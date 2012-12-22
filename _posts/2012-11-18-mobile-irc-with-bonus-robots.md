@@ -65,7 +65,7 @@ This is another bonus feature simply available by virtue of Gnotty integrating w
 
 #### Bot Framework
 
-Here's where things really got carried away. Gnotty includes a mini framework for injecting [IRC bots][irc-bots] into the room. The bots expose all of the events that can occur in the IRC room, such as users messaging, entering and leaving. The bots also include an API for creating simple Python commands, where user messages can be mapped to Python methods on the bot. Finally, since Gnotty at its core is a web interface, the bots also allow [webhooks][webhooks] to be implemented - custom URLs that allow other services to interact with the bots over HTTP.
+Here's where things really got carried away. Gnotty includes a mini framework for injecting [IRC bots][irc-bots] into the room. The bots expose all of the events that can occur in the IRC room, such as users messaging, entering and leaving. The bots also include an API for creating simple Python commands, where user messages can be mapped to Python methods on the bot. Bots can also have timed events implemented, that run periodically at a given interval, and are useful for polling external resources. Finally, since Gnotty at its core is a web interface, the bots also allow [webhooks][webhooks] to be implemented - custom URLs that allow other services to interact with the bots over HTTP.
 
 With IRC events, user commands and webhooks, a ton of interesting possibilities open up for building IRC bots that perform a variety of tasks. Gnotty also provides a handful of default bots to get you started with:
 
@@ -73,6 +73,7 @@ With IRC events, user commands and webhooks, a ton of interesting possibilities 
 - `GitHubBot` - A bot for relaying commit information from [GitHub][github]
 - `BitBucketBot` - A bot for relaying commit information from [Bitbucket][bitbucket]
 - `CommandBot` - A bot that implements a handful of basic commands that can be issued by users in the channel.
+- `RSSBot` - A bot that watches [RSS][rss] feeds and posts new items from them to the IRC channel.
 - `Voltron` - All of the available bots, merged into one [super bot][voltron].
 
 #### Next Steps
@@ -115,6 +116,7 @@ Finally if you're keen to see Gnotty in action, you can see a skinned version of
 [webhooks]: http://en.wikipedia.org/wiki/Webhook
 [github]: https://github.com
 [bitbucket]: https://bitbucket.org
+[rss]: http://en.wikipedia.org/wiki/RSS
 [voltron]: http://www.youtube.com/watch?v=tZZv5Z2Iz_s
 [gnotty-readme]: https://github.com/stephenmcd/gnotty#gnotty
 [gnotty-github]: https://github.com/stephenmcd/gnotty
