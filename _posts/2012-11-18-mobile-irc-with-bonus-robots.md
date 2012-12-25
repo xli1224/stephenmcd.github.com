@@ -2,6 +2,7 @@
 layout: post
 title: Mobile IRC with Bonus Robots
 tags:
+- gnotty
 - irc
 - websockets
 - socket.io
@@ -65,15 +66,15 @@ This is another bonus feature simply available by virtue of Gnotty integrating w
 
 #### Bot Framework
 
-Here's where things really got carried away. Gnotty includes a mini framework for injecting [IRC bots][irc-bots] into the room. The bots expose all of the events that can occur in the IRC room, such as users messaging, entering and leaving. The bots also include an API for creating simple Python commands, where user messages can be mapped to Python methods on the bot. Bots can also have timed events implemented, that run periodically at a given interval, and are useful for polling external resources. Finally, since Gnotty at its core is a web interface, the bots also allow [webhooks][webhooks] to be implemented - custom URLs that allow other services to interact with the bots over HTTP.
+Here's where things really got carried away. Gnotty includes a mini framework for injecting [IRC bots][irc-bots] into the room. The bots expose all of the events that can occur in the IRC channel, such as users messaging, entering and leaving. The bots also include an API for creating simple Python commands, where user messages can be mapped to Python methods on the bot. Bots can also have timer events implemented ([new in 0.2][0.2-release]), that run periodically at a given interval, and are useful for polling external resources. Finally, since Gnotty at its core is a web interface, the bots also allow [webhooks][webhooks] to be implemented - custom URLs that allow other services to interact with the bots over HTTP.
 
-With IRC events, user commands and webhooks, a ton of interesting possibilities open up for building IRC bots that perform a variety of tasks. Gnotty also provides a handful of default bots to get you started with:
+With IRC channel events, user commands and webhooks, a ton of interesting possibilities open up for building IRC bots that perform a variety of tasks. Gnotty also provides a handful of default bots to get you started with:
 
 - `ChatBot` - A bot that demonstrates interacting with the IRC channel by greeting and responding to other users.
 - `GitHubBot` - A bot for relaying commit information from [GitHub][github]
 - `BitBucketBot` - A bot for relaying commit information from [Bitbucket][bitbucket]
 - `CommandBot` - A bot that implements a handful of basic commands that can be issued by users in the channel.
-- `RSSBot` - A bot that watches [RSS][rss] feeds and posts new items from them to the IRC channel.
+- `RSSBot` - A bot that watches [RSS][rss] feeds and posts new items from them to the IRC channel ([new in 0.2][0.2-release]).
 - `Voltron` - All of the available bots, merged into one [super bot][voltron].
 
 #### Next Steps
@@ -113,6 +114,7 @@ Finally if you're keen to see Gnotty in action, you can see a skinned version of
 [django-auth]: https://docs.djangoproject.com/en/dev/topics/auth/
 [ngircd]: http://ngircd.barton.de/
 [irc-bots]: http://en.wikipedia.org/wiki/Internet_Relay_Chat_bot
+[0.2-release]: /2012/12/25/gnotty-0.2-released/
 [webhooks]: http://en.wikipedia.org/wiki/Webhook
 [github]: https://github.com
 [bitbucket]: https://bitbucket.org
