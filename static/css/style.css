@@ -14,7 +14,7 @@ h4 {margin:25px 0 0 0; font-size:19px; line-height:22px;}
 h6 {margin:25px 0 10px 0; font-size:14px; color:#BFBFBF; text-transform:uppercase;}
 h6 a {font-weight:normal;}
 
-p {margin:15px 0; text-align:justify;}
+p {margin:15px 0;} /* text-align:justify;}*/
 p, li {line-height:150%;}
 ul, ol {margin-top:15px;}
 .date {color:grey; font-size:13px;}
@@ -30,7 +30,7 @@ ul, ol {margin-top:15px;}
 #coderwall h6 {margin-bottom:15px;}
 
 code {background:#eee;}
-pre {background:#222; padding:10px;}
+pre {background:#222; padding:15px;}
 pre code {padding:0; background-color:inherit !important;}
 pre code * {
     font-weight:normal !important; background-color:inherit !important;
@@ -63,13 +63,14 @@ img.full {width:100%;}
     box-shadow:         0 0 10px 0px rgba(0,0,0,.3);
 }
 
-#coderwall img {
-    padding:0; width:69px; height:69px; margin:0 10px 5px -5px; border:0;
-    -moz-box-shadow:    none;
-    -webkit-box-shadow: none;
-    box-shadow:         none;
+#coderwall img, .noborder {
+    -moz-box-shadow:    none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow:         none !important;
 }
 
+.noborder {border:0 !important; margin:0 !important;}
+#coderwall img {padding:0; width:69px; height:69px; margin:0 10px 5px -5px; border:0;}
 
 .side-thumb {float:right; width:320px; text-align:center;
              margin:-20px 0 0 40px; font-style:italic;}
