@@ -427,7 +427,7 @@ func (client *ZMQClient) Receive() Message {
 
 The [redigo][redigo] Redis library for Go used here is quite different from its Python counterpart. Under the hood, it uses Go's [bufio][go-bufio] package, which in conjunction with a network connection, provides buffered reads and writes over the network, so there's no need for a separate API analogous to redis-py's pipelining, as buffering is a fundamental aspect of the client. As you can see though, in the ``NewRedisClient`` function, we still need to set up mechanics for periodically flushing any buffered data in order to support the low-volume case, so it's not entirely magical.
 
-The astute reader will have noticed we don't implement ``RedisClient.Subscribe`` and ``RedisClient.Publish`` methods - this is due to the unnamed embedded ``redis.PubSubConn`` within ``RedisClient``, which already contains these methods. By embedding it without a name, its methods are directly accessible from the outer type. This is a really powerful feature of Go, allowing very elegant types to be built using mixins.
+The astute reader will have noticed we don't implement ``RedisClient.Subscribe`` and ``RedisClient.Publish`` methods - this is due to the unnamed embedded ``redis.PubSubConn`` within ``RedisClient``, which already contains these methods. By embedding it without a name, its methods are directly accessible from the outer type. This is a really powerful feature of Go, allowing very elegant type hierarchies to be constructed using mixins.
 
 #### And The Winner Is...
 
