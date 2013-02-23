@@ -437,7 +437,7 @@ You the reader of course, for making it this far through this post. Seriously th
 
 Before we go any further, it's important to highlight some key differences between the Python and Go test routines. As mentioned, the Go version isn't particularly interesting, as the code is almost identical to the Python version. The *way* it runs however, and makes use of the available hardware, is very different. In the Python version, our best shot at making use of all available cores is to run each publisher and subscriber routine in a separate Python interpreter, each running on a single OS process. Go's goroutines paint an entirely different picture. With only a single pub-sub client, we're able to consume all available CPU cores using a single OS process - Go manages all of the parallelism for you. So we end up achieving the highest volume in messages with a single client, given that it can consume all available cores without any contention coming into play.
 
-So this isn't at all a comparison between Python and Go, since we'd be comparing apple pies to orange juice. But that's fine, as it was never the point. The switch to Go merely allowed us to make better use of the available hardware, in order to reach a point in message throughput where we could actually see a variance between Redis and ZeroMQ.
+So this isn't at all a comparison between Python and Go, since we'd be comparing apple pies to orange juice. But that's fine, as it was never the point. The switch to Go merely allowed us to make better use of the available hardware, in order to reach a point in message throughput where we could potentially see a greater variance between Redis and ZeroMQ.
 
 #### Conclusion
 
