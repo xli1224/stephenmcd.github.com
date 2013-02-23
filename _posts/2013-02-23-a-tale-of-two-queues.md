@@ -251,7 +251,7 @@ These results look quite grim, and have a couple of stand-out points. Firstly, t
 
 The second point is more interesting. Relatively speaking, Redis seems quite slow, and more obviously, we see almost no change based on the amount of concurrent work happening. After a bit of digging around, it turns out the redis-py client will send each pub-sub message over the wire individually, while ZeroMQ will internally manage buffering messages for you, sending them out when it deems optimally appropriate.
 
-So Redis hits a wall quite early here, while ZeroMQ obviously has a huge advantage. In a real-world application this distinction may not exist, with high messages volumes derived from the number of clients, rather than the amount of messages generated per individual client. For our test vacuum though, it's a real problem. Fortunately the redis-py client provides the ability to pipeline messages in batches, so we can easily get Redis back on even ground with ZeroMQ by providing a custom pub-sub client that makes use of Redis pipelining.
+So Redis hits a wall quite early here, while ZeroMQ obviously has a huge advantage. In a real-world application this distinction may not exist, with high message volume derived from the number of clients, rather than the amount of messages generated per individual client. For our test vacuum though, it's a real problem. Fortunately the redis-py client provides the ability to pipeline messages in batches, so we can easily get Redis back on even ground with ZeroMQ by providing a custom pub-sub client that makes use of Redis pipelining.
 
 {% highlight python %}
 import thread
