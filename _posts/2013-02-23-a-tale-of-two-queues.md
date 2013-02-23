@@ -247,7 +247,7 @@ And here are the initial results:
 
 <em class="center"><img class="noborder" src="/static/img/two-queues-1.png"></em>
 
-These results look quite grim, and have a couple of stand-out points. Firstly, the volume of messages produced and consumed by our benchmark script when run against the ZeroMQ broker, is fairly bound to the number of CPU cores being consumed. We see an increase message volume as we increase the number of processes being used, until we're utilising all available cores, after which point we see a drop off due to contention. No surprises there really.
+These results look quite grim, and have a couple of stand-out points. Firstly, the volume of messages produced and consumed by our benchmark script when run against the ZeroMQ broker, is fairly bound to the number of CPU cores being consumed. We see an increase in message volume per client, as we increase the number of processes being used, until we're utilising all available cores, after which point we see a drop off due to contention. No surprises there really.
 
 The second point is more interesting. Relatively speaking, Redis seems quite slow, and more obviously, we see almost no change based on the amount of concurrent work happening. After a bit of digging around, it turns out the redis-py client will send each pub-sub message over the wire individually, while ZeroMQ will internally manage buffering messages for you, sending them out when it deems optimally appropriate.
 
