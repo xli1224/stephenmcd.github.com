@@ -445,6 +445,8 @@ What can we take away from all of this? To be brutally honest, not much - I feel
 
 You can find all of the Python and Go code I wrote for this in the repo called *two-queues*, on both [GitHub][twoqueues-github] and [Bitbucket][twoqueues-bitbucket].
 
+**Update (next day):** After publishing this, it was well received in the community, with endorsements from both [Pieter Hintjens][hintjens] (creator of ZeroMQ) and [Salvatore Sanfilippo][antirez] (creator of Redis). Some great discussions continued on from there, on [Hacker News][hn-thread], [Reddit][reddit-thread] and [Twitter][twitter-thread] - have a read!
+
 [pubsub]: http://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern
 [real-time]: http://en.wikipedia.org/wiki/Real-time_computing
 [drawnby]: http://drawnby.jupo.org
@@ -469,3 +471,8 @@ You can find all of the Python and Go code I wrote for this in the repo called *
 [go-bufio]: http://golang.org/pkg/bufio/
 [twoqueues-github]: https://github.com/stephenmcd/two-queues
 [twoqueues-bitbucket]: https://bitbucket.org/stephenmcd/two-queues
+[hintjens]: https://twitter.com/hintjens
+[antirez]: https://twitter.com/hintjens
+[hn-thread]: http://news.ycombinator.com/item?id=5269671
+[reddit-thread]: http://www.reddit.com/r/programming/comments/1920cd/a_tale_of_two_queues/
+[twitter-thread]: https://twitter.com/stephen_mcd/status/305098894138814465
