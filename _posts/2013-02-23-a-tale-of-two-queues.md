@@ -447,6 +447,11 @@ You can find all of the Python and Go code I wrote for this in the repo called *
 
 **Update (next day):** After publishing this, it was well received in the community, with endorsements from both [Pieter Hintjens][hintjens] (creator of ZeroMQ) and [Salvatore Sanfilippo][antirez] (creator of Redis). Some great discussions continued on from there, on [Hacker News][hn-thread], [Reddit][reddit-thread] and [Twitter][twitter-thread] - have a read!
 
+**Update (next week):** Others have come along and made some interesting additions to the source code, check these out too:
+
+  * [Elixir on the Erlang VM](https://github.com/stephenmcd/two-queues/pull/2)
+  * [Redis 2.6.10 vs ZeroMQ 3.2.3](https://github.com/stephenmcd/two-queues/issues/1)
+
 [pubsub]: http://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern
 [real-time]: http://en.wikipedia.org/wiki/Real-time_computing
 [drawnby]: http://drawnby.jupo.org
