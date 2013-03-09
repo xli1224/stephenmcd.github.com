@@ -40,12 +40,22 @@ https://github.com/stephenmcd/stephenmcd.github.com/blob/master/LICENSE
 
 <h6>Keywords</h6>
 <!-- tag cloud css: font-size:{ tag[1].size | times:2 | plus:12 }px; line-height:28px; -->
+{% assign tags_max = 0 %}
+{% for tag in site.tags %}
+{% if tag[1].size > tags_max %}
+{% assign tags_max = tag[1].size %}
+{% endif %}
+{% endfor %}
 <ul class="unstyled tags">
+    {% for i in (1..tags_max) reversed %}
     {% for tag in site.tags %}
+    {% if tag[1].size == i %}
     <li>
         <a href="/tag/{{ tag[0] | replace:' ','-' | replace:'.','' }}/">{{ tag[0] }}</a>
         ({{ tag[1].size }}){% unless forloop.last %}, {% endunless %}
     </li>
+    {% endif %}
+    {% endfor %}
     {% endfor %}
 </ul>
 
