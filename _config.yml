@@ -48,6 +48,11 @@ projects:
   desc:  Comparison utilities for Riak and MongoDB.
   tech:  Ruby
 
+- title: Two Queues
+  url:   http://github.com/stephenmcd/two-queues
+  desc:  Pub-sub utilities for Redis and ZeroMQ.
+  tech:  Go / Python
+
 - title: Grillode
   url:   http://chat.jupo.org
   desc:  Multi-purpose chat server.
