@@ -87,3 +87,8 @@ projects:
   url:   http://github.com/stephenmcd/gnotty
   desc:  'Mobile IRC client, archive and bots.'
   tech:  Django / Python
+
+- title: Drum
+  url:   http://github.com/stephenmcd/drum
+  desc:  'Mezzanine powered Hacker News clone.'
+  tech:  Django / Python
