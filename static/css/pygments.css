@@ -1,3 +1,4 @@
+
 .hll { background-color: #ffffcc }
 .c { color: #0099FF; font-style: italic } /* Comment */
 .err { color: #AA0000; background-color: #FFAAAA } /* Error */
@@ -437,4 +438,8 @@
 .vi { color: #f8f8f2 } /* Name.Variable.Instance */
 .il { color: #ae81ff } /* Literal.Number.Integer.Long */
 
-.go .nx {color:#fff;}
+.nx {color:#fff;}
+.html-django .x {color:#fff;}
+.html-django .cp {color:#fff; font-style:normal;}
+.highlight pre code {color:#e6db74;}
+
