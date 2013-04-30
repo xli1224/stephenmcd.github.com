@@ -1,4 +1,6 @@
 
+// Google analytics setup.
+
 var _gaq = _gaq || [];
 _gaq.push(['_setAccount', 'UA-52596-4']);
 _gaq.push(['_trackPageview']);
@@ -9,40 +11,55 @@ _gaq.push(['_trackPageview']);
   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 })();
 
+// bars() is the callback function the GitHub API script will use
+// when it returns data about my repos. Since I have multiple pages
+// of repos, it's called multiple times, and each time it will add
+// repo data to window.repos - this way we eventually always deal with
+// all repos, by always referencing window.repos
+//
+// bars() then looks at the list of porject rendered in the homepage,
+// and matches their titles up to the window.repos data, adding bars
+// with widths based on number of watchers/forks, as well as adding
+// the tooltips to the bars with watchers/forks text.
+
+// The tooltip code just references the .bar CSS class which is also
+// used by the article bars, which already have tooltip text (article
+// wordcount) in their title attributes.
+
+window.repos = {}
+
 var bars = function(repos) {
 
   var normalize = function(s) {
     return s ? s.toLowerCase().replace(/-| /g, '') : '';
   };
 
-  window.repos = window.repos || {};
+  var pluralize = function(i) {
+    return i != 1 ? 's' : '';
+  };
+
+  var getRepo = function(name) {
+    var abbr = $.map(name.split(' '), function(s, i) {
+                 return s.substr(0, 1).toLowerCase();
+               }).join('');
+    return window.repos[normalize(name)] || window.repos[abbr];
+  };
+
   if (repos) {
     $.each(repos.data, function(i, repo) {
       window.repos[normalize(repo.name)] = repo;
     });
   }
 
-  var watchers = 0, forks = 0;
-
   $('.projects li').each(function(i, project) {
     project = $(project);
-    var pluralize = function(i) {
-      return i != 1 ? 's' : '';
-    };
-    var text = project.find('a').text();
-    var title = normalize(text);
-    var abbr = $.map(text.split(' '), function(s, i) {
-             return s.substr(0, 1).toLowerCase();
-           }).join('');
-    var repo = window.repos[title] || window.repos[abbr];
+    var repo = getRepo(project.find('a').text());
     if (repo) {
       var css = {width: (((repo.watchers + repo.forks) / 18) + 10) + 'px'};
-      var tooltip = repo.watchers + ' watcher' + pluralize(repo.watchers)
-            + ', ' + repo.forks + ' fork' + pluralize(repo.forks);
-      var bar = $('<a>').addClass('bar').css(css).attr('title', tooltip);
-      $(project).append(bar);
-      watchers += repo.watchers;
-      forks += repo.forks;
+      var title = repo.watchers + ' watcher' + pluralize(repo.watchers)
+                  + ', ' + repo.forks + ' fork' + pluralize(repo.forks);
+      var bar = $('<a>').addClass('bar').css(css).attr('title', title);
+      project.append(bar);
     }
   });
 
@@ -52,18 +69,27 @@ var bars = function(repos) {
 
 };
 
+// pageLoad() handles any code that should be run each time a page is
+// loaded - it's in a separate function so we can call it from within
+// the pjax script, each time a page is loaded via pjax.
 var pageLoad = function(initial) {
+  // Jekyll doesn't deal with invalid language names for CSS classes
+  // in pygments, see: https://github.com/mojombo/jekyll/issues/91
   $('code[class=\'html+django\']').attr('class', 'html-django');
+  // Page loaded via pjax - track in Google analytics, and ensure
+  // bars get loaded for the homepage.
   if (!initial) {
     _gaq.push(['_trackPageview']);
     bars();
   }
+  // Ensure coderwall badges get loaded on the homepage.
   var cw = $('#coderwall');
   if (cw.length == 1 && cw.find('img').length == 0) {
     coderwall();
   }
 };
 
+// Load GitHub repos via their API, and run initial pageLoad().
 $(function() {
   var src = 'https://api.github.com/users/stephenmcd/repos?callback=bars';
   $('head').append($('<script>').attr('src', src));
