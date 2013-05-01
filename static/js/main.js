@@ -17,7 +17,7 @@ _gaq.push(['_trackPageview']);
 // repo data to window.repos - this way we eventually always deal with
 // all repos, by always referencing window.repos
 //
-// bars() then looks at the list of porject rendered in the homepage,
+// bars() then looks at the list of projects rendered in the homepage,
 // and matches their titles up to the window.repos data, adding bars
 // with widths based on number of watchers/forks, as well as adding
 // the tooltips to the bars with watchers/forks text.
@@ -74,7 +74,7 @@ var bars = function(repos) {
 // the pjax script, each time a page is loaded via pjax.
 var pageLoad = function(initial) {
   // Jekyll doesn't deal with invalid language names for CSS classes
-  // in pygments, see: https://github.com/mojombo/jekyll/issues/91
+  // in pygments, see: https://github.com/mojombo/jekyll/pull/994
   $('code[class=\'html+django\']').attr('class', 'html-django');
   // Page loaded via pjax - track in Google analytics, and ensure
   // bars get loaded for the homepage.
