@@ -9,7 +9,10 @@ body {font-size:16px;}
 .container {width:666px; font-family:Palatino, Georgia, serif;}
 footer {border-top:3px solid #eee; margin:30px 0; padding-top:13px;}
 
-h1 {font-size:27px; border-bottom:3px solid #eee; padding:10px 0; margin:20px 0 0 0;}
+h1 {
+    font-size:30px; letter-spacing:-1px; border-bottom:3px solid #eee;
+    padding:10px 0; margin:20px 0 0 0;
+}
 h4 {margin:25px 0 0 0; font-size:19px; line-height:22px;}
 h6 {margin:25px 0 10px 0; font-size:14px; color:#BFBFBF; text-transform:uppercase;}
 h6 a {font-weight:normal;}
