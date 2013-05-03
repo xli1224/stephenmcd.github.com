@@ -82,17 +82,17 @@ var pageLoad = function(initial) {
     _gaq.push(['_trackPageview']);
     bars();
   }
-  // Ensure coderwall badges get loaded on the homepage.
+  // Ensure coderwall badges and GitHub data get loaded on the homepage.
   var cw = $('#coderwall');
   if (cw.length == 1 && cw.find('img').length == 0) {
+    var src = 'https://api.github.com/users/stephenmcd/repos?callback=bars';
+    $('head').append($('<script>').attr('src', src));
+    $('head').append($('<script>').attr('src', src + "&page=2"));
     coderwall();
   }
 };
 
 // Load GitHub repos via their API, and run initial pageLoad().
 $(function() {
-  var src = 'https://api.github.com/users/stephenmcd/repos?callback=bars';
-  $('head').append($('<script>').attr('src', src));
-  $('head').append($('<script>').attr('src', src + "&page=2"));
   pageLoad(true);
 });
