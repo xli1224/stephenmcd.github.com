@@ -17,7 +17,11 @@ Interestingly, these extra utilities provided by Mezzanine form the core feature
 
 To demonstrate these extra capabilities of Mezzanine, I set out to do something entirely lacking in innovation, by creating a direct Hacker News clone using Mezzanine. Creating a clone like this from scratch isn't exactly a challenging task, and without doing anything remarkably different feature-wise, one that has little hope of gaining the type of traction that these sites enjoy. My intention here however, was to specifically explore how little work would actually be involved when leveraging Mezzanine as much as possible.
 
-The end result is a project I've called [Drum][drum], and it turned out that by using Mezzanine as the foundation, each of the features required to implement a basic Hacker News clone required almost zero effort! The remainder of this article assumes a basic understanding of [Django][django], and will walk through what was involved in pulling each of these features together to create Drum.
+The end result is a project I've called [Drum][drum], and it turned out that by using Mezzanine as the foundation, each of the features required to implement a basic Hacker News clone required almost zero effort!
+
+<em class="center"><a class="no-pjax" href="/static/img/drum-large.png"><img src="/static/img/drum.png"></a></em>
+
+The remainder of this article assumes a basic understanding of [Django][django], and will walk through what was involved in pulling each of these features together to create Drum.
 
 #### Mezzanine is just Django: Links
 
