@@ -177,7 +177,8 @@ from django.dispatch import receiver
 from mezzanine.generic.models import Rating
 
 @receiver(post_save, sender=Rating)
-def karma(sender, rating, **kwargs):
+def karma(sender, **kwargs):
+    rating = kwargs["instance"]
     value = int(rating.value)
     # Since ratings are either +1/-1, if a rating is being edited,
     # we can assume that the existing rating is in the other direction,
