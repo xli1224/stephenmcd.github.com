@@ -26,9 +26,9 @@ _gaq.push(['_trackPageview']);
 // used by the article bars, which already have tooltip text (article
 // wordcount) in their title attributes.
 
-window.repos = {}
-
 var bars = function(repos) {
+
+  window.repos = window.repos || {};
 
   var normalize = function(s) {
     return s ? s.toLowerCase().replace(/-| /g, '') : '';
@@ -80,15 +80,17 @@ var pageLoad = function(initial) {
   // bars get loaded for the homepage.
   if (!initial) {
     _gaq.push(['_trackPageview']);
-    bars();
   }
   // Ensure coderwall badges and GitHub data get loaded on the homepage.
-  var cw = $('#coderwall');
-  if (cw.length == 1 && cw.find('img').length == 0) {
-    var src = 'https://api.github.com/users/stephenmcd/repos?callback=bars';
-    $('head').append($('<script>').attr('src', src));
-    $('head').append($('<script>').attr('src', src + "&page=2"));
+  if ($('#coderwall').length == 1) {
     coderwall();
+    if (!window.repos) {
+      var src = 'https://api.github.com/users/stephenmcd/repos?callback=bars';
+      $('head').append($('<script>').attr('src', src));
+      $('head').append($('<script>').attr('src', src + "&page=2"));
+    } else {
+      bars();
+    }
   }
 };
 

@@ -22,7 +22,7 @@ https://github.com/stephenmcd/stephenmcd.github.com/blob/master/LICENSE
     <li>
         <span class="date">{{ post.date | date_to_string }}</span>
         <span class="arrow">&raquo;</span>
-        <a href="{{ post.url }}">{{ post.title }} {{ text }}</a>
+        <a href="{{ post.url }}">{{ post.title }}</a>
         <a class="bar" href="#" title="{{ post_words }} words"
             style="width:{{ post_words | divided_by:20 | plus: 10 }}px;">&nbsp;</a>
     </li>
