@@ -17,6 +17,8 @@ h4 {margin:25px 0 0 0; font-size:19px; line-height:22px;}
 h6 {margin:25px 0 10px 0; font-size:14px; color:#BFBFBF; text-transform:uppercase;}
 h6 a {font-weight:normal;}
 
+.twitter-follow-button {float:right; margin-top:40px;}
+
 p {margin:15px 0;} /* text-align:justify;}*/
 p, li {line-height:150%;}
 ul, ol {margin-top:15px;}
