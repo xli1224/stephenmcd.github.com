@@ -53,7 +53,7 @@ We then loop through each of the lines, where we can assume every even line (2nd
 
 #### Frequency Tag Sort
 
-Articles in Jekyll support tags as you'd expect. On the homepage of this site, I generate a list of all tags from all articles. The problem though, is that the tags are in arbitrary order when made available by Jekyll, making the list hard to digest in a meaningful way. We could sort them alphabetically, but I thought the best option would be to sort them by frequency, with the most commonly used tags appearing at the top of the list. Liquid provides the template tag ``sort`` for sorting data by a given property, but the tag structure provided by Jekyll is a hash, which as best as I can tell, isn't supported by Liquid's ``sort`` tag. I therefore came up with the following approach for sorting by frequency:
+Articles in Jekyll support traditional keyword tags as you'd expect. On the homepage of this site, I generate a list of all tags from all articles. The problem though, is that the tags are in arbitrary order when made available by Jekyll, making the list hard to digest in a meaningful way. We could sort them alphabetically, but I thought the best option would be to sort them by frequency, with the most commonly used tags appearing at the top of the list. Liquid provides the template tag ``sort`` for sorting data by a given property, but the tag structure provided by Jekyll is a hash, which as best as I can tell, isn't supported by Liquid's ``sort`` tag. I therefore came up with the following approach for sorting by frequency:
 
 {% highlight html+django %}
 {% raw %}
