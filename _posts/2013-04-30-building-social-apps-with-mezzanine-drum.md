@@ -66,7 +66,7 @@ Now we'll start blazing through the Mezzanine features that require almost zero 
 {% highlight python %}
 from django.db import models
 from mezzanine.core.models import Displayable, Ownable
-from mezzanine.generic.fields import CommentsField
+from mezzanine.generic.fields import CommentsField, RatingField
 
 class Link(Displayable, Ownable):
     link = models.URLField()
