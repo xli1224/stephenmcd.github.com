@@ -53,6 +53,9 @@ var bars = function(repos) {
 
   $('.projects li').each(function(i, project) {
     project = $(project);
+    if (project.find('.bar').length > 0) {
+      return;
+    }
     var repo = getRepo(project.find('a').text());
     if (repo) {
       var css = {width: (((repo.watchers + repo.forks) / 18) + 10) + 'px'};
