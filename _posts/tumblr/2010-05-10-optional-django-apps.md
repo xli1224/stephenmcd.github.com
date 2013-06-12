@@ -1,10 +1,12 @@
---- 
+---
 layout: post
 title: Optional Django Apps
-tags: 
+tags:
 - python
 - django
+- hacks
 ---
+
 A project of mine contains a number of third-party apps that are development
 related and potentially not available on every machine the project will run
 on. My general approach to dealing with these was to try and import the app in
@@ -30,7 +32,7 @@ DEBUG_TOOLBAR_CONFIG = {"INTERCEPT_REDIRECTS": False}
 # Sequence for each optional app as a dict containing info about the app.
 OPTIONAL_APPS = (
     {"import": "django_extensions", "apps": ("django_extensions",)},
-    {"import": "debug_toolbar", "apps": ("debug_toolbar",), 
+    {"import": "debug_toolbar", "apps": ("debug_toolbar",),
         "middleware": ("debug_toolbar.middleware.DebugToolbarMiddleware",)},
     {"import": "south", "apps": ("south",), "condition": USE_SOUTH},
 )

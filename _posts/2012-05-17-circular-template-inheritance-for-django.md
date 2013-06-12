@@ -6,6 +6,7 @@ tags:
 - python
 - mezzanine
 - open source
+- hacks
 ---
 
 One of Django's many great features is its powerful [template inheritance][template-inheritance]. A decade ago we would use simple concepts like include files for platforms such as ASP and PHP, allowing us to create reusable template snippets that could be embedded in multiple pages. Later, ASP.NET and Ruby on Rails would improve on this with their master/layout concepts, allowing us to define a base skeleton template for a site, with an area that all other pages would inject their content into. Django takes this approach even further with its template inheritance. It allows templates to extend other (parent) templates, with those parent templates containing named blocks that can be overridden. The blocks in the parent template can contain default content, and when overriding these blocks, the default content can be overridden, left as is, or even prefixed with or appended to, as the child template will have access to the default content in the parent template's block. This is analogous to object oriented programming, where base classes can be subclassed, and have their methods overridden, with access to the super-class's methods to be called at whatever point is deemed appropriate.

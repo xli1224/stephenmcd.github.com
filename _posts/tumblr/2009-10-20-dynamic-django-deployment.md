@@ -1,10 +1,12 @@
---- 
+---
 layout: post
 title: Dynamic Django Deployment
-tags: 
+tags:
 - django
 - python
+- hacks
 ---
+
 Lately I've noticed people posting various different takes on making the
 default Django settings a lot more dynamic. The development and deployment
 requirements for the projects I work on tend to be far from straight-forward
@@ -33,7 +35,7 @@ modified on a per machine basis.
 {% highlight python %}
 from socket import gethostname
 try:
-    exec ("from host_settings.%s import *" % 
+    exec ("from host_settings.%s import *" %
         gethostname().replace("-", "_").replace(".", "_"))
 except ImportError:
     pass
@@ -85,9 +87,9 @@ the machine they exist for, but the project directory as well.
 
 {% highlight python %}
 from socket import gethostname
-host_settings_module = "%s_%s" % (project_dir, 
+host_settings_module = "%s_%s" % (project_dir,
     gethostname().replace("-", "_").replace(".", "_").lower())
-host_settings_path = os.path.join(project_path, "host_settings", 
+host_settings_path = os.path.join(project_path, "host_settings",
     "%s.py" % host_settings_module)
 if not os.path.exists(host_settings_path):
     try:

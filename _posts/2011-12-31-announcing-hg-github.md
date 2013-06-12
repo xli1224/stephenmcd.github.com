@@ -8,6 +8,7 @@ tags:
 - github
 - bitbucket
 - open source
+- hacks
 ---
 
 The two front-runners in source code management these days are undoubtedly [Git][1] and [Mercurial][2]. Distributed version control has clearly proven itself as the superior model over older centralised systems like [SVN][3], particularly in the context of open source development, where the ability to fork repositories and push and pull branches between them facilitates a much more efficient and streamlined work-flow.

@@ -7,6 +7,7 @@ tags:
 - python
 - orm
 - n+1 queries
+- hacks
 ---
 
 As a creator and maintainer of several popular reusable [Django](https://www.djangoproject.com/) applications, one of the most commonly requested features I'm asked for is the ability to customise the fields that a model implements. This topic comes up often on the [Mezzanine mailing list](http://groups.google.com/group/mezzanine-users), and during [this particular thread](http://groups.google.com/group/mezzanine-users/browse_thread/thread/1f1669b0091a88d5) we researched ways that fields could be dynamically injected into models at run-time.

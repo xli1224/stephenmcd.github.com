@@ -5,6 +5,7 @@ tags:
 - jekyll
 - ruby
 - github
+- hacks
 ---
 
 For the past couple of years, this site has been powered by a static site generator called [Jekyll][jekyll]. With Jekyll there isn't a database, or even an admin area for managing content. Instead, content is stored in text files, which are edited locally on your computer, formatted in one of the lightweight markup languages supported by Jekyll, such as [Markdown][markdown]. Layout templates are used for the design, which can contain HTML and programming logic, similar to [PHP][php] code or [Django templates][django-templates], however this code is only executed once when the site is published, not on every page request. When the site is published, Jekyll will look at all of the Markdown content files, and use the layout templates to generate an entirely static site made up of HTML files.
