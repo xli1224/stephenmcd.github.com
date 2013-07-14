@@ -54,7 +54,7 @@ class LuaRedisClient(redis.Redis):
 
     def __init__(self, *args, **kwargs):
         super(LuaRedisClient, self).__init__(*args, **kwargs)
-        with open("atom.lua", "r") as f:
+        with open("atoms.lua", "r") as f:
             for func in f.read().strip().split("function "):
                 if func:
                     name, code = func.split("\n", 1)
@@ -92,7 +92,7 @@ class LuaRedisClient(redis.Redis):
         super(LuaRedisClient, self).__init__(*args, **kwargs)
         with open("bit.lua", "r") as f:
             luabit = f.read()
-        with open("atom.lua", "r") as f:
+        with open("atoms.lua", "r") as f:
             for func in f.read().strip().split("function "):
                 if func:
                     name, code = func.split("\n", 1)
