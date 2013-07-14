@@ -68,6 +68,11 @@ projects:
   desc:  WebSockets for Django.
   tech:  Django / Python
 
+- title: django-pg-fuzzycount
+  url:   http://github.com/stephenmcd/django-postgres-fuzzycount
+  desc:  Fast counts for huge PostgreSQL tables.
+  tech:  Django / Python
+
 - title: Babbler
   url:   http://github.com/stephenmcd/babbler
   desc:  Twitter bot.

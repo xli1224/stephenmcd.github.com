@@ -39,6 +39,9 @@ var bars = function(repos) {
   };
 
   var getRepo = function(name) {
+    if (name == 'django-pg-fuzzycount') {
+      name = 'django-postgres-fuzzycount';
+    }
     var abbr = $.map(name.split(' '), function(s, i) {
                  return s.substr(0, 1).toLowerCase();
                }).join('');
