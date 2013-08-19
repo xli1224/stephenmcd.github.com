@@ -54,13 +54,32 @@ class LuaRedisClient(redis.Redis):
 
     def __init__(self, *args, **kwargs):
         super(LuaRedisClient, self).__init__(*args, **kwargs)
+        for name, snippet in self._get_lua_funcs():
+            self._create_lua_method(name, snippet)
+
+    def _get_lua_funcs(self):
+        """
+        Returns the name / code snippet pair for each Lua function
+        in the atoms.lua file.
+        """
         with open("atoms.lua", "r") as f:
             for func in f.read().strip().split("function "):
                 if func:
-                    name, code = func.split("\n", 1)
-                    name = name.split("(")[0].strip()
-                    code = code.rsplit("end", 1)[0].strip()
-                    setattr(self, name, self.register_script(code))
+                    bits = func.split("\n", 1)
+                    name = bits[0].split("(")[0].strip()
+                    snippet = bits[1].rsplit("end", 1)[0].strip()
+                    yield name, snippet
+
+    def _create_lua_method(self, name, snippet):
+        """
+        Registers the code snippet as a Lua script, and binds the
+        script to the client as a method that can be called with
+        the same signature as regular client methods, eg with a
+        single key arg.
+        """
+        script = self.register_script(snippet)
+        method = lambda key, *a, **k: script(keys=[key], args=a, **k)
+        setattr(self, name, method)
 {% endhighlight %}
 
 There's no magic language interoperability going on here - just a little library sugar for dealing with Lua functions by name. The function name is actually stripped entirely from the Lua code we provide to Redis - that's how Lua scripts work in Redis, they're simply chunks of procedural code, an important point that will come into play with our overall approach for embedding third-party libraries.
@@ -83,27 +102,45 @@ Now again, considering Lua scripts in Redis are simply great big strings of code
 {% highlight python %}
 import redis
 
-REQUIRES_LUABIT = ("number_and", "number_or", "number_xor",
-                    "number_lshift", "number_rshift")
-
 class LuaRedisClient(redis.Redis):
 
     def __init__(self, *args, **kwargs):
         super(LuaRedisClient, self).__init__(*args, **kwargs)
+        requires_luabit = ("number_and", "number_or", "number_xor",
+                           "number_lshift", "number_rshift")
         with open("bit.lua", "r") as f:
             luabit = f.read()
+        for name, snippet in self._get_lua_funcs():
+            if name in requires_luabit:
+                snippet = luabit + snippet
+            self._create_lua_method(name, snippet)
+
+    def _get_lua_funcs(self):
+        """
+        Returns the name / code snippet pair for each Lua function
+        in the atoms.lua file.
+        """
         with open("atoms.lua", "r") as f:
             for func in f.read().strip().split("function "):
                 if func:
-                    name, code = func.split("\n", 1)
-                    name = name.split("(")[0].strip()
-                    code = code.rsplit("end", 1)[0].strip()
-                    if name in REQUIRES_LUABIT:
-                        code = luabit + code
-                    setattr(self, name, self.register_script(code))
+                    bits = func.split("\n", 1)
+                    name = bits[0].split("(")[0].strip()
+                    snippet = bits[1].rsplit("end", 1)[0].strip()
+                    yield name, snippet
+
+    def _create_lua_method(self, name, snippet):
+        """
+        Registers the code snippet as a Lua script, and binds the
+        script to the client as a method that can be called with
+        the same signature as regular client methods, eg with a
+        single key arg.
+        """
+        script = self.register_script(snippet)
+        method = lambda key, *a, **k: script(keys=[key], args=a, **k)
+        setattr(self, name, method)
 {% endhighlight %}
 
-I've simply defined the list of all the Lua function names that reference LuaBit, in the `REQUIRES_LUABIT` variable. When each of these functions get registered in Redis, the source for LuaBit gets injected into them. A great big monstrous hack, no doubt.
+I've simply defined the list of all the Lua function names that reference LuaBit, in the `requires_luabit` variable. When each of these functions get registered in Redis, the source for LuaBit gets injected into them. A great big monstrous hack, no doubt.
 
 One final requirement was modifying the function signatures inside LuaBit. Lua scripts in Redis are restricted from function statements, but we can work around this by converting any of these into anonymous function definitions:
 
