@@ -477,7 +477,7 @@ You can find all of the Python and Go code I wrote for this in the repo called *
 [twoqueues-github]: https://github.com/stephenmcd/two-queues
 [twoqueues-bitbucket]: https://bitbucket.org/stephenmcd/two-queues
 [hintjens]: https://twitter.com/hintjens
-[antirez]: https://twitter.com/hintjens
+[antirez]: https://twitter.com/antirez
 [hn-thread]: http://news.ycombinator.com/item?id=5269671
 [reddit-thread]: http://www.reddit.com/r/programming/comments/1920cd/a_tale_of_two_queues/
 [twitter-thread]: https://twitter.com/stephen_mcd/status/305098894138814465
