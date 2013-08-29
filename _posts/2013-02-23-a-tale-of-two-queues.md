@@ -451,6 +451,7 @@ You can find all of the Python and Go code I wrote for this in the repo called *
 
   * [Elixir on the Erlang VM](https://github.com/stephenmcd/two-queues/pull/2)
   * [Redis 2.6.10 vs ZeroMQ 3.2.3](https://github.com/stephenmcd/two-queues/issues/1)
+  * [MQTT broker addition](https://github.com/stephenmcd/two-queues/pull/5)
 
 [pubsub]: http://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern
 [real-time]: http://en.wikipedia.org/wiki/Real-time_computing
