@@ -142,7 +142,7 @@ Mission accomplished. I was then able to perform lots of different experiments a
 
 <em class="center"><a class="no-pjax" href="/static/img/metrics3-large.png"><img src="/static/img/metrics3.png"></a></em>
 
-Incidentally, the best performance gains involved re-working our query indexes, as well as some awful little tricks using [PostgreSQL CTEs][postgresql-ctes] - but that's a story for another post.
+Incidentally, the best performance gains involved re-working our database indexes, as well as some awful little tricks using [PostgreSQL CTEs][postgresql-ctes] - but that's a story for another post.
 
 #### Real-time Graphs
 
