@@ -34,15 +34,15 @@ As you can see, there are a lot of moving pieces involved in bringing together a
 
 #### Graphite / StatsD
 
-I decided to solve this problem using the popular software combination of [Graphite][graphite] and [StatsD][statsd]. Graphite is a tool that deals with storing time-series metrics, as well as providing a very powerful graphing interface (built with [Django][django] no less) for visualising and reporting on metrics collected. StatsD which is built with [Node.js][node] then provides the service for collecting event streams over [UDP][udp], and aggregating collected metrics at high volume.
+I decided to solve this problem using the popular software combination of [Graphite][graphite] and [StatsD][statsd]. Graphite is a tool that deals with storing time-series metrics, as well as providing a very powerful graphing interface (built with [Django][django] no less) for visualising and reporting on metrics collected. StatsD which is built with [Node.js][node] then provides the service for collecting event streams over [UDP][udp], and aggregating collected metrics at high volume, before pumping them into Graphite.
 
 These tools appealed to me for several reasons. Firstly I wanted something highly hackable that we could customise to fit our needs. StatsD and each of the different Graphite components all follow the [Unix philosophy of doing one thing, and doing it very well][unix-philosophy]. Not only that, given they're built with [Python][python] and [JavaScript][javascript] which Adam and I are very experienced in, the Graphite / StatsD pair seemed like our best bet in terms of customisation, over larger _all encompassing_ monitoring systems backed by plug-ins, such as [Nagios][nagios] or [Munin][munin]. Secondly these tools were built and expanded upon by companies with a great open source culture at large scale, places like [Orbitz][orbitz], [Etsy][etsy], and even [Mozilla][mozilla], who released [django-statsd][django-statsd] for [monitoring the Firefox Add-ons Marketplace][monitoring-firefox-addons], which we're now also using with great results.
 
 #### Collecting Metrics
 
-With Graphite and StatsD installed, the final step involved was actually collecting metrics. Mozilla's django-statsd package gives you a lot out of the box here. Without any configuration, it automatically adds counters and timers to many areas of Django, such as the ORM, caching and unit tests. The really interesting integration though is at the view layer. Counters and timing metrics are collected for all view functions, with each metric further segmented in a ton of ways, from the application name and URL parts, right down to the HTTP verbs used and status codes returned - all incredibly insightful for an application like Kouio that implements a public-facing RESTful API.
+With Graphite and StatsD installed, the final step involved was actually choosing the metrics to collect, and working out how to get at them. Mozilla's django-statsd package gives you a lot out of the box here. Without any configuration, it automatically adds counters and timers to many areas of Django, such as the ORM, caching and unit tests. The really interesting integration though is at the view layer. Counters and timing metrics are collected for all view functions, with each metric further segmented in a ton of ways, from the application name and URL parts, right down to the HTTP verbs used and status codes returned - all incredibly insightful for an application like Kouio that implements a public-facing RESTful API.
 
-Monitoring the Django application was only half of the picture though. I still needed to capture system level metrics and other miscellaneous parts of our application state. I found a handful of open source projects available related to collecting metrics into Graphite, but instead of using any of these I opted to put together a quick solution using the [psutil][psutil] Python library:
+Monitoring the Django application was only half of the picture though. I still needed to capture system level metrics and other miscellaneous parts of our application state. I found a handful of open source projects available related to collecting metrics and feeding them into StatsD abd Graphite, but instead of using any of these I opted to put together a quick solution using the [psutil][psutil] Python library:
 
 {% highlight python %}
 import os
@@ -128,13 +128,13 @@ while True:
     time.sleep(1)
 {% endhighlight %}
 
-Writing our own code here affords us full flexibility. We're able to integrate directly with Django's ORM and [Redis][redis] to keep track of growth and other parts of state within the system. You'll see we also implement some basic threshold monitoring. We're able to keep this as simple as you could imagine by integrating it with [Sentry][sentry], the system we use for tracking exceptions in the application. By treating these thresholds as application exceptions, we don't need to worry about our threshold checks spiralling out of control with millions of notifications - that's all handled for us by Sentry.
+Writing our own code here affords us full flexibility, and with the psutil library this was a trivial task. We're then also able to integrate directly with Django's ORM and [Redis][redis] to keep track of growth and other parts of state within the system. Finally you'll see we also implement some basic threshold monitoring. We're able to keep this as simple as you could imagine by integrating it with [Sentry][sentry], the system we use for tracking exceptions in the application. By treating these thresholds as application exceptions, we don't need to worry about our threshold checks spiralling out of control with millions of notifications - that's all handled for us by Sentry.
 
 How does this all look once it's up and running? It's worth mentioning installation was hardly straight-forward, requiring half a dozen components sourced and built in different ways - one of the downsides of not using an off-the-shelf product. Once everything was set up though, I really went to town with our initial dashboard, arranging and colourising every single metric I thought remotely useful:
 
 <em class="center"><a class="no-pjax" href="/static/img/metrics1-large.png"><img src="/static/img/metrics1.png"></a></em>
 
-After a couple of weeks, I was able to greatly refine the dashboard, adding new metrics as I discovered them, and throwing out a ton that didn't turn out as useful as I originally thought, ending up with a more useful dashboard:
+After a couple of weeks, I was able to greatly refine the dashboard, adding new metrics as I discovered them, and throwing out a ton that didn't turn out to be as useful as I originally thought, ending up with a more useful dashboard:
 
 <em class="center"><a class="no-pjax" href="/static/img/metrics2-large.png"><img src="/static/img/metrics2.png"></a></em>
 
