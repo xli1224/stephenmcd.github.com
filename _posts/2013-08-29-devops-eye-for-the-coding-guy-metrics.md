@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'DevOps at Kouio: Metrics'
+title: 'DevOps Eye for the Coding Guy: Metrics'
 tags:
 - python
 - statsd
