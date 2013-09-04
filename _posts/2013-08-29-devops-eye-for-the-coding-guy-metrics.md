@@ -42,7 +42,7 @@ These tools appealed to me for several reasons. Firstly I wanted something highl
 
 With Graphite and StatsD installed, the final step involved was actually choosing the metrics to collect, and working out how to get at them. Mozilla's django-statsd package gives you a lot out of the box here. Without any configuration, it automatically adds counters and timers to many areas of Django, such as the ORM, caching and unit tests. The really interesting integration though is at the view layer. Counters and timing metrics are collected for all view functions, with each metric further segmented in a ton of ways, from the application name and URL parts, right down to the HTTP verbs used and status codes returned - all incredibly insightful for an application like Kouio that implements a public-facing RESTful API.
 
-Monitoring the Django application was only half of the picture though. I still needed to capture system level metrics and other miscellaneous parts of our application state. I found a handful of open source projects available related to collecting metrics and feeding them into StatsD abd Graphite, but instead of using any of these I opted to put together a quick solution using the [psutil][psutil] Python library:
+Monitoring the Django application was only half of the picture though. I still needed to capture system level metrics and other miscellaneous parts of our application state. I found a handful of open source projects available related to collecting metrics and feeding them into StatsD and Graphite, but instead of using any of these I opted to put together a quick solution using the [psutil][psutil] Python library:
 
 {% highlight python %}
 import os
