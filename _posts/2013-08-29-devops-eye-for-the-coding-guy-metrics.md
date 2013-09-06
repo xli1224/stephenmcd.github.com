@@ -120,8 +120,8 @@ while True:
         statsd_client.gauge(name, value)
         threshold = thresholds.get(name, None)
         if threshold is not None and value > threshold:
-            bits = (threshold, name, value)
-            message = "Threshold of %s reached for %s: %s" % bits
+            bits = (threshold, name)
+            message = "Threshold of %s reached for %s" % bits
             print message
             raven_client.captureMessage(message)
 
