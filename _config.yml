@@ -11,6 +11,18 @@ index_pages:
     tag:
         title_prefix:   'Keyword: '
 
+interviews:
+
+- title: DevOps Means Large Orgs Thinking Like Small Ones
+  url:   http://servicevirtualization.com/profiles/blogs/devops-means-large-organizations-thinking-more-like-small-ones
+  date:  07 Oct 2013
+  site:  Computer Associates
+
+- title: Melbourne Hacker Releases Open Source Django Apps
+  url:   http://www.cio.com.au/article/380246/melbourne_hacker_releases_open_source_django_apps/
+  date:  18 Mar 2011
+  site:  CIO Magazine
+
 projects:
 
 - title: Mezzanine

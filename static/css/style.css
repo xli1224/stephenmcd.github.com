@@ -26,7 +26,7 @@ ul, ol {margin-top:15px;}
 .arrow {margin:0 5px; color:#666;}
 .tags li {color:gray; white-space:nowrap; display:inline-block;}
 .title {float:left; min-width:170px;}
-.projects em {color:#bfbfbf; margin-left:2px;}
+li em {color:#bfbfbf; margin-left:4px; white-space:nowrap;}
 .bar {background:#eee; height:14px; margin-top:4px; float:right; cursor:default;}
 .bar:hover {text-decoration:none; background:#ccc;}
 .tooltip {font-family:sans-serif;}

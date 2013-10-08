@@ -8,7 +8,7 @@ Copyright Stephen McDonald. Please see LICENSE.
 https://github.com/stephenmcd/stephenmcd.github.com/blob/master/LICENSE
 
 -->
-<h6>Articles</h6>
+<h6 id="articles">Articles</h6>
 <ul class="unstyled articles">
     {% assign year = "" %}
     {% for post in site.posts %}
@@ -36,7 +36,7 @@ https://github.com/stephenmcd/stephenmcd.github.com/blob/master/LICENSE
     {% endfor %}
 </ul>
 
-<h6>Talks</h6>
+<h6 id="talks">Talks</h6>
 <ul class="unstyled articles">
     {% for post in site.posts %}
     {% if post.tags contains "speaking" %}
@@ -51,7 +51,19 @@ https://github.com/stephenmcd/stephenmcd.github.com/blob/master/LICENSE
     {% endfor %}
 </ul>
 
-<h6>Keywords</h6>
+<h6 id="interviews">Interviews {{ site.keys }}</h6>
+<ul class="unstyled interviews">
+    {% for interview in site.interviews %}
+    <li>
+        <span class="date">{{ interview.date }}</span>
+        <span class="arrow">&raquo;</span>
+        <a href="{{ interview.url }}">{{ interview.title }}</a>
+        <em>- {{ interview.site }}</em>
+    </li>
+    {% endfor %}
+</ul>
+
+<h6 id="keywords">Keywords</h6>
 <!-- tag cloud css: font-size:{ tag[1].size | times:2 | plus:12 }px; line-height:28px; -->
 {% assign tags_max = 0 %}
 {% for tag in site.tags %}
@@ -72,7 +84,7 @@ https://github.com/stephenmcd/stephenmcd.github.com/blob/master/LICENSE
     {% endfor %}
 </ul>
 
-<h6>Open Source Projects</h6>
+<h6 id="projects">Open Source Projects</h6>
 <ul class="unstyled projects">
     {% for project in site.projects %}
     <li>
