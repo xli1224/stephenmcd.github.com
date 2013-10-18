@@ -32,7 +32,8 @@ module Jekyll
         self.data[config['related_key']] = self.data[config['related_key']].uniq
       end
 
-      self.data['title'] = "#{config["title_prefix"]}#{page}"
+      #self.data['title'] = "#{config["title_prefix"]}#{page}"
+      self.data['title'] = "Stephen McDonald on: <i>#{page}</i>"
     end
   end
 
