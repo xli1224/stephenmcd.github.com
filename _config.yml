@@ -114,3 +114,8 @@ projects:
   url:   http://github.com/stephenmcd/drum
   desc:  'Mezzanine powered Hacker News clone.'
   tech:  Django / Python
+
+- title: HOT Redis
+  url:   http://github.com/stephenmcd/hot-redis
+  desc:  'Higher Order Types for Redis.'
+  tech:  Python / Lua
