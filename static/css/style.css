@@ -106,3 +106,10 @@ em a {font-style:italic;}
     .highlight {overflow-x:scroll;}
     pre {width:618px;}
 }
+
+.ad {
+    width:100%; color:#fff; background:#005580; padding:8px;
+    text-align:center; font-size:15px; margin-bottom:10px;
+}
+
+.ad a {color:#3bf; text-decoration:underline;}
