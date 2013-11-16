@@ -109,7 +109,8 @@ em a {font-style:italic;}
 
 .ad {
     width:100%; color:#fff; background:#005580; padding:8px;
-    text-align:center; font-size:15px; margin-bottom:10px;
+    text-align:center; font-size:15px;
+    position:fixed; top:0;
 }
-
+body {padding-top:40px;}
 .ad a {color:#3bf; text-decoration:underline;}
