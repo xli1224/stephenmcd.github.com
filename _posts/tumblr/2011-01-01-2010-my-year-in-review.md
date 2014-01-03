@@ -8,7 +8,8 @@ tags:
 - mezzanine
 - django dash
 ---
-2010 was an amazing year for me professionally. I learnt and achieved much
+
+This was an amazing year for me professionally. I learnt and achieved much
 more than I've historically packed into a single year, so like many other I've
 decided to jump on the _year in review_ bandwagon and put this post
 together.

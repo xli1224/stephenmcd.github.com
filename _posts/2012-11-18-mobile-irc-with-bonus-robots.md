@@ -14,13 +14,6 @@ tags:
 - bitbucket
 ---
 
-<script>
-// gah, made a bad link in a tweet
-if (document.referrer == 'http://t.co/OTWMyk2qmR') {
-    location = '/2013/02/23/a-tale-of-two-queues/';
-}
-</script>
-
 Earlier this year I finally got around to setting up an [IRC][irc] channel for [Mezzanine][mezzanine], where developers and users can collaborate on the development of Mezzanine and related projects. It's been a good experience so far, facilitating quick questions as well as longer drawn out discussions, both which are sometimes better served by a real-time chat than a [Mezzanine mailing list][mezzanine-mailing-list] thread.
 
 At the time I thought about how I could provide a web-based interface for the IRC channel, via the Mezzanine website. Mezzanine has always striven hard to be newcomer friendly, from the early days with its [one-step project creation][mezzanine-create], to more recently with its [bundled server provisioning and production deployment utilities][mezzanine-deploy], so having live support available directly on the project website was a natural evolution.
@@ -133,3 +126,10 @@ Finally if you're keen to see Gnotty in action, you can see a skinned version of
 [dcc-send]: http://en.wikipedia.org/wiki/Direct_Client-to-Client
 [mezzanine-irc]: http://mezzanine.jupo.org/irc/
 
+
+<script>
+// gah, made a bad link in a tweet
+if (document.referrer == 'http://t.co/OTWMyk2qmR') {
+    location = '/2013/02/23/a-tale-of-two-queues/';
+}
+</script>

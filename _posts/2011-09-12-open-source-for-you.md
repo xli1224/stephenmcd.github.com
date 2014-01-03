@@ -5,8 +5,6 @@ tags:
 - open source
 ---
 
-**Update, Feb 14:** [@rkJun](https://twitter.com/rkJun) has [translated this post into Korean](http://rkjun.wordpress.com/2012/02/13/open-source-for-you-korean_translate/).
-
 I recently gave a presentational talk to the development team at my work, on what it's like contributing to open source. A common perception by people not involved is that the open source community seems like one big socialist hippie commune, whose motivations are entirely altruistic with little reward for the individual. The approach I took was to dispel this myth and show that for many who participate, their motivations are mostly self serving, with many personal gains to be made. Despite some of the awkward truths I focused on, the talk was received really well.
 
 #### Your Day Job Sucks, Make Programming Fun Again
@@ -54,3 +52,5 @@ Getting started might seem like a daunting task. Start small. Ignore the inner v
 Ideas can be hard to come by. Most of mine were itches I wanted to scratch. Product gaps in the technology stacks I'm interested in, or mundane processes I went through regularly, upon realising they could be automated and productised.
 
 Perhaps you're an end user of open source software, and it isn't perfect. A feature works differently than how you think it should, or something is undocumented and you struggled to find it. These days it seems that the modus operandi is to throw up your arms, and complain as loudly as possible about how the software you're using for free, isn't exactly the way you want it to be. Don't. You have the choice to do something about it. Dive into the source code. Contribute something back. Improve yourself, and be a part of something.
+
+**Update, Feb 14:** [@rkJun](https://twitter.com/rkJun) has [translated this post into Korean](http://rkjun.wordpress.com/2012/02/13/open-source-for-you-korean_translate/).

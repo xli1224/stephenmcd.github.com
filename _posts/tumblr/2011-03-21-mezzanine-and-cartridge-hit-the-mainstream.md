@@ -1,7 +1,7 @@
---- 
+---
 layout: post
 title: Mezzanine and Cartridge Hit the Mainstream
-tags: 
+tags:
 - mezzanine
 - cartridge
 - django
@@ -10,8 +10,6 @@ tags:
 - cio magazine
 - open source
 ---
-[Mezzanine and Cartridge Hit the Mainstream](http://www.cio.com.au/article/380
-246/melbourne_hacker_releases_open_source_django_apps/)
 
 This week I had the fantastic opportunity to be interviewed by [Rodney
 Gedda](http://www.gedda.info/) from [IDG](http://idg.com/) for their
@@ -20,7 +18,7 @@ magazines. The interview focused on my open source work with the
 [Mezzanine](http://mezzanine.jupo.org/) and
 [Cartridge](http://cartridge.jupo.org/) projects.
 
-[Melbourne hacker releases open source Django apps](http://www.cio.com.au/arti
+Full interview: [Melbourne hacker releases open source Django apps](http://www.cio.com.au/arti
 cle/380246/melbourne_hacker_releases_open_source_django_apps/)
 
 These projects have been gaining traction at an incredible pace, with a solid

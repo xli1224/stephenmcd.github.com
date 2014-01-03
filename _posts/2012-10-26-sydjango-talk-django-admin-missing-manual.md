@@ -9,8 +9,7 @@ tags:
 - speaking
 ---
 
-<p>
-Last night I gave my second <a href="http://www.meetup.com/SyDjango/">
+<p>Last night I gave my second <a href="http://www.meetup.com/SyDjango/">
 SyDjango</a> talk, "Django Admin, The Missing Manual". There were
 quite a few new faces this month, as well as a good mix of regular
 Djangonauts from previous months.

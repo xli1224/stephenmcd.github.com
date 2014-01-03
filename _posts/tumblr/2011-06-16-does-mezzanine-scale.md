@@ -1,7 +1,7 @@
---- 
+---
 layout: post
 title: Does Mezzanine Scale?
-tags: 
+tags:
 - mezzanine
 - cartridge
 - django
@@ -11,9 +11,7 @@ The question of scalability with regard to
 [Mezzanine](http://mezzanine.jupo.org/) and
 [Django](https://www.djangoproject.com/) recently came on up on the
 [mezzanine-users mailing list](http://groups.google.com/group/mezzanine-
-users/topics), to which I offered the following reply.
-
-Mezzanine and Django itself are fantastic choices for someone concerned with
+users/topics), to which I offered the following reply: Mezzanine and Django itself are fantastic choices for someone concerned with
 scaling for high traffic.
 
 The [Mozilla add-ons](https://addons.mozilla.org) site that hosts all Firefox
