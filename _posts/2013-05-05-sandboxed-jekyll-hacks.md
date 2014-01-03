@@ -82,6 +82,22 @@ Articles in Jekyll support traditional keyword tags as you'd expect. On the home
 
 The above approach is quite ridiculous. It first iterates through each of the tags, to determine what the highest tag frequency is. Then it iterates from that highest frequency, down to 1, and within each iteration, loops again through _all tags_, displaying them if their frequency matches the current outer loop. This is insanely inefficient, but it gets the job done acceptably, considering again that this code is only run when the site is published, not on each request.
 
+#### Drop Cap
+
+One dreary evening I came across a site that used [drop-cap][drop-cap] on each of its articles, by wrapping the first character in a separate HTML tag that could be styled. Text manipulation like this is child's play in regular programming languages, and I immediately wondered if this would be possible with restricted Jekyll. After a bit of trial and error, I managed to come up with the following:
+
+{% highlight html+django %}
+{% raw %}
+{% assign drop_cap = content|strip_html|truncate:4|remove:'.' %}
+{% capture drop_cap_html %}<span class="drop-cap">{{ drop_cap }}</span>{% endcapture %}
+{{ content|replace_first:drop_cap,drop_cap_html }}
+{% endraw %}
+{% endhighlight %}
+
+First up we create a ``drop_cap`` variable, which contains the initial character we want to wrap. The ``content`` variable here contains our entire article rendered as HTML, so we strip all tags from it first, and truncate it down to the first character, (I actually truncate to the first four characters, as on my blog the first three characters consistently contain some white-space I couldn't get at). Now the ``truncate`` tag itself appends an ellipsis, so we then strip the periods from the end of the character with the ``remove`` tag.
+
+With the hard part out of the way, we're then able to wrap the character in a tag we can style, and replace the first instance of the character in the article with our wrapped replacement. CSS wizards reading may point out the possibility of using a selector like ``:first-of-type:first-letter`` to achieve the same result. This worked nicely in Chrome but was flaky in Firefox, while wrapping with a span work consistently.
+
 #### Conclusion
 
 To be honest, none of the above is strictly necessary with Jekyll. I could easily achieve what I need by writing my own Liquid tags to do the job properly. This would even work with GitHub Pages, I'd just need to generate the static version of the site myself, and commit the generated HTML files to version control. But no. In the above cases, I saw the tasks as a challenge - a programming puzzle of sorts, and really enjoyed solving them in the end.
@@ -105,3 +121,4 @@ To be honest, none of the above is strictly necessary with Jekyll. I could easil
 [github-pages]: http://pages.github.com
 [constraints]: http://37signals.com/svn/archives2/how_the_lack_of_constraints_killed_the_quality_of_star_wars.php
 [blog-home]: /
+[drop-cap]: http://www.webopedia.com/TERM/D/drop_cap.html
