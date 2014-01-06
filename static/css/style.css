@@ -31,12 +31,10 @@ li em {color:#bfbfbf; margin-left:4px; white-space:nowrap;}
 .bar:hover {text-decoration:none; background:#ccc;}
 .tooltip {font-family:sans-serif;}
 .totals {text-align:right; font-style:italic; color:#ddd; margin:7px 0 -10px 0; font-size:11px;}
-#coderwall {display:none; margin:30px 0 20px 0;}
-#coderwall h6 {margin-bottom:15px;}
 
-code {background:#eee; border-color:#eee;}
+code {background:#eee; border-color:#eee; white-space:nowrap;}
 pre {background:#222; padding:15px;}
-pre code {padding:0; background-color:inherit !important;}
+pre code {padding:0; background-color:inherit !important; white-space:pre-wrap;}
 pre code * {
     font-weight:normal !important; background-color:inherit !important;
     text-decoration:none !important;
@@ -68,6 +66,8 @@ img.full {width:100%;}
     box-shadow:         0 0 10px 0px rgba(0,0,0,.3);
 }
 
+#coderwall {display:none; margin:30px -40px 20px 0;}
+#coderwall h6 {margin-bottom:15px;}
 #coderwall img, .noborder {
     -moz-box-shadow:    none !important;
     -webkit-box-shadow: none !important;
@@ -75,7 +75,7 @@ img.full {width:100%;}
 }
 
 .noborder {border:0 !important; margin:0 !important;}
-#coderwall img {padding:0; width:69px; height:69px; margin:0 10px 5px -5px; border:0;}
+#coderwall img {padding:0; width:63px; height:63px; margin:0 10px 5px -5px; border:0;}
 
 .side-thumb {float:right; width:320px; text-align:center;
              margin:-20px 0 0 40px; font-style:italic;}
