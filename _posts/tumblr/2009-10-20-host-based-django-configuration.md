@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Dynamic Django Deployment
+title: Host-Based Django Configuration
 tags:
 - django
 - python
