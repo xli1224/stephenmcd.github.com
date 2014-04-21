@@ -61,7 +61,7 @@ var bars = function(repos) {
     }
     var repo = getRepo(project.find('a').text());
     if (repo) {
-      var css = {width: (((repo.watchers + repo.forks) / 18) + 10) + 'px'};
+      var css = {width: (((repo.watchers + repo.forks) / 25) + 10) + 'px'};
       var title = repo.watchers + ' watcher' + pluralize(repo.watchers)
                   + ', ' + repo.forks + ' fork' + pluralize(repo.forks);
       var bar = $('<a>').addClass('bar').css(css).attr('title', title);
