@@ -21,7 +21,7 @@ We first hit the [National Palace Museum][national-palace-museum], which was an 
     <br>Mind-bogglingly ancient artefacts
 </em>
 
-After that, we then made our way into downtown Taipai City, and feasted on dumplings for lunch at the world famous [Din Tai Feng Dumpling House][din-tai-feng]. Outside, we instinctively noted some interesting engineering - there were separate queues for each table size, with wait times per queue displayed digitally at the entrance. This place really had its act together. Once inside and eating, I was confused by the waitress who had American and Japanese flags pinned to her jacket, and I asked her if those were the countries she had visited. Embarrassingly, they of course represented the languages she could speak, and were part of her uniform, I just hadn't made the American/English connection.
+After that, we then made our way into downtown Taipei City, and feasted on dumplings for lunch at the world famous [Din Tai Feng Dumpling House][din-tai-feng]. Outside, we instinctively noted some interesting engineering - there were separate queues for each table size, with wait times per queue displayed digitally at the entrance. This place really had its act together. Once inside and eating, I was confused by the waitress who had American and Japanese flags pinned to her jacket, and I asked her if those were the countries she had visited. Embarrassingly, they of course represented the languages she could speak, and were part of her uniform, I just hadn't made the American/English connection.
 
 <em class="center">
     <a class="no-pjax" href="/static/img/taiwan-din-tai-feng-large.jpg"><img src="/static/img/taiwan-din-tai-feng.jpg"></a>
