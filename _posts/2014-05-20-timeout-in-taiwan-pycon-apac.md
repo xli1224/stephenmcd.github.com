@@ -54,13 +54,13 @@ The real treat of the conference for me, was of course everything [Mezzanine][me
 I have to confess that I'm often disillusioned with maintaining the projects I've created. It's hard work that never ends, and I often find myself internalising the constant stream of support requests, asking myself whether it's all worth it. The main takeaway I have from the conference however, is a sense of healing in regard to this - a rejuvenated level of enthusiasm for empowering people through my work.
 
 <em class="center">
-    <a class="no-pjax" href="/static/img/taiwan-keynote-1-large.jpg"><img src="/static/img/taiwan-keynote-1.jpg"></a><a class="no-pjax" href="/static/img/taiwan-keynote-2-large.jpg"><img src="/static/img/taiwan-keynote-2.jpg"></a>
+    <a class="no-pjax" href="/static/img/taiwan-keynote-1-large.jpg"><img src="/static/img/taiwan-keynote-1.jpg"></a><a class="no-pjax" href="/static/img/taiwan-keynote-2-large.jpg"><img src="/static/img/taiwan-keynote-2.jpg"></a><a class="no-pjax" href="/static/img/taiwan-keynote-3-large.jpg"><img src="/static/img/taiwan-keynote-3.jpg"></a>
     <br>Giving my keynote speech on Mezzanine
 </em>
 
 My heartfelt thanks goes out to [Tzu-ping Chung][Tzu-ping], a Mezzanine contributor and the organising committee member whose idea it was to invite me to the conference in the first place. Also to all of the other conference organisers, the speakers, and every single person I had the pleasure of interacting with, thank you - I had such a wonderful time!
 
-PS: The conference videos are still being processed - once I get my hands on it, the video of my talk will be published here, synced up with my slides, so stay tuned.
+You can watch the [video of my talk here][keynote-video].
 
 [pycon-apac]: https://tw.pycon.org/2014apac/
 [keynote-speakers]: https://tw.pycon.org/2014apac/en/program/keynote-speakers/
@@ -82,3 +82,4 @@ PS: The conference videos are still being processed - once I get my hands on it,
 [robonaut]: http://en.wikipedia.org/wiki/Robonaut
 [mezzanine]: http://mezzanine.jupo.org
 [tzu-ping]: https://twitter.com/uranusjr
+[keynote-video]: /2014/08/21/pycon-apac-keynote-mezzanine/
