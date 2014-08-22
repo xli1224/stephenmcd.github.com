@@ -13,24 +13,26 @@ https://github.com/stephenmcd/stephenmcd.github.com/blob/master/LICENSE
     {% assign year = "" %}
     {% for post in site.posts %}
     {% unless post.tags contains "speaking" %}
-    {% assign post_words = 0 %}
-    {% assign lines = post.content|split:'pre>' %}
-    {% for line in lines %}
-    {% assign mod = forloop.index|modulo:2 %}
-    {% assign line_words = line|strip_html|number_of_words|times:mod %}
-    {% assign post_words = post_words|plus:line_words %}
-    {% endfor %}
+        {% assign post_words = 0 %}
+        {% assign lines = post.content|split:'pre>' %}
+        {% for line in lines %}
+            {% assign mod = forloop.index|modulo:2 %}
+            {% assign line_words = line|strip_html|number_of_words|times:mod %}
+            {% assign post_words = post_words|plus:line_words %}
+        {% endfor %}
     {% assign current_year = post.date|date:"%Y" %}
     {% if current_year != year %}
     {% assign year = current_year %}
     <!--<li><h5>{{ year }}</h5></li>-->
     {% endif %}
+    {% assign width = post_words | divided_by:20 %}
+    {% assign width = width | plus:10 %}
     <li>
         <span class="date">{{ post.date | date_to_string }}</span>
         <span class="arrow">&raquo;</span>
         <a href="{{ post.url }}">{{ post.title }}</a>
         <a class="bar" href="#" title="{{ post_words }} words"
-            style="width:{{ post_words | divided_by:20 | plus: 10 | ceil  }}px;">&nbsp;</a>
+            style="width:{{ width | ceil  }}px;">&nbsp;</a>
     </li>
     {% endunless %}
     {% endfor %}
@@ -40,14 +42,16 @@ https://github.com/stephenmcd/stephenmcd.github.com/blob/master/LICENSE
 <ul class="unstyled articles">
     {% for post in site.posts %}
     {% if post.tags contains "speaking" %}
-    {% assign minutes = post.minutes | times:5 %}
-    {% assign length = post.slides | plus:minutes %}
+    {% assign width = post.minutes | times:5 %}
+    {% assign width = post.slides | plus:width %}
+    {% assign width = width | divided_by:2 %}
+    {% assign width = width | plus:10 %}
     <li>
         <span class="date">{{ post.date | date_to_string }}</span>
         <span class="arrow">&raquo;</span>
         <a class="no-pjax" href="{{ post.url }}">{{ post.title }}</a>
         <a class="bar" href="#" title="{{ post.slides }} slides{% if post.minutes != 0 %}, {{ post.minutes }} minutes{% endif %}"
-            style="width:{{ length | divided_by:2 | plus: 10 | ceil }}px;">&nbsp;</a>
+            style="width:{{ width | ceil }}px;">&nbsp;</a>
     </li>
     {% endif %}
     {% endfor %}
