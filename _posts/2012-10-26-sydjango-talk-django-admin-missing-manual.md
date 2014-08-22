@@ -2,6 +2,7 @@
 layout: post
 title: "SyDjango Talk: Django Admin, The Missing Manual"
 slides: 34
+minutes: 30
 tags:
 - python
 - django

@@ -30,7 +30,7 @@ https://github.com/stephenmcd/stephenmcd.github.com/blob/master/LICENSE
         <span class="arrow">&raquo;</span>
         <a href="{{ post.url }}">{{ post.title }}</a>
         <a class="bar" href="#" title="{{ post_words }} words"
-            style="width:{{ post_words | divided_by:20 | plus: 10 }}px;">&nbsp;</a>
+            style="width:{{ post_words | divided_by:20 | plus: 10 | ceil  }}px;">&nbsp;</a>
     </li>
     {% endunless %}
     {% endfor %}
@@ -40,12 +40,14 @@ https://github.com/stephenmcd/stephenmcd.github.com/blob/master/LICENSE
 <ul class="unstyled articles">
     {% for post in site.posts %}
     {% if post.tags contains "speaking" %}
+    {% assign minutes = post.minutes | times:5 %}
+    {% assign length = post.slides | plus:minutes %}
     <li>
         <span class="date">{{ post.date | date_to_string }}</span>
         <span class="arrow">&raquo;</span>
         <a class="no-pjax" href="{{ post.url }}">{{ post.title }}</a>
-        <a class="bar" href="#" title="{{ post.slides }} slides"
-            style="width:{{ post.slides | times:2 }}px;">&nbsp;</a>
+        <a class="bar" href="#" title="{{ post.slides }} slides{% if post.minutes != 0 %}, {{ post.minutes }} minutes{% endif %}"
+            style="width:{{ length | divided_by:2 | plus: 10 | ceil }}px;">&nbsp;</a>
     </li>
     {% endif %}
     {% endfor %}

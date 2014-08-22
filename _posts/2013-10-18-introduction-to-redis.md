@@ -2,6 +2,7 @@
 layout: post
 title: "An Introduction to Redis"
 slides: 16
+minutes: 0
 tags:
 - redis
 - speaking

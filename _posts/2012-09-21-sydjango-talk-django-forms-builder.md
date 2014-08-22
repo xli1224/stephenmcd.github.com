@@ -2,6 +2,7 @@
 layout: post
 title: "SyDjango Talk: django-forms-builder"
 slides: 56
+minutes: 28
 tags:
 - python
 - django
