@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "PyCon APAC, Keynote: Mezzanine"
+title: "PyCon APAC Keynote: Mezzanine"
 slides: 22
 minutes: 53
 tags:
