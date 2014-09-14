@@ -4,7 +4,7 @@ author: Stephen McDonald
 email: steve@jupo.org
 host: http://blog.jupo.org
 permalink: pretty
-pygments: true
+highlighter: pygments
 markdown: kramdown
 
 index_pages:
