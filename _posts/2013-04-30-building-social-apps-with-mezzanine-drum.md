@@ -171,24 +171,28 @@ class Profile(models.Model):
 
 You'll notice we've also defined a karma field on the profile for each user, that can't be edited via a form. Karma is an interesting feature of sites like Hacker News and Reddit, where the idea is to provide a score for each user that indicates their reputation on the site. Generally a user's karma will increase as their links and comments are rated positively by other users, and decrease accordingly if the ratings given are negative.
 
-With a karma field in place on our user profiles, all that's left to do is update the user's karma each time a rating gets saved, which we can do using
-[Django's model signals][django-model-signals]:
+With a karma field in place on our user profiles, all that's left to do is update the user's karma each time a rating gets saved or deleted, which we can do using [Django's model signals][django-model-signals]:
 
 {% highlight python %}
 from django.db import models
-from django.db.models.signals import post_save
+from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
 from mezzanine.generic.models import Rating
 
 @receiver(post_save, sender=Rating)
+@receiver(post_delete, sender=Rating)
 def karma(sender, **kwargs):
     rating = kwargs["instance"]
     value = int(rating.value)
     # Since ratings are either +1/-1, if a rating is being edited,
     # we can assume that the existing rating is in the other direction,
-    # so we multiply the karma modifier by 2.
-    if not kwargs["created"]:
-        value *= 2
+    # so we multiply the karma modifier by 2. Otherwise if the rating is
+    # being undone (deleted), then we just reverse the direction of the
+    # value to change karma by.
+    if "created" not in kwargs:
+        value *= -1  # Rating deleted.
+    elif not kwargs["created"]:
+        value *= 2  # Rating updated.
     content_object = rating.content_object
     if rating.user != content_object.user:
         queryset = Profile.objects.filter(user=content_object.user)
