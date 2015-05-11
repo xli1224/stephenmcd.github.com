@@ -113,9 +113,10 @@ em a {font-style:italic;}
 }
 
 .ad {
+    display: none;
     width:100%; color:#666; background:#eee; padding:8px;
     text-align:center; font-size:15px;
     position:fixed; top:0;
 }
-body {padding-top:40px;}
+xbody {padding-top:40px;}
 .ad a {text-decoration:underline;}

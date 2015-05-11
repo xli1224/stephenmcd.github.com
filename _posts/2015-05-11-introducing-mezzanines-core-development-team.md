@@ -66,4 +66,4 @@ Again, I'm thrilled to finally give recognition to the people who have done so m
 [mathias]: https://github.com/Kniyl
 [multi-lingual-pr]: https://github.com/stephenmcd/mezzanine/pull/1019
 [multi-lingual-docs]: https://github.com/stephenmcd/mezzanine/blob/master/docs/multi-lingual-sites.rst
-[mailing-list-announcement]: https://groups.google.com/forum/#!forum/mezzanine-users
+[mailing-list-announcement]: https://groups.google.com/forum/#!topic/mezzanine-users/Pt5fwkTBBUE
