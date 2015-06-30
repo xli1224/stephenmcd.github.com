@@ -2,96 +2,51 @@
 layout: default
 title: Stephen McDonald
 ---
-<!--
+<div class="col-md-5">
 
-Copyright Stephen McDonald. Please see LICENSE.
-https://github.com/stephenmcd/stephenmcd.github.com/blob/master/LICENSE
-
--->
-<h6 id="articles">Articles</h6>
-<ul class="unstyled articles">
-    {% assign year = "" %}
+<h3 id="articles">Articles</h3>
+<ul class="home articles">
     {% for post in site.posts %}
     {% unless post.tags contains "speaking" %}
-        {% assign post_words = 0 %}
-        {% assign lines = post.content|split:'pre>' %}
-        {% for line in lines %}
-            {% assign mod = forloop.index|modulo:2 %}
-            {% assign line_words = line|strip_html|number_of_words|times:mod %}
-            {% assign post_words = post_words|plus:line_words %}
-        {% endfor %}
-    {% assign current_year = post.date|date:"%Y" %}
-    {% if current_year != year %}
-    {% assign year = current_year %}
-    <!--<li><h5>{{ year }}</h5></li>-->
-    {% endif %}
-    {% assign width = post_words | divided_by:20 %}
-    {% assign width = width | plus:10 %}
     <li>
         <span class="date">{{ post.date | date_to_string }}</span>
         <span class="arrow">&raquo;</span>
         <a href="{{ post.url }}">{{ post.title }}</a>
-        <a class="bar" href="#" title="{{ post_words }} words"
-            style="width:{{ width | ceil  }}px;">&nbsp;</a>
     </li>
     {% endunless %}
     {% endfor %}
 </ul>
 
-<h6 id="talks">Talks</h6>
-<ul class="unstyled articles">
+</div>
+<div class="col-md-7">
+
+<h3 id="talks">Talks</h3>
+<ul class="home articles">
     {% for post in site.posts %}
     {% if post.tags contains "speaking" %}
-    {% assign width = post.minutes | times:5 %}
-    {% assign width = post.slides | plus:width %}
-    {% assign width = width | divided_by:2 %}
-    {% assign width = width | plus:10 %}
     <li>
         <span class="date">{{ post.date | date_to_string }}</span>
         <span class="arrow">&raquo;</span>
-        <a class="no-pjax" href="{{ post.url }}">{{ post.title }}</a>
-        <a class="bar" href="#" title="{{ post.slides }} slides{% if post.minutes != 0 %}, {{ post.minutes }} minutes{% endif %}"
-            style="width:{{ width | ceil }}px;">&nbsp;</a>
+        <a href="{{ post.url }}">{{ post.title }}</a>
     </li>
     {% endif %}
     {% endfor %}
 </ul>
 
-<h6 id="interviews">Interviews {{ site.keys }}</h6>
-<ul class="unstyled interviews">
+<h3 id="interviews">Interviews {{ site.keys }}</h3>
+<ul class="home interviews">
     {% for interview in site.interviews %}
     <li>
         <span class="date">{{ interview.date }}</span>
         <span class="arrow">&raquo;</span>
         <a href="{{ interview.url }}">{{ interview.title }}</a>
-        <em>- {{ interview.site }}</em>
+        <em>{{ interview.site }}</em>
     </li>
     {% endfor %}
 </ul>
 
-<h6 id="keywords">Topics</h6>
-<!-- tag cloud css: font-size:{ tag[1].size | times:2 | plus:12 }px; line-height:28px; -->
-{% assign tags_max = 0 %}
-{% for tag in site.tags %}
-{% if tag[1].size > tags_max %}
-{% assign tags_max = tag[1].size %}
-{% endif %}
-{% endfor %}
-<ul class="unstyled tags">
-    {% for i in (1..tags_max) reversed %}
-    {% for tag in site.tags %}
-    {% if tag[1].size == i %}
-    <li>
-        <a href="/tag/{{ tag[0] | replace:' ','-' | replace:'.','' }}/">{{ tag[0] }}</a>
-        ({{ tag[1].size }}){% unless forloop.last %}, {% endunless %}
-    </li>
-    {% endif %}
-    {% endfor %}
-    {% endfor %}
-</ul>
-
-<h6 id="projects">Open Source Projects</h6>
-<ul class="unstyled projects">
+<h3 id="projects">Open Source Projects</h3>
+<ul class="home projects">
     {% for project in site.projects %}
     <li>
         <a href="{{ project.url }}" class="title">{{ project.title }}</a>
@@ -101,4 +56,4 @@ https://github.com/stephenmcd/stephenmcd.github.com/blob/master/LICENSE
     {% endfor %}
 </ul>
 
-<div id="coderwall"><h6>Badges</h6></div>
+</div>

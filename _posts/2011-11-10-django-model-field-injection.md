@@ -12,7 +12,7 @@ tags:
 
 As a creator and maintainer of several popular reusable [Django](https://www.djangoproject.com/) applications, one of the most commonly requested features I'm asked for is the ability to customise the fields that a model implements. This topic comes up often on the [Mezzanine mailing list](http://groups.google.com/group/mezzanine-users), and during [this particular thread](http://groups.google.com/group/mezzanine-users/browse_thread/thread/1f1669b0091a88d5) we researched ways that fields could be dynamically injected into models at run-time.
 
-#### Other Approaches
+### Other Approaches
 
 It's worth taking a look at other approaches to the general problem, and what their drawbacks are, in order to provide context for what the final solution needs to achieve.
 
@@ -20,7 +20,7 @@ One approach is to implement as many of the model classes as possible as [abstra
 
 Another approach is to simply recommend that users subclass the models that the app provides using [multi-table inheritance](https://docs.djangoproject.com/en/dev/topics/db/models/#multi-table-inheritance). Unfortunately this will introduce unnecessary overhead with the extra database queries required when accessing the instances of the subclasses. Best case is that this amounts to an extra query or two in a view dealing with a single instance. Worst case is that when this approach is used with a queryset in a template, an extra query is performed for each instance returned - the classic [N+1 query problem](http://stackoverflow.com/questions/97197/what-is-the-n1-selects-problem).
 
-#### Dynamic Injection
+### Dynamic Injection
 
 The ideal approach would allow users to directly modify models with their own code, outside of the models' apps, without the models themselves having to implement any special hooks for customisation. The end result being an optimal database design, with no extra API requirements for the relevant models. It just so happens that this is possible by using several features that Django exposes, and combining them together in a particular way.
 
@@ -53,13 +53,13 @@ class_prepared.connect(add_field)
 
 The final consideration is connecting the `class_prepared` signal at the correct time. It needs to occur prior to the relevant model class being declared, otherwise the signal will never be triggered when we want it to. A general way of achieving this is to connect the signal from within an app that is listed before the app containing the relevant model, in the `INSTALLED_APPS` setting. Note that in the above code, we don't explicitly import the model to use it as the signal's sender, instead checking for the model's class name, as importing it would break these load ordering requirements.
 
-#### Caveats
+### Caveats
 
 Like the previously described approaches, dynamic injection also comes with a set of drawbacks. These drawbacks stem from the fact that the apps containing the models being customised don't contain a definition for the fields being injected. This means that migration tools likes [South](http://south.aeracode.org/) are unable to detect the new fields, and workarounds such as creating manual migrations are required.
 
 Another related problem is when new admin classes containing references to the custom fields are registered and the fields haven't yet been injected. A typical requirement for injected fields is to expose them via [Django's admin interface](https://docs.djangoproject.com/en/dev/ref/contrib/admin/), which can be achieved by unregistering existing admin classes for the models that fields are being injected into, subclassing these admin classes with new references to the injected fields, and registering the new admin classes. Unfortunately if this unregister/register dance occurs in an admin module, the fields may not have yet been injected. A quick work-around for this is to perform the unregister/register calls inside your project's urlconf.
 
-#### Mezzanine Support
+### Mezzanine Support
 
 Drawbacks aside, the field injection technique described above has characteristics that make it incredibly useful. As such the approach has first-class support in [Mezzanine](http://mezzanine.jupo.org) by way of the `EXTRA_MODEL_FIELDS` setting. This setting allows you to define a sequence of all the custom fields you'd like to inject. Each item in the sequence contains four items: the dotted Python path to the model (including the field name to use for injection), the dotted Python path to the field class to use for the injected field, a sequence of the field's position arguments, and finally a dict of its keyword arguments.
 

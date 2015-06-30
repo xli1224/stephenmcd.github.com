@@ -14,7 +14,7 @@ tags:
 
 I've been playing around with [Publish/Subscribe queues][pubsub] (or *pub-sub* queues) for the last few months, which has led me through some research that has been very interesting for me personally. I've wanted to write about my experiences for a while now, but unfortunately this post continues to unwrite itself over time, as I refine my research and disprove any assumptions I've made along the way. Nonetheless, I've now decided to write about what I've worked on so far, and with that in mind, I'll make the disclaimer that this post isn't an attempt to draw any definitive conclusions, but merely to talk about my learning and experience as a work in progress. We'll take a look at some pub-sub use cases, using [Redis][redis] and [ZeroMQ][zeromq], from both [Python][python] and Google's [Go language][golang].
 
-#### Motivation
+### Motivation
 
 Real-time web applications have been a great area of interest for me over the years. I use the term real-time quite loosely here, as [real-time in software engineering][real-time] technically refers to a lower level set of system constraints. Instead I'm referring to a style of web application where users can interact with each other in a seemingly instantaneous way, such as a chat room or a multi-player game of some sort.
 
@@ -38,7 +38,7 @@ The port to Go was a fun experience. It looked very similar to the Python versio
 
 I then started to look more closely at the pub-sub setup. With the grid design in place, we'd have a straight-forward path ahead for partitioning the pub-sub channels over multiple Redis instances, but how much volume could a single Redis pub-sub instance handle? Was there a tool that could handle more? I decided to explore this question further, and from that point on, I was entirely swept away into the realm of pub-sub benchmarking.
 
-#### Broker Characteristics
+### Broker Characteristics
 
 Before we dive into comparisons, let's look at some of the characteristics we want, given the above requirements.
 
@@ -60,7 +60,7 @@ We only want to pass string messages (or more specifically, byte sequences) arou
 
 We should be able to add more broker instances into the mix, in order to handle a growing number of clients and messages. I can't think of a message broker that wouldn't fulfil this requirement, since as long as we're using multiple pub-sub channels, we can easily come up with a partitioning scheme such as [consistent hashing][consistent-hashing] that divides channels across brokers.
 
-#### ZeroMQ
+### ZeroMQ
 
 [ZeroMQ][zeromq] is a piece of software I'd wanted to learn more about for quite some time. I'd heard the term pub-sub being used in conjunction with it, but knew it wasn't a pub-sub server itself, as its name clearly indicates. Perhaps it would provide an approach that negated the need to use pub-sub entirely - either way, this seemed like a good opportunity to take a closer look.
 
@@ -74,7 +74,7 @@ There's a huge point to be made here around the age-long debate over whether to 
 
 Once I'd played around with it a bit, I was able to form a more concrete question: could I use ZeroMQ to build a pub-sub server, and how would it compare to Redis? It turns out the first part of that question can be answered trivially, with very little code, while the second part would require a bit more effort.
 
-#### Show Me the Code
+### Show Me the Code
 
 Without further ado, here's a basic pub-sub message broker in Python using ZeroMQ, that demonstrates how little is required to get up and running:
 
@@ -232,7 +232,7 @@ if __name__ == "__main__":
 
 The main points of configuration in the above code, are the toggle between Redis and ZeroMQ clients, and the number of pub-sub clients used. A client contains two loops, one that publishes messages, and one that consumes them. Each of these loops are run on a separate OS process using Python's [multiprocessing module][multiprocessing], so the number of processes saturating the CPU is roughly equal to `1 broker + clients * 2`. A handful of other configurable options are also there, such as message size, and the number of pub-sub channels used, but these didn't really yield any meaningful variation in the results.
 
-#### Initial Results
+### Initial Results
 
 Firstly, here are some details around my own setup used:
 
@@ -302,7 +302,7 @@ Here are the results again, using the buffered client for Redis:
 
 That's much better, and we can see here that with the new buffered client, our test routine is making better use of concurrency against Redis. But can we see any real difference between Redis and ZeroMQ brokers yet? The fact these results come out quite closely indicates a chance we may have hit another wall in our benchmarking.
 
-#### Go Go Go
+### Go Go Go
 
 With the slightest notch of Go experience under my belt, this seemed like another good opportunity to give Go a spin. With the closeness displayed by our two brokers so far, the possibility of a limitation occurring with the combination of Python and the hardware being used seemed worth exploring.
 
@@ -429,7 +429,7 @@ The [redigo][redigo] Redis library for Go used here is quite different from its 
 
 The astute reader will have noticed we don't implement ``RedisClient.Subscribe`` and ``RedisClient.Publish`` methods - this is due to the unnamed embedded ``redis.PubSubConn`` within ``RedisClient``, which already contains these methods. By embedding it without a name, its methods are directly accessible from the outer type. This is a really powerful feature of Go, allowing very elegant type hierarchies to be constructed using mixins.
 
-#### And The Winner Is...
+### And The Winner Is...
 
 You the reader of course, for making it this far through this post. Seriously though, here are the combined results for both Go and Python versions:
 
@@ -439,7 +439,7 @@ Before we go any further, it's important to highlight some key differences betwe
 
 So this isn't at all a comparison between Python and Go, since we'd be comparing apple pies to orange juice. But that's fine, as it was never the point. The switch to Go merely allowed us to make better use of the available hardware, in order to reach a point in message throughput where we could potentially see a greater variance between Redis and ZeroMQ.
 
-#### Conclusion
+### Conclusion
 
 What can we take away from all of this? To be brutally honest, not much - I feel like I've only scratched the surface here, and without really diving in and profiling some of the code used, any conclusions drawn at this point would be fairly superficial. It did provide a good avenue for learning all about ZeroMQ and Go, which was a ton of fun, and something I'm definitely going to spend more time with. I also learnt that the buffering strategies used when dealing with a high volume of messages over the network form a critical piece of the puzzle.
 

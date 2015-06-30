@@ -21,11 +21,11 @@ Programming logic in Jekyll's layout templates is provided by a templating langu
 
 Jekyll powered blogs have no particular hosting requirements, beyond a web server that can serve up static files. Publishing changes to the site is simply a matter of running the Jekyll command locally to build the site, and pushing the generated files to your web server, perhaps via FTP. Now [GitHub][github] provides an even easier, more integrated approach than this. They provide a service called [GitHub Pages][github-pages], where you can nominate one of your code repositories for hosting a static website - simply push the changes for your static site to the repository via Git, and the site is up to date. GitHub Pages also integrates with Jekyll, so if your repository is set up as a Jekyll project, GitHub will automatically generate the static site that gets hosted.
 
-#### In the Sandbox
+### In the Sandbox
 
 Jekyll integration with GitHub Pages really comes close to a blogging nirvana for programmers, but it's not all sunshine and roses. Understandably, the Jekyll instance on GitHub Pages is sandboxed, and you're unable to extend Jekyll with your own custom Liquid tags and filters. This would require running arbitrary Ruby code, which would pose a security risk to GitHub. So you're restricted to the built-in tags and filters provided by Liquid and Jekyll, which brings us to the point of this post. Since moving to Jekyll, I've had a few cases where I needed to extend things beyond what Jekyll provides. The adage _[constraints foster creativity][constraints]_ has certainly rung true for me with these, and by bending the built-in Liquid tags and filters in strange and sometimes inefficient ways, I've been able to achieve what I've needed. Following are the details of some of these weird tricks I've come up with.
 
-#### True Word Count
+### True Word Count
 
 Jekyll adds a `number_of_words` tag to Liquid that can be used to display the number of words in an article. You'll see I make use of it on this site, to [generate the visual bars][blog-home] showing the size of each article on the homepage. Unfortunately this tag is particularly naive - it simply splits the contents up into chunks separated by spaces, and returns the number of items. The problem with this is that by the time the post makes its way into the template, it has already been converted to HTML, so all of the HTML tags and their attributes get included in the word count. Jekyll, aimed especially at programmers, also supports snippets of syntax highlighted code in articles. These have their own tag syntax, which would make extracting them out of article content prior to determining word count, seem particularly easy, so that the code in snippets is also omitted from the overall word count, however the `number_of_words` tag doesn't do this either.
 
@@ -52,7 +52,7 @@ This code works off the assumption that the highlighted code snippets in article
 
 We then loop through each of the lines, where we can assume every even line (2nd, 4th, etc) contains a block of code we want to omit from the overall word count. We then strip the HTML from the odd lines using Jekyll's `strip_html` tag, to get the actual text content, and sum the result of the `number_of_words` tag on each of these. You'll notice a strange bit here, where we multiply the modulo of 2 on the loop index, which will give us a value of 0 for even lines with code snippets, and 1 for lines with real words. The reason for this is that like Django templates, Liquid conditional tags like `if` don't behave like regular programming languages - their conditional nature is only applicable to what's rendered to the browser. Tags and filters within conditions that aren't met are still executed, so we can't simply wrap our word summing in `{% raw %}{% if mod == 1 %}{% endraw %}`.
 
-#### Frequency Tag Sort
+### Frequency Tag Sort
 
 Articles in Jekyll support traditional keyword tags as you'd expect. On the homepage of this site, I generate a list of all tags from all articles. The problem though, is that the tags are in arbitrary order when made available by Jekyll, making the list hard to digest in a meaningful way. We could sort them alphabetically, but I thought the best option would be to sort them by frequency, with the most commonly used tags appearing at the top of the list. Liquid provides the template tag ``sort`` for sorting data by a given property, but the tag structure provided by Jekyll is a hash, which as best as I can tell, isn't supported by Liquid's ``sort`` tag. I therefore came up with the following approach for sorting by frequency:
 
@@ -82,7 +82,7 @@ Articles in Jekyll support traditional keyword tags as you'd expect. On the home
 
 The above approach is quite ridiculous. It first iterates through each of the tags, to determine what the highest tag frequency is. Then it iterates from that highest frequency, down to 1, and within each iteration, loops again through _all tags_, displaying them if their frequency matches the current outer loop. This is insanely inefficient, but it gets the job done acceptably, considering again that this code is only run when the site is published, not on each request.
 
-#### Drop Cap
+### Drop Cap
 
 One dreary evening I came across a site that used [drop-cap][drop-cap] on each of its articles, by wrapping the first character in a separate HTML tag that could be styled. Text manipulation like this is child's play in regular programming languages, and I immediately wondered if this would be possible with restricted Jekyll. After a bit of trial and error, I managed to come up with the following:
 
@@ -98,7 +98,7 @@ First up we create a ``drop_cap`` variable, which contains the initial character
 
 With the hard part out of the way, we're then able to wrap the character in a tag we can style, and replace the first instance of the character in the article with our wrapped replacement. CSS wizards reading may point out the possibility of using a selector like ``:first-of-type:first-letter`` to achieve the same result. This worked nicely in Chrome but was flaky in Firefox, while wrapping with a span work consistently.
 
-#### Conclusion
+### Conclusion
 
 To be honest, none of the above is strictly necessary with Jekyll. I could easily achieve what I need by writing my own Liquid tags to do the job properly. This would even work with GitHub Pages, I'd just need to generate the static version of the site myself, and commit the generated HTML files to version control. But no. In the above cases, I saw the tasks as a challenge - a programming puzzle of sorts, and really enjoyed solving them in the end.
 

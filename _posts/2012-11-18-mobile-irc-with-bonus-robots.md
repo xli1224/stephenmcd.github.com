@@ -18,7 +18,7 @@ Earlier this year I finally got around to setting up an [IRC][irc] channel for [
 
 At the time I thought about how I could provide a web-based interface for the IRC channel, via the Mezzanine website. Mezzanine has always striven hard to be newcomer friendly, from the early days with its [one-step project creation][mezzanine-create], to more recently with its [bundled server provisioning and production deployment utilities][mezzanine-deploy], so having live support available directly on the project website was a natural evolution.
 
-#### Existing Projects
+### Existing Projects
 
 The first step was to research existing web-based IRC clients. The main contender was a project called [qwebirc][qwebirc], which is used by [freenode][freenode] and many other IRC networks. It's been under active development for many years, and given some of the projects using it, would appear to be quite mature. One of the core requirements for me would be to customise the interface easily, in order to integrate with the look and feel of the [Mezzanine website][mezzanine]. Unfortunately after diving a bit deeper, I walked away with a laundry list of issues that turned me off using it.
 
@@ -26,7 +26,7 @@ Firstly there seemed to be almost no documentation, and the code contained almos
 
 Another requirement I had for the Mezzanine site was to also include a browsable and searchable message archive. Getting the IRC conversations indexed by Google would mean that new users could potentially find answers to their questions without having to ask them, which would alleviate time spent on support for myself and other members of the community (a big shout out to [Ken Bolton][ken-bolton] and [Josh Cartmell][josh-cartmell] for their ongoing efforts here). I'm vaguely aware of some [Django][django] projects around that implement this functionality, but wouldn't it be nice if there was an all-inclusive package for IRC integration that made use of modern technology?
 
-#### Starting From Scratch
+### Starting From Scratch
 
 Given all the above, I had a clear idea around what I wanted from web-based IRC client. A simple bridge between IRC and [gevent][gevent] on the server, with WebSocket support on the client.
 
@@ -38,17 +38,17 @@ The result of this endeavour is a project I've called [Gnotty][gnotty]. At its c
 
 Following is an overview of the extra features I've implemented so far in Gnotty, that make it much more than just a web-based interface to IRC.
 
-#### Responsive Layout
+### Responsive Layout
 
 The default interface for Gnotty is entirely based on [Twitter's Bootstrap][twitter-bootstrap]. This made it easy to ensure that it functions correctly on mobile devices thanks to Bootstrap's [responsive][responsive-design] features.
 
 <em class="center"><a class="no-pjax" href="/static/img/gnotty-desktop-large.png"><img src="/static/img/gnotty-desktop.png"></a><a class="no-pjax" href="/static/img/gnotty-mobile-large.png"><img src="/static/img/gnotty-mobile.png"></a><br>A fully responsive IRC client, on your desktop or mobile device</em>
 
-#### JavaScript Client
+### JavaScript Client
 
 Gnotty provides a JavaScript client that makes no assumptions about the structure of the browser interface. It simply exposes each of the methods and events that occur for interacting with the IRC room. Don't want to use default interface? The JavaScript client allows you to develop your own from scratch.
 
-#### Message Archive
+### Message Archive
 
 As mentioned, one of the key requirements I had was to have all messages archived so that they can then be browsed and searched through. Whatever the context of using Gnotty is, from collaborating on an open source project, to private rooms for teams to use, this form of knowledge reuse is a critical feature. Gnotty provides this feature by combining Django models with [Python's logging module][python-logging]. Logging namespaces are defined for IRC messages as well as several other events, and when deployed as a Django project, logging handlers are configured that store all IRC messages to [Django models][django-models]. The interface for browsing and searching the message archive is then provided using [Django views][django-views].
 
@@ -56,15 +56,15 @@ As mentioned, one of the key requirements I had was to have all messages archive
 
 Note that Django integration with Gnotty is entirely optional. You can deploy Gnotty as a stand-alone bridge between IRC and gevent without using Django at all. Given the use of Python's logging module, you can then create your own logging handlers, and store IRC messages in some other format or location should you wish to.
 
-#### Django Templating
+### Django Templating
 
 By default, Gnotty's interface uses [Django's templating language][django-templating]. This opens the door to many opportunities for customisation, from using Django's template tags, to integrating with your existing Django project's look and feel. Deploying Gnotty as a Django project opens it up to the entire ecosystem of [third party Django applications][django-packages].
 
-#### Private Rooms
+### Private Rooms
 
 This is another bonus feature simply available by virtue of Gnotty integrating with Django. By defining the `GNOTTY_LOGIN_REQUIRED` setting in your Django project, the chat interface and message archive then require an [authenticated Django user][django-auth] in order to be accessed. Combine this with a local IRC server such as [ngIRCd][ngircd], you can have your own hosted private IRC room for team collaboration, all set up in a matter of minutes.
 
-#### Bot Framework
+### Bot Framework
 
 Here's where things really got carried away. Gnotty includes a mini framework for injecting [IRC bots][irc-bots] into the room. The bots expose all of the events that can occur in the IRC channel, such as users messaging, entering and leaving. The bots also include an API for creating simple Python commands, where user messages can be mapped to Python methods on the bot. Bots can also have timer events implemented ([new in 0.2][0.2-release]), that run periodically at a given interval, and are useful for polling external resources. Finally, since Gnotty at its core is a web interface, the bots also allow [webhooks][webhooks] to be implemented - custom URLs that allow other services to interact with the bots over HTTP.
 
@@ -77,7 +77,7 @@ With IRC channel events, user commands and webhooks, a ton of interesting possib
 - `RSSBot` - A bot that watches [RSS][rss] feeds and posts new items from them to the IRC channel ([new in 0.2][0.2-release]).
 - `Voltron` - All of the available bots, merged into one [super bot][voltron].
 
-#### Next Steps
+### Next Steps
 
 I've given an overview here of the core features that Gnotty implements in its first release. Take a look at the [Gnotty documentation][gnotty-readme] where all of the features are described in much greater detail, along with configuration options and code samples to get you started. As with all my open source projects, Gnotty is available on both [GitHub][gnotty-github] and [Bitbucket][gnotty-bitbucket], so if you'd like to work with me on future development then by all means dive right in.
 

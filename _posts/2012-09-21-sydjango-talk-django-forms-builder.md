@@ -12,7 +12,7 @@ tags:
 
 <p>Last night I gave a talk at the third <a href="http://www.meetup.com/SyDjango/">SyDjango</a> meet-up where I presented my <a href="https://github.com/stephenmcd/django-forms-builder">django-forms-builder</a> project. Below is the video and slides from the talk which went really well, spurring about a dozen questions at the end. Excuse the background noise in the video, unfortunately we didn't have the venue to ourselves. Thanks to all the fellow Sydney Djangonauts who came along and made it a great night.</p>
 
-<h4>Table of Contents</h4>
+<h3>Table of Contents</h3>
 <ol id="toc"></ol>
 <script src="/static/js/vimeo-deck.js"></script>
 <script>

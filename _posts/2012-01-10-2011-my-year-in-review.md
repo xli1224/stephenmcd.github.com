@@ -12,11 +12,11 @@ tags:
 Another year has gone by and another obligatory _year in review_ post is due. 2011 was a
 year full of change for me. I changed jobs twice, spent half the year coding in a new language, moved interstate, and switched my primary operating system.
 
-#### Ruby
+### Ruby
 
 After working at [Citrus][1] for almost nine years, I was well overdue for a change of scenery, so when I was approached by [Impact Data][2] to come and work for them using [Ruby on Rails][3], I welcomed the opportunity. My time there was short and sweet however, as after six months I decided to move back home to Sydney, but it was a really rewarding experience working with an incredibly smart team on a technology stack that was new to me. I had a great time learning Ruby, forming a strong appreciation for its elegance, and it was very interesting along the way making plenty of [comparisons between Rails and Django][4]. Naturally I started using Ruby in my own projects, getting to know [Sinatra][5] for a handful of apps that I built. I'll be writing a more detailed post about those soon, so stay tuned!
 
-#### Django Dash
+### Django Dash
 
 For the second year in a row I entered the [Django Dash][6] hackathon. This time around I wanted to do something that really pushed Django outside of its typical usage patterns. I'd recently read Cody Soyland's introductory blog post on [using WebSockets with Django][7], and so I came up with an idea I called [Drawn By][8], a collaborative drawing app where people could create sketches together in real-time, save them to an image they can download, and rate others' sketches in the gallery.
 
@@ -24,7 +24,7 @@ For the second year in a row I entered the [Django Dash][6] hackathon. This time
 
  This year we came 3rd place out of around 50 entries, which was a great improvement on the previous year's result of 8th. The most important result however was the creation of [django-socketio][12], which was extracted from Drawn By and released as open source. It brings together all of the scaffolding for using WebSockets with Django, and implements an events and channels system for building your own applications around it. [I previously wrote about django-socketio][13] right after releasing it, and since then it has gained quite a lot of traction, with a handful of developers contributing back fixes and new features.
 
-#### Open Source
+### Open Source
 
 I actually spent less time this year contributing to open source than I did the previous year, but I steamed ahead nonetheless with a lot of new projects, as well as continued development and support for my major works, [Mezzanine][14] and [Cartridge][15]. Both these projects have reached a very mature level over the course of 2011, thanks to tons of contributions from the [Mezzanine and Cartridge community][16], which continues to grow steadily. Here's a list of the projects I released as open source over the year:
 
@@ -39,7 +39,7 @@ I actually spent less time this year contributing to open source than I did the 
   * [hg-github][32]: A [Mercurial][33] extension for GitHub. (Mercurial / Python)
   * [sphinx-me][34]: A [Sphinx][35] documentation generator. (Python)
 
-#### OSX
+### OSX
 
 As I mentioned, towards the end of the year I moved back to Sydney. An opportunity came up to work with [Fairfax][36], the largest media organisation in Australia. Fairfax is building a new publishing platform using Django, so my experience with content management and Django was a natural fit. Mostly though, it was a chance for me to move back home and be closer to my family, after being away from them in Melbourne for a decade.
 

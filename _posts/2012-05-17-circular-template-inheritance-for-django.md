@@ -11,7 +11,7 @@ tags:
 
 One of Django's many great features is its powerful [template inheritance][template-inheritance]. A decade ago we would use simple concepts like include files for platforms such as ASP and PHP, allowing us to create reusable template snippets that could be embedded in multiple pages. Later, ASP.NET and Ruby on Rails would improve on this with their master/layout concepts, allowing us to define a base skeleton template for a site, with an area that all other pages would inject their content into. Django takes this approach even further with its template inheritance. It allows templates to extend other (parent) templates, with those parent templates containing named blocks that can be overridden. The blocks in the parent template can contain default content, and when overriding these blocks, the default content can be overridden, left as is, or even prefixed with or appended to, as the child template will have access to the default content in the parent template's block. This is analogous to object oriented programming, where base classes can be subclassed, and have their methods overridden, with access to the super-class's methods to be called at whatever point is deemed appropriate.
 
-#### Overriding vs Extending
+### Overriding vs Extending
 
 Another powerful feature of Django's is its [template loaders][template-loaders]. Each loader implements an approach for finding and loading the contents of a template when it's requested by name. A typical Django project will contain multiple template loaders, and when a template is loaded by name, that name will be passed through each of the loaders sequentially, until one of the loaders finds the template.
 
@@ -33,14 +33,14 @@ A problem arises for the project developer however, when the app's template cont
 
 With a complex template like this, more often than not the project developer may simply want to change it in a very small way, such as modifying the content in one of its blocks. Wouldn't it be nice if you could use template inheritance to extend the app's template, and simply override the relevant blocks as desired? Unfortunately this isn't possible with Django due to circular template inheritance. The app's view will be looking for the template to load by a given name. If we want our project's version to be used, we need to use the same template name for it to be loaded. If our project's version of the template tries to extend a template with the same name, Django will load our project's template again when looking for the parent template to extend, resulting in an infinite loop that will never complete. Django's template inheritance isn't smart (or stupid) enough to ignore the absolute path of the current template being used, when searching for the parent template to extend.
 
-#### Alternative Approaches
+### Alternative Approaches
 
 The general approach to dealing with this problem, is for app developers to separate the name of of the template being loaded by their view, from the parts of the template that a project developer may want to customise. This might involved breaking all of the features up into separate include files that can be overridden individually. Another approach is to make each view load an empty template that extends the real template - developers can then override the empty template, end
 extend the real template as required.
 
 In an effort to make [Mezzanine][mezzanine]'s templates more customisable, these ideas were recently [brainstormed on the Mezzanine mailing list][mailing-list-template-thread]. While these approaches might work extremely well for individual Django apps that only provide a handful of default templates, the question of complexity and maintenance comes up with larger-scale projects like Mezzanine which contains almost 100 template files at the moment. All of a sudden we're looking at a minimum of doubling the number of template files - even more if we get more granular with includes. We've lost the simplicity of simply checking which template a view loads, and copying it to our project for customisation. So the question was proposed as to how could we possibly get circular template inheritance to work - if that was possible, we'd have a fantastic tool for both overriding and extending templates at once, without any wide-sweeping changes to the template structure across the entire project. Read on for the gory details of how it's quite possible.
 
-#### Hacks Inside
+### Hacks Inside
 
 Fair warning: the rest of this post describes an unorthodox approach that allows circular template inheritance to work. It's a little bit crazy, it's a little bit cool. Some would call it a terrible hack, your mileage may vary. If you're going to use it, consider the actual problem it solves, and whether or not it applies to your situation. Understand what it does, test it, and weigh it up against the alternative approaches described earlier.
 
@@ -53,7 +53,7 @@ Both of these steps are achievable thanks to the design of Django's template loa
 
 From this point we could go ahead and fulfil the second step by searching all other possible file-system paths for a template with the same relative template path, excluding the absolute path we've retrieved via ``load_template_source``, but ideally we'd like to leverage the template loaders to do this. Fortunately this is a breeze given the way template loaders work. The ``load_template_source`` method for each of the template loaders can accept a list of directories to use, and will fall back to a default if none are specified. The ``filesystem`` loader will use the directories defined by the ``TEMPLATE_DIRS`` setting, and the ``app_directories`` loader will use a list of template directories for all of the ``INSTALLED_APPS`` which it builds up when first loaded. I've never seen these directory arguments used in practice, but there they are just begging to be exploited as the perfect solution to our template searching problem.
 
-#### Extending Extends
+### Extending Extends
 
 Now that we have the theoretical hooks needed, it's time to implement our template tag. Again we find ourselves in the situation where the pieces of Django we need to touch are structured perfectly to do what we need. The ``extends`` tag is implemented using the ``ExtendsNode`` class. It contains a ``get_parent`` method, which is responsible for loading the parent template object that is being extended. So all we need to do is subclass ``ExtendsNode`` and override ``get_parent``. We'll also include our own ``find_template`` method, similar to Django's, that also returns the absolute path of the template that was found. I've dubbed this approach "overextending", since it allows you to both override and extend a template at the same time.
 
@@ -103,7 +103,7 @@ class OverExtendsNode(ExtendsNode):
 
 All that remains is creating the ``overextends`` template tag function that uses ``OverExtendsNode``. For this we can pretty much copy pasta Django's ``extends`` tag function, replacing ``ExtendsNode`` with ``OverExtendsNode``.
 
-#### Diving Deeper - Unlimited Inheritance Levels
+### Diving Deeper - Unlimited Inheritance Levels
 
 Keeping in mind that this approach is is specifically geared towards solving the problem of both overriding and extending a template in a third party app, that is, one we don't want to modify the source code of, our approach so far works. But what if we wanted to overextend a template that also overextends _another_ template? Say for example our project template overextends a template in third-party app "A", which is dependent on a template in third-party "B", that it _also_ overextends. This is quite an edge case, but the code above would fail in this scenario. When the template in app "A" tries to overextend the template in app "B", it would exclude itself from the search path, and end up loading our project's version of the template, and we're back to square one with circular inheritance never completing.
 
@@ -216,7 +216,7 @@ def overextends(parser, token):
 
 The final step required is to automatically add our ``overextends`` tag to Django's built-in tags. Django's ``ExtendsNode`` uses a feature where it gets marked as having to be the first tag in a template (``ExtendsNode.must_be_first`` is set to ``True``). This means that it (and subsequently our ``ExtendsNode`` subclass) need to be available without having to load the template library that implements it. This is as simple as calling the ``django.template.loader.add_to_builtins`` function from your project's settings module, passing it the Python dotted path as a string for the module that contains out ``overextends`` tag.
 
-#### django-overextends
+### django-overextends
 
 Originally this post contained a similar approach to the one above, but made use of the ``origin`` attribute found on template objects. Shortly after publishing it, [Tobia Conforto][tobia-conforto] helped me work out that the ``origin`` attributes on template objects are only available when ``DEBUG`` is ``True`` in your Django project. A big thanks goes out to him for bringing this up, allowing me to work out a more solid approach that this post now describes.
 

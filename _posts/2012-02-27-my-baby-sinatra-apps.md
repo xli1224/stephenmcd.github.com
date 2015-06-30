@@ -22,7 +22,7 @@ tags:
 
 It was almost a year ago that I took up a new role using [Ruby on Rails][ruby on rails]. I've previously talked about my [thoughts on Rails][thoughts on rails], and given my experience with [Django][django] I probably wouldn't consider using Rails for my own projects. What I did explore in my time with [Ruby][ruby] was another framework called [Sinatra][sinatra] which I used to build several apps. Firstly I'll go over Sinatra and some of the related pieces in the stack, and then I'll cover the apps I built.
 
-#### Sinatra
+### Sinatra
 
 Sinatra is a micro-framework, which differs from mega-frameworks like Rails and Django, in that Sinatra is bare-bones. It mostly deals with mapping URLs to request handlers, and not much more beyond that. No templating, no [ORM][orm], no middleware. All of these features can be slotted in using third party libraries where required. This makes for a very pleasant development experience with smaller sized apps - instead of having to do everything the *Django/Rails way*, you're free to pick and choose the parts you need, and weave them together in the best way you see fit. You're working at a relatively lower level, with much less scaffolding, and a lot more flexibility and control.
 
@@ -30,7 +30,7 @@ Sinatra is a micro-framework, which differs from mega-frameworks like Rails and 
 
 If you're new to web development, or an experienced developer coming to Ruby or Python from [older stacks like ASP.NET or PHP][older stacks], I'd highly recommend starting out with a micro framework like Sinatra or Flask, before moving onto their bigger siblings Rails and Django. You'll get a great feel for their respective languages, without getting bogged down in the frameworks themselves.
 
-#### DataMapper
+### DataMapper
 
 You can't go very far these days developing a web application, without needing some form of persistent storage such as a database, and a library to work with it that goes beyond hand-written SQL. [Django has its own ORM][django orm] which is very powerful, but suffers from lacking a blessed, seamless migration tool. Rails has [Active Record][active record], which has grown into the defacto ORM in the Ruby eco-system, and has its own set of problems. The main issue I had with Active Record was that there was no clear definition of what fields a particular model implemented, aside from diving directly into the database itself. It coincides clearly with the notion that [Rails contains too much magic][rails magic]. Compare this to Django's declarative ORM, where each model's class contains an explicit blueprint of which fields and methods the model implements. The value of this in quickly picking up a new code base is highly under-stated, if the popularity of Active Record is anything to go by.
 
@@ -42,7 +42,7 @@ Secondly, DataMapper completely eliminates the [N+1 query problem][nplus1 querie
 
 Whether you're building a web application or not, if you're accessing a database from Ruby, consider using DataMapper. It's a great piece of software.
 
-#### Heroku
+### Heroku
 
 The explosion in Ruby and Python development frameworks over the last half decade has been a boon to web development. Security, modularity, shelf life, and time to market have all dramatically improved thanks to dynamic languages, the frameworks that have developed around them, and the open source communities that make them possible. It's not all fun and games however. Deployment of these applications has grown considerably more complex. Gone are the days of using FTP to upload some PHP scripts to a server, and hitting refresh on the web page to test your changes. We now have to deal with a wide variety of deployment tasks, from reloading application processes, database migrations, dependency management and much more.
 
@@ -56,7 +56,7 @@ The most well known of these providers is [Heroku][heroku], who were the first t
 
 So with Sinatra, DataMapper and Heroku combined, I developed several small applications that scratched particular itches for me, in order to build up a good working knowledge of Ruby.
 
-#### Linked Out
+### Linked Out
 
 I don't keep an up to date CV any more. If I pick up a new skill, or start a new role, I'll update [my LinkedIn profile][linkedin profile]. It's the quickest and easiest way to keep my professional information up to date. For better or worse though, over the last few years LinkedIn has turned into a mass hunting ground for recruiters. I used to take the time to enter into a dialogue with each and every recruiter that contacted me, after all anything less would be rude, but over time I realised the futility in this, as the practice by recruiters to blast out boilerplate introductions to anyone who matched a keyword search, became more and more common. But I digress. The state of recruitment aside, these conversations would inevitably lead to recruiters asking for a CV they could present to their clients. LinkedIn profiles contain a "download as PDF" feature, which I would always refer recruiters to, but LinkedIn embeds their logo within the PDF, and over time as they've added new profile features, the PDF download hasn't picked these up. What I'd always wanted was an easy way to export my profile as a clean PDF, containing only the information relevant to a CV. I also wanted to be able to share the tools with anyone else who wanted to use it, so a baby Sinatra app seemed like the perfect fit.
 
@@ -68,7 +68,7 @@ LinkedIn is somewhat lacking when it comes to formatting large blobs of text in 
 
 Need to fend off pesky recruiters with a nice looking CV? Go and update your LinkedIn profile, and give [Linked Out][linked out] a try.
 
-#### Klout Feed
+### Klout Feed
 
 If you're unfamiliar with [Klout][klout], it's a reputation measurement system that gives you a daily score based on your online interactions. It looks at your Twitter account as well as other social media services, and applies an algorithm based on the number of mentions you receive, retweets, and favourites, also taking into account the Klout score for each of the people who trigger these. It then assigns you a score out of 100 which you can measure on a daily basis to gauge how effectively you're using Twitter. According to Klout at least.
 
@@ -80,7 +80,7 @@ To solve this I put together an app called [Klout Feed][klout feed]. It uses Klo
 
 [Ian Anderson][ian anderson] has since gone ahead and written [a how-to article][klout ifttt] on combining Klout Feed with the [If This Then That][ifttt] service. The result is that you can get email or SMS notifications each time your Klout score changes.
 
-#### One True Repo
+### One True Repo
 
 Most open source projects use [Git][git] or [Mercurial][mercurial] for version control, and are hosted on either [GitHub][github] or [Bitbucket][bitbucket] respectively. Some people like myself host their projects on both sites. I've talked about my setup for [hosting on GitHub and Bitbucket][hg-github intro] before. Both sites provide totals for the number of interested developers following the project, and the number who have forked the project. A fork is when someone creates a copy of a project, usually with the intent of adding some news features or fixes, and pushing them back to the original source.
 
@@ -92,7 +92,7 @@ Querying the [GitHub API][github api] was trivial and all the information I want
 
 Do you mirror your open source projects across both GitHub and Bitbucket? Ever wonder how many people are following all your projects on both services? Give [One True Repo][otr] a try.
 
-#### Conclusion
+### Conclusion
 
 As you can see from some of these apps, the Sinatra on Heroku combination is the perfect fit for small mashups that act as glue between other popular APIs. Free of charge, rapid development, and a great pool of libraries to choose from in the Ruby eco-system.
 

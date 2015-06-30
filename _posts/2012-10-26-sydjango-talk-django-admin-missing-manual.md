@@ -32,7 +32,7 @@ and made it a great night. You can find source code for this talk
 on both <a href="https://github.com/stephenmcd/sydjango-damm">GitHub</a>
  and <a href="https://bitbucket.org/stephenmcd/sydjango-damm">Bitbucket</a>.</p>
 
-<h4>Table of Contents</h4>
+<h3>Table of Contents</h3>
 <ol id="toc"></ol>
 <script src="/static/js/vimeo-deck.js"></script>
 <script>

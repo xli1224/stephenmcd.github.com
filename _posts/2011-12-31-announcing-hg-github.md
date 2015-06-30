@@ -21,7 +21,7 @@ With the majority of open source activity occurring on GitHub, what then is a Me
 
 So hg-git allows me to develop my projects using Mercurial and have them shared on both GitHub and Bitbucket, allowing for maximum collaboration which is fantastic. It's not entirely seamless however. I still need to perform a couple of manual steps such as adding GitHub paths to my repo configuration, and creating Mercurial tags that map to the Git branches I want to work with. I need to do this each time I set up a new repository, be it for starting a new project, or forking a project of my own or someone else's. Recently I had to do this about half a dozen times in the space of an hour while working on a few different projects, and I thought to myself that I should be able to automate it. The result is a Mercurial extension I've called [hg-github][9] which automatically takes care of these manual steps required. It also wraps hg-git, so you don't need to install both extensions, as hg-github pulls in and takes care of all the hard work that hg-git does.
 
-#### Overview
+### Overview
 
 Once hg-github is installed, assuming the default remote location of your repository is on Bitbucket, the GitHub path is automatically added and given the name ``github``, so you can push to it with the following command:
 

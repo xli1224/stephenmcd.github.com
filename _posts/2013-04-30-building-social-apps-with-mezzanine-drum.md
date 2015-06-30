@@ -23,7 +23,7 @@ The end result is a project I've called [Drum][drum], and it turned out that by 
 
 The remainder of this article assumes a basic understanding of [Django][django], and will walk through what was involved in pulling each of these features together to create Drum.
 
-#### Mezzanine is just Django: Links
+### Mezzanine is just Django: Links
 
 The answer to many of the most frequently asked questions on the [Mezzanine mailing list][mezzanine-mailing-list], often involves simply pointing people to the relevant section in [Django's documentation][django-docs]. This is one of the more commonly overlooked aspects of Mezzanine - it's simply a standard Django project, and you're free to implement your own [models][django-models], [views][django-views], [templates][django-templates], or any other component that Django provides.
 
@@ -59,7 +59,7 @@ class LinkCreate(CreateView):
 
 This is almost no effort thanks to Django's generic views - the only deviation here is a custom form class in our create view, so that we can limit the fields that will be editable in the form used for submitting new links.
 
-####  I can't believe it's Mezzanine: Threaded Comments and Ratings
+###  I can't believe it's Mezzanine: Threaded Comments and Ratings
 
 Now we'll start blazing through the Mezzanine features that require almost zero effort to apply to our project. Mezzanine provides the Django application ``mezzanine.generic``, which houses several different utilities that can be generically applied to any Django model. Each of these use Django's generic relations, and come in the form of a [custom Django model field][django-model-fields]. Provided are things like keyword tagging, ratings, and threaded comments. We'll start by adding threaded comments and ratings to our ``Link`` model:
 
@@ -150,7 +150,7 @@ $(function() {
 
 As an added bonus, rather than simply submitting the hidden rating form, we post it via [AJAX][ajax]. Both the comment and rating views provided by the ``mezzanine.generic`` app know how to deal with AJAX requests, and will return an appropriate [JSON][json] response. In the case of ratings, the JSON response will include a location to redirect to, should the user needs to log in, otherwise it will contain the new rating sum, which we then use to update the visible rating sum directly in the web page, without ever leaving it.
 
-#### Profiling Users
+### Profiling Users
 
 Now that we've got ratings and threaded comments hooked up, and restricted to registered users, let's get users actually registering and logging in. Once again this is a breeze with Mezzanine, which provides the ``mezzanine.accounts`` app for implementing public user accounts. The accounts app provides all the features you'd expect, such as forms, views, and templates, for users to register an account, log in, update their account information, and more. Support for [different sign-up flows][mezzanine-signup-flows] such as requiring email verification, or manual approval by a staff member, are provided via the ``ACCOUNTS_VERIFICATION_REQUIRED`` and ``ACCOUNTS_VERIFICATION_REQUIRED`` boolean settings.
 
@@ -199,7 +199,7 @@ def karma(sender, **kwargs):
         queryset.update(karma=models.F("karma") + value)
 {% endhighlight %}
 
-#### Time-scaled Ranking
+### Time-scaled Ranking
 
 All we've done so far is set up some basic crud features for our user-contributed links, and configure a handful of features provided by Mezzanine. We have one more requirement though, and I've saved the best for last.
 
@@ -314,7 +314,7 @@ Here's our link detail template again, with a call to the new ``order_comments_b
 {% endraw %}
 {% endhighlight %}
 
-#### Conclusion
+### Conclusion
 
 That's a wrap. Even for those unfamiliar with Django, it's clear from the amount of code presented here how easy a task this was. Here are a few other features I implemented that aren't covered here:
 

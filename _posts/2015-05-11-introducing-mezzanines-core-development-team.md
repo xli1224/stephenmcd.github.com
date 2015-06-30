@@ -16,23 +16,23 @@ In practical terms, the core team will all have commit access to Mezzanine and i
 
 What does this mean for my involvement in Mezzanine? Not much - I won't be involved any less than before. I've recently started a new role at Google which is really exciting, and was asked if this would mean I'd have less time for my open source work - in fact the opposite is true. Part of my role at Google is working with the open source community, and participating in non-Google open source projects is [actively encouraged][google-in-authors]. Again, most importantly though, the core team forming simply recognises the structure that's been in place for years now, which I'll talk about by introducing each of the team.
 
-#### Josh Cartmell
+### Josh Cartmell
 
 [Josh][josh] first got involved with Mezzanine back in 2010. Since then he's been a cornerstone of supporting the Mezzanine community on the mailing list, topping it with the highest number of messages sent. Aside from his outstanding contribution in supporting the community, Josh has also been heavily involved in Mezzanine advocacy around front-end development, having built the [Mezzatheme][mezzatheme] theme portal, as well as writing many articles on [customising the look and feel of Mezzanine][josh-blog]. Josh has also contributed to the code base over the years, including the work for [multi-tenant themes][site-themes].
 
-#### Ken Bolton
+### Ken Bolton
 
 Since first getting involved with Mezzanine back in 2011, [Ken][ken] has also been a cornerstone of Mezzanine support. At the risk of sounding too whimsical, he and Josh have been my left and right wings that have kept the mailing list afloat over the years. During this time Ken has also made many code contributions to the project, including major extensions to [Mezzanine's template loading mechanism][template-loading-docs]. Ken is also a Mezzanine advocate, having written several articles on the topic of [configuring both development and production deployment environments for Mezzanine][ken-blog].
 
-#### Alex Hill
+### Alex Hill
 
 [Alex][alex] has been involved with Mezzanine since 2012. While relatively unheard of on the mailing list, Alex has been by far the [greatest contributor to Mezzanine's code base][commits-graphs] over the years. To both the benefit and detriment of the project, I've always been terribly scrupulous when reviewing code contributions, yet over the years, somehow Alex has managed to bypass this entirely by consistently contributing features and fixes in precisely the same way I aim to - both stylistically and architecturally. Don't tell him, but I actually don't review his contributions anymore, I just blindly accept them. I've considered Alex my right-hand man as far as the code base goes for quite some time now.
 
-#### Eduardo Rivas
+### Eduardo Rivas
 
 [Ed][ed] began working with Mezzanine in 2012, and in my mind has impressively made a broader range of contributions to the project than anyone else. As a native Spanish speaker, he has not only been the primary maintainer of the Spanish translations of Mezzanine itself, but has also been heavily involved in everything related to localisation and internationalisation in the project, from the way we manage translations, translations of the documentation, and multi-lingual content. Ed has also been responsible for maintaining compatibility with the latest version of [Bootstrap][bootstrap], the front-end framework we use with Mezzanine. On top of all that, Ed has also done extensive work to [Mezzanine's built-in deployment tool][mezzanine-deploy-docs], to provide better compatibility with different hosting providers and deployment strategies.
 
-#### Mathias Ettinger
+### Mathias Ettinger
 
 Fun fact: I only became aware of [Mathias][mathias]' work on Mezzanine this year, but when researching how long everyone has been involved with the project for, I discovered he's actually been around since 2012 as well! But this year Mathias completed the huge task of implementing one of Mezzanine's most often requested features: [multi-lingual content][multi-lingual-pr]. Since then he has wholeheartedly supported this work by responding to the community's feedback, resolving issues, and providing a great deal of documentation on [how to implement a multi-lingual Mezzanine project][multi-lingual-docs]. While multi-lingual content won't be available until the upcoming next release, his work here so far has been incredibly impressive.
 

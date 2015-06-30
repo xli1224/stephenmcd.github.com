@@ -24,13 +24,13 @@ What has happened to the fact client "A" performed multiplication? It's lost for
 
 In my current project, there are dozens and dozens of different types of operations on Redis such as the multiplication example above, which are all required to be atomic, and fall outside the scope of any of the commands provided in Redis by default. Redis does provide some support for custom atomic operations with its [MULTI][redis-multi] and [WATCH][redis-watch] commands, however MULTI is only useful when each step in the sequence of operations isn't dependant on another, and the WATCH command in my opinion isn't a very intuitive API. Redis doesn't leave you hanging though, and the support for embedded Lua means the sky is the limit for implementing custom atomic operations.
 
-#### Lua AND Redis OR Lua AND Bitwise Operators
+### Lua AND Redis OR Lua AND Bitwise Operators
 
 Many of these custom atomic operations I've recently had to implement require basic [bitwise operators][bitwise], something that I quickly discovered Lua itself lacks. As I mentioned, it is in fact quite a small language. The lack of bitwise operators in Lua came as quite a surprise to me, as they're something developers generally take for granted in higher level languages, a category which Lua falls squarely under.
 
 To make matters more comical, I found that Lua 5.2 actually provides [bitwise operators as part of its standard library][lua-bitwise-5-2], but guess which version of Lua is embedded in Redis? 5.1! And it seems like an [upgrade won't be happening any time soon][redis-issue-lua-upgrade]. Fortunately there are many [third-party bitwise operator libraries for Lua][lua-bitwise-third-party], so it's not all doom and gloom. The final blocker though, was the fact that Lua scripts in Redis aren't able to access external libraries in any way. The remainder of this post will cover how you can embed any third-party Lua library into Redis, and in this particular case, provide bitwise operators to any atomic Redis operations written in Lua.
 
-#### Named Lua Functions in redis-py
+### Named Lua Functions in redis-py
 
 First a little background on my setup. I define all of my Lua scripts as named functions in a file, playfully named `atoms.lua`. Here's a snippet from it, a `list_pop` function which atomically pops an item from a Redis list, given the item's index - an operation that Redis doesn't provide within its own set of commands:
 
@@ -93,7 +93,7 @@ With that in place, we can now call the atomic `list_pop` Lua function directly 
 'bar'
 {% endhighlight %}
 
-#### Lua AND Redis AND Bitwise Operators
+### Lua AND Redis AND Bitwise Operators
 
 As mentioned above, version 5.1 of Lua which Redis embeds doesn't contain bitwise operators, however they're available via third-party libraries. The one I chose to work with is a library called [LuaBit][luabit]. It's worth mentioning that a requirement for this hack to work, is that any external Lua libraries we plan to use must be written purely in Lua and not in C. Fortunately LuaBit fits this bill.
 

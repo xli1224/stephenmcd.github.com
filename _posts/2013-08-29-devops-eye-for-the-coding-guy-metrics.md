@@ -32,13 +32,13 @@ First a little background. Looking at the user interface for Kouio, you'll find 
 
 As you can see, there are a lot of moving pieces involved in bringing together a simple looking RSS reader. With such a variety of distinct components, an obvious problem we face is visibility - how exactly can we know what all the pieces of the system are doing at one point in time? How can we visualise the state of the entire system coherently as a whole?
 
-#### Graphite / StatsD
+### Graphite / StatsD
 
 I decided to solve this problem using the popular software combination of [Graphite][graphite] and [StatsD][statsd]. Graphite is a tool that deals with storing time-series metrics, as well as providing a very powerful graphing interface (built with [Django][django] no less) for visualising and reporting on metrics collected. StatsD which is built with [Node.js][node] then provides the service for collecting event streams over [UDP][udp], and aggregating collected metrics at high volume, before pumping them into Graphite.
 
 These tools appealed to me for several reasons. Firstly I wanted something highly hackable that we could customise to fit our needs. StatsD and each of the different Graphite components all follow the [Unix philosophy of doing one thing, and doing it very well][unix-philosophy]. Not only that, given they're built with [Python][python] and [JavaScript][javascript] which Adam and I are very experienced in, the Graphite / StatsD pair seemed like our best bet in terms of customisation, over larger _all encompassing_ monitoring systems backed by plug-ins, such as [Nagios][nagios] or [Munin][munin]. Secondly these tools were built and expanded upon by companies with a great open source culture at large scale, places like [Orbitz][orbitz], [Etsy][etsy], and even [Mozilla][mozilla], who released [django-statsd][django-statsd] for [monitoring the Firefox Add-ons Marketplace][monitoring-firefox-addons], which we're now also using with great results.
 
-#### Collecting Metrics
+### Collecting Metrics
 
 With Graphite and StatsD installed, the final step involved was actually choosing the metrics to collect, and working out how to get at them. Mozilla's django-statsd package gives you a lot out of the box here. Without any configuration, it automatically adds counters and timers to many areas of Django, such as the ORM, caching and unit tests. The really interesting integration though is at the view layer. Counters and timing metrics are collected for all view functions, with each metric further segmented in a ton of ways, from the application name and URL parts, right down to the HTTP verbs used and status codes returned - all incredibly insightful for an application like Kouio that implements a public-facing RESTful API.
 
@@ -144,7 +144,7 @@ Mission accomplished. I was then able to perform lots of different experiments a
 
 Incidentally, the best performance gains involved re-working our database indexes, as well as some awful little tricks using [PostgreSQL CTEs][postgresql-ctes] - but that's a story for another post.
 
-#### Real-time Graphs
+### Real-time Graphs
 
 What good is all of this if we can't watch the graphs animate pixel by pixel as seconds tick by? Graphite provides a really powerful API for producing graphs, however the output is still static PNG files. What I did was modify the [Graphite dashboard template][graphite-dashboard-template] with the following JavaScript snippet, which iterates through each of the graphs and reloads them one by one in succession, producing the desired effect:
 

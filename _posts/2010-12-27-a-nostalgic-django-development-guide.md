@@ -17,13 +17,13 @@ While most of the following article was written back in 2010, I'm actually publi
 
 It was an enjoyable read for me, comparing my approach back then to the way I work now. Some things have changed to a great extent, for example you'll find references to [mod_python][modpython] - software that's considered mostly obsolete now. Amusingly on the other hand, some things haven't changed much at all, as I realised a lot of what I wrote about then is still generally applicable today. So keeping in mind there are some outdated references, here's the guide below, unchanged.
 
-#### Introduction to Mercurial
+### Introduction to Mercurial
 
 [Mercurial][mercurial] is a [distributed version control system][dvcs]. The main difference between it, and a traditional centralised version control system like [SVN][svn], is that there is no need for a central server for the repository. Committing, branching, and all other version control operations, can be performed locally without ever needing a connection to the Internet, or local network. To achieve this, each physical copy of the code-base contains its own copy of the the repository itself, containing the entire history of the project. The repository is contained within the hidden ``.hg`` directory, inside the physical copy of the project. For clarity, this is referred to from here on as the *local repo*, whereas the actual files that make up the code-base of the project, are referred to as the *working copy*.
 
 The local repo can be thought of quite simply as a list of changes (called *changesets*), that represent the history of the project. We move the project around between different machines, by synchronising the changesets between different copies of the repository, using the ``hg push`` and ``hg pull`` commands. In order to push to, or pull from, another physical instance of the repository on a remote machine, the repository must be accessible over the network, which can be achieved by using the command ``hg serve``. Here is where a hosting service like [BitBucket][bitbucket] is used, to provide a central location for all communication to pass through, much like an SVN server. The added advantage of using a service like BitBucket, is that it also provides a wealth of extra features, such as authentication (identifying users), authorisation (establishing permissions), and issue tracking.
 
-#### Basic Development & Deployment
+### Basic Development & Deployment
 
 Every location where the project will be stored, such as development machines and different server environments, will contain both a copy of the repository, as well as a working copy of the project. Each location is initialised by running ``hg clone URL`` where *URL* is the URL of the remote repository, such as one hosted on BitBucket.
 
@@ -54,7 +54,7 @@ Using the command ``hg pull`` only modifies the local repo, while the files in o
 
 Once the working copy is updated, depending on the web server you are using, you will typically need to tell it to reload the Django application - this step is specific to the web server being used.
 
-#### Environment & Feature Branches
+### Environment & Feature Branches
 
 As with most version control systems, Mercurial has a concept of working with branches inside a single repository, where each branch represents a different independent state of the repository. Each physical copy of the repository always has a single branch set as active, which can be viewed using the command ``hg branch``. Branches can be created at any point during development using the command ``hg branch branchname`` where *branchname* is the name of the new branch. To switch your local repo to a different existing branch, use the command ``hg branch branchname -f``. The ``-f`` argument signifies a *forced* change of branch, since the branch name already exists. After setting the active branch to an existing branch name, use the command ``hg update`` which will update the working copy of the project to the newly set branch. The previous two steps of changing to an existing branch and then updating the working copy to reflect it, can be performed in a single step, by using the command ``hg update branchname`` where *branchname* is the name of the existing branch.
 
@@ -68,7 +68,7 @@ When development on a new feature begins, a branch is created for it, and commit
 
 If for any reason you need to revert the deployment, you can simply use the command ``hg update rev`` where *rev* is the revision number of the particular changeset you wish to update the working copy back to. You may wish to make note of the current revision number prior to running the command ``hg pull`` by using the command ``hg tip``, which will display all of the information for the latest changeset in the local repo, including its revision number.
 
-#### Database Migrations with South
+### Database Migrations with South
 
 When new database models are added to your project, Django can automatically create the corresponding database tables, using the command ``python manage.py syncdb``, however this does not account for changes to existing models. Fortunately there are several third party solutions which can automate the database changes required, when the fields of a model change. The most popular of these applications is called [South][south]. South consists of two key parts - migration scripts, which contain auto-generated Python code, and the execution history of these scripts, for a given instance of the project, which is stored in that instance's database. There is a clear distinction between these two parts that should be realised, in that the migration scripts are part of the code-base, and its associated Mercurial repository, while the execution history is part of a database, and its associated physical environment where an instance of the project is stored.
 
@@ -84,7 +84,7 @@ It is worth exploring the source code for a migration script that is generated a
 
 If for any reason you need to revert the migration, you can simply use the command ``python manage.py migrate appname index`` where *appname* is the name of the application containing the migration you wish to revert, and *index* is the four digit index mentioned earlier, that prefixes the name of the migration script you wish to revert back to.
 
-#### Automated Deployment with Fabric
+### Automated Deployment with Fabric
 
 We can now see that depending on the complexity of the changes involved, our deployments may be comprised of a decent number of steps that need to be performed:
 
@@ -185,7 +185,7 @@ In our ``deploy`` function, we make use of Fabric's ``require`` function, which 
 
 If for any reason you need to revert the deployment, we have also defined a ``rollback`` function, which accepts one or both named arguments - a migration application name and number to revert any database changes that were performed, and a Mercurial revision number to revert the working copy of the project back to. It should be noted here that the migration is reverted before the code is reverted, since reverting the code could potentially remove the required migration scripts needed to revert the migration. For example, to revert a deployment and its migrations on the live environment to the previous state where the tip revision was 42, and the last migration for the application named *bar* was 0007, use the command ``fab live rollback:migration=bar.0007,rev=42``.
 
-#### Further Reading
+### Further Reading
 
 We have merely scratched the surface of each of the tools involved in order to demonstrate how they can be used in conjunction to provide a flexible automated development and deployment process. For a more in depth understanding of Mercurial, South and Fabric use the following resources:
 
