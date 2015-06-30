@@ -115,6 +115,11 @@ projects:
   desc:  Mercurial extension for GitHub
   tech:  Mercurial / Python
 
+- title: vimeo-deck
+  url:   http://github.com/stephenmcd/vimeo-deck
+  desc:  Sync Speaker Deck with Vimeo
+  tech:  JavaScript
+
 - title: Gnotty
   url:   http://github.com/stephenmcd/gnotty
   desc:  'Mobile IRC client, archive and bots'
