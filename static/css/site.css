@@ -30,4 +30,6 @@ td.y {color:green;}
 td.n {color:red;}
 td a, td em {white-space:nowrap;}
 td p {margin:20px 0;}
+img.steve {float: right; width: 150px; border-radius: 150px;
+	margin: 20px 0 20px 40px;}
 @media all and (max-width: 640px) {.home a {display: block; float: none;}}
