@@ -33,104 +33,109 @@ projects:
 - title: Mezzanine
   url:   http://mezzanine.jupo.org
   desc:  Content management platform
-  tech:  Django / Python
+  tech:  Python, Django
 
 - title: CurioDB
   url:   http://github.com/stephenmcd/curiodb
   desc:  'Distributed & persistent NoSQL database'
-  tech:  Akka / Scala
+  tech:  Scala, Akka
 
 - title: Cartridge
   url:   http://cartridge.jupo.org
   desc:  Ecommerce for Mezzanine
-  tech:  Django / Python
+  tech:  Python, Django
 
 - title: Linked Out
   url:   http://linkedout.jupo.org
-  desc:  Create PDF resumes for LinkedIn
-  tech:  Sinatra / Ruby
+  desc:  Create PDF resumes via LinkedIn's API
+  tech:  Ruby, Sinatra
 
 - title: Klout Feed
   url:   http://klout-feed.jupo.org
   desc:  Daily Klout scores via RSS
-  tech:  Sinatra / Ruby
+  tech:  Ruby, Sinatra
 
 - title: Drawn By
   url:   http://github.com/stephenmcd/drawnby
   desc:  Collaborative real-time sketching
-  tech:  Django / Python
+  tech:  Python, Django
 
 - title: gunicorn-console
   url:   http://github.com/stephenmcd/gunicorn-console
   desc:  Manage gunicorn processes
-  tech:  Ncurses / Python
+  tech:  Python, ncurses
 
 - title: Virtualboxing
   url:   http://github.com/stephenmcd/virtualboxing
   desc:  Comparison utilities for Riak and MongoDB
   tech:  Ruby
 
+- title: Gamblor
+  url:   http://github.com/stephenmcd/gamblor
+  desc:  Collaborative real-time 2D casino world
+  tech:  Python, Django
+
 - title: Two Queues
   url:   http://github.com/stephenmcd/two-queues
   desc:  Pub-sub utilities for Redis and ZeroMQ
-  tech:  Go / Python
+  tech:  Python, Go
 
 - title: Grillode
   url:   http://chat.jupo.org
   desc:  Multi-purpose chat server
-  tech:  Node / CoffeeScript
+  tech:  CoffeeScript, Node
 
 - title: django-forms-builder
   url:   http://github.com/stephenmcd/django-forms-builder
   desc:  Let users create their own forms
-  tech:  Django / Python
+  tech:  Python, Django
 
 - title: django-overextends
   url:   http://github.com/stephenmcd/django-overextends
   desc:  Circular template inheritance for Django
-  tech:  Django / Python
+  tech:  Python, Django
 
 - title: django-socketio
   url:   http://github.com/stephenmcd/django-socketio
   desc:  WebSockets for Django
-  tech:  Django / Python
+  tech:  Python, Django
 
 - title: django-pg-fuzzycount
   url:   http://github.com/stephenmcd/django-postgres-fuzzycount
   desc:  Fast counts for huge PostgreSQL tables
-  tech:  Django / Python
+  tech:  Python, Django
 
 - title: Babbler
   url:   http://github.com/stephenmcd/babbler
-  desc:  Twitter bot
+  desc:  RSS consuming ELIZA bot for Twitter
   tech:  Python
 
 - title: One True Repo
   url:   http://otr.jupo.org
   desc:  Combined GitHub and Bitbucket API
-  tech:  Sinatra / Ruby
+  tech:  Ruby, Sinatra
 
 - title: hg-github
   url:   http://github.com/stephenmcd/hg-github
   desc:  Mercurial extension for GitHub
-  tech:  Mercurial / Python
+  tech:  Python, Mercurial
 
 - title: vimeo-deck
   url:   http://github.com/stephenmcd/vimeo-deck
-  desc:  Sync Speaker Deck with Vimeo
+  desc:  Sync Speaker Deck slides with Vimeo videos
   tech:  JavaScript
 
 - title: Gnotty
   url:   http://github.com/stephenmcd/gnotty
   desc:  'Mobile IRC client, archive and bots'
-  tech:  Django / Python
+  tech:  Python, Django
 
 - title: Drum
   url:   http://github.com/stephenmcd/drum
   desc:  'Mezzanine powered Hacker News clone'
-  tech:  Django / Python
+  tech:  Python, Django
 
 - title: HOT Redis
   url:   http://github.com/stephenmcd/hot-redis
   desc:  'Higher Order Types for Redis'
-  tech:  Python / Lua
+  tech:  Python, Lua
