@@ -132,15 +132,15 @@ Writing our own code here affords us full flexibility, and with the psutil libra
 
 How does this all look once it's up and running? It's worth mentioning installation was hardly straight-forward, requiring half a dozen components sourced and built in different ways - one of the downsides of not using an off-the-shelf product. Once everything was set up though, I really went to town with our initial dashboard, arranging and colourising every single metric I thought remotely useful:
 
-<em class="center"><a class="no-pjax" href="/static/img/metrics1-large.png"><img src="/static/img/metrics1.png"></a></em>
+<em class="center"><a href="/static/img/metrics1-large.png"><img src="/static/img/metrics1.png"></a></em>
 
 After a couple of weeks, I was able to greatly refine the dashboard, adding new metrics as I discovered them, and throwing out a ton that didn't turn out to be as useful as I originally thought, ending up with a more useful dashboard:
 
-<em class="center"><a class="no-pjax" href="/static/img/metrics2-large.png"><img src="/static/img/metrics2.png"></a></em>
+<em class="center"><a href="/static/img/metrics2-large.png"><img src="/static/img/metrics2.png"></a></em>
 
 Mission accomplished. I was then able to perform lots of different experiments around tuning our database, workers and RESTful API, while visualising the effect on the system as a whole:
 
-<em class="center"><a class="no-pjax" href="/static/img/metrics3-large.png"><img src="/static/img/metrics3.png"></a></em>
+<em class="center"><a href="/static/img/metrics3-large.png"><img src="/static/img/metrics3.png"></a></em>
 
 Incidentally, the best performance gains involved re-working our database indexes, as well as some awful little tricks using [PostgreSQL CTEs][postgresql-ctes] - but that's a story for another post.
 

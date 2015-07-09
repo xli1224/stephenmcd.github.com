@@ -19,7 +19,7 @@ To demonstrate these extra capabilities of Mezzanine, I set out to do something 
 
 The end result is a project I've called [Drum][drum], and it turned out that by using Mezzanine as the foundation, each of the features required to implement a basic Hacker News clone required almost zero effort!
 
-<em class="center"><a class="no-pjax" href="/static/img/drum-large.png"><img src="/static/img/drum.png"></a></em>
+<em class="center"><a href="/static/img/drum-large.png"><img src="/static/img/drum.png"></a></em>
 
 The remainder of this article assumes a basic understanding of [Django][django], and will walk through what was involved in pulling each of these features together to create Drum.
 

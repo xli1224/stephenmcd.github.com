@@ -42,7 +42,7 @@ Following is an overview of the extra features I've implemented so far in Gnotty
 
 The default interface for Gnotty is entirely based on [Twitter's Bootstrap][twitter-bootstrap]. This made it easy to ensure that it functions correctly on mobile devices thanks to Bootstrap's [responsive][responsive-design] features.
 
-<em class="center"><a class="no-pjax" href="/static/img/gnotty-desktop-large.png"><img src="/static/img/gnotty-desktop.png"></a><a class="no-pjax" href="/static/img/gnotty-mobile-large.png"><img src="/static/img/gnotty-mobile.png"></a><br>A fully responsive IRC client, on your desktop or mobile device</em>
+<em class="center"><a href="/static/img/gnotty-desktop-large.png"><img src="/static/img/gnotty-desktop.png"></a><a href="/static/img/gnotty-mobile-large.png"><img src="/static/img/gnotty-mobile.png"></a><br>A fully responsive IRC client, on your desktop or mobile device</em>
 
 ### JavaScript Client
 
@@ -52,7 +52,7 @@ Gnotty provides a JavaScript client that makes no assumptions about the structur
 
 As mentioned, one of the key requirements I had was to have all messages archived so that they can then be browsed and searched through. Whatever the context of using Gnotty is, from collaborating on an open source project, to private rooms for teams to use, this form of knowledge reuse is a critical feature. Gnotty provides this feature by combining Django models with [Python's logging module][python-logging]. Logging namespaces are defined for IRC messages as well as several other events, and when deployed as a Django project, logging handlers are configured that store all IRC messages to [Django models][django-models]. The interface for browsing and searching the message archive is then provided using [Django views][django-views].
 
-<em class="center"><a class="no-pjax" href="/static/img/gnotty-browse-large.png"><img src="/static/img/gnotty-browse.png"></a><a class="no-pjax" href="/static/img/gnotty-search-large.png"><img src="/static/img/gnotty-search.png"></a><br>Message archive by date or keyword search</em>
+<em class="center"><a href="/static/img/gnotty-browse-large.png"><img src="/static/img/gnotty-browse.png"></a><a href="/static/img/gnotty-search-large.png"><img src="/static/img/gnotty-search.png"></a><br>Message archive by date or keyword search</em>
 
 Note that Django integration with Gnotty is entirely optional. You can deploy Gnotty as a stand-alone bridge between IRC and gevent without using Django at all. Given the use of Python's logging module, you can then create your own logging handlers, and store IRC messages in some other format or location should you wish to.
 
