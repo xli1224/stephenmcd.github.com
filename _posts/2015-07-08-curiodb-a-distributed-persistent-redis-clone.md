@@ -13,7 +13,7 @@ tags:
 - databases
 ---
 
-Last year I started learning [Scala][scala] and [Akka][akka] for my then day-job. This post isn't so much about that learning experience, which is an entire topic in its own right, given the notoriously large learning curve Scala has. Instead I wanted to write about the toy project I then built, that I've called [CurioDB][curiodb] - a distributed and persistent [Redis][redis] clone! Please note that this is a toy project, hence the name "Curio", and any suitability as a drop-in replacement for Redis is purely incidental.
+Last year I started learning [Scala][scala] and [Akka][akka] for my then day-job. This post isn't so much about that learning experience, which is an entire topic in its own right, given the notoriously large learning curve Scala has. Instead I wanted to write about the project I then went ahead and built that I've called [CurioDB][curiodb] - a distributed and persistent [Redis][redis] clone! Please note that this is a toy project, hence the name "Curio", and any suitability as a drop-in replacement for Redis is purely incidental.
 
 ## Scala
 
