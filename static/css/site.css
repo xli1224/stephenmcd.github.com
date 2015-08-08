@@ -21,6 +21,7 @@ blockquote {font-style: italic;}
 	margin:-20px 0 10px 40px; font-style:italic;}
 .side-thumb img {margin-top:20px;}
 img {max-width: 100%;}
+.container img {margin: 10px;}
 td, tr {padding:10px 5px;}
 th {white-space:nowrap;}
 th em {display:block; font-weight:normal; line-height:20px;}

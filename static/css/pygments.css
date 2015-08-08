@@ -438,8 +438,10 @@
 .vi { color: #f8f8f2 } /* Name.Variable.Instance */
 .il { color: #ae81ff } /* Literal.Number.Integer.Long */
 
-.nx {color:#fff;}
-.html-django .x {color:#fff;}
-.html-django .cp {color:#fff; font-style:normal;}
-.highlight pre code {color:#e6db74;}
+.nx {color: #fff;}
+.html-django .x {color: #fff;}
+.html-django .cp {color: #fff; font-style: normal;}
+.highlight pre code {color: #e6db74;}
 
+.language-sh, .language-sh .o {color: #fff !important;}
+.language-sh .nv {color: #f92672;}

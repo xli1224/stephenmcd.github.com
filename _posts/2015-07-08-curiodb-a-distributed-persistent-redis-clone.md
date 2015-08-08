@@ -13,7 +13,7 @@ tags:
 - databases
 ---
 
-Last year I started learning [Scala][scala] and [Akka][akka] for my then day-job. This post isn't so much about that learning experience, which is an entire topic in its own right, given the notoriously large learning curve Scala has. Instead I wanted to write about the project I then went ahead and built that I've called [CurioDB][curiodb] - a distributed and persistent [Redis][redis] clone! Please note that this is a toy project, hence the name "Curio", and any suitability as a drop-in replacement for Redis is purely incidental.
+Last year I started learning [Scala][scala] and [Akka][akka] for my then day-job. This post isn't so much about that learning experience, which is an entire topic in its own right, given the notoriously large learning curve Scala has. Instead I wanted to write about the project I then went ahead and built as part of that learning process, which I've called [CurioDB][curiodb] - a distributed and persistent [Redis][redis] clone! Please note that this is a toy project, hence the name "Curio", and any suitability as a drop-in replacement for Redis is purely incidental.
 
 ## Scala
 
@@ -130,7 +130,7 @@ Let's look at the overall design. Here's a bad diagram representing one server i
   stored on every node in the cluster, and the `PSUBSCRIBE` and
   `PUNSUBSCRIBE` commands get broadcast to all of them. This needs
   rethinking!
-* No [Lua scripting][lua-scripting]. :-(
+* <span style="text-decoration:line-through;">No [Lua scripting][lua-scripting].</span> **Update (next month):** [Lua scripting added][lua-added]!
 
 Mainly though, Redis is an extremely mature and battle-tested project
 that's been developed by many over the years, while CurioDB is a one-man
@@ -193,4 +193,5 @@ That's it so far! I had a lot of fun building [CurioDB][curiodb], and Akka has r
 [aggregation-source]: https://github.com/stephenmcd/curiodb/blob/master/src/main/scala/Aggregation.scala
 [pubsub-source]: https://github.com/stephenmcd/curiodb/blob/master/src/main/scala/PubSub.scala
 [lua-scripting]: http://redis.io/commands/eval
+[lua-added]: /2015/08/08/embedding-lua-in-scala-with-java-oh-my/
 [benchmark-script]: https://github.com/stephenmcd/curiodb/blob/master/benchmark.py
