@@ -96,7 +96,9 @@ Let's look at the overall design. Here's a bad diagram representing one server i
 * Upon receiving a new outside client connection, the server actor will
   create a Client Node actor ([System.scala][system-source]), it's
   responsible for the life-cycle of a single client connection, as well
-  as parsing the incoming and writing the outgoing Redis wire protocol.
+  as parsing the incoming and writing the outgoing protocol, such as the
+  Redis protocol for TCP clients, or JSON for HTTP clients
+  ([Server.scala][server-source]).
 * Key Node actors ([System.scala][system-source]) manage the key space
   for the entire system, which are distributed across the entire
   cluster using consistent hashing. A Client Node will forward the
@@ -107,6 +109,9 @@ Let's look at the overall design. Here's a bad diagram representing one server i
   ([Data.scala][data-source]).
 * The KV Node then sends a response back to the originating Client
   Node, which returns it to the outside client.
+
+Not diagrammed, but in addition to the above:
+
 * Some commands require coordination with multiple KV Nodes, in which
   case a temporary Aggregate actor
   ([Aggregation.scala][aggregation-source]) is created by the Client
@@ -115,6 +120,32 @@ Let's look at the overall design. Here's a bad diagram representing one server i
 * PubSub is implemented by adding behavior to Key Nodes and Client
   Nodes, which act as PubSub servers and clients respectively
   ([PubSub.scala][pubsub-source]).
+
+## HTTP/JSON API
+
+CurioDB also supports
+a HTTP/JSON API, as well as the same wire protocol that Redis
+implements over TCP. Commands are issued with POST requests containing
+a JSON Object with a single `args` key, containing an Array of
+arguments. Responses are returned as a JSON Object with a single
+`result` key:
+
+{% highlight sh %}
+$ curl -X POST -d '{"args": ["set", "foo", "bar"]}' http://127.0.0.1:2600
+{"result":"OK"}
+
+$ curl -X POST -d '{"args": ["mget", "foo", "baz"]}' http://127.0.0.1:2600
+{"result":["bar",null]}
+{% endhighlight %}
+
+`SUBSCRIBE` and `PSUBSCRIBE` commands are fully supported by the HTTP
+API, by using chunked transfer encoding to allow a single HTTP
+connection to receive a stream of published messages over an extended
+period of time.
+
+In the case of errors such as invalid arguments to a command, a
+response with a 400 status is returned, with an error message in the
+response body.
 
 ## Disadvantages over Redis
 
@@ -130,6 +161,7 @@ Let's look at the overall design. Here's a bad diagram representing one server i
   stored on every node in the cluster, and the `PSUBSCRIBE` and
   `PUNSUBSCRIBE` commands get broadcast to all of them. This needs
   rethinking!
+* No transaction support.
 * <span style="text-decoration:line-through;">No [Lua scripting][lua-scripting].</span> **Update (next month):** [Lua scripting added][lua-added]!
 
 Mainly though, Redis is an extremely mature and battle-tested project
