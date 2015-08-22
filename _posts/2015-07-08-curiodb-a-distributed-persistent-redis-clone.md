@@ -163,7 +163,7 @@ containing the error message, while HTTP requests will return a
 response with a 400 status, contaning the error message in the response
 body.
 
-## Disadvantages over Redis
+## Disadvantages compared to Redis
 
 * I haven't measured it, but it's safe to say memory consumption is
   much poorer due to the JVM. Somewhat alleviated by the virtual memory
