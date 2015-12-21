@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Rapid Web Development with Mezzanine"
-context: "Keynote, PyCon APAC"
+title: "Rapid Development with Mezzanine"
+context: "Keynote speech, PyCon APAC"
 slides: 22
 minutes: 53
 tags:

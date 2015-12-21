@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Optional Django Apps
+published: false
 tags:
 - python
 - django

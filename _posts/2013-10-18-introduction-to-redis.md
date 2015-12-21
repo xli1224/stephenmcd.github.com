@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Memcached on Steroids: Introduction to Redis"
-context: "Tech Talk, Fairfax Media"
+title: "An Introduction to Redis"
+context: "Tech talk, Fairfax Media"
 slides: 16
 minutes: 0
 tags:

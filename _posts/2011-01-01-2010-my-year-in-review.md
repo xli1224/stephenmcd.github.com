@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "2010: My Year in Review"
+published: false
 tags:
 - python
 - django

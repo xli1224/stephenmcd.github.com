@@ -1,10 +1,12 @@
 ---
 layout: post
 title: Hasta la Vista, Windows
+published: false
 tags:
 - linux
 - x.org
 ---
+
 Earlier this week I had the pleasure of removing my final Windows install
 after wiping my machine at work and installing Ubuntu on it. It was during the
 late 90s that I first tried out Linux after getting my hands on a Redhat 6.1

@@ -16,12 +16,14 @@ tags:
 
 Last month I unveiled [CurioDB][curiodb], a distributed and persistent [Redis][redis] clone built with [Scala][scala] and [Akka][akka]. Since then the project has moved forward at a steady pace, with a [couple of contributors][curiodb-contributors] jumping on board (and fixing my bugs), as well as some really cool new features, such as the addition of a Lua scripting API that mimics the one found in Redis, which I'd like to write about.
 
+<!--
 First, a grim digression. Like many seemingly overly productive developers, I imagine I sometimes use programming as an escape from hardships in life. Some of the greatest hacks I've ever realised have occurred at real low-points for me, where I'd bury my head in the computer instead of dealing with reality. Last month when my grandmother died, it was very hard. It was the first time I've ever had to deal with death, so how did I react? It seems that once again, I subconsciously knocked out a bunch of code, in order to try and keep my mind off of what had happened. I don't really know how to articulate anything more than that on the topic, but in some way or another, this recent work is dedicated to the memory of her.
 
 <em class="center">
     <img src="/static/img/grandma.jpg" width="600">
     <br>With my grandmother on her 99th birthday, earlier this year.
 </em>
+-->
 
 ### LuaJ
 

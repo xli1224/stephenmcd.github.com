@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "User Built Django Forms"
-context: "Tech Talk, SyDjango"
+context: "Tech talk, SyDjango"
 slides: 56
 minutes: 28
 tags:
