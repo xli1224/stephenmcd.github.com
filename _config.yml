@@ -11,23 +11,6 @@ index_pages:
     tag:
         title_prefix:   'Keyword: '
 
-interviews:
-
-- title: 'In DevOps, Whither Testing?'
-  url:   http://servicevirtualization.com/in-devops-whither-testing
-  date:  14 Oct 2013
-  site:  Computer Associates
-
-- title: DevOps Means Large Orgs Thinking Like Small Ones
-  url:   http://servicevirtualization.com/devops-means-large-organizations-thinking-more-like-small-ones
-  date:  07 Oct 2013
-  site:  Computer Associates
-
-- title: Melbourne Hacker Releases Open Source Django Apps
-  url:   http://www.cio.com.au/article/380246/melbourne_hacker_releases_open_source_django_apps/
-  date:  18 Mar 2011
-  site:  CIO Magazine
-
 projects:
 
 - title: Mezzanine
@@ -45,15 +28,35 @@ projects:
   desc:  Ecommerce for Mezzanine
   tech:  Python, Django
 
-- title: Linked Out
-  url:   http://linkedout.jupo.org
-  desc:  Create PDF resumes via LinkedIn's API
-  tech:  Ruby, Sinatra
+- title: Two Queues
+  url:   http://github.com/stephenmcd/two-queues
+  desc:  Pub-sub utilities for Redis and ZeroMQ
+  tech:  Python, Go
 
-- title: Klout Feed
-  url:   http://klout-feed.jupo.org
-  desc:  Daily Klout scores via RSS
-  tech:  Ruby, Sinatra
+- title: Gnotty
+  url:   http://github.com/stephenmcd/gnotty
+  desc:  'Mobile IRC client, archive and bots'
+  tech:  Python, Django
+
+- title: Drum
+  url:   http://github.com/stephenmcd/drum
+  desc:  'Mezzanine powered Hacker News clone'
+  tech:  Python, Django
+
+- title: HOT Redis
+  url:   http://github.com/stephenmcd/hot-redis
+  desc:  'Higher Order Types for Redis'
+  tech:  Python, Lua
+
+- title: Grillode
+  url:   http://chat.jupo.org
+  desc:  Multi-purpose chat server
+  tech:  CoffeeScript, Node
+
+- title: Virtualboxing
+  url:   http://github.com/stephenmcd/virtualboxing
+  desc:  Comparison utilities for Riak and MongoDB
+  tech:  Ruby
 
 - title: Drawn By
   url:   http://github.com/stephenmcd/drawnby
@@ -65,44 +68,19 @@ projects:
   desc:  Manage gunicorn processes
   tech:  Python, ncurses
 
-- title: Virtualboxing
-  url:   http://github.com/stephenmcd/virtualboxing
-  desc:  Comparison utilities for Riak and MongoDB
-  tech:  Ruby
+- title: Linked Out
+  url:   http://linkedout.jupo.org
+  desc:  Create PDF resumes via LinkedIn's API
+  tech:  Ruby, Sinatra
+
+- title: Klout Feed
+  url:   http://klout-feed.jupo.org
+  desc:  Daily Klout scores via RSS
+  tech:  Ruby, Sinatra
 
 - title: Gamblor
   url:   http://github.com/stephenmcd/gamblor
   desc:  Collaborative real-time 2D casino world
-  tech:  Python, Django
-
-- title: Two Queues
-  url:   http://github.com/stephenmcd/two-queues
-  desc:  Pub-sub utilities for Redis and ZeroMQ
-  tech:  Python, Go
-
-- title: Grillode
-  url:   http://chat.jupo.org
-  desc:  Multi-purpose chat server
-  tech:  CoffeeScript, Node
-
-- title: django-forms-builder
-  url:   http://github.com/stephenmcd/django-forms-builder
-  desc:  Let users create their own forms
-  tech:  Python, Django
-
-- title: django-overextends
-  url:   http://github.com/stephenmcd/django-overextends
-  desc:  Circular template inheritance for Django
-  tech:  Python, Django
-
-- title: django-socketio
-  url:   http://github.com/stephenmcd/django-socketio
-  desc:  WebSockets for Django
-  tech:  Python, Django
-
-- title: django-pg-fuzzycount
-  url:   http://github.com/stephenmcd/django-postgres-fuzzycount
-  desc:  Fast counts for huge PostgreSQL tables
   tech:  Python, Django
 
 - title: Babbler
@@ -125,17 +103,22 @@ projects:
   desc:  Sync Speaker Deck slides with Vimeo videos
   tech:  JavaScript
 
-- title: Gnotty
-  url:   http://github.com/stephenmcd/gnotty
-  desc:  'Mobile IRC client, archive and bots'
+- title: django-forms-builder
+  url:   http://github.com/stephenmcd/django-forms-builder
+  desc:  Let users create their own forms
   tech:  Python, Django
 
-- title: Drum
-  url:   http://github.com/stephenmcd/drum
-  desc:  'Mezzanine powered Hacker News clone'
+- title: django-overextends
+  url:   http://github.com/stephenmcd/django-overextends
+  desc:  Circular template inheritance for Django
   tech:  Python, Django
 
-- title: HOT Redis
-  url:   http://github.com/stephenmcd/hot-redis
-  desc:  'Higher Order Types for Redis'
-  tech:  Python, Lua
+- title: django-socketio
+  url:   http://github.com/stephenmcd/django-socketio
+  desc:  WebSockets for Django
+  tech:  Python, Django
+
+- title: django-pg-fuzzycount
+  url:   http://github.com/stephenmcd/django-postgres-fuzzycount
+  desc:  Fast counts for huge PostgreSQL tables
+  tech:  Python, Django

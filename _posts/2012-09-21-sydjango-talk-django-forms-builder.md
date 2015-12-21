@@ -1,6 +1,7 @@
 ---
 layout: post
-title: "SyDjango Talk: django-forms-builder"
+title: "User Built Django Forms"
+context: "Tech Talk, SyDjango"
 slides: 56
 minutes: 28
 tags:

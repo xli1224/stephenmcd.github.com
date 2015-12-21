@@ -7,6 +7,9 @@
 <meta name="description" content="Articles by Stephen McDonald, focusing on open source, software architecture, and web development.">
 <title>{{ page.title|strip_html }}</title>
 <link href="/atom.xml" rel="alternate" title="{{ site.title }}" type="application/atom+xml">
+{% if page.redirect %}
+<meta http-equiv="refresh" content="0;URL={{ page.redirect }}">
+{% endif %}
 <script src="/static/js/jquery.js"></script>
 <script>
 
@@ -25,6 +28,7 @@ _gaq.push(['_trackPageview']);
 <link rel="stylesheet" href="/static/css/site.css">
 <link rel="stylesheet" href="/static/css/pygments.css">
 
+{% unless page.redirect %}
 <body>
 
 <header class="container">
@@ -67,5 +71,6 @@ _gaq.push(['_trackPageview']);
 </footer>
 
 </body>
+{% endunless %}
 
 </html>

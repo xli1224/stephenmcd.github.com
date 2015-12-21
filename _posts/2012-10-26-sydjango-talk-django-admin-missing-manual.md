@@ -1,6 +1,7 @@
 ---
 layout: post
-title: "SyDjango Talk: Django Admin, The Missing Manual"
+title: "Django Admin, The Missing Manual"
+context: "Tech Talk, SyDjango"
 slides: 34
 minutes: 30
 tags:

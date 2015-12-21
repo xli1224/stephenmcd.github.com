@@ -7,7 +7,7 @@ title: Stephen McDonald
 <h3 id="articles">Articles</h3>
 <ul class="home articles">
     {% for post in site.posts %}
-    {% unless post.tags contains "speaking" %}
+    {% unless post.context %}
     <li>
         <span class="date">{{ post.date | date_to_string }}</span>
         <span class="arrow">&raquo;</span>
@@ -20,28 +20,17 @@ title: Stephen McDonald
 </div>
 <div class="col-md-7">
 
-<h3 id="talks">Talks</h3>
+<h3 id="talks">Talks &amp; Interviews</h3>
 <ul class="home articles">
     {% for post in site.posts %}
-    {% if post.tags contains "speaking" %}
+    {% if post.context %}
     <li>
         <span class="date">{{ post.date | date_to_string }}</span>
         <span class="arrow">&raquo;</span>
         <a href="{{ post.url }}">{{ post.title }}</a>
+        <em>{{ post.context }}</em>
     </li>
     {% endif %}
-    {% endfor %}
-</ul>
-
-<h3 id="interviews">Interviews {{ site.keys }}</h3>
-<ul class="home interviews">
-    {% for interview in site.interviews %}
-    <li>
-        <span class="date">{{ interview.date }}</span>
-        <span class="arrow">&raquo;</span>
-        <a href="{{ interview.url }}">{{ interview.title }}</a>
-        <em>{{ interview.site }}</em>
-    </li>
     {% endfor %}
 </ul>
 
