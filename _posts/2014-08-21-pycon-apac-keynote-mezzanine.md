@@ -13,22 +13,14 @@ tags:
 - speaking
 
 slides:
-- time:  '00:00'
-  label: 'Welcome'
-- time:  '02:58'
-  label: 'About Me'
-- time:  '05:35'
-  label: 'Why Another CMS?'
-- time:  '18:03'
-  label: 'Defining Characteristics'
-- time:  '24:50'
-  label: 'Django Implementation'
-- time:  '35:59'
-  label: 'Features (Batteries Included)'
-- time:  '49:05'
-  label: 'Eco-system (Extra Batteries)'
-- time:  '52:33'
-  label: 'Conclusion'
+- {time: '00:00', label: 'Welcome'}
+- {time: '02:58', label: 'About Me'}
+- {time: '05:35', label: 'Why Another CMS?'}
+- {time: '18:03', label: 'Defining Characteristics'}
+- {time: '24:50', label: 'Django Implementation'}
+- {time: '35:59', label: 'Features (Batteries Included)'}
+- {time: '49:05', label: 'Eco-system (Extra Batteries)'}
+- {time: '52:33', label: 'Conclusion'}
 
 ---
 
