@@ -7,10 +7,6 @@ permalink: pretty
 highlighter: pygments
 markdown: kramdown
 
-index_pages:
-    tag:
-        title_prefix:   'Keyword: '
-
 projects:
 
 - title: Mezzanine
@@ -51,7 +47,7 @@ projects:
 - title: Grillode
   url:   http://chat.jupo.org
   desc:  Multi-purpose chat server
-  tech:  CoffeeScript, Node
+  tech:  CoffeeScript, Node.js
 
 - title: Virtualboxing
   url:   http://github.com/stephenmcd/virtualboxing
@@ -85,7 +81,7 @@ projects:
 
 - title: Babbler
   url:   http://github.com/stephenmcd/babbler
-  desc:  RSS consuming ELIZA bot for Twitter
+  desc:  RSS powered ELIZA bot for Twitter
   tech:  Python
 
 - title: One True Repo
