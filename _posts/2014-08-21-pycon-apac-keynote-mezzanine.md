@@ -24,7 +24,7 @@ slides:
 
 ---
 
-This year I had the wonderful privilege of being invited to give a keynote speech at [PyCon APAC in Taiwan](https://tw.pycon.org/2014apac/).
+This year I had the wonderful privilege of being invited to give a keynote speech at [PyCon APAC in Taiwan](https://tw.pycon.org/2014apac/). My thanks goes out to [Tzu-ping Chung](https://twitter.com/uranusjr), a Mezzanine contributor and the organising committee member whose idea it was to invite me to the conference in the first place.
 
 ### Abstract
 
