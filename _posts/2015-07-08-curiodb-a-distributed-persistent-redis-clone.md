@@ -15,17 +15,17 @@ tags:
 
 Last year I started learning [Scala][scala] and [Akka][akka] for my then day-job. This post isn't so much about that learning experience, which is an entire topic in its own right, given the notoriously large learning curve Scala has. Instead I wanted to write about the project I then went ahead and built as part of that learning process, which I've called [CurioDB][curiodb] - a distributed and persistent [Redis][redis] clone! Please note that this is a toy project, hence the name "Curio", and any suitability as a drop-in replacement for Redis is purely incidental.
 
-## Scala
+### Scala
 
 Firstly though, let's talk about Scala a little. If you've never heard of Scala, it's an advanced, hybrid [functional][functional] and [object oriented][object-oriented] programming language for the [JVM][jvm], developed by a company called [Typesafe][typesafe]. As I mentioned, I found its reputation for being relatively hard to learn well founded. I can only reiterate all the common points brought up when people write about Scala - the type system goes very deep, personally I've only scratched the surface of it. On one hand this is a good thing. Working with a technology that takes a very long time to achieve mastery in can serve as a constant source of motivation, given the right attitude.
 
 The language itself is very powerful, with an overwhelming number of advanced features. This power comes at a cost though - the syntax at first seems to contain many ambiguities, and in that regard, it reminds me of a very modern [Perl][perl]. I imagine that one developer's Scala may look very different to another's, and that working with Scala on a team would require a relatively decent amount of discipline to conform to a [consistent set of language features and style][scala-style]. On the other hand, that can all be thrown out of the window with a one-person project, as was my case, and as such, learning Scala and developing CurioDB has been a huge amount of fun!
 
-## Akka
+### Akka
 
 Given only the above, I'd be on the fence as to whether Scala as a language itself is a worthwhile time investment in the long-term toolbox, but when you take Akka into consideration, I'm definitely sold. Akka is a framework, also by Typesafe, that allows you to develop massively distributed systems in a safe and transparent way, using the [actor model][actor-model]. This is a weird analogy, but I see Akka as a killer framework for distributed systems in the same way I've seen [Django][django] as a killer framework for web development over the years - both gave me a profound sense of rapid development, by providing just the right level of abstraction that handles all the nitty-gritty details of their respective domains, allowing you to focus specifically on developing your application logic.
 
-## CurioDB
+### CurioDB
 
 So why build a Redis clone? I've used Redis heavily in the past, and
 Akka gave me some really cool ideas for implementing a clone, based
@@ -80,7 +80,7 @@ become available. Want to use [PostgreSQL][postgresql] or
 interface for Redis commands? [This should be possible!][storage-backends]
 By default, CurioDB uses Akka's built-in [LevelDB storage][leveldb-storage].
 
-## Design
+### Design
 
 Let's look at the overall design. Here's a bad diagram representing one server in the cluster, and the flow of a client sending a command:
 
@@ -121,7 +121,7 @@ Not diagrammed, but in addition to the above:
   Nodes, which act as PubSub servers and clients respectively
   ([PubSub.scala][pubsub-source]).
 
-## HTTP/WebSocket JSON API
+### HTTP/WebSocket JSON API
 
 CurioDB also supports
 a HTTP/WebSocket JSON API, as well as the same wire protocol that Redis
@@ -163,7 +163,7 @@ containing the error message, while HTTP requests will return a
 response with a 400 status, contaning the error message in the response
 body.
 
-## Disadvantages compared to Redis
+### Disadvantages compared to Redis
 
 * I haven't measured it, but it's safe to say memory consumption is
   much poorer due to the JVM. Somewhat alleviated by the virtual memory
@@ -185,7 +185,7 @@ that's been developed by many over the years, while CurioDB is a one-man
 hack project worked on over a few months. As much as this article
 attempts to compare them, they're really not comparable in that light.
 
-## Performance
+### Performance
 
 These are the results of `redis-benchmark -q` on an early 2014
 MacBook Air running OSX 10.9 (the numbers are requests per second):
@@ -211,7 +211,7 @@ Benchmark      | Redis    | CurioDB  | %
 {: .center}
 *Generated with the bundled [benchmark.py][benchmark-script] script.*
 
-## Conclusion
+### Conclusion
 
 That's it so far! I had a lot of fun building [CurioDB][curiodb], and Akka has really blown me away. If nothing else, I hope this project can provide a great showcase for how trivial Akka makes building distributed systems.
 
