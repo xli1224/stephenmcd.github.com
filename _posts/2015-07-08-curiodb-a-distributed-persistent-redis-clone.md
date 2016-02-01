@@ -177,8 +177,8 @@ body.
   stored on every node in the cluster, and the `PSUBSCRIBE` and
   `PUNSUBSCRIBE` commands get broadcast to all of them. This needs
   rethinking!
-* No transaction support.
 * <span style="text-decoration:line-through;">No [Lua scripting][lua-scripting].</span> **Update (next month):** [Lua scripting added][lua-added]!
+* <span style="text-decoration:line-through;">No transaction support.</span> **Update (a few months later):** [Distributed transactions added][transactions-added]!
 
 Mainly though, Redis is an extremely mature and battle-tested project
 that's been developed by many over the years, while CurioDB is a one-man
@@ -242,4 +242,5 @@ That's it so far! I had a lot of fun building [CurioDB][curiodb], and Akka has r
 [pubsub-source]: https://github.com/stephenmcd/curiodb/blob/master/src/main/scala/PubSub.scala
 [lua-scripting]: http://redis.io/commands/eval
 [lua-added]: /2015/08/08/embedding-lua-in-scala-with-java-oh-my/
+[transactions-added]: /2016/01/28/distributed-transactions-in-actor-systems/
 [benchmark-script]: https://github.com/stephenmcd/curiodb/blob/master/benchmark.py

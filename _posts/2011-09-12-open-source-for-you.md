@@ -45,7 +45,7 @@ The most obvious yet least tangible benefit in contributing to open source, is t
 
 The Chinese philosopher [Lao Tzu](http://en.wikipedia.org/wiki/Laozi) said:
 
-> A journey of a thousand miles begins with a single step
+> A journey of a thousand miles begins with a single step.
 
 Getting started might seem like a daunting task. Start small. Ignore the inner voice that whispers in your ear, arguing that your open source idea wouldn't be of any use to anyone. That might even be true, but it doesn't matter. Do it anyway. A lot of my projects are only a few dozen lines of code. People have found them useful in ways I couldn't have imagined.
 

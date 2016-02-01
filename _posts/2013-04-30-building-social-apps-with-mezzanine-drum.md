@@ -59,7 +59,7 @@ class LinkCreate(CreateView):
 
 This is almost no effort thanks to Django's generic views - the only deviation here is a custom form class in our create view, so that we can limit the fields that will be editable in the form used for submitting new links.
 
-###  I can't believe it's Mezzanine: Threaded Comments and Ratings
+###  I can't believe it's Mezzanine: Threaded Comments & Ratings
 
 Now we'll start blazing through the Mezzanine features that require almost zero effort to apply to our project. Mezzanine provides the Django application ``mezzanine.generic``, which houses several different utilities that can be generically applied to any Django model. Each of these use Django's generic relations, and come in the form of a [custom Django model field][django-model-fields]. Provided are things like keyword tagging, ratings, and threaded comments. We'll start by adding threaded comments and ratings to our ``Link`` model:
 
