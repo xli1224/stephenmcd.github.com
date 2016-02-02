@@ -13,11 +13,17 @@ projects:
   url:   http://mezzanine.jupo.org
   desc:  Content management platform
   tech:  Python, Django
+  featured: 'Mezzanine is one of the most popular CMS platforms for the Django framework, used by companies such as Google, Mozilla, and Oxfam America.'
+
+- title: Kouio
+  url:   https://kouio.com
+  featured: 'Kouio is a real-time online RSS reader, currently storing over 100 million searchable news articles for thousands of users.'
 
 - title: CurioDB
-  url:   http://github.com/stephenmcd/curiodb
+  url:   http://curiodb.jupo.org
   desc:  'Distributed & persistent NoSQL database'
   tech:  Scala, Akka
+  featured: 'CurioDB is a distributed and persistent NoSQL database, featuring a Redis compatible API, transactions, and embedded Lua scripting.'
 
 - title: Cartridge
   url:   http://cartridge.jupo.org

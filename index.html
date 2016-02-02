@@ -2,6 +2,38 @@
 layout: default
 title: Stephen McDonald
 ---
+<div class="col-md-10">
+
+<!--img src="/static/img/stephen-mcdonald.jpg" class="steve"><br-->
+
+<p class="intro">Hey there! In case you missed the whopping big title at the top of the page, my name is Stephen McDonald. I'm a developer from Sydney Australia, currently working at Google in the <a href="https://developers.google.com/">Developer Platforms</a> group. This page is an attempt to collate all the content I've created, from articles and talks, to my many software projects. If you'd like to keep up to date with my work, you can also follow me on
+  <a href="http://www.linkedin.com/in/stephenmcd">LinkedIn</a>,
+  <a href="http://github.com/stephenmcd">GitHub</a>, and
+  <a href="http://twitter.com/stephen_mcd">Twitter</a>.
+</p>
+
+</div>
+</div>
+
+<div class="container featured">
+
+<div class="col-md-12">
+    <h3 id="featured-projects">Featured Projects</h3>
+</div>
+
+{% assign projects_reversed = site.projects | reverse %}
+{% for project in projects_reversed %}
+{% if project.featured %}
+<div class="col-md-4">
+    <a href="{{ project.url }}"><img src="/static/img/{{ project.title | downcase }}-logo.png"></a>
+    <p>{{ project.featured }}<br><a href="{{ project.url }}">View project</a></p>
+</div>
+{% endif %}
+{% endfor %}
+
+</div>
+<div class="container">
+
 <div class="col-md-5">
 
 <h3 id="articles">Articles</h3>
@@ -37,11 +69,13 @@ title: Stephen McDonald
 <h3 id="projects">Open Source Projects</h3>
 <ul class="home projects">
     {% for project in site.projects %}
+    {% if project.desc %}
     <li>
         <a href="{{ project.url }}" class="title">{{ project.title }}</a>
         <span class="arrow">&raquo;</span>
         {{ project.desc }} <em>{{ project.tech }}</em></li>
     </li>
+    {% endif %}
     {% endfor %}
 </ul>
 

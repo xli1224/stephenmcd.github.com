@@ -32,8 +32,14 @@ td.n {color:red;}
 td a, td em {white-space:nowrap;}
 td p {margin:20px 0;}
 img.steve {float: right; width: 150px; border-radius: 150px;
-	margin: 20px 0 20px 40px;}
+	margin: -5px 0 0 40px;}
 @media all and (max-width: 640px) {.home a {display: block; float: none;}}
 
 .col-md-5 {margin-right: 25px;}
 .col-md-7 {width: 50%;}
+
+.intro {margin: 20px 0 0 0;}
+.featured {text-align: center; margin-top: 15px; margin-bottom: 25px;}
+.featured img {height: 150px; margin: 25px auto 0 auto;}
+.featured p {margin: 15px 0;}
+.featured p a {line-height: 30px;}
