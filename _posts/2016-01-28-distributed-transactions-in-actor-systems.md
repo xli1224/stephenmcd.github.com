@@ -14,7 +14,7 @@ tags:
 - lua
 ---
 
-The last time I wrote about [CurioDB][curiodb-post], I discussed [adding support for Lua scripting][lua-post], which was a ton of fun to work on. The scripting support could only be described as a toy however, due to one major omission - it had no form of transaction isolation, which is one of the main benefits of Lua scripting in Redis, which CurioDB attempts to mimic. The transactional nature of Lua scripting comes for free with Redis, given that it restricts scripting to a single, single-threaded server. This means that Lua scripts in Redis can run multiple commands atomically, making it a popular way to run transactions.
+The last time I wrote about [CurioDB][curiodb], I discussed [adding support for Lua scripting][lua-post], which was a ton of fun to work on. The scripting support could only be described as a toy however, due to one major omission - it had no form of transaction isolation, which is one of the main benefits of Lua scripting in Redis, which CurioDB attempts to mimic. The transactional nature of Lua scripting comes for free with Redis, given that it restricts scripting to a single, single-threaded server. This means that Lua scripts in Redis can run multiple commands atomically, making it a popular way to run transactions.
 
 What would this look like in CurioDB though? The short answer is that it's very different. CurioDB is built with [Akka][akka], which means it is implemented as an [actor system][actor-model], where each key and value are represented as an individual actor. A simple way to think about this, is to imagine each actor as an individual server that can accept requests, initiate new requests, create new servers, and return responses. With CurioDB, this conceptually means *a separate server, for every key stored with a value*, and each of these may be executing code in parallel at any point in time, on any machine in the cluster. With this view, it's plain to see that transactions in CurioDB are no free lunch as they are with Redis. The good news however, stems from the original benefit sought by building CurioDB with Akka, in that the actor model forces concurrency - once we have a problem solved for concurrent actors on a single machine, the same solution applies to our cluster of many machines, and in this case, distributed transactions are then achieved. In case you hadn't guessed it already, [CurioDB now supports distributed transactions][transaction-commits], both by way of the `MULTI` and `EXEC` commands, and for Lua scripts with the `EVAL` and `EVALSHA` commands.
 
@@ -50,7 +50,7 @@ Missing from CurioDB but typically found in transactional databases is a fourth,
 
 Implementing distributed transactions in CurioDB was very challenging and equally fun, and I really learnt a lot. The biggest take-away for me would be this: even when casting the idea of actor systems aside, I found that the combination of state machines and message passing, provides an extremely simple and powerful way to build distributed systems.
 
-[curiodb-post]: /2015/07/08/curiodb-a-distributed-persistent-redis-clone/
+[curiodb]: https://github.com/stephenmcd/curiodb
 [lua-post]: /2015/08/08/embedding-lua-in-scala-with-java-oh-my/
 [akka]: http://akka.io/
 [actor-model]: https://en.wikipedia.org/wiki/Actor_model
