@@ -76,7 +76,7 @@ class Link(Displayable, Ownable):
 
 All we've done here is added the ``CommentsField`` and ``RatingField`` fields to the ``Link`` model. Below is our link detail template, which will display the description given to the submitted link, and the threaded comment discussion following it. You'll see it uses the ``comments_for`` and ``ratings_for`` template tags, to render the comments and rating widget:
 
-{% highlight html+django %}
+{% highlight liquid %}
 {% raw %}
 {% extends "base.html" %}
 {% load comment_tags %}
@@ -104,7 +104,7 @@ RATINGS_RANGE = (-1, 1)
 
 The first setting ``COMMENTS_USE_RATINGS`` is just a basic flag that controls whether individual comments can be rated, which we want in Drum. The next two settings, ``COMMENTS_ACCOUNT_REQUIRED`` and ``RATINGS_ACCOUNT_REQUIRED`` are fairly obvious - we set these to ``True`` to ensure only registered users can add comments and ratings. The ``RATINGS_RANGE`` setting is the interesting one - it lets us define the range of valid rating values, which we specify -1 and 1 for, to represent a negative and positive rating. With that in place, we can now customise our rating include template:
 
-{% highlight html+django %}
+{% highlight liquid %}
 {% raw %}
 <div class="rating">
     <form method="post" action="{% url "rating" %}">
@@ -296,7 +296,7 @@ def order_comments_by_score_for(context, link):
 
 Here's our link detail template again, with a call to the new ``order_comments_by_score_for`` tag, prior to ``comments_for`` being called.
 
-{% highlight html+django %}
+{% highlight liquid %}
 {% raw %}
 {% extends "base.html" %}
 {% load comment_tags %}

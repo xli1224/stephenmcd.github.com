@@ -31,7 +31,7 @@ Jekyll adds a `number_of_words` tag to Liquid that can be used to display the nu
 
 The Liquid code below is able to achieve a true word count for each article on the site. It isn't perfect, but it works correctly for my site.
 
-{% highlight html+django %}
+{% highlight liquid %}
 {% raw %}
 <ul>
 {% for post in site.posts %}
@@ -50,13 +50,13 @@ The Liquid code below is able to achieve a true word count for each article on t
 
 This code works off the assumption that the highlighted code snippets in articles are the only things that will generate HTML `<pre>` tags. It splits the entire article content on the string `pre>` which should match both opening and closing `<pre>` and `</pre>` tags. Note that it assigns the result of this split to a variable called `lines`. This is specifically necessary - the Liquid authors claimed that iterating through the results of the `split` filter isn't possible, and they're correct, it doesn't work by default. Assigning it to a temporary variable is a trick I accidentally discovered though, that does in fact allow it to work.
 
-We then loop through each of the lines, where we can assume every even line (2nd, 4th, etc) contains a block of code we want to omit from the overall word count. We then strip the HTML from the odd lines using Jekyll's `strip_html` tag, to get the actual text content, and sum the result of the `number_of_words` tag on each of these. You'll notice a strange bit here, where we multiply the modulo of 2 on the loop index, which will give us a value of 0 for even lines with code snippets, and 1 for lines with real words. The reason for this is that like Django templates, Liquid conditional tags like `if` don't behave like regular programming languages - their conditional nature is only applicable to what's rendered to the browser. Tags and filters within conditions that aren't met are still executed, so we can't simply wrap our word summing in `{% raw %}{% if mod == 1 %}{% endraw %}`.
+We then loop through each of the lines, where we can assume every even line (2nd, 4th, etc) contains a block of code we want to omit from the overall word count. We then strip the HTML from the odd lines using Jekyll's `strip_html` tag, to get the actual text content, and sum the result of the `number_of_words` tag on each of these. You'll notice a strange bit here, where we multiply the modulo of 2 on the loop index, which will give us a value of 0 for even lines with code snippets, and 1 for lines with real words. The reason for this is that like Django templates, Liquid conditional tags like `if` don't behave like regular programming languages - their conditional nature is only applicable to what's rendered to the browser. Tags and filters within conditions that aren't met are still executed, so we can't simply wrap our word summing in {% raw %}{% if mod == 1 %}{% endraw %}.
 
 ### Frequency Tag Sort
 
 Articles in Jekyll support traditional keyword tags as you'd expect. On the homepage of this site, I generate a list of all tags from all articles. The problem though, is that the tags are in arbitrary order when made available by Jekyll, making the list hard to digest in a meaningful way. We could sort them alphabetically, but I thought the best option would be to sort them by frequency, with the most commonly used tags appearing at the top of the list. Liquid provides the template tag ``sort`` for sorting data by a given property, but the tag structure provided by Jekyll is a hash, which as best as I can tell, isn't supported by Liquid's ``sort`` tag. I therefore came up with the following approach for sorting by frequency:
 
-{% highlight html+django %}
+{% highlight liquid %}
 {% raw %}
 {% assign tags_max = 0 %}
 {% for tag in site.tags %}
@@ -86,7 +86,7 @@ The above approach is quite ridiculous. It first iterates through each of the ta
 
 One dreary evening I came across a site that used [drop-cap][drop-cap] on each of its articles, by wrapping the first character in a separate HTML tag that could be styled. Text manipulation like this is child's play in regular programming languages, and I immediately wondered if this would be possible with restricted Jekyll. After a bit of trial and error, I managed to come up with the following:
 
-{% highlight html+django %}
+{% highlight liquid %}
 {% raw %}
 {% assign drop_cap = content|strip_html|truncate:4|remove:'.' %}
 {% capture drop_cap_html %}<span class="drop-cap">{{ drop_cap }}</span>{% endcapture %}
