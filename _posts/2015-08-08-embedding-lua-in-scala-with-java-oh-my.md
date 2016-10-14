@@ -40,7 +40,7 @@ Let's take a look. First up, we'll compile and run a snippet of Lua (sans import
 // variables into if needed.
 val globals = JsePlatform.standardGlobals()
 
-// A tiny string of Lua code - it returns the second string from a
+// A tiny string of Lua code — it returns the second string from a
 // table called "names" (Lua tables use 1-based indexes).
 val script = "names = {'foo', 'bar', 'baz'}; return names[2]"
 
@@ -69,7 +69,7 @@ val result = globals.load("return names").call()
 println(result.get(2).asjstring)
 {% endhighlight %}
 
-There you have it - JVM objects representing Lua variables, moving into and back out of Lua code. Now let's look at the reverse, calling JVM code from inside Lua. To do this, we implement a class representing a Lua function:
+There you have it — JVM objects representing Lua variables, moving into and back out of Lua code. Now let's look at the reverse, calling JVM code from inside Lua. To do this, we implement a class representing a Lua function:
 
 {% highlight scala %}
 // Simple function that takes a string, and prefixes it with "Hello ".
@@ -86,7 +86,7 @@ val result = globals.load("return say_hello('grandma')").call()
 println(result.asjstring)  // prints "Hello grandma".
 {% endhighlight %}
 
-That's it, the full round trip - Lua calling JVM code, and vice versa. With that working, the rest is up to your imagination. I've only scratched the surface of what LuaJ provides - all of the data types found in Lua, its standard library, and much more.
+That's it, the full round trip — Lua calling JVM code, and vice versa. With that working, the rest is up to your imagination. I've only scratched the surface of what LuaJ provides — all of the data types found in Lua, its standard library, and much more.
 
 [The final result][scripting-source] was a little more involved than the above implies. CurioDB is carefully designed to be non-blocking, using [tell rather than ask][tell-vs-ask], where [actors][actor-model] only ever send messages forwards, without expectation of a reply. The challenge here was introducing the synchronous `redis.call` API into a fundamentally asynchronous system. The solution involved modelling the scripting API as a client actor, with a controlled amount of blocking, much like the way TCP and HTTP connections are managed in the system.
 

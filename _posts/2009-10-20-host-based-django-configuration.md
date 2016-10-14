@@ -28,7 +28,7 @@ except ImportError:
 This still requires modifying `local_settings.py` on a per machine basis.
 Another approach that builds on this is to import a custom settings module
 from a `host_settings` package that has a unique name derived from the current
-machine the site is running on - this gives the advantage of being able to
+machine the site is running on — this gives the advantage of being able to
 specify custom settings per machine and have each of these settings modules
 reside in the version control system, without the same file having to be
 modified on a per machine basis.
@@ -53,14 +53,14 @@ this isn't necessary.
 
 Let's take a step back for a moment and talk about some of the requirements I
 mentioned before. Where I work a project can end up deployed in a dozen
-different locations - a handful of developer machines and various different
+different locations — a handful of developer machines and various different
 servers managing the project life cycle. Due to a variety of non-technical
 reasons it's often required that various versions of a project run side by
 side in the same location, so with a project called `project_x` we end up with
 `project_x_feature_a` and `project_x_feature_b` sitting in the same location -
 all of a sudden all of our references to `project_x` are broken. So we end up
 taking the approach in our code that the actual name of a project's directory
-is a moving target and should never be referenced - we never import from
+is a moving target and should never be referenced — we never import from
 `package_x` and anything in our settings module that would typically reference
 this we set dynamically.
 

@@ -20,7 +20,7 @@ enjoyed widely available cable and ADSL.
 Fast forward to 2010; and the same situation has occurred with web
 development. Anyone who follows the startup scene focused around San Francisco
 and NYC will be familiar with the most popular development technologies
-available - [Ruby](http://www.ruby-lang.org/en/),
+available — [Ruby](http://www.ruby-lang.org/en/),
 [Python](http://python.org/), [Scala](http://www.scala-lang.org/) and many
 more. Contrast this to the Australian space where the majority of development
 houses have been sitting for many years on technologies such as ASP.NET and
@@ -67,12 +67,12 @@ deeply nested libraries which require specialised tools simply to write code.
 What about the developer that needs to work with all of these different
 technologies each day, can they be expected to be experts in several different
 IDEs and switch between them freely? If only these different programming
-environments could be used from the same editor - what a joy it would be as a
+environments could be used from the same editor — what a joy it would be as a
 practising polyglot!
 
 On the plus side languages like C# and Java are relatively clean and
 consistent when compared to abominations such as PHP, which truly is a
-disorganised mess - functions named using both verb_noun and noun_verb, lots
+disorganised mess — functions named using both verb_noun and noun_verb, lots
 of similar functions with no apparent naming convention (Eg: `sort()`,
 `arsort()`, `asort()`, `ksort()`, `natsort()`, `natcasesort()`, `rsort()`,
 `usort()`, `array_multisort()`, `uksort()`) and a weak type system that can
@@ -102,7 +102,7 @@ security in mind, the language itself makes writing secure applications an
 extremely disciplined task. One need look no further than the [ongoing range of
 security issues](http://secunia.com/advisories/product/6745/?task=advisories)
 that have plagued applications such as Wordpress over the years: SQL
-injection, cross site scripting (XSS), remote code execution - it's like an
+injection, cross site scripting (XSS), remote code execution — it's like an
 all-you-can-eat smorgasbord of web application exploits.
 
 Django in contrast runs on top of a secure LAMP stack and is designed from the
@@ -113,7 +113,7 @@ Also like many open source projects a security issue in Django isn't dealt
 with because a corporation deems it to be the most cost effective decision. In
 the very few and far between occasions when security issues have inevitably
 been discovered, turn-around time for resolving these has been within a 24
-hour period - not weeks or even months as is often the case with corporate
+hour period — not weeks or even months as is often the case with corporate
 vendors that lack the agility and motivation to act responsibly.
 
 ### Freedom
@@ -131,7 +131,7 @@ financial interest to tear it all down again.
 
 There is then the issue of acquisition. Companies like Microsoft and Oracle
 have a long and successful history of acquiring their competitors simply to
-discontinue their competing technology - let's hope the vendor you're in bed
+discontinue their competing technology — let's hope the vendor you're in bed
 with isn't _too_ good.
 
 Even Java, which for all intents and purposes is an open source technology has
@@ -149,21 +149,21 @@ respectively. These are non-profit bodies that for the most part exist to
 enforce the IP rights of each technology. These technologies are community
 driven with one goal in mind: to create best of breed technology. There is no
 financial motivation here and so we thus find ultimate reliability with this
-software stack being impervious to the risks described above - it cannot be
+software stack being impervious to the risks described above — it cannot be
 made redundant by any financially driven corporate strategy as the licensing
 and foundations have been specifically put in place to prevent this from being
 possible. An interesting corollary to this is that these technologies go
 relatively unheard of without the backing of large corporations promoting
 them. Next time you're the target of a technology sales pitch consider the
 high likelihood that you're not looking at the best technology in its given
-application domain - best of breed doesn't need to be sold at all, it sells
+application domain — best of breed doesn't need to be sold at all, it sells
 itself.
 
 ### Developers
 
 ASP.NET, Java and PHP developers outnumber Python and Ruby developers by the
 hundreds if not thousands. This is a great selling point to technical decision
-makers - the ability to quickly and easily hire developers when the need
+makers — the ability to quickly and easily hire developers when the need
 arises is critical. But what of the quality of these developers? An
 interesting question to pose is why a developer who specialises in .NET or PHP
 chose their particular technology. Answer: because that's what everyone else
@@ -186,7 +186,7 @@ This is where the next generation of mature web applications will be built
 using web application frameworks like [Django](http://www.djangoproject.com/)
 and [Rails](http://rubyonrails.org/) that are designed from the ground up for
 rapid customization over long software life-cycles while maintaining the
-original design integrity of your application - something only a very
+original design integrity of your application — something only a very
 disciplined developer can maintain with something like PHP, which in almost
 all cases will eventually end up as spaghetti code.
 
@@ -196,7 +196,7 @@ end user, but what type of path have you created for your customer by
 implementing technology that gets closer and closer to its end of life the
 more it's customised?
 
-In conclusion - developers and CEOs, challenge your technical decision makers
+In conclusion — developers and CEOs, challenge your technical decision makers
 to overcome their complacency and invest in technology of the future. Push
 your employer, your peers and most importantly yourself forward. Invest your
 time in efficient, secure and unencumbered technology.

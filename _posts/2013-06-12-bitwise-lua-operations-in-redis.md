@@ -9,11 +9,11 @@ tags:
 - hacks
 ---
 
-I've recently spent a good deal of time learning and writing code in the [Lua programming language][lua]. It's a nice little language, very similar to others such as [Python][python], [JavaScript][javascript] and [Ruby][ruby] - [Algol based][algol-based], [object oriented][object-oriented], [dynamically typed][dynamically-typed] and [interpreted][interpreted], with [first class functions][first-class-functions] available. Lua itself doesn't contain any particularly unique features, and if you're savvy with the above languages you'll pick up the basics in a number of hours. What does make Lua unique though, is its relatively small size and speed, which makes it a popular choice for embedding scripting capabilities inside other programs.
+I've recently spent a good deal of time learning and writing code in the [Lua programming language][lua]. It's a nice little language, very similar to others such as [Python][python], [JavaScript][javascript] and [Ruby][ruby] — [Algol based][algol-based], [object oriented][object-oriented], [dynamically typed][dynamically-typed] and [interpreted][interpreted], with [first class functions][first-class-functions] available. Lua itself doesn't contain any particularly unique features, and if you're savvy with the above languages you'll pick up the basics in a number of hours. What does make Lua unique though, is its relatively small size and speed, which makes it a popular choice for embedding scripting capabilities inside other programs.
 
-[Redis][redis] is one piece of software that embeds Lua for scriptability, and it was this setup that brought me to Lua in the first place. I recently [wrote about Redis][two-queues] where I described it in more detail, but if you're unfamiliar with it, it's a key-value store - similar to [memcached][memcached] on the surface, but with a much richer variety of data types and operations.
+[Redis][redis] is one piece of software that embeds Lua for scriptability, and it was this setup that brought me to Lua in the first place. I recently [wrote about Redis][two-queues] where I described it in more detail, but if you're unfamiliar with it, it's a key-value store — similar to [memcached][memcached] on the surface, but with a much richer variety of data types and operations.
 
-What specifically led me to Lua in Redis, is the ability it provides to perform complex atomic operations. Consider the operation of multiplying a number - not particularly complex, but a good starting point. Redis provides commands for retrieving a number, writing a number, and even incrementing a number, but not multiplying it, so multiplication becomes a three step operation: read the number from Redis, multiply it locally, then set the new value. But what happens if two clients perform this almost simultaneously?
+What specifically led me to Lua in Redis, is the ability it provides to perform complex atomic operations. Consider the operation of multiplying a number — not particularly complex, but a good starting point. Redis provides commands for retrieving a number, writing a number, and even incrementing a number, but not multiplying it, so multiplication becomes a three step operation: read the number from Redis, multiply it locally, then set the new value. But what happens if two clients perform this almost simultaneously?
 
 - Client "A" reads the number 3, with the intention of multiplying its current value by 2
 - Client "B" also reads the number 3, with the same intention
@@ -32,7 +32,7 @@ To make matters more comical, I found that Lua 5.2 actually provides [bitwise op
 
 ### Named Lua Functions in redis-py
 
-First a little background on my setup. I define all of my Lua scripts as named functions in a file, playfully named `atoms.lua`. Here's a snippet from it, a `list_pop` function which atomically pops an item from a Redis list, given the item's index - an operation that Redis doesn't provide within its own set of commands:
+First a little background on my setup. I define all of my Lua scripts as named functions in a file, playfully named `atoms.lua`. Here's a snippet from it, a `list_pop` function which atomically pops an item from a Redis list, given the item's index — an operation that Redis doesn't provide within its own set of commands:
 
 {% highlight lua %}
 function list_pop()
@@ -82,7 +82,7 @@ class LuaRedisClient(redis.Redis):
         setattr(self, name, method)
 {% endhighlight %}
 
-There's no magic language interoperability going on here - just a little library sugar for dealing with Lua functions by name. The function name is actually stripped entirely from the Lua code we provide to Redis - that's how Lua scripts work in Redis, they're simply chunks of procedural code, an important point that will come into play with our overall approach for embedding third-party libraries.
+There's no magic language interoperability going on here — just a little library sugar for dealing with Lua functions by name. The function name is actually stripped entirely from the Lua code we provide to Redis — that's how Lua scripts work in Redis, they're simply chunks of procedural code, an important point that will come into play with our overall approach for embedding third-party libraries.
 
 With that in place, we can now call the atomic `list_pop` Lua function directly from the Python client:
 

@@ -56,7 +56,7 @@ ups. I've released the source onto
 up and running](http://chat.jupo.org/).
 
 The process of putting Grillode together led me through many parts of the
-ecosystem that has developed around Node.js - following is an overview of the
+ecosystem that has developed around Node.js — following is an overview of the
 pieces I ended up working with.
 
 ### Node Package Manager (NPM)
@@ -98,7 +98,7 @@ the former options aren't supported by the browser.
 It then provides all of the methods and event handlers for connecting and
 sending data over the connection. The beauty behind how this is implemented is
 that it exposes these methods and events almost identically to both the
-Node.js server, and the browser client - instantly you have available two-way
+Node.js server, and the browser client — instantly you have available two-way
 communication between the browser and the server via an open connection,
 without requiring any new requests to the server.
 

@@ -97,13 +97,13 @@ Each event handler takes at least three arguments: the current Django
 which is simply a dictionary that can be used to persist variables across all
 events throughout the life-cycle of a single WebSocket connection.
 
-  * `on_connect` - occurs once when the WebSocket connection is first established.
-  * `on_message` - occurs every time data is sent to the WebSocket. Takes an extra `message` argument which contains the data sent.
-  * `on_subscribe` - occurs when a channel is subscribed to. Takes an extra `channel` argument which contains the channel subscribed to.
-  * `on_unsubscribe` - occurs when a channel is unsubscribed from. Takes an extra `channel` argument which contains the channel unsubscribed from.
-  * `on_error` - occurs when an error is raised. Takes an extra `exception` argument which contains the exception for the error.
-  * `on_disconnect` - occurs once when the WebSocket disconnects.
-  * `on_finish` - occurs once when the Socket.IO request is finished.
+  * `on_connect` — occurs once when the WebSocket connection is first established.
+  * `on_message` — occurs every time data is sent to the WebSocket. Takes an extra `message` argument which contains the data sent.
+  * `on_subscribe` — occurs when a channel is subscribed to. Takes an extra `channel` argument which contains the channel subscribed to.
+  * `on_unsubscribe` — occurs when a channel is unsubscribed from. Takes an extra `channel` argument which contains the channel unsubscribed from.
+  * `on_error` — occurs when an error is raised. Takes an extra `exception` argument which contains the exception for the error.
+  * `on_disconnect` — occurs once when the WebSocket disconnects.
+  * `on_finish` — occurs once when the Socket.IO request is finished.
 
 Like Django signals, event handlers can be defined anywhere so long as they
 end up being imported. Consider adding them to their own module that gets

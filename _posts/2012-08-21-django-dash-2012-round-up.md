@@ -10,26 +10,26 @@ tags:
 The [Django Dash for 2012][django-dash] is now over, and once again it was a ton of fun! The Dash is a 48 hour coding competition for teams of up to three, competing to see who can build the best Django application over a weekend. To top it off, all of the entries are made available as open source.
 
 This year I went solo for the first time, which made it quite gruelling as I had to handle everything from back-end code, interface development, and visual design. I decided to follow the same recipe as our 3rd place entry from last year, [Drawn By][drawnby], specifically by creating an environment where people can
-come together and interact in real-time using [WebSockets][websockets]. I named my entry [GAMBLOR][gamblor] - it's an online casino where people can move around and chat with each other, while playing casino games with fake money. Check out [GAMBLOR][gamblor] as well as the [source code][gamblor-github] if you're interested, and you can see the game plugin system I built to power the initial games implemented: roulette and craps.
+come together and interact in real-time using [WebSockets][websockets]. I named my entry [GAMBLOR][gamblor] — it's an online casino where people can move around and chat with each other, while playing casino games with fake money. Check out [GAMBLOR][gamblor] as well as the [source code][gamblor-github] if you're interested, and you can see the game plugin system I built to power the initial games implemented: roulette and craps.
 
 Apart from the staples of [Django][django] and [jQuery][jquery], here are some of the components I used that made GAMBLOR possible in such a short amount of time:
 
-* [gevent-socketio][gevent-socketio] - Provides the Python implementation of [socket.io][socketio], allowing real-time activity to occur in the browser using WebSockets.
-* [Redis][redis] - A NoSQL database, similar to [memcached][memcached] but with richer data structures.
-* [CSS3][css3] - The design was implemented almost entirely without graphics, using many CSS3 features such as shadows, background gradients, and even 3D transforms for the gaming chips.
-* [jquery-transit][jquery-transit] - A library for advanced JavaScript animations, which powered the roulette wheel rotation.
-* [jquery-collision][jquery-collision] - Provides collision detection for browser objects, which allowed for avatar movement to be constrained within the game area and around the game tables.
+* [gevent-socketio][gevent-socketio] — Provides the Python implementation of [socket.io][socketio], allowing real-time activity to occur in the browser using WebSockets.
+* [Redis][redis] — A NoSQL database, similar to [memcached][memcached] but with richer data structures.
+* [CSS3][css3] — The design was implemented almost entirely without graphics, using many CSS3 features such as shadows, background gradients, and even 3D transforms for the gaming chips.
+* [jquery-transit][jquery-transit] — A library for advanced JavaScript animations, which powered the roulette wheel rotation.
+* [jquery-collision][jquery-collision] — Provides collision detection for browser objects, which allowed for avatar movement to be constrained within the game area and around the game tables.
 
 I've put together a table below that lists all of the final entries, with links to their sites and source code. I left out any entries that didn't contain a working site, or didn't seem to function. If I've missed any or you have any other corrections, please [let me know][stephenmcd].
 
 It's interesting to look at some of the recurring themes present within all of the entries. There were multiple entries that fell under each of the following ideas:
 
-* Cloud server management - *Cloud Fish, Gungnir*
-* GitHub mashups - *Badger, Heroes of Git & Hub, Mosaic, Try Box*
-* Tutorial/class creation - *Django Tutorial, Try Box, Try Try, Tutor Us*
-* Photo mashups - *Gif Feed, Green Room, Lemidora, Miracles Live, The Busitizer*
-* Portfolio generation - *Folio Bag, Mosaic*
-* Map mashups - *Kirchenreich, Quester*
+* Cloud server management — *Cloud Fish, Gungnir*
+* GitHub mashups — *Badger, Heroes of Git & Hub, Mosaic, Try Box*
+* Tutorial/class creation — *Django Tutorial, Try Box, Try Try, Tutor Us*
+* Photo mashups — *Gif Feed, Green Room, Lemidora, Miracles Live, The Busitizer*
+* Portfolio generation — *Folio Bag, Mosaic*
+* Map mashups — *Kirchenreich, Quester*
 
 My definite favourites are [Heroes of Git & Hub][heroes-github], which lets you battle your open source projects against others in a D&D style game, and [The Busitizer][busitizer] which I'll just leave for you to check out for yourself.
 

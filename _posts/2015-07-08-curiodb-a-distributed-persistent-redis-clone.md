@@ -13,17 +13,17 @@ tags:
 - databases
 ---
 
-Last year I started learning [Scala][scala] and [Akka][akka] for my then day-job. This post isn't so much about that learning experience, which is an entire topic in its own right, given the notoriously large learning curve Scala has. Instead I wanted to write about the project I then went ahead and built as part of that learning process, which I've called [CurioDB][curiodb] - a distributed and persistent [Redis][redis] clone! Please note that this is a toy project, hence the name "Curio", and any suitability as a drop-in replacement for Redis is purely incidental.
+Last year I started learning [Scala][scala] and [Akka][akka] for my then day-job. This post isn't so much about that learning experience, which is an entire topic in its own right, given the notoriously large learning curve Scala has. Instead I wanted to write about the project I then went ahead and built as part of that learning process, which I've called [CurioDB][curiodb] — a distributed and persistent [Redis][redis] clone! Please note that this is a toy project, hence the name "Curio", and any suitability as a drop-in replacement for Redis is purely incidental.
 
 ### Scala
 
-Firstly though, let's talk about Scala a little. If you've never heard of Scala, it's an advanced, hybrid [functional][functional] and [object oriented][object-oriented] programming language for the [JVM][jvm], developed by a company called [Typesafe][typesafe]. As I mentioned, I found its reputation for being relatively hard to learn well founded. I can only reiterate all the common points brought up when people write about Scala - the type system goes very deep, personally I've only scratched the surface of it. On one hand this is a good thing. Working with a technology that takes a very long time to achieve mastery in can serve as a constant source of motivation, given the right attitude.
+Firstly though, let's talk about Scala a little. If you've never heard of Scala, it's an advanced, hybrid [functional][functional] and [object oriented][object-oriented] programming language for the [JVM][jvm], developed by a company called [Typesafe][typesafe]. As I mentioned, I found its reputation for being relatively hard to learn well founded. I can only reiterate all the common points brought up when people write about Scala — the type system goes very deep, personally I've only scratched the surface of it. On one hand this is a good thing. Working with a technology that takes a very long time to achieve mastery in can serve as a constant source of motivation, given the right attitude.
 
-The language itself is very powerful, with an overwhelming number of advanced features. This power comes at a cost though - the syntax at first seems to contain many ambiguities, and in that regard, it reminds me of a very modern [Perl][perl]. I imagine that one developer's Scala may look very different to another's, and that working with Scala on a team would require a relatively decent amount of discipline to conform to a [consistent set of language features and style][scala-style]. On the other hand, that can all be thrown out of the window with a one-person project, as was my case, and as such, learning Scala and developing CurioDB has been a huge amount of fun!
+The language itself is very powerful, with an overwhelming number of advanced features. This power comes at a cost though — the syntax at first seems to contain many ambiguities, and in that regard, it reminds me of a very modern [Perl][perl]. I imagine that one developer's Scala may look very different to another's, and that working with Scala on a team would require a relatively decent amount of discipline to conform to a [consistent set of language features and style][scala-style]. On the other hand, that can all be thrown out of the window with a one-person project, as was my case, and as such, learning Scala and developing CurioDB has been a huge amount of fun!
 
 ### Akka
 
-Given only the above, I'd be on the fence as to whether Scala as a language itself is a worthwhile time investment in the long-term toolbox, but when you take Akka into consideration, I'm definitely sold. Akka is a framework, also by Typesafe, that allows you to develop massively distributed systems in a safe and transparent way, using the [actor model][actor-model]. This is a weird analogy, but I see Akka as a killer framework for distributed systems in the same way I've seen [Django][django] as a killer framework for web development over the years - both gave me a profound sense of rapid development, by providing just the right level of abstraction that handles all the nitty-gritty details of their respective domains, allowing you to focus specifically on developing your application logic.
+Given only the above, I'd be on the fence as to whether Scala as a language itself is a worthwhile time investment in the long-term toolbox, but when you take Akka into consideration, I'm definitely sold. Akka is a framework, also by Typesafe, that allows you to develop massively distributed systems in a safe and transparent way, using the [actor model][actor-model]. This is a weird analogy, but I see Akka as a killer framework for distributed systems in the same way I've seen [Django][django] as a killer framework for web development over the years — both gave me a profound sense of rapid development, by providing just the right level of abstraction that handles all the nitty-gritty details of their respective domains, allowing you to focus specifically on developing your application logic.
 
 ### CurioDB
 
@@ -62,7 +62,7 @@ requested again.
 _Simple Implementation_
 
 Scala is concise, you get a lot done with very little code, but that's
-just the start - CurioDB leverages Akka very heavily, taking care of
+just the start — CurioDB leverages Akka very heavily, taking care of
 clustering, concurrency, persistence, and a whole lot more. This means
 the bulk of CurioDB's code mostly deals with implementing all of the
 [Redis commands][redis-commands], so far weighing in at only a paltry

@@ -67,7 +67,7 @@ the near future, so stay tuned for that.
 ### Django Dash
 
 This was the first year I decided to put my Django skills to the test by
-entering [Django Dash](http://djangodash.com/) - the 48 hour hackathon where
+entering [Django Dash](http://djangodash.com/) — the 48 hour hackathon where
 teams of 3 build a Django project from scratch. Teaming up with [Josh de
 Blank](http://www.joshdeblank.com/) and [Andrew Fisher](http://ajfisher.me/),
 the final result saw us launch [Rate My Flight](http://ratemyflight.org) which
@@ -75,5 +75,5 @@ earned us 8th place out of 40 teams internationally. It was a ton of fun
 getting to interact with some of the wider Django community and I even picked
 up a few new Django tricks along the way.
 
-So that was 2010 - what a blast! I can't imagine what 2011 will bring if it
+So that was 2010 — what a blast! I can't imagine what 2011 will bring if it
 involves as much change and initiative as the previous year has. Bring it on!

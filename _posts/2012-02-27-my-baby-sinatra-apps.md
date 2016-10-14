@@ -24,7 +24,7 @@ It was almost a year ago that I took up a new role using [Ruby on Rails][ruby on
 
 ### Sinatra
 
-Sinatra is a micro-framework, which differs from mega-frameworks like Rails and Django, in that Sinatra is bare-bones. It mostly deals with mapping URLs to request handlers, and not much more beyond that. No templating, no [ORM][orm], no middleware. All of these features can be slotted in using third party libraries where required. This makes for a very pleasant development experience with smaller sized apps - instead of having to do everything the *Django/Rails way*, you're free to pick and choose the parts you need, and weave them together in the best way you see fit. You're working at a relatively lower level, with much less scaffolding, and a lot more flexibility and control.
+Sinatra is a micro-framework, which differs from mega-frameworks like Rails and Django, in that Sinatra is bare-bones. It mostly deals with mapping URLs to request handlers, and not much more beyond that. No templating, no [ORM][orm], no middleware. All of these features can be slotted in using third party libraries where required. This makes for a very pleasant development experience with smaller sized apps — instead of having to do everything the *Django/Rails way*, you're free to pick and choose the parts you need, and weave them together in the best way you see fit. You're working at a relatively lower level, with much less scaffolding, and a lot more flexibility and control.
 
 [Python][python] has its own counterparts in this space as well, such as [Bottle][bottle] and [Flask][flask]. However at the time I was looking to dive further into Ruby, and Sinatra seemed like a great way to lean into it.
 
@@ -52,7 +52,7 @@ Modern deployments such as these require experts. This is where [Platform as a S
 
 Are PaaS providers a magic bullet? Absolutely not. Every application will have a tipping point where it grows beyond the "one size fits all" approach provided by PaaS offerings. You're also at the mercy of the provider when it comes to uptime, so mission critical applications with strict service level agreements may require much more fine grained control in their hosting environments. Never forget that [you are the only one responsible for your service's availability][availability]. However for smaller, stock, non-critical applications, PaaS providers are a dream come true, that remove most of the complexities around service provisioning, configuration and application deployment.
 
-The most well known of these providers is [Heroku][heroku], who were the first to popularise the PaaS architecture. Not only does Heroku offer a [rich variety of add-on services][heroku addons] that I was looking for, like [Varnish][varnish], [Memcached][memcached], and [PostgreSQL][postgres], they also provide free hosting for low capacity sites - ideal for the types of applications I ended up building with Sinatra.
+The most well known of these providers is [Heroku][heroku], who were the first to popularise the PaaS architecture. Not only does Heroku offer a [rich variety of add-on services][heroku addons] that I was looking for, like [Varnish][varnish], [Memcached][memcached], and [PostgreSQL][postgres], they also provide free hosting for low capacity sites — ideal for the types of applications I ended up building with Sinatra.
 
 So with Sinatra, DataMapper and Heroku combined, I developed several small applications that scratched particular itches for me, in order to build up a good working knowledge of Ruby.
 
@@ -62,7 +62,7 @@ I don't keep an up to date CV any more. If I pick up a new skill, or start a new
 
 There's a great [Ruby library for interacting with LinkedIn's API][linkedin ruby], and [PDFKit][pdfkit] for converting HTML to PDF, which meant that I could format the CV using HTML and CSS, and all I then needed to do was convert that directly to PDF.
 
-The app I ended up building is called [Linked Out][linked out]. It has a very simple flow to it. You first authenticate via LinkedIn's [oAuth](oauth) service, and then you're redirected back to Linked Out, where you can create a PDF version of your profile. As an added bonus I hooked into LinkedIn's connections API, so you also get the option of creating a CV for any of your LinkedIn connections - no need for recruiters to bother people with CV requests, they can create the CVs themselves.
+The app I ended up building is called [Linked Out][linked out]. It has a very simple flow to it. You first authenticate via LinkedIn's [oAuth](oauth) service, and then you're redirected back to Linked Out, where you can create a PDF version of your profile. As an added bonus I hooked into LinkedIn's connections API, so you also get the option of creating a CV for any of your LinkedIn connections — no need for recruiters to bother people with CV requests, they can create the CVs themselves.
 
 LinkedIn is somewhat lacking when it comes to formatting large blobs of text in profiles. People tend to create all sorts of formatting themselves, typically to create bulleted lists. So Linked Out contains some smarts to look for these different types of free-text formats, converting them into proper lists and headings where appropriate.
 
@@ -86,7 +86,7 @@ Most open source projects use [Git][git] or [Mercurial][mercurial] for version c
 
 What I've always wanted is a combined API for totalling followers and forks across both services for a single project hosted on both sites, and also for all projects for a given user on both sites. This is what I tackled for my next Ruby project, which I called [One True Repo (OTR)][otr].
 
-OTR's original form was as a library that other developers could embed in their project, so I built it as a Ruby gem that you can both include in your own project, or simply run from the command line and pipe the data it returns into other programs. The next step was to build a baby Sinatra app that provided a hosted version of the API that people could query. The project itself contains everything for all three of these forms - the library, the command-line tool, and the Sinatra web app.
+OTR's original form was as a library that other developers could embed in their project, so I built it as a Ruby gem that you can both include in your own project, or simply run from the command line and pipe the data it returns into other programs. The next step was to build a baby Sinatra app that provided a hosted version of the API that people could query. The project itself contains everything for all three of these forms — the library, the command-line tool, and the Sinatra web app.
 
 Querying the [GitHub API][github api] was trivial and all the information I wanted was provided by it very easily. The [Bitbucket API][bitbucket api] wasn't quite up to scratch for this however. Remarkably it doesn't expose follower and fork count on each project. Some screen-scraping was therefore required to get these totals for each of a user's projects.
 

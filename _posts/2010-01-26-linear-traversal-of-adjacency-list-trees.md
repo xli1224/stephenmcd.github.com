@@ -10,7 +10,7 @@ tags:
 My current project has the common requirement of storing and rendering a
 hierarchical tree of categories. This project is geared towards potentially
 junior developers with the expectation of it being hacked at every time it's
-used - a set of scaffolding where simplicity isn't just a loose goal but a
+used — a set of scaffolding where simplicity isn't just a loose goal but a
 fundamental requirement.
 
 Two popular approaches to the hierarchical tree are the [Adjacency List (AL)

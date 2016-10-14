@@ -10,7 +10,7 @@ tags:
 - n+1 queries
 ---
 I'm happy to announce the first release of
-[Cartridge](http://cartridge.jupo.org/) - a
+[Cartridge](http://cartridge.jupo.org/) — a
 [Django](http://djangoproject.com/) shopping cart application I started
 working on back in 2009. The development path that Cartridge has taken has
 been a strange one. I stopped working on it throughout 2010 in order to get
@@ -37,7 +37,7 @@ these problems wasn't simply a case of refactoring template logic as these
 issues were core to the design of how prices and variations were modelled. The
 only solution was to throw a ton of fine-grained
 [memcached](http://memcached.org) usage at the problem, but this should be a
-optional approach to scalability - not a minimum requirement for keeping the
+optional approach to scalability — not a minimum requirement for keeping the
 site from falling offline. Cartridge has been designed with performance in
 mind from the start with a range of denormalised data structures providing
 O(n) performance as the number of products and categories grow.
@@ -61,7 +61,7 @@ Having a system that implements every single feature that might ever be
 required in a shopping cart implementation certainly makes for an easy sell,
 however as this list grows these features become more obscure and less likely
 to be required in an average implementation. This can result in a convoluted
-code base that is very difficult to apply customizations to - an inevitable
+code base that is very difficult to apply customizations to — an inevitable
 requirement given the unique nature of shopping cart implementations.
 Cartridge addresses this issue by implementing only the features typically
 required by all shopping cart implementations, leaving custom features up to

@@ -15,7 +15,7 @@ tags:
 
 While most of the following article was written back in 2010, I'm actually publishing it in 2014, so let me provide a little background to start with. I was recently searching through my email, and accidentally came across an old internal document I wrote for my team back then, which I had long since forgotten about, titled *Django Development and Deployment using Mercurial, South and Fabric.doc*.
 
-It was an enjoyable read for me, comparing my approach back then to the way I work now. Some things have changed to a great extent, for example you'll find references to [mod_python][modpython] - software that's considered mostly obsolete now. Amusingly on the other hand, some things haven't changed much at all, as I realised a lot of what I wrote about then is still generally applicable today. So keeping in mind there are some outdated references, here's the guide below, unchanged.
+It was an enjoyable read for me, comparing my approach back then to the way I work now. Some things have changed to a great extent, for example you'll find references to [mod_python][modpython] — software that's considered mostly obsolete now. Amusingly on the other hand, some things haven't changed much at all, as I realised a lot of what I wrote about then is still generally applicable today. So keeping in mind there are some outdated references, here's the guide below, unchanged.
 
 ### Introduction to Mercurial
 
@@ -40,11 +40,11 @@ This allows us to have a ``local_settings.py`` module which can contain values f
 
 After editing the files that make up a single changeset, for example, a feature addition or a bug fix, use the command ``hg commit`` to commit the changes, additions, and deletions to the local repo. A few variations of this are:
 
-* ``hg commit`` - commits all edited files
-* ``hg commit file1.py`` - commits only the edited file named ``file1.py``
-* ``hg commit -m "Fixed issue #15"`` - commits all edited files with the given commit message
-* ``hg commit -A`` - commits all edited, added and removed files
-* ``hg commit -Am "Added missing file"`` - combines the previous two arguments
+* ``hg commit`` — commits all edited files
+* ``hg commit file1.py`` — commits only the edited file named ``file1.py``
+* ``hg commit -m "Fixed issue #15"`` — commits all edited files with the given commit message
+* ``hg commit -A`` — commits all edited, added and removed files
+* ``hg commit -Am "Added missing file"`` — combines the previous two arguments
 
 Once you are ready to deploy all of your changesets, use the command ``hg push URL``, which will push all of the outgoing changesets in your local repo, to the repo located at the given URL. If the URL argument is omitted, the URL for the location you originally cloned from (referred to as default) will be used, which in most cases is the desired location. You can also view the outgoing changesets before pushing, by using the command ``hg outgoing``.
 
@@ -52,7 +52,7 @@ You can then [SSH][ssh] onto the server you would like to deploy your changes to
 
 Using the command ``hg pull`` only modifies the local repo, while the files in our working copy remain unchanged. To update the working copy to the latest changeset (referred to as the tip), use the command ``hg update -C``. The ``-C`` argument signifies a *clean* update, which means it will disregard any manual changes that have been made to the current working copy, if there is a conflict between it and the version in the local repo. Performing a clean update means never having to deal with any conflicts in a live environment, which would occur if a file was manually modified on the server, without being committed into the repo, or if a file was manually uploaded via [FTP][ftp] – note that in order to achieve a completely automated deployment process, these practices should be avoided.
 
-Once the working copy is updated, depending on the web server you are using, you will typically need to tell it to reload the Django application - this step is specific to the web server being used.
+Once the working copy is updated, depending on the web server you are using, you will typically need to tell it to reload the Django application — this step is specific to the web server being used.
 
 ### Environment & Feature Branches
 
@@ -70,7 +70,7 @@ If for any reason you need to revert the deployment, you can simply use the comm
 
 ### Database Migrations with South
 
-When new database models are added to your project, Django can automatically create the corresponding database tables, using the command ``python manage.py syncdb``, however this does not account for changes to existing models. Fortunately there are several third party solutions which can automate the database changes required, when the fields of a model change. The most popular of these applications is called [South][south]. South consists of two key parts - migration scripts, which contain auto-generated Python code, and the execution history of these scripts, for a given instance of the project, which is stored in that instance's database. There is a clear distinction between these two parts that should be realised, in that the migration scripts are part of the code-base, and its associated Mercurial repository, while the execution history is part of a database, and its associated physical environment where an instance of the project is stored.
+When new database models are added to your project, Django can automatically create the corresponding database tables, using the command ``python manage.py syncdb``, however this does not account for changes to existing models. Fortunately there are several third party solutions which can automate the database changes required, when the fields of a model change. The most popular of these applications is called [South][south]. South consists of two key parts — migration scripts, which contain auto-generated Python code, and the execution history of these scripts, for a given instance of the project, which is stored in that instance's database. There is a clear distinction between these two parts that should be realised, in that the migration scripts are part of the code-base, and its associated Mercurial repository, while the execution history is part of a database, and its associated physical environment where an instance of the project is stored.
 
 Once South is installed on your system or virtual environment, adding it to your project is as simple as adding *south* to your ``INSTALLED_APPS`` setting, in your project's ``settings.py`` module, and running ``python manage.py syncdb`` to create the initial database table used for storing South's execution history.
 
@@ -78,7 +78,7 @@ South operates on a single Django application. The auto-generated migration scri
 
 To configure an existing application to be managed by South, use the command ``python manage.py convert_to_south appname`` where *appname* is the application name. This will generate the initial migration script, which will typically be found at the location ``appname/migrations/0001_initial.py``, where *appname* is the path your application resides in.
 
-After making changes to the model fields in an application that is using South, use the command ``python manage.py schemamigration appname --auto``, where *appname* is the application name containing the changed model fields - this will generate the next migration script. As mentioned, these migration scripts should be committed into the repository, along with the actual changes to the model fields. When these changes and migration scripts are deployed to a new environment, use the command ``python manage.py migrate``, which will check the execution history stored in the database, to determine which migration scripts have already been executed, and execute any new migrations that have since been pulled down from BitBucket.
+After making changes to the model fields in an application that is using South, use the command ``python manage.py schemamigration appname --auto``, where *appname* is the application name containing the changed model fields — this will generate the next migration script. As mentioned, these migration scripts should be committed into the repository, along with the actual changes to the model fields. When these changes and migration scripts are deployed to a new environment, use the command ``python manage.py migrate``, which will check the execution history stored in the database, to determine which migration scripts have already been executed, and execute any new migrations that have since been pulled down from BitBucket.
 
 It is worth exploring the source code for a migration script that is generated after a change to a model occurs. As mentioned, each migration script contains *forward* and *backward* routines. These are implemented as methods of the ``Migration`` class inside the migration script, and named ``forwards`` and ``backwards`` respectively. Within these methods, you are free to implement any custom functionality required for the migration. A simple example would be changing the data type of a field on a model that contains existing data in production, which you may wish to split into three separate migrations. The first migration would create a temporary field with the new data type, along with custom code that then converts the data from the old field into the temporary field. The next migration then changes the data type of the original field. The final migration then copies the data from the temporary field back into the original field, prior to deleting the temporary field.
 
@@ -100,7 +100,7 @@ We can now see that depending on the complexity of the changes involved, our dep
 * Run any migrations
 * Trigger the web server to reload the running application
 
-While it is critical to be intimately familiar with each of these steps in case something does go wrong, performing each of these can become very tedious after a while. We could automate a lot of these using a combination of local and remote scripts, however taking this idea one step further, we can use a tool called [Fabric][fabric], which essentially allows us to build deployment *recipes*, combining sequences of commands that can be run across different remote environments, all with a single command. Again it is critical to be very familiar with each of the steps involved in deployment - if you are not then I would recommend not using Fabric until you have gotten to the stage where you have made mistakes, learnt from them, and ended up at a point where you know each step inside and out.
+While it is critical to be intimately familiar with each of these steps in case something does go wrong, performing each of these can become very tedious after a while. We could automate a lot of these using a combination of local and remote scripts, however taking this idea one step further, we can use a tool called [Fabric][fabric], which essentially allows us to build deployment *recipes*, combining sequences of commands that can be run across different remote environments, all with a single command. Again it is critical to be very familiar with each of the steps involved in deployment — if you are not then I would recommend not using Fabric until you have gotten to the stage where you have made mistakes, learnt from them, and ended up at a point where you know each step inside and out.
 
 Fabic recipes are made up entirely of regular Python functions, found in a script which should be named ``fabfile.py`` and stored in the root of your project. Once Fabric is installed on your system or virtual environment, use the command ``fab func1 func2 func3``, where each of the *func* arguments are the names of the recipe functions you would like to sequentially execute in order to perform your deployment.
 
@@ -183,17 +183,17 @@ We can now perform a deployment to staging using the command ``fab staging deplo
 
 In our ``deploy`` function, we make use of Fabric's ``require`` function, which ensures that the given environment variables have been defined, and also lets us specify which functions will provide values for those variables, should someone accidentally try and deploy without first calling one of the setup functions. We also make use of Fabric's ``cd`` context manager, which allows us to run a sequence of commands from a given directory. We also provide an optional named argument ``merge``, which accepts the name of a feature branch to automatically merge into the branch of the environment we are deploying to. For example to deploy a feature branch named *foo* to the environment named *staging* use the command ``fab staging deploy:merge=foo``.
 
-If for any reason you need to revert the deployment, we have also defined a ``rollback`` function, which accepts one or both named arguments - a migration application name and number to revert any database changes that were performed, and a Mercurial revision number to revert the working copy of the project back to. It should be noted here that the migration is reverted before the code is reverted, since reverting the code could potentially remove the required migration scripts needed to revert the migration. For example, to revert a deployment and its migrations on the live environment to the previous state where the tip revision was 42, and the last migration for the application named *bar* was 0007, use the command ``fab live rollback:migration=bar.0007,rev=42``.
+If for any reason you need to revert the deployment, we have also defined a ``rollback`` function, which accepts one or both named arguments — a migration application name and number to revert any database changes that were performed, and a Mercurial revision number to revert the working copy of the project back to. It should be noted here that the migration is reverted before the code is reverted, since reverting the code could potentially remove the required migration scripts needed to revert the migration. For example, to revert a deployment and its migrations on the live environment to the previous state where the tip revision was 42, and the last migration for the application named *bar* was 0007, use the command ``fab live rollback:migration=bar.0007,rev=42``.
 
 ### Further Reading
 
 We have merely scratched the surface of each of the tools involved in order to demonstrate how they can be used in conjunction to provide a flexible automated development and deployment process. For a more in depth understanding of Mercurial, South and Fabric use the following resources:
 
-* [http://hginit.com]() - A comprehensive and easy to follow Mercurial tutorial, covering the migration path from a centralised to a distributed version control system
-* [http://mercurial.selenic.com/guide/]() - The Mercurial Guide
-* [http://south.aeracode.org/docs/tutorial/]() - The South Tutorial
-* [http://south.aeracode.org/docs/]() - The South Documentation
-* [http://fabfile.org]() - The Fabric Documentation
+* [http://hginit.com]() — A comprehensive and easy to follow Mercurial tutorial, covering the migration path from a centralised to a distributed version control system
+* [http://mercurial.selenic.com/guide/]() — The Mercurial Guide
+* [http://south.aeracode.org/docs/tutorial/]() — The South Tutorial
+* [http://south.aeracode.org/docs/]() — The South Documentation
+* [http://fabfile.org]() — The Fabric Documentation
 
 [modpython]: http://modpython.org
 [mercurial]: http://mercurial.selenic.com

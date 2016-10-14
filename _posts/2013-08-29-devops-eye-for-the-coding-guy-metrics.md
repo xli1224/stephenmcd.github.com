@@ -15,7 +15,7 @@ tags:
 - hacks
 ---
 
-It's been almost two months since [Adam O'Byrne][adam] and I launched [Kouio, a Google Reader replacement][kouio] we've built together. It's been a wild ride and we've both learnt a lot in a very short period of time. With Kouio, we've had the blessing of what I refer to as _DevOps by default_, the all too common scrappy start-up scenario, where only a single engineer (in this case yours truly) has built the back-end application, while also being responsible for all operational aspects such as provisioning servers, installing and tuning services, monitoring, and everything else involved in keeping the application up and running smoothly. What I'll talk about in this post is the monitoring aspect - the hows and whys of what has worked really well for us.
+It's been almost two months since [Adam O'Byrne][adam] and I launched [Kouio, a Google Reader replacement][kouio] we've built together. It's been a wild ride and we've both learnt a lot in a very short period of time. With Kouio, we've had the blessing of what I refer to as _DevOps by default_, the all too common scrappy start-up scenario, where only a single engineer (in this case yours truly) has built the back-end application, while also being responsible for all operational aspects such as provisioning servers, installing and tuning services, monitoring, and everything else involved in keeping the application up and running smoothly. What I'll talk about in this post is the monitoring aspect — the hows and whys of what has worked really well for us.
 
 First a little background. Looking at the user interface for Kouio, you'll find it primarily revolves around a single page web app, which on the surface looks fairly simplistic, but contains many components hidden away behind the scenes, all working together to bring you the magic:
 
@@ -30,7 +30,7 @@ First a little background. Looking at the user interface for Kouio, you'll find 
 * Exporting articles to external services ([Evernote][evernote], [Readbility][readability], etc)
 * Payment processing
 
-As you can see, there are a lot of moving pieces involved in bringing together a simple looking RSS reader. With such a variety of distinct components, an obvious problem we face is visibility - how exactly can we know what all the pieces of the system are doing at one point in time? How can we visualise the state of the entire system coherently as a whole?
+As you can see, there are a lot of moving pieces involved in bringing together a simple looking RSS reader. With such a variety of distinct components, an obvious problem we face is visibility — how exactly can we know what all the pieces of the system are doing at one point in time? How can we visualise the state of the entire system coherently as a whole?
 
 ### Graphite / StatsD
 
@@ -40,7 +40,7 @@ These tools appealed to me for several reasons. Firstly I wanted something highl
 
 ### Collecting Metrics
 
-With Graphite and StatsD installed, the final step involved was actually choosing the metrics to collect, and working out how to get at them. Mozilla's django-statsd package gives you a lot out of the box here. Without any configuration, it automatically adds counters and timers to many areas of Django, such as the ORM, caching and unit tests. The really interesting integration though is at the view layer. Counters and timing metrics are collected for all view functions, with each metric further segmented in a ton of ways, from the application name and URL parts, right down to the HTTP verbs used and status codes returned - all incredibly insightful for an application like Kouio that implements a public-facing RESTful API.
+With Graphite and StatsD installed, the final step involved was actually choosing the metrics to collect, and working out how to get at them. Mozilla's django-statsd package gives you a lot out of the box here. Without any configuration, it automatically adds counters and timers to many areas of Django, such as the ORM, caching and unit tests. The really interesting integration though is at the view layer. Counters and timing metrics are collected for all view functions, with each metric further segmented in a ton of ways, from the application name and URL parts, right down to the HTTP verbs used and status codes returned — all incredibly insightful for an application like Kouio that implements a public-facing RESTful API.
 
 Monitoring the Django application was only half of the picture though. I still needed to capture system level metrics and other miscellaneous parts of our application state. I found a handful of open source projects available related to collecting metrics and feeding them into StatsD and Graphite, but instead of using any of these I opted to put together a quick solution using the [psutil][psutil] Python library:
 
@@ -128,9 +128,9 @@ while True:
     time.sleep(1)
 {% endhighlight %}
 
-Writing our own code here affords us full flexibility, and with the psutil library this was a trivial task. We're then also able to integrate directly with Django's ORM and [Redis][redis] to keep track of growth and other parts of state within the system. Finally you'll see we also implement some basic threshold monitoring. We're able to keep this as simple as you could imagine by integrating it with [Sentry][sentry], the system we use for tracking exceptions in the application. By treating these thresholds as application exceptions, we don't need to worry about our threshold checks spiralling out of control with millions of notifications - that's all handled for us by Sentry.
+Writing our own code here affords us full flexibility, and with the psutil library this was a trivial task. We're then also able to integrate directly with Django's ORM and [Redis][redis] to keep track of growth and other parts of state within the system. Finally you'll see we also implement some basic threshold monitoring. We're able to keep this as simple as you could imagine by integrating it with [Sentry][sentry], the system we use for tracking exceptions in the application. By treating these thresholds as application exceptions, we don't need to worry about our threshold checks spiralling out of control with millions of notifications — that's all handled for us by Sentry.
 
-How does this all look once it's up and running? It's worth mentioning installation was hardly straight-forward, requiring half a dozen components sourced and built in different ways - one of the downsides of not using an off-the-shelf product. Once everything was set up though, I really went to town with our initial dashboard, arranging and colourising every single metric I thought remotely useful:
+How does this all look once it's up and running? It's worth mentioning installation was hardly straight-forward, requiring half a dozen components sourced and built in different ways — one of the downsides of not using an off-the-shelf product. Once everything was set up though, I really went to town with our initial dashboard, arranging and colourising every single metric I thought remotely useful:
 
 <em class="center"><a href="/static/img/metrics1-large.png"><img src="/static/img/metrics1.png"></a></em>
 
@@ -142,7 +142,7 @@ Mission accomplished. I was then able to perform lots of different experiments a
 
 <em class="center"><a href="/static/img/metrics3-large.png"><img src="/static/img/metrics3.png"></a></em>
 
-Incidentally, the best performance gains involved re-working our database indexes, as well as some awful little tricks using [PostgreSQL CTEs][postgresql-ctes] - but that's a story for another post.
+Incidentally, the best performance gains involved re-working our database indexes, as well as some awful little tricks using [PostgreSQL CTEs][postgresql-ctes] — but that's a story for another post.
 
 ### Real-time Graphs
 

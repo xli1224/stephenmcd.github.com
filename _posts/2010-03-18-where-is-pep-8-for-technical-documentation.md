@@ -7,12 +7,12 @@ tags:
 ---
 Anyone who has programmed in Python for a considerable length of time will at
 least have some passing familiarity with [PEP
-8](http://www.python.org/dev/peps/pep-0008/) - the document that goes into an
+8](http://www.python.org/dev/peps/pep-0008/) — the document that goes into an
 incredible level of detail in dictating precisely how code should be written.
 While its primary goal is to ensure that Python code is written in a
 consistent fashion throughout the community, therefore making it as easy as
 possible to read, it also provides one of many aspects that makes programming
-in Python an incredibly efficient process - it negates the need for a lot of
+in Python an incredibly efficient process — it negates the need for a lot of
 decision making around any of the choices one might come across that are
 already covered in PEP 8.
 

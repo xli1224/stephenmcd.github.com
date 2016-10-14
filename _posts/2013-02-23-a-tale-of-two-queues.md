@@ -18,11 +18,11 @@ I've been playing around with [Publish/Subscribe queues][pubsub] (or *pub-sub* q
 
 Real-time web applications have been a great area of interest for me over the years. I use the term real-time quite loosely here, as [real-time in software engineering][real-time] technically refers to a lower level set of system constraints. Instead I'm referring to a style of web application where users can interact with each other in a seemingly instantaneous way, such as a chat room or a multi-player game of some sort.
 
-Applications like these where users interact in real-time will generally require some separate form of pub-sub component, which handles the communication when an event is triggered by one user, and needs to be broadcast to all the other users who should be notified of it. The event might be a character sprite moving on a game screen, or a message written in a chat room. Using a pub-sub component that is separated from the main web application is also as much an architectural requirement as it is a functional one - by moving the communication layer out into a separate component, the responsiveness of publishers within the application is no longer bound to the volume of messages being sent to subscribers. Also of equal importance, our web application layer no longer depends on any shared state, and can be spread across multiple threads, processes or servers.
+Applications like these where users interact in real-time will generally require some separate form of pub-sub component, which handles the communication when an event is triggered by one user, and needs to be broadcast to all the other users who should be notified of it. The event might be a character sprite moving on a game screen, or a message written in a chat room. Using a pub-sub component that is separated from the main web application is also as much an architectural requirement as it is a functional one — by moving the communication layer out into a separate component, the responsiveness of publishers within the application is no longer bound to the volume of messages being sent to subscribers. Also of equal importance, our web application layer no longer depends on any shared state, and can be spread across multiple threads, processes or servers.
 
-I've built several toy applications like this in the past, such as [DrawnBy][drawnby] (shared drawing) and [Gamblor][gamblor] (shared gambling, chat and character movement), and in each case I've always used Redis as an in-memory store for transient data - temporary shared state across the app, that doesn't need the persistence guarantees and subsequent performance costs that a traditional database comes with. Now Redis has been described as the Swiss army knife of databases, and it's a great description for it - not only does it provide a wide variety of built-in data structures, it also offers a pub-sub queue, which has made Redis a well-suited companion for these types of applications I've built.
+I've built several toy applications like this in the past, such as [DrawnBy][drawnby] (shared drawing) and [Gamblor][gamblor] (shared gambling, chat and character movement), and in each case I've always used Redis as an in-memory store for transient data — temporary shared state across the app, that doesn't need the persistence guarantees and subsequent performance costs that a traditional database comes with. Now Redis has been described as the Swiss army knife of databases, and it's a great description for it — not only does it provide a wide variety of built-in data structures, it also offers a pub-sub queue, which has made Redis a well-suited companion for these types of applications I've built.
 
-Since building these apps, I've been experimenting with some ideas around real-time web games, and character movement throughout them. Suppose we wanted to create a two-dimensional universe, of perpetual width and height, that users could move around within - how would we design it in a scalable way? The basic concept I came up with was to partition the world into a virtual grid, where each square on the grid uses its own pub-sub channel for communicating movement events to users, and each user publishes and subscribes to the grid square they're on, as well as the ones surrounding them.
+Since building these apps, I've been experimenting with some ideas around real-time web games, and character movement throughout them. Suppose we wanted to create a two-dimensional universe, of perpetual width and height, that users could move around within — how would we design it in a scalable way? The basic concept I came up with was to partition the world into a virtual grid, where each square on the grid uses its own pub-sub channel for communicating movement events to users, and each user publishes and subscribes to the grid square they're on, as well as the ones surrounding them.
 
 Here's a diagram illustrating the idea, where each coloured area is a player's screen. The green area might be a wide-screen desktop, the blue area a mobile device, and the red one, well, it's a box.
 
@@ -44,9 +44,9 @@ Before we dive into comparisons, let's look at some of the characteristics we wa
 
 *No persistence*
 
-We're purely interested in message throughput, without concern for reliability. More specifically, a subscription to a channel can be though of as a *stream*, representing what's happening right *now*. If a subscriber has to reconnect, it has no need to receive missed messages - it's up to the client to determine what's appropriate.
+We're purely interested in message throughput, without concern for reliability. More specifically, a subscription to a channel can be though of as a *stream*, representing what's happening right *now*. If a subscriber has to reconnect, it has no need to receive missed messages — it's up to the client to determine what's appropriate.
 
-Reliability via persistence also comes at a cost, as this typically requires writing messages to disk. Given the desire for maximum throughput, our message broker shouldn't be storing messages at all - they should be sent out to subscribers as soon as they're received from a publisher.
+Reliability via persistence also comes at a cost, as this typically requires writing messages to disk. Given the desire for maximum throughput, our message broker shouldn't be storing messages at all — they should be sent out to subscribers as soon as they're received from a publisher.
 
 *Trusted clients*
 
@@ -62,7 +62,7 @@ We should be able to add more broker instances into the mix, in order to handle 
 
 ### ZeroMQ
 
-[ZeroMQ][zeromq] is a piece of software I'd wanted to learn more about for quite some time. I'd heard the term pub-sub being used in conjunction with it, but knew it wasn't a pub-sub server itself, as its name clearly indicates. Perhaps it would provide an approach that negated the need to use pub-sub entirely - either way, this seemed like a good opportunity to take a closer look.
+[ZeroMQ][zeromq] is a piece of software I'd wanted to learn more about for quite some time. I'd heard the term pub-sub being used in conjunction with it, but knew it wasn't a pub-sub server itself, as its name clearly indicates. Perhaps it would provide an approach that negated the need to use pub-sub entirely — either way, this seemed like a good opportunity to take a closer look.
 
 ZeroMQ has a reputation for being hard to understand, given any single description about it, until you spend enough time with it to hit that point of enlightenment where it just clicks. The main reference documentation for ZeroMQ is the [ZeroMQ Guide][zeromq-guide], which is a lengthy read, but for anyone with an interest in distributed systems, is well worth the time investment, even if you don't end up using ZeroMQ itself. To avoid doing it a disservice trying to describe it myself, here's the ZeroMQ description straight from the guide:
 
@@ -70,7 +70,7 @@ ZeroMQ has a reputation for being hard to understand, given any single descripti
 
 That's a lot to digest in one quote, but it's a great description. I'd say the main thing to take away is that ZeroMQ is a software *library*, that provides the building blocks for *building* things like pub-sub queues, rather than being an actual pub-sub queue or any other kind of network server itself.
 
-There's a huge point to be made here around the age-long debate over whether to use existing software for infrastructure, or to roll your own. Developers often lean towards the latter - it's a path that can offer a lot more flexibility, without the constraint of having to fit square requirements into existing, potentially round, solutions. And let's be honest, it's a lot more fun! Inevitably it's a painful path though, wrought with human error - the mistakes that only become apparent once the software has had time to mature in production. With something like ZeroMQ however, developers can have their cake and eat it too. You can design your network software to precisely match your own requirements, and all of the low-level details such as message buffering and routing strategies are all tucked away neatly in the software library.
+There's a huge point to be made here around the age-long debate over whether to use existing software for infrastructure, or to roll your own. Developers often lean towards the latter — it's a path that can offer a lot more flexibility, without the constraint of having to fit square requirements into existing, potentially round, solutions. And let's be honest, it's a lot more fun! Inevitably it's a painful path though, wrought with human error — the mistakes that only become apparent once the software has had time to mature in production. With something like ZeroMQ however, developers can have their cake and eat it too. You can design your network software to precisely match your own requirements, and all of the low-level details such as message buffering and routing strategies are all tucked away neatly in the software library.
 
 Once I'd played around with it a bit, I was able to form a more concrete question: could I use ZeroMQ to build a pub-sub server, and how would it compare to Redis? It turns out the first part of that question can be answered trivially, with very little code, while the second part would require a bit more effort.
 
@@ -138,7 +138,7 @@ import zmq_pubsub
 
 def new_client():
     """
-    Returns a new pubsub client instance - either the Redis or ZeroMQ
+    Returns a new pubsub client instance — either the Redis or ZeroMQ
     client, based on command-line arg.
     """
     if args.redis:
@@ -306,7 +306,7 @@ That's much better, and we can see here that with the new buffered client, our t
 
 With the slightest notch of Go experience under my belt, this seemed like another good opportunity to give Go a spin. With the closeness displayed by our two brokers so far, the possibility of a limitation occurring with the combination of Python and the hardware being used seemed worth exploring.
 
-The Go version of the benchmarking routine isn't particularly interesting, as it mimics the Python version very closely, with the main difference being that we use [goroutines][goroutines] for concurrency, rather than OS processes. The code for the client libraries however, turned out to be hugely different between the Python and Go implementations, with the main distinction being the type systems - Python dynamically typed, and Go statically typed.
+The Go version of the benchmarking routine isn't particularly interesting, as it mimics the Python version very closely, with the main difference being that we use [goroutines][goroutines] for concurrency, rather than OS processes. The code for the client libraries however, turned out to be hugely different between the Python and Go implementations, with the main distinction being the type systems — Python dynamically typed, and Go statically typed.
 
 Both languages support [duck-typing][duck-typing], whereby calling code can run against different types of data given a common set of members. This is a requirement for our client testing code, in order to be able to swap the Redis and ZeroMQ clients with a single flag. Python's dynamic typing supports duck-typing in the true sense, in that calling code need know nothing about the types of data its working on until it actually runs. In Go however we need to be more explicit, and Go provides support for this via [interfaces][go-interfaces]. An interface in Go is simply a type, defined by a set of function signatures. With interfaces, we can set up a generic client interface, and create client types that implement it, without calling code knowing about the underlying type being used.
 
@@ -324,7 +324,7 @@ import (
     "time"
 )
 
-// A pub-sub message - defined to support Redis receiving different
+// A pub-sub message — defined to support Redis receiving different
 // message types, such as subscribe/unsubscribe info.
 type Message struct {
     Type    string
@@ -340,7 +340,7 @@ type Client interface {
     Receive() (message Message)
 }
 
-// Redis client - defines the underlying connection and pub-sub
+// Redis client — defines the underlying connection and pub-sub
 // connections, as well as a mutex for locking write access,
 // since this occurs from multiple goroutines.
 type RedisClient struct {
@@ -349,7 +349,7 @@ type RedisClient struct {
     sync.Mutex
 }
 
-// ZMQ client - just defines the pub and sub ZMQ sockets.
+// ZMQ client — just defines the pub and sub ZMQ sockets.
 type ZMQClient struct {
     pub *zmq.Socket
     sub *zmq.Socket
@@ -427,7 +427,7 @@ func (client *ZMQClient) Receive() Message {
 
 The [redigo][redigo] Redis library for Go used here is quite different from its Python counterpart. Under the hood, it uses Go's [bufio][go-bufio] package, which in conjunction with a network connection, provides buffered reads and writes over the network, so there's no need for a separate API analogous to redis-py's pipelining, as buffering is a fundamental aspect of the client. As you can see though, in the ``NewRedisClient`` function, we still need to set up mechanics for periodically flushing any buffered data in order to support the low-volume case, so it's not entirely magical.
 
-The astute reader will have noticed we don't implement ``RedisClient.Subscribe`` and ``RedisClient.Publish`` methods - this is due to the unnamed embedded ``redis.PubSubConn`` within ``RedisClient``, which already contains these methods. By embedding it without a name, its methods are directly accessible from the outer type. This is a really powerful feature of Go, allowing very elegant type hierarchies to be constructed using mixins.
+The astute reader will have noticed we don't implement ``RedisClient.Subscribe`` and ``RedisClient.Publish`` methods — this is due to the unnamed embedded ``redis.PubSubConn`` within ``RedisClient``, which already contains these methods. By embedding it without a name, its methods are directly accessible from the outer type. This is a really powerful feature of Go, allowing very elegant type hierarchies to be constructed using mixins.
 
 ### And The Winner Is...
 
@@ -435,17 +435,17 @@ You the reader of course, for making it this far through this post. Seriously th
 
 <em class="center"><img class="noborder" src="/static/img/two-queues-3.png"></em>
 
-Before we go any further, it's important to highlight some key differences between the Python and Go test routines. As mentioned, the Go version isn't particularly interesting, as the code is almost identical to the Python version. The *way* it runs however, and makes use of the available hardware, is very different. In the Python version, our best shot at making use of all available cores is to run each publisher and subscriber routine in a separate Python interpreter, each running on a single OS process. Go's goroutines paint an entirely different picture. With only a single pub-sub client, we're able to consume all available CPU cores using a single OS process - Go manages all of the parallelism for you. So we end up achieving the highest volume in messages with a single client, given that it can consume all available cores without any contention coming into play.
+Before we go any further, it's important to highlight some key differences between the Python and Go test routines. As mentioned, the Go version isn't particularly interesting, as the code is almost identical to the Python version. The *way* it runs however, and makes use of the available hardware, is very different. In the Python version, our best shot at making use of all available cores is to run each publisher and subscriber routine in a separate Python interpreter, each running on a single OS process. Go's goroutines paint an entirely different picture. With only a single pub-sub client, we're able to consume all available CPU cores using a single OS process — Go manages all of the parallelism for you. So we end up achieving the highest volume in messages with a single client, given that it can consume all available cores without any contention coming into play.
 
 So this isn't at all a comparison between Python and Go, since we'd be comparing apple pies to orange juice. But that's fine, as it was never the point. The switch to Go merely allowed us to make better use of the available hardware, in order to reach a point in message throughput where we could potentially see a greater variance between Redis and ZeroMQ.
 
 ### Conclusion
 
-What can we take away from all of this? To be brutally honest, not much - I feel like I've only scratched the surface here, and without really diving in and profiling some of the code used, any conclusions drawn at this point would be fairly superficial. It did provide a good avenue for learning all about ZeroMQ and Go, which was a ton of fun, and something I'm definitely going to spend more time with. I also learnt that the buffering strategies used when dealing with a high volume of messages over the network form a critical piece of the puzzle.
+What can we take away from all of this? To be brutally honest, not much — I feel like I've only scratched the surface here, and without really diving in and profiling some of the code used, any conclusions drawn at this point would be fairly superficial. It did provide a good avenue for learning all about ZeroMQ and Go, which was a ton of fun, and something I'm definitely going to spend more time with. I also learnt that the buffering strategies used when dealing with a high volume of messages over the network form a critical piece of the puzzle.
 
 You can find all of the Python and Go code I wrote for this in the repo called *two-queues*, on both [GitHub][twoqueues-github] and [Bitbucket][twoqueues-bitbucket].
 
-**Update (next day):** After publishing this, it was well received in the community, with endorsements from both [Pieter Hintjens][hintjens] (creator of ZeroMQ) and [Salvatore Sanfilippo][antirez] (creator of Redis). Some great discussions continued on from there, on [Hacker News][hn-thread], [Reddit][reddit-thread] and [Twitter][twitter-thread] - have a read!
+**Update (next day):** After publishing this, it was well received in the community, with endorsements from both [Pieter Hintjens][hintjens] (creator of ZeroMQ) and [Salvatore Sanfilippo][antirez] (creator of Redis). Some great discussions continued on from there, on [Hacker News][hn-thread], [Reddit][reddit-thread] and [Twitter][twitter-thread] — have a read!
 
 **Update (next week):** Others have come along and made some interesting additions to the source code, check these out too:
 

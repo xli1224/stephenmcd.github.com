@@ -28,7 +28,7 @@ This year I had the wonderful privilege of being invited to give a keynote speec
 
 ### Abstract
 
-*The modern world of Python web development is chock-full of choices today - do we use a micro or a monolithic framework? Do we use a CMS or roll our own? Mezzanine is one project that aims to simplify these questions with a compelling offering for developing Python powered websites.*
+*The modern world of Python web development is chock-full of choices today — do we use a micro or a monolithic framework? Do we use a CMS or roll our own? Mezzanine is one project that aims to simplify these questions with a compelling offering for developing Python powered websites.*
 
 *In this talk, Stephen McDonald the creator of Mezzanine will walk through the
 history of Mezzanine, covering the constraints that have dictated its design, its approach to providing simple yet flexible, rapid web development, through to the software eco-system and community that have developed around it.*

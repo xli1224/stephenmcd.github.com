@@ -23,7 +23,7 @@ months. It now has a [concrete feature
 set](http://mezzanine.jupo.org/docs/overview.html#features) having come
 remarkably far in a very short amount of time. This might lead you to believe
 an entire team of people have been working on it but in fact it's mostly been
-myself alone - it's thanks to the incredibly rapid development that using
+myself alone — it's thanks to the incredibly rapid development that using
 [Django](http://djangoproject.com) brings you that so much has been done so
 quickly. For those readers who aren't familiar with it please go ahead and
 check out the [overview](http://mezzanine.jupo.org/docs/overview.html) in the
@@ -49,7 +49,7 @@ _What do I get out of it?_
 As much as you put in of course. The experience of contributing to open source
 software on paper can often be a competitive advantage over other candidates
 for a job interview or even development contracts for your business. There's
-also the chance of notoriety - imagine being responsible for the user
+also the chance of notoriety — imagine being responsible for the user
 interface or branding of the next [Wordpress](http://wordpress.org/). Imagine
 your staff are core contributors to one of the web's leading development
 tools. Again the success of the project will only match its contributions so
@@ -61,7 +61,7 @@ A common misconception about open source software is that it's something that
 only coders can participate in. Unfortunately the result of this is that the
 majority of open source software ends up being only contributed to by coders
 and is incredibly lacking in a variety of areas. I'm talking about visual
-branding, copy-writing, UI development - all these areas that fall outside of
+branding, copy-writing, UI development — all these areas that fall outside of
 coding but are equally crucial in successfully shipping a professional piece
 of software. Mezzanine has now reached a point where it can only continue to
 move forward at a consistent pace by bringing in these skills that I don't
@@ -102,7 +102,7 @@ overall layout for both the [project's own site](http://mezzanine.jupo.org)
 and the [default site](http://mezzanine.jupo.org/blog/). Lastly and of great
 importance, there's the [entire system for in-line
 editing](http://mezzanine.jupo.org/docs/inline-editing.html) which is featured
-in the default site - making this feature as user-friendly as possible is
+in the default site — making this feature as user-friendly as possible is
 critical.
 
 ### Technical Writer

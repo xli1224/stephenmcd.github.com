@@ -35,16 +35,16 @@ With a complex template like this, more often than not the project developer may
 
 ### Alternative Approaches
 
-The general approach to dealing with this problem, is for app developers to separate the name of of the template being loaded by their view, from the parts of the template that a project developer may want to customise. This might involved breaking all of the features up into separate include files that can be overridden individually. Another approach is to make each view load an empty template that extends the real template - developers can then override the empty template, end
+The general approach to dealing with this problem, is for app developers to separate the name of of the template being loaded by their view, from the parts of the template that a project developer may want to customise. This might involved breaking all of the features up into separate include files that can be overridden individually. Another approach is to make each view load an empty template that extends the real template — developers can then override the empty template, end
 extend the real template as required.
 
-In an effort to make [Mezzanine][mezzanine]'s templates more customisable, these ideas were recently [brainstormed on the Mezzanine mailing list][mailing-list-template-thread]. While these approaches might work extremely well for individual Django apps that only provide a handful of default templates, the question of complexity and maintenance comes up with larger-scale projects like Mezzanine which contains almost 100 template files at the moment. All of a sudden we're looking at a minimum of doubling the number of template files - even more if we get more granular with includes. We've lost the simplicity of simply checking which template a view loads, and copying it to our project for customisation. So the question was proposed as to how could we possibly get circular template inheritance to work - if that was possible, we'd have a fantastic tool for both overriding and extending templates at once, without any wide-sweeping changes to the template structure across the entire project. Read on for the gory details of how it's quite possible.
+In an effort to make [Mezzanine][mezzanine]'s templates more customisable, these ideas were recently [brainstormed on the Mezzanine mailing list][mailing-list-template-thread]. While these approaches might work extremely well for individual Django apps that only provide a handful of default templates, the question of complexity and maintenance comes up with larger-scale projects like Mezzanine which contains almost 100 template files at the moment. All of a sudden we're looking at a minimum of doubling the number of template files — even more if we get more granular with includes. We've lost the simplicity of simply checking which template a view loads, and copying it to our project for customisation. So the question was proposed as to how could we possibly get circular template inheritance to work — if that was possible, we'd have a fantastic tool for both overriding and extending templates at once, without any wide-sweeping changes to the template structure across the entire project. Read on for the gory details of how it's quite possible.
 
 ### Hacks Inside
 
 Fair warning: the rest of this post describes an unorthodox approach that allows circular template inheritance to work. It's a little bit crazy, it's a little bit cool. Some would call it a terrible hack, your mileage may vary. If you're going to use it, consider the actual problem it solves, and whether or not it applies to your situation. Understand what it does, test it, and weigh it up against the alternative approaches described earlier.
 
-The problem can be boiled down to one of state - when Django's ``extends`` template tag is used and the parent template to extend is searched for, the tag contains no knowledge of the extending template calling it. If it did, we could theoretically exclude its path from those being used to search for the parent template. So a possible solution might involve two steps:
+The problem can be boiled down to one of state — when Django's ``extends`` template tag is used and the parent template to extend is searched for, the tag contains no knowledge of the extending template calling it. If it did, we could theoretically exclude its path from those being used to search for the parent template. So a possible solution might involve two steps:
 
 * Make the ``extends`` tag aware of the path for the template that's calling it.
 * Search for a template with the same name, preferably using Django's template loaders, and exclude the path of the template doing the extending.
@@ -96,20 +96,20 @@ class OverExtendsNode(ExtendsNode):
             template.nodelist[0].parent_name.resolve(context) == parent):
             # Remove the template directory from the available
             # directories to search in, and try again.
-            dirs.remove(path[:-len(parent) - 1])
+            dirs.remove(path[:-len(parent) — 1])
             template, path = self.find_template(parent, dirs)
         return template
 {% endhighlight %}
 
 All that remains is creating the ``overextends`` template tag function that uses ``OverExtendsNode``. For this we can pretty much copy pasta Django's ``extends`` tag function, replacing ``ExtendsNode`` with ``OverExtendsNode``.
 
-### Diving Deeper - Unlimited Inheritance Levels
+### Diving Deeper — Unlimited Inheritance Levels
 
 Keeping in mind that this approach is is specifically geared towards solving the problem of both overriding and extending a template in a third party app, that is, one we don't want to modify the source code of, our approach so far works. But what if we wanted to overextend a template that also overextends _another_ template? Say for example our project template overextends a template in third-party app "A", which is dependent on a template in third-party "B", that it _also_ overextends. This is quite an edge case, but the code above would fail in this scenario. When the template in app "A" tries to overextend the template in app "B", it would exclude itself from the search path, and end up loading our project's version of the template, and we're back to square one with circular inheritance never completing.
 
 This is less of an edge case and much more likely, with frameworks like Mezzanine, where it's common for people to create themes as third-party apps. The theme provides a set of templates and static files, and gets added to ``INSTALLED_APPS`` just as a regular Django app would. With the approach of overextending introduced into the eco-system, theme developers may overextend Mezzanine's templates, and project developers may overextend the theme's templates. Taking this into account, our approach so far looks quite handicapped.
 
-Again we have a state problem - the second and subsequent calls to ``overextends`` have no knowledge of the previous calls, so they can't exclude the chain of template directories that have been so far excluded when overextending.
+Again we have a state problem — the second and subsequent calls to ``overextends`` have no knowledge of the previous calls, so they can't exclude the chain of template directories that have been so far excluded when overextending.
 
 We can solve this problem by making use of the template context to store the state of directories excluded so far when using ``overextends``. We store a dictionary mapping template names to lists of directories available. In the code above, we build the full list of directories to use each time ``overextends`` is called. If we maintain that list in the template context, removing from it each time ``overextends`` is used, we can support unlimited levels of circular template inheritance.
 
@@ -173,7 +173,7 @@ class OverExtendsNode(ExtendsNode):
                 # get_parent, and not when we're peeking during the
                 # second call.
                 if not peeking:
-                    context[context_name][name].remove(path[:-len(name) - 1])
+                    context[context_name][name].remove(path[:-len(name) — 1])
                 return Template(source)
         raise TemplateDoesNotExist(name)
 

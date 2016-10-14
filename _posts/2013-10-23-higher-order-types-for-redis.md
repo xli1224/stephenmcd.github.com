@@ -89,13 +89,13 @@ The following table is the complete list of types provided by HOT Redis, mapped 
 <td>String</td>
 <td>string</td>
 <td>string</td>
-<td>Mutable - string methods that normally create a new string object in Python will mutate the string stored in Redis</td>
+<td>Mutable — string methods that normally create a new string object in Python will mutate the string stored in Redis</td>
 </tr>
 <tr>
 <td>ImmutableString</td>
 <td>string</td>
 <td>string</td>
-<td>Immutable - behaves like a regular Python string</td>
+<td>Immutable — behaves like a regular Python string</td>
 </tr>
 <tr>
 <td>Int</td>
@@ -174,7 +174,7 @@ The following table is the complete list of types provided by HOT Redis, mapped 
 
 ### Conclusion
 
-That's all for now, but I'm really keen to grow the range of data structures provided by HOT Redis. One of the nice things about such a narrowly defined library like this is the ability to craft a [very thorough test suite][hot-redis-tests], simply by executing every method on every type, and doing the same for each of the Python built-in and standard library counterparts, finally comparing the results. This should really ease contributing new types - so if you have any ideas for additions, [go right ahead and dive in][hot-redis].
+That's all for now, but I'm really keen to grow the range of data structures provided by HOT Redis. One of the nice things about such a narrowly defined library like this is the ability to craft a [very thorough test suite][hot-redis-tests], simply by executing every method on every type, and doing the same for each of the Python built-in and standard library counterparts, finally comparing the results. This should really ease contributing new types — so if you have any ideas for additions, [go right ahead and dive in][hot-redis].
 
 [lua]: http://www.lua.org/
 [redis]: http://redis.io

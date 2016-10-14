@@ -48,7 +48,7 @@ you'll undoubtedly be required to download a series of updates that have
 occurred since the version you've installed was initially released. The
 difference with most Linux distributions is that almost all of your software
 is managed in this way from installing to updating, it all goes through the
-same service known as a package manager - one of the many things with Linux
+same service known as a package manager — one of the many things with Linux
 that once you're used to using you won't know how you ever worked without it.
 So away I went with the initial round of updates which left the package
 manager busy for several hours, during which time some issues arose with a

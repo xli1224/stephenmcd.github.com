@@ -24,7 +24,7 @@ slides:
 - {time: '01:34'} # Beautiful API
 - {time: '01:49'} # Example
 - {time: '02:18'} # Fixed in nature
-- {time: '02:37', label: 'Scenario - Competitions'}
+- {time: '02:37', label: 'Scenario — Competitions'}
 - {time: '02:45'} # Capture age/colour
 - {time: '02:58'} # Example
 - {time: '03:16'} # Capture file/words

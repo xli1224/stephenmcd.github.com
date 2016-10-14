@@ -26,7 +26,7 @@ together a range of resuable apps that each have their own approach to
 providing admin interfaces with the end result looking like a [Rube Goldberg
 machine](http://en.wikipedia.org/wiki/Rube_Goldberg_machine). These scenarios
 are bad for customers and bad for Django. When end-users think of Django, they
-think of the admin interface - that's what Django is to them so it's critical
+think of the admin interface — that's what Django is to them so it's critical
 to get this component right.
 
 I recently had [Wordpress](http://wordpress.org/) suggested to me as a
@@ -35,7 +35,7 @@ alone speaks huge volumes while its admin interface is incredibly user-
 friendly. It also benefits from not requiring technical expertise to get a
 simple website with pages and a blog up and running. However I felt this idea
 overlooked the underlying issue of poorly configured Django admin interfaces,
-while taking a step backwards by investing in [PHP](http://php.net/) - a
+while taking a step backwards by investing in [PHP](http://php.net/) — a
 relatively inelegant technology with a very limited application scope.
 
 My solution to the problem was to tackle the underlying issue more directly by
@@ -77,5 +77,5 @@ to cater for basic websites with the following features:
 
 I've open sourced the initial version of Mezzanine with a BSD license on both
 [github](http://github.com/stephenmcd/mezzanine) and
-[bitbucket](http://bitbucket.org/stephenmcd/mezzanine) - it still has a long
+[bitbucket](http://bitbucket.org/stephenmcd/mezzanine) — it still has a long
 way to go so jump right in and fork away.

@@ -22,7 +22,7 @@ At the time I thought about how I could provide a web-based interface for the IR
 
 The first step was to research existing web-based IRC clients. The main contender was a project called [qwebirc][qwebirc], which is used by [freenode][freenode] and many other IRC networks. It's been under active development for many years, and given some of the projects using it, would appear to be quite mature. One of the core requirements for me would be to customise the interface easily, in order to integrate with the look and feel of the [Mezzanine website][mezzanine]. Unfortunately after diving a bit deeper, I walked away with a laundry list of issues that turned me off using it.
 
-Firstly there seemed to be almost no documentation, and the code contained almost no comments, so getting an understanding of how everything worked would have involved a decent time investment. Secondly, the transport mechanism between the browser and server was unclear. There seemed to be a reference to [XHR polling][xhr-polling] in one of the 40 or so JavaScript files included, but ideally I wanted something that made use of [WebSockets][websockets]. Again these files weren't at all commented, and left me with the feeling that the client side of the project was heavily over-engineered. Finally, qwebirc is based on the [Twisted networking framework][twisted] - software that I'm not personally familiar with, and one that's known to have a fairly steep learning curve.
+Firstly there seemed to be almost no documentation, and the code contained almost no comments, so getting an understanding of how everything worked would have involved a decent time investment. Secondly, the transport mechanism between the browser and server was unclear. There seemed to be a reference to [XHR polling][xhr-polling] in one of the 40 or so JavaScript files included, but ideally I wanted something that made use of [WebSockets][websockets]. Again these files weren't at all commented, and left me with the feeling that the client side of the project was heavily over-engineered. Finally, qwebirc is based on the [Twisted networking framework][twisted] — software that I'm not personally familiar with, and one that's known to have a fairly steep learning curve.
 
 Another requirement I had for the Mezzanine site was to also include a browsable and searchable message archive. Getting the IRC conversations indexed by Google would mean that new users could potentially find answers to their questions without having to ask them, which would alleviate time spent on support for myself and other members of the community (a big shout out to [Ken Bolton][ken-bolton] and [Josh Cartmell][josh-cartmell] for their ongoing efforts here). I'm vaguely aware of some [Django][django] projects around that implement this functionality, but wouldn't it be nice if there was an all-inclusive package for IRC integration that made use of modern technology?
 
@@ -66,16 +66,16 @@ This is another bonus feature simply available by virtue of Gnotty integrating w
 
 ### Bot Framework
 
-Here's where things really got carried away. Gnotty includes a mini framework for injecting [IRC bots][irc-bots] into the room. The bots expose all of the events that can occur in the IRC channel, such as users messaging, entering and leaving. The bots also include an API for creating simple Python commands, where user messages can be mapped to Python methods on the bot. Bots can also have timer events implemented ([new in 0.2][0.2-release]), that run periodically at a given interval, and are useful for polling external resources. Finally, since Gnotty at its core is a web interface, the bots also allow [webhooks][webhooks] to be implemented - custom URLs that allow other services to interact with the bots over HTTP.
+Here's where things really got carried away. Gnotty includes a mini framework for injecting [IRC bots][irc-bots] into the room. The bots expose all of the events that can occur in the IRC channel, such as users messaging, entering and leaving. The bots also include an API for creating simple Python commands, where user messages can be mapped to Python methods on the bot. Bots can also have timer events implemented ([new in 0.2][0.2-release]), that run periodically at a given interval, and are useful for polling external resources. Finally, since Gnotty at its core is a web interface, the bots also allow [webhooks][webhooks] to be implemented — custom URLs that allow other services to interact with the bots over HTTP.
 
 With IRC channel events, user commands and webhooks, a ton of interesting possibilities open up for building IRC bots that perform a variety of tasks. Gnotty also provides a handful of default bots to get you started with:
 
-- `ChatBot` - A bot that demonstrates interacting with the IRC channel by greeting and responding to other users.
-- `GitHubBot` - A bot for relaying commit information from [GitHub][github]
-- `BitBucketBot` - A bot for relaying commit information from [Bitbucket][bitbucket]
-- `CommandBot` - A bot that implements a handful of basic commands that can be issued by users in the channel.
-- `RSSBot` - A bot that watches [RSS][rss] feeds and posts new items from them to the IRC channel ([new in 0.2][0.2-release]).
-- `Voltron` - All of the available bots, merged into one [super bot][voltron].
+- `ChatBot` — A bot that demonstrates interacting with the IRC channel by greeting and responding to other users.
+- `GitHubBot` — A bot for relaying commit information from [GitHub][github]
+- `BitBucketBot` — A bot for relaying commit information from [Bitbucket][bitbucket]
+- `CommandBot` — A bot that implements a handful of basic commands that can be issued by users in the channel.
+- `RSSBot` — A bot that watches [RSS][rss] feeds and posts new items from them to the IRC channel ([new in 0.2][0.2-release]).
+- `Voltron` — All of the available bots, merged into one [super bot][voltron].
 
 ### Next Steps
 

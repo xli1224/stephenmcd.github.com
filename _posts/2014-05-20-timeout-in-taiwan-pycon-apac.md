@@ -9,7 +9,7 @@ tags:
 - pycon
 ---
 
-I've just arrived back in Australia after spending the last few days in Taiwan for the [PyCon APAC conference][pycon-apac], which I was fortunate enough to be invited to as one of several [keynote speakers][keynote-speakers]. What a wonderful conference! I've never been to a PyCon before, let alone speak at one, so I really have no point of reference to compare it to - but I woke up this morning in my own bed, desperately wishing I was back there again, so clearly this event has left its mark on me. Seeing as how this was such a significant event for me, I thought it would be worthwhile to document my thoughts about it.
+I've just arrived back in Australia after spending the last few days in Taiwan for the [PyCon APAC conference][pycon-apac], which I was fortunate enough to be invited to as one of several [keynote speakers][keynote-speakers]. What a wonderful conference! I've never been to a PyCon before, let alone speak at one, so I really have no point of reference to compare it to — but I woke up this morning in my own bed, desperately wishing I was back there again, so clearly this event has left its mark on me. Seeing as how this was such a significant event for me, I thought it would be worthwhile to document my thoughts about it.
 
 ### Taiwan
 
@@ -22,7 +22,7 @@ We first hit the [National Palace Museum][national-palace-museum], which was an 
     <br>Mind-bogglingly ancient artefacts
 </em>
 
-After that, we then made our way into downtown Taipei City, and feasted on dumplings for lunch at the world famous [Din Tai Feng Dumpling House][din-tai-feng]. Outside, we instinctively noted some interesting engineering - there were separate queues for each table size, with wait times per queue displayed digitally at the entrance. This place really had its act together. Once inside and eating, I was confused by the waitress who had American and Japanese flags pinned to her jacket, and I asked her if those were the countries she had visited. Embarrassingly, they of course represented the languages she could speak, and were part of her uniform, I just hadn't made the American/English connection.
+After that, we then made our way into downtown Taipei City, and feasted on dumplings for lunch at the world famous [Din Tai Feng Dumpling House][din-tai-feng]. Outside, we instinctively noted some interesting engineering — there were separate queues for each table size, with wait times per queue displayed digitally at the entrance. This place really had its act together. Once inside and eating, I was confused by the waitress who had American and Japanese flags pinned to her jacket, and I asked her if those were the countries she had visited. Embarrassingly, they of course represented the languages she could speak, and were part of her uniform, I just hadn't made the American/English connection.
 
 <em class="center">
     <a href="/static/img/taiwan-din-tai-feng-large.jpg"><img src="/static/img/taiwan-din-tai-feng.jpg"></a>
@@ -34,11 +34,11 @@ After that, we then made our way into downtown Taipei City, and feasted on dumpl
     <br>Taipei 101, extruding from my head
 </div>
 
-After lunch, we left Wes who had a ton of work to do, as he was also in the process of launching [DataPad][datapad] while giving a keynote speech at the conference. Fernando and I then went trekking towards the [Taipei 101][taipei-101] (formally the world's tallest building), and finally collapsed in exhaustion at a coffee shop. Here he told me all about the history of [iPython][ipython], how it started as a weekend hack to extend the Python [REPL][repl], to being [funded with millions of dollars][ipython-funding], and having a full time staff of developers working on it - an incredibly inspiring story of how far open source can succeed and change a person's life. Fernando also did me the honour of listening to my ramblings on [Mezzanine][mezzanine], and how we shared many of the same trials and tribulations in running a successful open source project.
+After lunch, we left Wes who had a ton of work to do, as he was also in the process of launching [DataPad][datapad] while giving a keynote speech at the conference. Fernando and I then went trekking towards the [Taipei 101][taipei-101] (formally the world's tallest building), and finally collapsed in exhaustion at a coffee shop. Here he told me all about the history of [iPython][ipython], how it started as a weekend hack to extend the Python [REPL][repl], to being [funded with millions of dollars][ipython-funding], and having a full time staff of developers working on it — an incredibly inspiring story of how far open source can succeed and change a person's life. Fernando also did me the honour of listening to my ramblings on [Mezzanine][mezzanine], and how we shared many of the same trials and tribulations in running a successful open source project.
 
 ### PyCon
 
-One of the highlights of the conference for me, was without a doubt [Jessica McKellar][jessica-mckellar]'s keynote speech, where she took the audience on a tour of all the places around the planet (and off of it too) where Python could be found, from 1,000 metres under the sea powering [unmanned robot submarines][submarines], all the way up into space on the [ISS space station][iss], where Python is used to control the [Robonaut humanoid robot][robonaut]. Jessica's talk, combined with the overarching dominance of scientific Python throughout the conference, was a humbling experience for me - it really opened my eyes to how much more there is to the Python ecosystem, beyond my little web development niche.
+One of the highlights of the conference for me, was without a doubt [Jessica McKellar][jessica-mckellar]'s keynote speech, where she took the audience on a tour of all the places around the planet (and off of it too) where Python could be found, from 1,000 metres under the sea powering [unmanned robot submarines][submarines], all the way up into space on the [ISS space station][iss], where Python is used to control the [Robonaut humanoid robot][robonaut]. Jessica's talk, combined with the overarching dominance of scientific Python throughout the conference, was a humbling experience for me — it really opened my eyes to how much more there is to the Python ecosystem, beyond my little web development niche.
 
 <em class="center">
     <a href="/static/img/taiwan-audience-large.jpg"><img src="/static/img/taiwan-audience.jpg"></a><a href="/static/img/taiwan-robonaut-large.jpg"><img src="/static/img/taiwan-robonaut.jpg"></a>
@@ -52,14 +52,14 @@ The real treat of the conference for me, was of course everything [Mezzanine][me
     <br>Friends and fans
 </em>
 
-I have to confess that I'm often disillusioned with maintaining the projects I've created. It's hard work that never ends, and I often find myself internalising the constant stream of support requests, asking myself whether it's all worth it. The main takeaway I have from the conference however, is a sense of healing in regard to this - a rejuvenated level of enthusiasm for empowering people through my work.
+I have to confess that I'm often disillusioned with maintaining the projects I've created. It's hard work that never ends, and I often find myself internalising the constant stream of support requests, asking myself whether it's all worth it. The main takeaway I have from the conference however, is a sense of healing in regard to this — a rejuvenated level of enthusiasm for empowering people through my work.
 
 <em class="center">
     <a href="/static/img/taiwan-keynote-1-large.jpg"><img src="/static/img/taiwan-keynote-1.jpg"></a><a href="/static/img/taiwan-keynote-2-large.jpg"><img src="/static/img/taiwan-keynote-2.jpg"></a><a href="/static/img/taiwan-keynote-3-large.jpg"><img src="/static/img/taiwan-keynote-3.jpg"></a>
     <br>Giving my keynote speech on Mezzanine
 </em>
 
-My heartfelt thanks goes out to [Tzu-ping Chung][Tzu-ping], a Mezzanine contributor and the organising committee member whose idea it was to invite me to the conference in the first place. Also to all of the other conference organisers, the speakers, and every single person I had the pleasure of interacting with, thank you - I had such a wonderful time!
+My heartfelt thanks goes out to [Tzu-ping Chung][Tzu-ping], a Mezzanine contributor and the organising committee member whose idea it was to invite me to the conference in the first place. Also to all of the other conference organisers, the speakers, and every single person I had the pleasure of interacting with, thank you — I had such a wonderful time!
 
 You can watch the [video of my talk here][keynote-video].
 
