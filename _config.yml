@@ -21,7 +21,7 @@ projects:
   url:   http://curiodb.jupo.org
   desc:  'Distributed & persistent NoSQL database'
   tech:  Scala, Akka
-  featured: 'CurioDB is a distributed and persistent NoSQL database, featuring a Redis compatible API, transactions, and embedded Lua scripting.'
+  featured: 'CurioDB is a distributed and persistent NoSQL database, featuring a Redis compatible API, distributed transactions, and embedded Lua scripting.'
 
 - title: Cartridge
   url:   http://cartridge.jupo.org
